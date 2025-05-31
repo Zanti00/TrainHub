@@ -39,7 +39,7 @@ namespace TrainHub
                     email = emailTxt.Text;
                     password = passwordTxt.Text;
 
-                    Dashboard dashboard = new Dashboard();
+                    DashboardForm dashboard = new DashboardForm();
                     dashboard.Show();
                     this.Hide();
                 }
