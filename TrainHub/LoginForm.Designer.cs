@@ -79,6 +79,7 @@
             label2.TabIndex = 1;
             label2.Text = resources.GetString("label2.Text");
             label2.TextAlign = ContentAlignment.MiddleCenter;
+            label2.Click += label2_Click;
             // 
             // cuiPanel1
             // 
@@ -191,27 +192,8 @@
             emailTxt.PlaceholderText = "Email";
             emailTxt.Rounding = new Padding(6);
             emailTxt.Size = new Size(191, 23);
-            emailTxt.TabIndex = 10;
-            emailTxt.TextOffset = new Size(0, 0);
-            emailTxt.UnderlinedStyle = false;
-            // 
-            // cuiPictureBox1
-            // 
-            cuiPictureBox1.BackgroundImage = (Image)resources.GetObject("cuiPictureBox1.BackgroundImage");
-            cuiPictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            cuiPictureBox1.Content = null;
-            cuiPictureBox1.Dock = DockStyle.Top;
-            cuiPictureBox1.ImageTint = Color.Transparent;
-            cuiPictureBox1.ImeMode = ImeMode.Hiragana;
-            cuiPictureBox1.Location = new Point(0, 0);
-            cuiPictureBox1.Margin = new Padding(4, 3, 4, 3);
-            cuiPictureBox1.Name = "cuiPictureBox1";
-            cuiPictureBox1.OutlineThickness = 1F;
-            cuiPictureBox1.PanelOutlineColor = Color.Empty;
-            cuiPictureBox1.Rotation = 0;
-            cuiPictureBox1.Rounding = new Padding(8);
-            cuiPictureBox1.Size = new Size(299, 166);
-            cuiPictureBox1.TabIndex = 9;
+            emailTxt.TabIndex = 1;
+            emailTxt.Tag = "";
             // 
             // tableLayoutPanel1
             // 
