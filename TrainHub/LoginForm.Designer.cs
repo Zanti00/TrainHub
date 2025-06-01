@@ -29,59 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            loginPanel = new Panel();
-            linkLabel1 = new LinkLabel();
-            loginBtn = new Button();
             welcomeLabel = new Label();
             forgotPasswordLink = new LinkLabel();
-            passwordTxt = new TextBox();
-            emailTxt = new TextBox();
-            label1 = new Label();
             label2 = new Label();
-            loginPanel.SuspendLayout();
+            cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            loginBtn = new CuoreUI.Controls.cuiButtonGroup();
+            passwordTxt = new CuoreUI.Controls.cuiTextBox();
+            emailTxt = new CuoreUI.Controls.cuiTextBox();
+            cuiPictureBox1 = new CuoreUI.Controls.cuiPictureBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            panel1 = new Panel();
+            cuiPanel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // loginPanel
-            // 
-            loginPanel.BackColor = Color.White;
-            loginPanel.Controls.Add(linkLabel1);
-            loginPanel.Controls.Add(loginBtn);
-            loginPanel.Controls.Add(welcomeLabel);
-            loginPanel.Controls.Add(forgotPasswordLink);
-            loginPanel.Controls.Add(passwordTxt);
-            loginPanel.Controls.Add(emailTxt);
-            loginPanel.Controls.Add(label1);
-            loginPanel.Cursor = Cursors.IBeam;
-            loginPanel.Dock = DockStyle.Right;
-            loginPanel.Location = new Point(380, 50);
-            loginPanel.Name = "loginPanel";
-            loginPanel.Size = new Size(318, 350);
-            loginPanel.TabIndex = 0;
-            // 
-            // linkLabel1
-            // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.LinkColor = Color.FromArgb(50, 81, 88);
-            linkLabel1.Location = new Point(168, 247);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(88, 15);
-            linkLabel1.TabIndex = 8;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Login as admin";
-            // 
-            // loginBtn
-            // 
-            loginBtn.BackColor = Color.FromArgb(50, 81, 88);
-            loginBtn.FlatAppearance.BorderSize = 0;
-            loginBtn.FlatStyle = FlatStyle.Flat;
-            loginBtn.ForeColor = SystemColors.Window;
-            loginBtn.Location = new Point(93, 285);
-            loginBtn.Name = "loginBtn";
-            loginBtn.Size = new Size(141, 23);
-            loginBtn.TabIndex = 7;
-            loginBtn.Text = "LOGIN";
-            loginBtn.UseVisualStyleBackColor = false;
-            loginBtn.Click += loginBtn_Click;
             // 
             // welcomeLabel
             // 
@@ -89,7 +50,7 @@
             welcomeLabel.BackColor = Color.White;
             welcomeLabel.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             welcomeLabel.ForeColor = Color.FromArgb(50, 81, 88);
-            welcomeLabel.Location = new Point(107, 135);
+            welcomeLabel.Location = new Point(93, 169);
             welcomeLabel.Name = "welcomeLabel";
             welcomeLabel.Size = new Size(110, 20);
             welcomeLabel.TabIndex = 6;
@@ -99,90 +60,216 @@
             // 
             forgotPasswordLink.AutoSize = true;
             forgotPasswordLink.LinkColor = Color.FromArgb(50, 81, 88);
-            forgotPasswordLink.Location = new Point(122, 311);
+            forgotPasswordLink.Location = new Point(147, 262);
             forgotPasswordLink.Name = "forgotPasswordLink";
             forgotPasswordLink.Size = new Size(95, 15);
             forgotPasswordLink.TabIndex = 5;
             forgotPasswordLink.TabStop = true;
             forgotPasswordLink.Text = "Forgot Password";
             // 
+            // label2
+            // 
+            label2.BackColor = Color.Transparent;
+            label2.Dock = DockStyle.Fill;
+            label2.Font = new Font("Segoe UI", 10F, FontStyle.Italic);
+            label2.ForeColor = SystemColors.Window;
+            label2.Location = new Point(0, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(385, 507);
+            label2.TabIndex = 1;
+            label2.Text = resources.GetString("label2.Text");
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            label2.Click += label2_Click;
+            // 
+            // cuiPanel1
+            // 
+            cuiPanel1.Anchor = AnchorStyles.None;
+            cuiPanel1.BackColor = Color.Transparent;
+            cuiPanel1.Controls.Add(loginBtn);
+            cuiPanel1.Controls.Add(passwordTxt);
+            cuiPanel1.Controls.Add(emailTxt);
+            cuiPanel1.Controls.Add(cuiPictureBox1);
+            cuiPanel1.Controls.Add(welcomeLabel);
+            cuiPanel1.Controls.Add(forgotPasswordLink);
+            cuiPanel1.Location = new Point(437, 48);
+            cuiPanel1.Name = "cuiPanel1";
+            cuiPanel1.OutlineThickness = 1F;
+            cuiPanel1.PanelColor = Color.White;
+            cuiPanel1.PanelOutlineColor = Color.White;
+            cuiPanel1.Rounding = new Padding(20);
+            cuiPanel1.Size = new Size(299, 416);
+            cuiPanel1.TabIndex = 2;
+            // 
+            // loginBtn
+            // 
+            loginBtn.BackColor = Color.Transparent;
+            loginBtn.Checked = false;
+            loginBtn.CheckedBackground = Color.FromArgb(50, 81, 88);
+            loginBtn.CheckedForeColor = Color.White;
+            loginBtn.CheckedImageTint = Color.White;
+            loginBtn.CheckedOutline = Color.FromArgb(50, 81, 88);
+            loginBtn.Content = "LOGIN";
+            loginBtn.Font = new Font("Microsoft Sans Serif", 9.75F);
+            loginBtn.ForeColor = Color.White;
+            loginBtn.Group = 0;
+            loginBtn.HoverBackground = Color.FromArgb(22, 36, 39);
+            loginBtn.HoveredImageTint = Color.White;
+            loginBtn.HoverForeColor = Color.White;
+            loginBtn.HoverOutline = Color.FromArgb(22, 36, 39);
+            loginBtn.Image = null;
+            loginBtn.ImageAutoCenter = true;
+            loginBtn.ImageExpand = new Point(0, 0);
+            loginBtn.ImageOffset = new Point(0, 0);
+            loginBtn.Location = new Point(82, 312);
+            loginBtn.Name = "loginBtn";
+            loginBtn.NormalBackground = Color.FromArgb(50, 81, 88);
+            loginBtn.NormalForeColor = Color.White;
+            loginBtn.NormalImageTint = Color.White;
+            loginBtn.NormalOutline = Color.FromArgb(50, 81, 88);
+            loginBtn.OutlineThickness = 1F;
+            loginBtn.PressedBackground = Color.FromArgb(22, 36, 39);
+            loginBtn.PressedForeColor = Color.White;
+            loginBtn.PressedImageTint = Color.White;
+            loginBtn.PressedOutline = Color.FromArgb(22, 36, 39);
+            loginBtn.Rounding = new Padding(8);
+            loginBtn.Size = new Size(141, 24);
+            loginBtn.TabIndex = 12;
+            loginBtn.TextAlignment = StringAlignment.Center;
+            loginBtn.TextOffset = new Point(0, 0);
+            loginBtn.Click += loginBtn_Click;
+            // 
             // passwordTxt
             // 
-            passwordTxt.BackColor = SystemColors.Window;
-            passwordTxt.BorderStyle = BorderStyle.FixedSingle;
-            passwordTxt.Location = new Point(65, 221);
+            passwordTxt.BackColor = Color.Transparent;
+            passwordTxt.BackgroundColor = Color.White;
+            passwordTxt.BorderColor = Color.FromArgb(50, 81, 88);
+            passwordTxt.Content = "";
+            passwordTxt.FocusBackgroundColor = Color.White;
+            passwordTxt.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            passwordTxt.FocusImageTint = Color.White;
+            passwordTxt.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            passwordTxt.ForeColor = Color.Black;
+            passwordTxt.Image = null;
+            passwordTxt.ImageExpand = new Point(0, 0);
+            passwordTxt.ImageOffset = new Point(0, 0);
+            passwordTxt.Location = new Point(51, 235);
+            passwordTxt.Margin = new Padding(4);
+            passwordTxt.Multiline = false;
             passwordTxt.Name = "passwordTxt";
+            passwordTxt.NormalImageTint = Color.White;
+            passwordTxt.Padding = new Padding(13, 5, 13, 0);
+            passwordTxt.PasswordChar = true;
+            passwordTxt.PlaceholderColor = SystemColors.ScrollBar;
             passwordTxt.PlaceholderText = "Password";
+            passwordTxt.Rounding = new Padding(6);
             passwordTxt.Size = new Size(191, 23);
-            passwordTxt.TabIndex = 3;
-            passwordTxt.Tag = "";
-            passwordTxt.UseSystemPasswordChar = true;
+            passwordTxt.TabIndex = 11;
+            passwordTxt.TextOffset = new Size(0, 0);
+            passwordTxt.UnderlinedStyle = false;
             // 
             // emailTxt
             // 
-            emailTxt.BackColor = SystemColors.Window;
-            emailTxt.BorderStyle = BorderStyle.FixedSingle;
-            emailTxt.Location = new Point(65, 183);
+            emailTxt.BackColor = Color.Transparent;
+            emailTxt.BackgroundColor = Color.White;
+            emailTxt.BorderColor = Color.FromArgb(50, 81, 88);
+            emailTxt.Content = "";
+            emailTxt.FocusBackgroundColor = Color.White;
+            emailTxt.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            emailTxt.FocusImageTint = Color.White;
+            emailTxt.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            emailTxt.ForeColor = Color.Black;
+            emailTxt.Image = null;
+            emailTxt.ImageExpand = new Point(0, 0);
+            emailTxt.ImageOffset = new Point(0, 0);
+            emailTxt.Location = new Point(51, 204);
+            emailTxt.Margin = new Padding(4);
+            emailTxt.Multiline = false;
             emailTxt.Name = "emailTxt";
+            emailTxt.NormalImageTint = Color.White;
+            emailTxt.Padding = new Padding(13, 5, 13, 0);
+            emailTxt.PasswordChar = false;
+            emailTxt.PlaceholderColor = SystemColors.ScrollBar;
             emailTxt.PlaceholderText = "Email";
+            emailTxt.Rounding = new Padding(6);
             emailTxt.Size = new Size(191, 23);
-            emailTxt.TabIndex = 1;
-            emailTxt.Tag = "";
+            emailTxt.TabIndex = 10;
+            emailTxt.TextOffset = new Size(0, 0);
+            emailTxt.UnderlinedStyle = false;
             // 
-            // label1
+            // cuiPictureBox1
             // 
-            label1.AccessibleRole = AccessibleRole.SplitButton;
-            label1.Font = new Font("Segoe UI", 20F);
-            label1.ImageAlign = ContentAlignment.TopCenter;
-            label1.Location = new Point(93, 52);
-            label1.Name = "label1";
-            label1.Size = new Size(137, 41);
-            label1.TabIndex = 0;
-            label1.Text = "Logo here";
+            cuiPictureBox1.BackgroundImage = (Image)resources.GetObject("cuiPictureBox1.BackgroundImage");
+            cuiPictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            cuiPictureBox1.Content = null;
+            cuiPictureBox1.Dock = DockStyle.Top;
+            cuiPictureBox1.ImageTint = Color.Transparent;
+            cuiPictureBox1.ImeMode = ImeMode.Hiragana;
+            cuiPictureBox1.Location = new Point(0, 0);
+            cuiPictureBox1.Margin = new Padding(4, 3, 4, 3);
+            cuiPictureBox1.Name = "cuiPictureBox1";
+            cuiPictureBox1.OutlineThickness = 1F;
+            cuiPictureBox1.PanelOutlineColor = Color.Empty;
+            cuiPictureBox1.Rotation = 0;
+            cuiPictureBox1.Rounding = new Padding(8);
+            cuiPictureBox1.Size = new Size(299, 166);
+            cuiPictureBox1.TabIndex = 9;
+            cuiPictureBox1.Load += cuiPictureBox1_Load;
             // 
-            // label2
+            // tableLayoutPanel1
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
-            label2.ForeColor = SystemColors.Window;
-            label2.Location = new Point(31, 196);
-            label2.Name = "label2";
-            label2.Size = new Size(332, 60);
-            label2.TabIndex = 1;
-            label2.Text = resources.GetString("label2.Text");
+            tableLayoutPanel1.BackgroundImage = (Image)resources.GetObject("tableLayoutPanel1.BackgroundImage");
+            tableLayoutPanel1.BackgroundImageLayout = ImageLayout.Stretch;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel1.Controls.Add(cuiPanel1, 1, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(783, 513);
+            tableLayoutPanel1.TabIndex = 5;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(label2);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(385, 507);
+            panel1.TabIndex = 6;
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.garrett_butler_UrJ_fn2iRUM_unsplash;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(728, 450);
-            Controls.Add(label2);
-            Controls.Add(loginPanel);
+            ClientSize = new Size(783, 513);
+            Controls.Add(tableLayoutPanel1);
             Name = "Login";
-            Padding = new Padding(0, 50, 30, 50);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
-            WindowState = FormWindowState.Maximized;
             Load += Form1_Load;
-            loginPanel.ResumeLayout(false);
-            loginPanel.PerformLayout();
+            cuiPanel1.ResumeLayout(false);
+            cuiPanel1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Panel loginPanel;
-        private Label label1;
-        private TextBox emailTxt;
-        private TextBox passwordTxt;
         private LinkLabel forgotPasswordLink;
         private Label welcomeLabel;
-        private Button loginBtn;
-        private LinkLabel linkLabel1;
         private Label label2;
+        private CuoreUI.Controls.cuiPanel cuiPanel1;
+        private CuoreUI.Controls.cuiPictureBox cuiPictureBox1;
+        private CuoreUI.Controls.cuiTextBox emailTxt;
+        private CuoreUI.Controls.cuiTextBox passwordTxt;
+        private CuoreUI.Controls.cuiButtonGroup loginBtn;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Panel panel1;
     }
 }
