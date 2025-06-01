@@ -30,13 +30,14 @@
         {
             SuspendLayout();
             // 
-            // Dashboard
+            // DashboardForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Name = "Dashboard";
+            AutoScaleMode = AutoScaleMode.None;
+            ClientSize = new Size(1284, 681);
+            MaximizeBox = false;
+            Name = "DashboardForm";
             Text = "Dashboard";
+            WindowState = FormWindowState.Maximized;
             Load += Dashboard_Load;
             ResumeLayout(false);
         }

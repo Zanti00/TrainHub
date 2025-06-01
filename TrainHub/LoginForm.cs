@@ -19,8 +19,8 @@ namespace TrainHub
         {
             String email, password;
 
-            email = emailTxt.Text;
-            password = passwordTxt.Text;
+            email = emailTxt.Content;
+            password = passwordTxt.Content;
 
             try
             {
@@ -36,8 +36,8 @@ namespace TrainHub
 
                 if (dtable.Rows.Count > 0)
                 {
-                    email = emailTxt.Text;
-                    password = passwordTxt.Text;
+                    email = emailTxt.Content;
+                    password = passwordTxt.Content;
 
                     DashboardForm dashboard = new DashboardForm();
                     dashboard.Show();
@@ -46,8 +46,8 @@ namespace TrainHub
                 else
                 {
                     MessageBox.Show("Invalid email or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    emailTxt.Clear();
-                    passwordTxt.Clear();
+                    emailTxt.ResetText();
+                    passwordTxt.ResetText();
 
                     emailTxt.Focus();
                 }
@@ -63,6 +63,16 @@ namespace TrainHub
                     conn.Close();
                 }
             }
+        }
+
+        private void cuiPictureBox1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
