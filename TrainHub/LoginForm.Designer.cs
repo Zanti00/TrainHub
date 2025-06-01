@@ -79,7 +79,6 @@
             label2.TabIndex = 1;
             label2.Text = resources.GetString("label2.Text");
             label2.TextAlign = ContentAlignment.MiddleCenter;
-            label2.Click += label2_Click;
             // 
             // cuiPanel1
             // 
@@ -213,7 +212,6 @@
             cuiPictureBox1.Rounding = new Padding(8);
             cuiPictureBox1.Size = new Size(299, 166);
             cuiPictureBox1.TabIndex = 9;
-            cuiPictureBox1.Load += cuiPictureBox1_Load;
             // 
             // tableLayoutPanel1
             // 
