@@ -35,3 +35,13 @@ git clone https://github.com/Zanti00/TrainHub.git
 ### Step 1: Go to Task manager > Details
 
 ### Step 2: Find "TrainHub.exe" then click end task
+
+## How to install UI Framework
+
+### Step 1: Go to Tools > NuGet Package Manager > Package Manager Console
+
+### Step 2: Paste Install-Package CuoreUI.Winforms in the console
+
+```
+Install-Package CuoreUI.Winforms
+```
