@@ -82,6 +82,7 @@
             label2.TabIndex = 1;
             label2.Text = resources.GetString("label2.Text");
             label2.TextAlign = ContentAlignment.MiddleCenter;
+            label2.Click += label2_Click;
             // 
             // cuiPanel1
             // 
