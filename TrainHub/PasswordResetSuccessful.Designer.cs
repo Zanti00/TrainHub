@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PasswordResetSuccessful));
             panel1 = new Panel();
+            continueBtn = new CustomButton();
             pictureBox1 = new PictureBox();
-            successContinueBtn = new CuoreUI.Controls.cuiButton();
             label3 = new Label();
             label2 = new Label();
             panel1.SuspendLayout();
@@ -41,8 +41,8 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(continueBtn);
             panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(successContinueBtn);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Dock = DockStyle.Fill;
@@ -50,6 +50,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(748, 455);
             panel1.TabIndex = 0;
+            // 
+            // continueBtn
+            // 
+            continueBtn.Anchor = AnchorStyles.None;
+            continueBtn.BackColor = Color.Transparent;
+            continueBtn.ButtonContent = "BUTTON";
+            continueBtn.Location = new Point(223, 276);
+            continueBtn.Name = "continueBtn";
+            continueBtn.Size = new Size(321, 43);
+            continueBtn.TabIndex = 7;
             // 
             // pictureBox1
             // 
@@ -61,46 +71,6 @@
             pictureBox1.Size = new Size(153, 112);
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
-            // 
-            // successContinueBtn
-            // 
-            successContinueBtn.Anchor = AnchorStyles.None;
-            successContinueBtn.BackColor = Color.Transparent;
-            successContinueBtn.CheckButton = false;
-            successContinueBtn.Checked = false;
-            successContinueBtn.CheckedBackground = Color.FromArgb(50, 81, 88);
-            successContinueBtn.CheckedForeColor = Color.White;
-            successContinueBtn.CheckedImageTint = Color.White;
-            successContinueBtn.CheckedOutline = Color.FromArgb(50, 81, 88);
-            successContinueBtn.Content = "CONTINUE";
-            successContinueBtn.DialogResult = DialogResult.None;
-            successContinueBtn.Font = new Font("Microsoft Sans Serif", 8F);
-            successContinueBtn.ForeColor = Color.White;
-            successContinueBtn.HoverBackground = Color.FromArgb(22, 36, 39);
-            successContinueBtn.HoveredImageTint = Color.White;
-            successContinueBtn.HoverForeColor = Color.White;
-            successContinueBtn.HoverOutline = Color.FromArgb(22, 36, 39);
-            successContinueBtn.Image = null;
-            successContinueBtn.ImageAutoCenter = true;
-            successContinueBtn.ImageExpand = new Point(0, 0);
-            successContinueBtn.ImageOffset = new Point(0, 0);
-            successContinueBtn.Location = new Point(231, 275);
-            successContinueBtn.Name = "successContinueBtn";
-            successContinueBtn.NormalBackground = Color.FromArgb(50, 81, 88);
-            successContinueBtn.NormalForeColor = Color.White;
-            successContinueBtn.NormalImageTint = Color.White;
-            successContinueBtn.NormalOutline = Color.FromArgb(64, 128, 128, 128);
-            successContinueBtn.OutlineThickness = 1F;
-            successContinueBtn.PressedBackground = Color.FromArgb(22, 36, 39);
-            successContinueBtn.PressedForeColor = Color.White;
-            successContinueBtn.PressedImageTint = Color.White;
-            successContinueBtn.PressedOutline = Color.FromArgb(22, 36, 39);
-            successContinueBtn.Rounding = new Padding(3);
-            successContinueBtn.Size = new Size(313, 35);
-            successContinueBtn.TabIndex = 5;
-            successContinueBtn.TextAlignment = StringAlignment.Center;
-            successContinueBtn.TextOffset = new Point(0, 0);
-            successContinueBtn.Click += successContinueBtn_Click;
             // 
             // label3
             // 
@@ -148,7 +118,7 @@
         private Panel panel1;
         private Label label2;
         private Label label3;
-        private CuoreUI.Controls.cuiButton successContinueBtn;
         private PictureBox pictureBox1;
+        private CustomButton continueBtn;
     }
 }

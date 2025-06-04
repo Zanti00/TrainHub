@@ -15,9 +15,11 @@ namespace TrainHub
         public PasswordResetSuccessful()
         {
             InitializeComponent();
+            continueBtn.ButtonContent = "CONTINUE";
+            continueBtn.ButtonClicked += continueBtn_Click;
         }
 
-        private void successContinueBtn_Click(object sender, EventArgs e)
+        private void continueBtn_Click(object sender, EventArgs e)
         {
             Login login = new Login();
             this.Hide();

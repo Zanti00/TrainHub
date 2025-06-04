@@ -14,20 +14,52 @@ namespace TrainHub
 {
     public partial class UpdatePassword : Form
     {
-        string email = ForgotPassword.to;
-
-        public UpdatePassword()
+        private string emailRecieved;
+        public UpdatePassword(string email)
         {
             InitializeComponent();
+            updatePasswordBtn.ButtonContent = "UPDATE PASSWORD";
+            updatePasswordBtn.ButtonClicked += updatePasswordBtn_Click;
+            emailRecieved = email;
+            newPasswordTxt1.PasswordChar = true;
+            newPasswordTxt2.PasswordChar = true;
+            newPasswordTxt1.PlaceHolderText = "Enter your new password";
+            newPasswordTxt2.PlaceHolderText = "Re-enter your new passoword";
+            newPasswordTxt1.PasswordChar = true;
+            newPasswordTxt2.PasswordChar = true;
+        }
+
+        private void showPassBtn1_Click(object sender, EventArgs e)
+        {
+            if (newPasswordTxt1.PasswordChar)
+            {
+                newPasswordTxt1.PasswordChar = false;
+            }
+            else
+            {
+                newPasswordTxt1.PasswordChar = true;
+            }
+        }
+
+        private void showPassBtn2_Click(object sender, EventArgs e)
+        {
+            if (newPasswordTxt2.PasswordChar)
+            {
+                newPasswordTxt2.PasswordChar = false;
+            }
+            else
+            {
+                newPasswordTxt2.PasswordChar = true;
+            }
         }
 
         private void updatePasswordBtn_Click(object sender, EventArgs e)
         {
             // Check if passwords match
-            if (newPasswordTxt1.Content == newPasswordTxt2.Content)
+            if (newPasswordTxt1.TextContent == newPasswordTxt2.TextContent)
             {
                 // Check if passwords are not empty
-                if (string.IsNullOrWhiteSpace(newPasswordTxt1.Content))
+                if (string.IsNullOrWhiteSpace(newPasswordTxt1.TextContent))
                 {
                     MessageBox.Show("Password cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -41,8 +73,8 @@ namespace TrainHub
                         using (SqlCommand cmd = new SqlCommand("UPDATE users SET [password] = @password WHERE email = @email", conn))
                         {
                             // Add parameters
-                            cmd.Parameters.AddWithValue("@password", newPasswordTxt1.Content);
-                            cmd.Parameters.AddWithValue("@email", email);
+                            cmd.Parameters.AddWithValue("@password", newPasswordTxt1.TextContent);
+                            cmd.Parameters.AddWithValue("@email", emailRecieved);
 
                             conn.Open();
                             int rowsAffected = cmd.ExecuteNonQuery();
@@ -71,30 +103,6 @@ namespace TrainHub
                 newPasswordTxt1.ResetText();
                 newPasswordTxt2.ResetText();
                 newPasswordTxt1.Focus();
-            }
-        }
-
-        private void showPassBtn1_Click(object sender, EventArgs e)
-        {
-            if (newPasswordTxt1.PasswordChar)
-            {
-                newPasswordTxt1.PasswordChar = false;
-            }
-            else
-            {
-                newPasswordTxt1.PasswordChar = true;
-            }
-        }
-
-        private void showPassBtn2_Click(object sender, EventArgs e)
-        {
-            if (newPasswordTxt2.PasswordChar)
-            {
-                newPasswordTxt2.PasswordChar = false;
-            }
-            else
-            {
-                newPasswordTxt2.PasswordChar = true;
             }
         }
     }

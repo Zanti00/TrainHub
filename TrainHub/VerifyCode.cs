@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,13 +15,22 @@ namespace TrainHub
     {
         private string verificationCodeReceived;
         private string emailTxtRecieved;
-        private string to;
 
         public VerifyCode(string verificationCode, string emailTxt)
         {
             InitializeComponent();
+            verificationBtn.ButtonContent = "CONTINUE";
+            verificationBtn.ButtonClicked += verificationBtn_Click;
             verificationCodeReceived = verificationCode;
             emailTxtRecieved = emailTxt;
+            backBtn.BackButtonClicked += backBtn_Click;
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            ForgotPassword forgotPassword = new ForgotPassword();
+            this.Hide();
+            forgotPassword.Show();
         }
 
         private void verificationBtn_Click(object sender, EventArgs e)
@@ -32,8 +42,7 @@ namespace TrainHub
             }
             else if ((verificationCodeTxtBox.Content).ToString() == verificationCodeReceived)
             {
-                to = emailTxtRecieved;
-                UpdatePassword updatePassword = new UpdatePassword();
+                UpdatePassword updatePassword = new UpdatePassword(emailTxtRecieved);
                 this.Hide();
                 updatePassword.Show();
             }
@@ -43,11 +52,9 @@ namespace TrainHub
             }
         }
 
-        private void backBtn_Click(object sender, EventArgs e)
+        private void resendLink_Click(object sender, EventArgs e)
         {
-            ForgotPassword forgotPassword = new ForgotPassword();
-            this.Hide();
-            forgotPassword.Show();
+            verificationCodeReceived = EmailHelper.SendOTP(emailTxtRecieved, out MailMessage sentMsg);
         }
     }
 }
