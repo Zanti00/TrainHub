@@ -33,9 +33,6 @@
             updatePasswordBtn = new CustomButton();
             showPassBtn1 = new PictureBox();
             showPassBtn2 = new PictureBox();
-            updatePasswordBtn = new CuoreUI.Controls.cuiButton();
-            newPasswordTxt2 = new CuoreUI.Controls.cuiTextBox();
-            newPasswordTxt1 = new CuoreUI.Controls.cuiTextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -52,9 +49,6 @@
             panel1.Controls.Add(updatePasswordBtn);
             panel1.Controls.Add(showPassBtn1);
             panel1.Controls.Add(showPassBtn2);
-            panel1.Controls.Add(updatePasswordBtn);
-            panel1.Controls.Add(newPasswordTxt2);
-            panel1.Controls.Add(newPasswordTxt1);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
@@ -100,106 +94,6 @@
             showPassBtn2.TabIndex = 14;
             showPassBtn2.TabStop = false;
             showPassBtn2.Click += showPassBtn2_Click;
-            // 
-            // updatePasswordBtn
-            // 
-            updatePasswordBtn.Anchor = AnchorStyles.None;
-            updatePasswordBtn.BackColor = Color.Transparent;
-            updatePasswordBtn.CheckButton = false;
-            updatePasswordBtn.Checked = false;
-            updatePasswordBtn.CheckedBackground = Color.FromArgb(50, 81, 88);
-            updatePasswordBtn.CheckedForeColor = Color.White;
-            updatePasswordBtn.CheckedImageTint = Color.White;
-            updatePasswordBtn.CheckedOutline = Color.FromArgb(50, 81, 88);
-            updatePasswordBtn.Content = "UPDATE PASSWORD";
-            updatePasswordBtn.DialogResult = DialogResult.None;
-            updatePasswordBtn.Font = new Font("Microsoft Sans Serif", 8F);
-            updatePasswordBtn.ForeColor = Color.White;
-            updatePasswordBtn.HoverBackground = Color.FromArgb(22, 36, 39);
-            updatePasswordBtn.HoveredImageTint = Color.White;
-            updatePasswordBtn.HoverForeColor = Color.White;
-            updatePasswordBtn.HoverOutline = Color.FromArgb(22, 36, 39);
-            updatePasswordBtn.Image = null;
-            updatePasswordBtn.ImageAutoCenter = true;
-            updatePasswordBtn.ImageExpand = new Point(0, 0);
-            updatePasswordBtn.ImageOffset = new Point(0, 0);
-            updatePasswordBtn.Location = new Point(236, 340);
-            updatePasswordBtn.Name = "updatePasswordBtn";
-            updatePasswordBtn.NormalBackground = Color.FromArgb(50, 81, 88);
-            updatePasswordBtn.NormalForeColor = Color.White;
-            updatePasswordBtn.NormalImageTint = Color.White;
-            updatePasswordBtn.NormalOutline = Color.FromArgb(64, 128, 128, 128);
-            updatePasswordBtn.OutlineThickness = 1F;
-            updatePasswordBtn.PressedBackground = Color.FromArgb(22, 36, 39);
-            updatePasswordBtn.PressedForeColor = Color.White;
-            updatePasswordBtn.PressedImageTint = Color.White;
-            updatePasswordBtn.PressedOutline = Color.FromArgb(22, 36, 39);
-            updatePasswordBtn.Rounding = new Padding(3);
-            updatePasswordBtn.Size = new Size(313, 35);
-            updatePasswordBtn.TabIndex = 6;
-            updatePasswordBtn.TextAlignment = StringAlignment.Center;
-            updatePasswordBtn.TextOffset = new Point(0, 0);
-            updatePasswordBtn.Click += updatePasswordBtn_Click;
-            // 
-            // newPasswordTxt2
-            // 
-            newPasswordTxt2.Anchor = AnchorStyles.None;
-            newPasswordTxt2.BackColor = Color.Transparent;
-            newPasswordTxt2.BackgroundColor = Color.White;
-            newPasswordTxt2.BorderColor = Color.FromArgb(128, 128, 128, 128);
-            newPasswordTxt2.Content = "";
-            newPasswordTxt2.FocusBackgroundColor = Color.White;
-            newPasswordTxt2.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            newPasswordTxt2.FocusImageTint = Color.White;
-            newPasswordTxt2.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            newPasswordTxt2.ForeColor = Color.Gray;
-            newPasswordTxt2.Image = null;
-            newPasswordTxt2.ImageExpand = new Point(0, 0);
-            newPasswordTxt2.ImageOffset = new Point(0, 0);
-            newPasswordTxt2.Location = new Point(236, 279);
-            newPasswordTxt2.Margin = new Padding(4);
-            newPasswordTxt2.Multiline = false;
-            newPasswordTxt2.Name = "newPasswordTxt2";
-            newPasswordTxt2.NormalImageTint = Color.White;
-            newPasswordTxt2.Padding = new Padding(15, 10, 15, 0);
-            newPasswordTxt2.PasswordChar = true;
-            newPasswordTxt2.PlaceholderColor = SystemColors.InactiveCaption;
-            newPasswordTxt2.PlaceholderText = "Re-enter your new password";
-            newPasswordTxt2.Rounding = new Padding(8);
-            newPasswordTxt2.Size = new Size(313, 35);
-            newPasswordTxt2.TabIndex = 5;
-            newPasswordTxt2.TextOffset = new Size(0, 0);
-            newPasswordTxt2.UnderlinedStyle = false;
-            // 
-            // newPasswordTxt1
-            // 
-            newPasswordTxt1.Anchor = AnchorStyles.None;
-            newPasswordTxt1.BackColor = Color.Transparent;
-            newPasswordTxt1.BackgroundColor = Color.White;
-            newPasswordTxt1.BorderColor = Color.FromArgb(128, 128, 128, 128);
-            newPasswordTxt1.Content = "";
-            newPasswordTxt1.FocusBackgroundColor = Color.White;
-            newPasswordTxt1.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            newPasswordTxt1.FocusImageTint = Color.White;
-            newPasswordTxt1.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            newPasswordTxt1.ForeColor = Color.Gray;
-            newPasswordTxt1.Image = null;
-            newPasswordTxt1.ImageExpand = new Point(0, 0);
-            newPasswordTxt1.ImageOffset = new Point(0, 0);
-            newPasswordTxt1.Location = new Point(236, 235);
-            newPasswordTxt1.Margin = new Padding(4);
-            newPasswordTxt1.Multiline = false;
-            newPasswordTxt1.Name = "newPasswordTxt1";
-            newPasswordTxt1.NormalImageTint = Color.White;
-            newPasswordTxt1.Padding = new Padding(15, 10, 15, 0);
-            newPasswordTxt1.PasswordChar = true;
-            newPasswordTxt1.PlaceholderColor = SystemColors.InactiveCaption;
-            newPasswordTxt1.PlaceholderText = "Enter your new password";
-            newPasswordTxt1.Rounding = new Padding(8);
-            newPasswordTxt1.Size = new Size(313, 35);
-            newPasswordTxt1.TabIndex = 4;
-            newPasswordTxt1.TextOffset = new Size(0, 0);
-            newPasswordTxt1.UnderlinedStyle = false;
             // 
             // label3
             // 
@@ -289,9 +183,6 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private CuoreUI.Controls.cuiTextBox newPasswordTxt1;
-        private CuoreUI.Controls.cuiTextBox newPasswordTxt2;
-        private CuoreUI.Controls.cuiButton updatePasswordBtn;
         private PictureBox showPassBtn2;
         private PictureBox showPassBtn1;
         private CustomButton updatePasswordBtn;

@@ -15,7 +15,6 @@ namespace TrainHub
     {
         private string verificationCodeReceived;
         private string emailTxtRecieved;
-        private string to;
 
         public VerifyCode(string verificationCode, string emailTxt)
         {
