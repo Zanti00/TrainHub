@@ -25,7 +25,7 @@ namespace TrainHub
             try
             {
                 // to avoid sql injection attacks I used parameterized queries
-                String query = "SELECT * FROM admin WHERE email = @Email AND password = @Password";
+                String query = "SELECT * FROM users WHERE email = @Email AND password = @Password";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Email", email);
                 cmd.Parameters.AddWithValue("@Password", password);
@@ -39,7 +39,7 @@ namespace TrainHub
                     email = emailTxt.Content;
                     password = passwordTxt.Content;
 
-                    DashboardForm dashboard = new DashboardForm();
+                    Dashboard dashboard = new Dashboard();
                     dashboard.Show();
                     this.Hide();
                 }
@@ -62,6 +62,25 @@ namespace TrainHub
                 {
                     conn.Close();
                 }
+            }
+        }
+
+        private void forgotPasswordLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgotPassword forgotPassword = new ForgotPassword();
+            this.Hide();
+            forgotPassword.Show();
+        }
+
+        private void showPassBtn_Click(object sender, EventArgs e)
+        {
+            if (passwordTxt.PasswordChar)
+            {
+                passwordTxt.PasswordChar = false;
+            }
+            else
+            {
+                passwordTxt.PasswordChar = true;
             }
         }
     }
