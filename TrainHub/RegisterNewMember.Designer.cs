@@ -302,7 +302,7 @@
             cuiButtonGroup1.ImageAutoCenter = true;
             cuiButtonGroup1.ImageExpand = new Point(0, 0);
             cuiButtonGroup1.ImageOffset = new Point(0, 0);
-            cuiButtonGroup1.Location = new Point(556, 279);
+            cuiButtonGroup1.Location = new Point(565, 279);
             cuiButtonGroup1.Margin = new Padding(3, 4, 3, 4);
             cuiButtonGroup1.Name = "cuiButtonGroup1";
             cuiButtonGroup1.NormalBackground = Color.White;
