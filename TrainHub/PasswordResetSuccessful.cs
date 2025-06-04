@@ -10,16 +10,18 @@ using System.Windows.Forms;
 
 namespace TrainHub
 {
-    public partial class DashboardForm : Form
+    public partial class PasswordResetSuccessful : Form
     {
-        public DashboardForm()
+        public PasswordResetSuccessful()
         {
             InitializeComponent();
         }
 
-        private void Dashboard_Load(object sender, EventArgs e)
+        private void successContinueBtn_Click(object sender, EventArgs e)
         {
-
+            Login login = new Login();
+            this.Hide();
+            login.Show();
         }
     }
 }

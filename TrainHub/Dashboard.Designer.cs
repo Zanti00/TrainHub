@@ -1,6 +1,6 @@
 ﻿namespace TrainHub
 {
-    partial class DashboardForm
+    partial class Dashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -30,12 +30,13 @@
         {
             SuspendLayout();
             // 
-            // DashboardForm
+            // Dashboard
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1284, 681);
             MaximizeBox = false;
-            Name = "DashboardForm";
+            Name = "Dashboard";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard";
             WindowState = FormWindowState.Maximized;
             Load += Dashboard_Load;

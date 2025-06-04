@@ -33,6 +33,7 @@
             forgotPasswordLink = new LinkLabel();
             label2 = new Label();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            showPassBtn = new PictureBox();
             loginBtn = new CuoreUI.Controls.cuiButtonGroup();
             passwordTxt = new CuoreUI.Controls.cuiTextBox();
             emailTxt = new CuoreUI.Controls.cuiTextBox();
@@ -40,6 +41,7 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
             cuiPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)showPassBtn).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -50,7 +52,7 @@
             welcomeLabel.BackColor = Color.White;
             welcomeLabel.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             welcomeLabel.ForeColor = Color.FromArgb(50, 81, 88);
-            welcomeLabel.Location = new Point(93, 169);
+            welcomeLabel.Location = new Point(96, 188);
             welcomeLabel.Name = "welcomeLabel";
             welcomeLabel.Size = new Size(110, 20);
             welcomeLabel.TabIndex = 6;
@@ -60,12 +62,13 @@
             // 
             forgotPasswordLink.AutoSize = true;
             forgotPasswordLink.LinkColor = Color.FromArgb(50, 81, 88);
-            forgotPasswordLink.Location = new Point(147, 262);
+            forgotPasswordLink.Location = new Point(150, 289);
             forgotPasswordLink.Name = "forgotPasswordLink";
             forgotPasswordLink.Size = new Size(95, 15);
             forgotPasswordLink.TabIndex = 5;
             forgotPasswordLink.TabStop = true;
             forgotPasswordLink.Text = "Forgot Password";
+            forgotPasswordLink.LinkClicked += forgotPasswordLink_LinkClicked;
             // 
             // label2
             // 
@@ -75,7 +78,7 @@
             label2.ForeColor = SystemColors.Window;
             label2.Location = new Point(0, 0);
             label2.Name = "label2";
-            label2.Size = new Size(385, 507);
+            label2.Size = new Size(408, 543);
             label2.TabIndex = 1;
             label2.Text = resources.GetString("label2.Text");
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -84,20 +87,33 @@
             // 
             cuiPanel1.Anchor = AnchorStyles.None;
             cuiPanel1.BackColor = Color.Transparent;
+            cuiPanel1.Controls.Add(showPassBtn);
             cuiPanel1.Controls.Add(loginBtn);
             cuiPanel1.Controls.Add(passwordTxt);
             cuiPanel1.Controls.Add(emailTxt);
             cuiPanel1.Controls.Add(cuiPictureBox1);
             cuiPanel1.Controls.Add(welcomeLabel);
             cuiPanel1.Controls.Add(forgotPasswordLink);
-            cuiPanel1.Location = new Point(437, 48);
+            cuiPanel1.Location = new Point(471, 30);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
             cuiPanel1.PanelColor = Color.White;
             cuiPanel1.PanelOutlineColor = Color.White;
             cuiPanel1.Rounding = new Padding(20);
-            cuiPanel1.Size = new Size(299, 416);
+            cuiPanel1.Size = new Size(299, 489);
             cuiPanel1.TabIndex = 2;
+            // 
+            // showPassBtn
+            // 
+            showPassBtn.BackColor = Color.White;
+            showPassBtn.BackgroundImage = (Image)resources.GetObject("showPassBtn.BackgroundImage");
+            showPassBtn.BackgroundImageLayout = ImageLayout.Zoom;
+            showPassBtn.Location = new Point(216, 261);
+            showPassBtn.Name = "showPassBtn";
+            showPassBtn.Size = new Size(21, 23);
+            showPassBtn.TabIndex = 13;
+            showPassBtn.TabStop = false;
+            showPassBtn.Click += showPassBtn_Click;
             // 
             // loginBtn
             // 
@@ -119,7 +135,7 @@
             loginBtn.ImageAutoCenter = true;
             loginBtn.ImageExpand = new Point(0, 0);
             loginBtn.ImageOffset = new Point(0, 0);
-            loginBtn.Location = new Point(82, 312);
+            loginBtn.Location = new Point(82, 336);
             loginBtn.Name = "loginBtn";
             loginBtn.NormalBackground = Color.FromArgb(50, 81, 88);
             loginBtn.NormalForeColor = Color.White;
@@ -130,8 +146,8 @@
             loginBtn.PressedForeColor = Color.White;
             loginBtn.PressedImageTint = Color.White;
             loginBtn.PressedOutline = Color.FromArgb(22, 36, 39);
-            loginBtn.Rounding = new Padding(8);
-            loginBtn.Size = new Size(141, 24);
+            loginBtn.Rounding = new Padding(3);
+            loginBtn.Size = new Size(141, 28);
             loginBtn.TabIndex = 12;
             loginBtn.TextAlignment = StringAlignment.Center;
             loginBtn.TextOffset = new Point(0, 0);
@@ -151,17 +167,17 @@
             passwordTxt.Image = null;
             passwordTxt.ImageExpand = new Point(0, 0);
             passwordTxt.ImageOffset = new Point(0, 0);
-            passwordTxt.Location = new Point(51, 235);
+            passwordTxt.Location = new Point(54, 258);
             passwordTxt.Margin = new Padding(4);
             passwordTxt.Multiline = false;
             passwordTxt.Name = "passwordTxt";
             passwordTxt.NormalImageTint = Color.White;
-            passwordTxt.Padding = new Padding(13, 5, 13, 0);
+            passwordTxt.Padding = new Padding(13, 7, 13, 0);
             passwordTxt.PasswordChar = true;
             passwordTxt.PlaceholderColor = SystemColors.ScrollBar;
             passwordTxt.PlaceholderText = "Password";
             passwordTxt.Rounding = new Padding(6);
-            passwordTxt.Size = new Size(191, 23);
+            passwordTxt.Size = new Size(191, 27);
             passwordTxt.TabIndex = 11;
             passwordTxt.TextOffset = new Size(0, 0);
             passwordTxt.UnderlinedStyle = false;
@@ -180,17 +196,17 @@
             emailTxt.Image = null;
             emailTxt.ImageExpand = new Point(0, 0);
             emailTxt.ImageOffset = new Point(0, 0);
-            emailTxt.Location = new Point(51, 204);
+            emailTxt.Location = new Point(54, 223);
             emailTxt.Margin = new Padding(4);
             emailTxt.Multiline = false;
             emailTxt.Name = "emailTxt";
             emailTxt.NormalImageTint = Color.White;
-            emailTxt.Padding = new Padding(13, 5, 13, 0);
+            emailTxt.Padding = new Padding(13, 7, 13, 0);
             emailTxt.PasswordChar = false;
             emailTxt.PlaceholderColor = SystemColors.ScrollBar;
             emailTxt.PlaceholderText = "Email";
             emailTxt.Rounding = new Padding(6);
-            emailTxt.Size = new Size(191, 23);
+            emailTxt.Size = new Size(191, 27);
             emailTxt.TabIndex = 10;
             emailTxt.TextOffset = new Size(0, 0);
             emailTxt.UnderlinedStyle = false;
@@ -227,7 +243,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(783, 513);
+            tableLayoutPanel1.Size = new Size(828, 549);
             tableLayoutPanel1.TabIndex = 5;
             // 
             // panel1
@@ -237,7 +253,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(385, 507);
+            panel1.Size = new Size(408, 543);
             panel1.TabIndex = 6;
             // 
             // Login
@@ -245,7 +261,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(783, 513);
+            ClientSize = new Size(828, 549);
             Controls.Add(tableLayoutPanel1);
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
@@ -253,6 +269,7 @@
             Load += Form1_Load;
             cuiPanel1.ResumeLayout(false);
             cuiPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)showPassBtn).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ResumeLayout(false);
@@ -269,5 +286,6 @@
         private CuoreUI.Controls.cuiButtonGroup loginBtn;
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel1;
+        private PictureBox showPassBtn;
     }
 }

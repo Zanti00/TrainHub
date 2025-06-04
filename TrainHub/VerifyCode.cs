@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace TrainHub
+{
+    public partial class VerifyCode : Form
+    {
+        private string verificationCodeReceived;
+        private string emailTxtRecieved;
+        private string to;
+
+        public VerifyCode(string verificationCode, string emailTxt)
+        {
+            InitializeComponent();
+            verificationCodeReceived = verificationCode;
+            emailTxtRecieved = emailTxt;
+        }
+
+        private void verificationBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(verificationCodeTxtBox.Content))
+            {
+                MessageBox.Show("Please enter the verification code.");
+                return;
+            }
+            else if ((verificationCodeTxtBox.Content).ToString() == verificationCodeReceived)
+            {
+                to = emailTxtRecieved;
+                UpdatePassword updatePassword = new UpdatePassword();
+                this.Hide();
+                updatePassword.Show();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Code!");
+            }
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            ForgotPassword forgotPassword = new ForgotPassword();
+            this.Hide();
+            forgotPassword.Show();
+        }
+    }
+}
