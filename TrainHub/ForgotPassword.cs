@@ -27,7 +27,7 @@ namespace TrainHub
             emailTxt.TextContent = emailTxt.TextContent;
             backBtn.BackButtonClicked += backBtn_Click;
         }
-
+      
         private void backBtn_Click(object sender, EventArgs e)
         {
             Login login = new Login();
@@ -60,19 +60,46 @@ namespace TrainHub
                 DataTable dtable = new DataTable();
                 sda.Fill(dtable);
 
-                try
+                if (dtable.Rows.Count <= 0)
                 {
+                    MessageBox.Show("If this email is registered, you will receieve an OTP to " + emailTxt.Content, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    VerifyCode verifyCode = new VerifyCode("000000", emailTxt.Content);
+                    this.Hide();
+                    verifyCode.Show();
+                }
+                else
+                {
+                    string from, pass, messageBody;
+                    Random rand = new Random();
+                    verificationCode = (rand.Next(100000, 999999)).ToString();
+                    MailMessage message = new MailMessage();
+                    to = (emailTxt.Content).ToString();
+                    from = "zantialdama1@gmail.com";
+                    pass = "ecql vlsa psql jbxu";
+                    messageBody = "NEVER SHARE YOUR CODE to anyone especially on social media, SMS, or email links. Your verification code is: " + verificationCode + "\n\nDisregard this email if you didn't request an OTP";
+                    message.To.Add(to);
+                    message.From = new MailAddress(from);
+                    message.Body = messageBody;
+                    message.Subject = "Password Reset Verification Code for TrainHub";
+                    SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+                    smtp.EnableSsl = true;
+                    smtp.Port = 587;
+                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtp.Credentials = new NetworkCredential(from, pass);
+                    try
+                    {
                     string verificationCode = EmailHelper.SendOTP(emailTxt.TextContent, out MailMessage sentMsg);
 
                     verificationCode = dtable.Rows.Count > 0 ? verificationCode : "000000";
 
                     VerifyCode verifyCode = new VerifyCode(verificationCode, emailTxt.TextContent);
-                    this.Hide();
-                    verifyCode.Show();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Hide();
+                        verifyCode.Show();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

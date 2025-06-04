@@ -105,5 +105,29 @@ namespace TrainHub
                 newPasswordTxt1.Focus();
             }
         }
+
+        private void showPassBtn1_Click(object sender, EventArgs e)
+        {
+            if (newPasswordTxt1.PasswordChar)
+            {
+                newPasswordTxt1.PasswordChar = false;
+            }
+            else
+            {
+                newPasswordTxt1.PasswordChar = true;
+            }
+        }
+
+        private void showPassBtn2_Click(object sender, EventArgs e)
+        {
+            if (newPasswordTxt2.PasswordChar)
+            {
+                newPasswordTxt2.PasswordChar = false;
+            }
+            else
+            {
+                newPasswordTxt2.PasswordChar = true;
+            }
+        }
     }
 }

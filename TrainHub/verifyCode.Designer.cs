@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerifyCode));
             verificationCodeTxtBox = new CuoreUI.Controls.cuiOTPasswordBox();
             panel1 = new Panel();
             resendLink = new Label();
@@ -35,6 +36,7 @@
             verificationBtn = new CustomButton();
             label2 = new Label();
             label1 = new Label();
+            backBtn = new CuoreUI.Controls.cuiButton();
             tableLayoutPanel1 = new TableLayoutPanel();
             backBtn = new TrainHub.User_Controls.CustomBackButton();
             panel1.SuspendLayout();
@@ -134,6 +136,44 @@
             label1.TabIndex = 2;
             label1.Text = "Verification";
             // 
+            // backBtn
+            // 
+            backBtn.CheckButton = false;
+            backBtn.Checked = false;
+            backBtn.CheckedBackground = Color.Transparent;
+            backBtn.CheckedForeColor = Color.Black;
+            backBtn.CheckedImageTint = Color.Black;
+            backBtn.CheckedOutline = Color.Transparent;
+            backBtn.Content = "back";
+            backBtn.DialogResult = DialogResult.None;
+            backBtn.Font = new Font("Microsoft Sans Serif", 9.75F);
+            backBtn.ForeColor = Color.Black;
+            backBtn.HoverBackground = Color.Transparent;
+            backBtn.HoveredImageTint = Color.Black;
+            backBtn.HoverForeColor = Color.Black;
+            backBtn.HoverOutline = Color.Transparent;
+            backBtn.Image = (Image)resources.GetObject("backBtn.Image");
+            backBtn.ImageAutoCenter = true;
+            backBtn.ImageExpand = new Point(3, 3);
+            backBtn.ImageOffset = new Point(-3, 0);
+            backBtn.Location = new Point(3, 3);
+            backBtn.Name = "backBtn";
+            backBtn.NormalBackground = Color.Transparent;
+            backBtn.NormalForeColor = Color.Black;
+            backBtn.NormalImageTint = Color.Black;
+            backBtn.NormalOutline = Color.Transparent;
+            backBtn.OutlineThickness = 1F;
+            backBtn.PressedBackground = Color.Transparent;
+            backBtn.PressedForeColor = Color.Black;
+            backBtn.PressedImageTint = Color.Black;
+            backBtn.PressedOutline = Color.Transparent;
+            backBtn.Rounding = new Padding(8);
+            backBtn.Size = new Size(64, 45);
+            backBtn.TabIndex = 6;
+            backBtn.TextAlignment = StringAlignment.Center;
+            backBtn.TextOffset = new Point(0, 0);
+            backBtn.Click += backBtn_Click;
+            // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.BackColor = Color.White;
@@ -179,6 +219,8 @@
         private Panel panel1;
         private Label label1;
         private Label label2;
+        private CuoreUI.Controls.cuiButton verificationBtn;
+        private CuoreUI.Controls.cuiButton backBtn;
         private TableLayoutPanel tableLayoutPanel1;
         private CustomButton verificationBtn;
         private Label label3;
