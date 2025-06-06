@@ -55,13 +55,13 @@
             cuiPanel2.Controls.Add(LastNametxt);
             cuiPanel2.Controls.Add(mobNumTxt);
             cuiPanel2.Controls.Add(firstNametxt);
-            cuiPanel2.Location = new Point(27, 91);
+            cuiPanel2.Location = new Point(27, 98);
             cuiPanel2.Name = "cuiPanel2";
-            cuiPanel2.OutlineThickness = 2F;
+            cuiPanel2.OutlineThickness = 1F;
             cuiPanel2.PanelColor = Color.White;
-            cuiPanel2.PanelOutlineColor = Color.DarkGray;
+            cuiPanel2.PanelOutlineColor = Color.Black;
             cuiPanel2.Rounding = new Padding(10);
-            cuiPanel2.Size = new Size(779, 319);
+            cuiPanel2.Size = new Size(779, 305);
             cuiPanel2.TabIndex = 6;
             // 
             // okBtn
@@ -85,7 +85,7 @@
             okBtn.ImageAutoCenter = true;
             okBtn.ImageExpand = new Point(0, 0);
             okBtn.ImageOffset = new Point(0, 0);
-            okBtn.Location = new Point(688, 230);
+            okBtn.Location = new Point(688, 216);
             okBtn.Name = "okBtn";
             okBtn.NormalBackground = Color.FromArgb(50, 81, 88);
             okBtn.NormalForeColor = Color.White;
@@ -123,7 +123,7 @@
             cancelBtn.ImageAutoCenter = true;
             cancelBtn.ImageExpand = new Point(0, 0);
             cancelBtn.ImageOffset = new Point(0, 0);
-            cancelBtn.Location = new Point(618, 230);
+            cancelBtn.Location = new Point(618, 216);
             cancelBtn.Name = "cancelBtn";
             cancelBtn.NormalBackground = Color.White;
             cancelBtn.NormalForeColor = Color.Black;
