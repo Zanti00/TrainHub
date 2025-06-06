@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditMemberForm1));
+            label1 = new Label();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             cuiCalendarDatePicker2 = new CuoreUI.Controls.cuiCalendarDatePicker();
             cuiCalendarDatePicker1 = new CuoreUI.Controls.cuiCalendarDatePicker();
@@ -42,9 +43,19 @@
             cuiTextBox2 = new CuoreUI.Controls.cuiTextBox();
             cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
             emailTxt = new CuoreUI.Controls.cuiTextBox();
-            label1 = new Label();
             cuiPanel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(51, 81, 88);
+            label1.Location = new Point(33, 40);
+            label1.Name = "label1";
+            label1.Size = new Size(162, 29);
+            label1.TabIndex = 3;
+            label1.Text = "Edit Member";
             // 
             // cuiPanel1
             // 
@@ -60,14 +71,14 @@
             cuiPanel1.Controls.Add(cuiTextBox2);
             cuiPanel1.Controls.Add(cuiTextBox1);
             cuiPanel1.Controls.Add(emailTxt);
-            cuiPanel1.Location = new Point(33, 89);
+            cuiPanel1.Location = new Point(33, 90);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
             cuiPanel1.PanelColor = Color.White;
             cuiPanel1.PanelOutlineColor = Color.Black;
             cuiPanel1.Rounding = new Padding(8);
             cuiPanel1.Size = new Size(774, 347);
-            cuiPanel1.TabIndex = 2;
+            cuiPanel1.TabIndex = 4;
             // 
             // cuiCalendarDatePicker2
             // 
@@ -86,7 +97,7 @@
             cuiCalendarDatePicker2.OutlineThickness = 1.5F;
             cuiCalendarDatePicker2.PressedBackground = Color.FromArgb(80, 128, 128, 128);
             cuiCalendarDatePicker2.PressedOutline = Color.FromArgb(210, 128, 128, 128);
-            cuiCalendarDatePicker2.Rounding = 4;
+            cuiCalendarDatePicker2.Rounding = 10;
             cuiCalendarDatePicker2.ShowIcon = true;
             cuiCalendarDatePicker2.Size = new Size(165, 38);
             cuiCalendarDatePicker2.TabIndex = 27;
@@ -110,7 +121,7 @@
             cuiCalendarDatePicker1.OutlineThickness = 1.5F;
             cuiCalendarDatePicker1.PressedBackground = Color.FromArgb(80, 128, 128, 128);
             cuiCalendarDatePicker1.PressedOutline = Color.FromArgb(210, 128, 128, 128);
-            cuiCalendarDatePicker1.Rounding = 4;
+            cuiCalendarDatePicker1.Rounding = 10;
             cuiCalendarDatePicker1.ShowIcon = true;
             cuiCalendarDatePicker1.Size = new Size(165, 38);
             cuiCalendarDatePicker1.TabIndex = 26;
@@ -140,7 +151,7 @@
             cuiComboBox2.NoSelectionText = "Status";
             cuiComboBox2.OutlineColor = Color.FromArgb(51, 81, 88);
             cuiComboBox2.OutlineThickness = 1F;
-            cuiComboBox2.Rounding = 4;
+            cuiComboBox2.Rounding = 10;
             cuiComboBox2.Size = new Size(343, 39);
             cuiComboBox2.TabIndex = 23;
             // 
@@ -167,7 +178,7 @@
             cuiComboBox1.NoSelectionText = "Membership Type";
             cuiComboBox1.OutlineColor = Color.FromArgb(51, 81, 88);
             cuiComboBox1.OutlineThickness = 1F;
-            cuiComboBox1.Rounding = 4;
+            cuiComboBox1.Rounding = 10;
             cuiComboBox1.Size = new Size(343, 39);
             cuiComboBox1.TabIndex = 22;
             // 
@@ -203,7 +214,7 @@
             cuiButtonGroup1.PressedForeColor = Color.White;
             cuiButtonGroup1.PressedImageTint = Color.White;
             cuiButtonGroup1.PressedOutline = Color.FromArgb(22, 36, 39);
-            cuiButtonGroup1.Rounding = new Padding(6);
+            cuiButtonGroup1.Rounding = new Padding(10);
             cuiButtonGroup1.Size = new Size(86, 35);
             cuiButtonGroup1.TabIndex = 21;
             cuiButtonGroup1.TextAlignment = StringAlignment.Center;
@@ -241,7 +252,7 @@
             loginBtn.PressedForeColor = Color.White;
             loginBtn.PressedImageTint = Color.White;
             loginBtn.PressedOutline = Color.FromArgb(22, 36, 39);
-            loginBtn.Rounding = new Padding(6);
+            loginBtn.Rounding = new Padding(10);
             loginBtn.Size = new Size(86, 35);
             loginBtn.TabIndex = 20;
             loginBtn.TextAlignment = StringAlignment.Center;
@@ -270,7 +281,7 @@
             cuiTextBox6.PasswordChar = false;
             cuiTextBox6.PlaceholderColor = SystemColors.ScrollBar;
             cuiTextBox6.PlaceholderText = "Trainer ID ";
-            cuiTextBox6.Rounding = new Padding(6);
+            cuiTextBox6.Rounding = new Padding(10);
             cuiTextBox6.Size = new Size(343, 38);
             cuiTextBox6.TabIndex = 17;
             cuiTextBox6.TextOffset = new Size(0, 0);
@@ -299,7 +310,7 @@
             cuiTextBox4.PasswordChar = false;
             cuiTextBox4.PlaceholderColor = SystemColors.ScrollBar;
             cuiTextBox4.PlaceholderText = "Last Name";
-            cuiTextBox4.Rounding = new Padding(6);
+            cuiTextBox4.Rounding = new Padding(10);
             cuiTextBox4.Size = new Size(343, 38);
             cuiTextBox4.TabIndex = 15;
             cuiTextBox4.TextOffset = new Size(0, 0);
@@ -328,7 +339,7 @@
             cuiTextBox3.PasswordChar = false;
             cuiTextBox3.PlaceholderColor = SystemColors.ScrollBar;
             cuiTextBox3.PlaceholderText = "Email Address";
-            cuiTextBox3.Rounding = new Padding(6);
+            cuiTextBox3.Rounding = new Padding(10);
             cuiTextBox3.Size = new Size(343, 38);
             cuiTextBox3.TabIndex = 14;
             cuiTextBox3.TextOffset = new Size(0, 0);
@@ -357,7 +368,7 @@
             cuiTextBox2.PasswordChar = false;
             cuiTextBox2.PlaceholderColor = SystemColors.ScrollBar;
             cuiTextBox2.PlaceholderText = "Mobile Number";
-            cuiTextBox2.Rounding = new Padding(6);
+            cuiTextBox2.Rounding = new Padding(10);
             cuiTextBox2.Size = new Size(343, 38);
             cuiTextBox2.TabIndex = 13;
             cuiTextBox2.TextOffset = new Size(0, 0);
@@ -386,7 +397,7 @@
             cuiTextBox1.PasswordChar = false;
             cuiTextBox1.PlaceholderColor = SystemColors.ScrollBar;
             cuiTextBox1.PlaceholderText = "Program ID";
-            cuiTextBox1.Rounding = new Padding(6);
+            cuiTextBox1.Rounding = new Padding(10);
             cuiTextBox1.Size = new Size(343, 38);
             cuiTextBox1.TabIndex = 12;
             cuiTextBox1.TextOffset = new Size(0, 0);
@@ -415,22 +426,11 @@
             emailTxt.PasswordChar = false;
             emailTxt.PlaceholderColor = SystemColors.ScrollBar;
             emailTxt.PlaceholderText = "First Name";
-            emailTxt.Rounding = new Padding(6);
+            emailTxt.Rounding = new Padding(10);
             emailTxt.Size = new Size(343, 38);
             emailTxt.TabIndex = 11;
             emailTxt.TextOffset = new Size(0, 0);
             emailTxt.UnderlinedStyle = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(51, 81, 88);
-            label1.Location = new Point(33, 40);
-            label1.Name = "label1";
-            label1.Size = new Size(162, 29);
-            label1.TabIndex = 3;
-            label1.Text = "Edit Member";
             // 
             // EditMemberForm1
             // 
@@ -438,8 +438,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(845, 476);
-            Controls.Add(label1);
             Controls.Add(cuiPanel1);
+            Controls.Add(label1);
             ForeColor = Color.White;
             Name = "EditMemberForm1";
             Text = "EditMemberForm1";
@@ -449,7 +449,7 @@
         }
 
         #endregion
-
+        private Label label1;
         private CuoreUI.Controls.cuiPanel cuiPanel1;
         private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker2;
         private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker1;
@@ -463,6 +463,5 @@
         private CuoreUI.Controls.cuiTextBox cuiTextBox2;
         private CuoreUI.Controls.cuiTextBox cuiTextBox1;
         private CuoreUI.Controls.cuiTextBox emailTxt;
-        private Label label1;
     }
 }
