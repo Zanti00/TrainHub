@@ -62,8 +62,8 @@ namespace TrainHub
 
                 if (dtable.Rows.Count <= 0)
                 {
-                    MessageBox.Show("If this email is registered, you will receieve an OTP to " + emailTxt.Content, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    VerifyCode verifyCode = new VerifyCode("000000", emailTxt.Content);
+                    MessageBox.Show("If this email is registered, you will receieve an OTP to " + emailTxt.TextContent, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    VerifyCode verifyCode = new VerifyCode("000000", emailTxt.TextContent);
                     this.Hide();
                     verifyCode.Show();
                 }
@@ -73,7 +73,7 @@ namespace TrainHub
                     Random rand = new Random();
                     verificationCode = (rand.Next(100000, 999999)).ToString();
                     MailMessage message = new MailMessage();
-                    to = (emailTxt.Content).ToString();
+                    to = (emailTxt.TextContent).ToString();
                     from = "zantialdama1@gmail.com";
                     pass = "ecql vlsa psql jbxu";
                     messageBody = "NEVER SHARE YOUR CODE to anyone especially on social media, SMS, or email links. Your verification code is: " + verificationCode + "\n\nDisregard this email if you didn't request an OTP";
