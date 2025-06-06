@@ -1,6 +1,6 @@
 ﻿namespace TrainHub
 {
-    partial class edit_staff
+    partial class editStaff
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(edit_staff));
-            cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(editStaff));
             cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
+            cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             cuiCalendarDatePicker2 = new CuoreUI.Controls.cuiCalendarDatePicker();
             cuiCalendarDatePicker1 = new CuoreUI.Controls.cuiCalendarDatePicker();
             cuiButtonGroup1 = new CuoreUI.Controls.cuiButtonGroup();
@@ -42,27 +42,6 @@
             label1 = new Label();
             cuiPanel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // cuiPanel1
-            // 
-            cuiPanel1.Controls.Add(cuiTextBox1);
-            cuiPanel1.Controls.Add(cuiCalendarDatePicker2);
-            cuiPanel1.Controls.Add(cuiCalendarDatePicker1);
-            cuiPanel1.Controls.Add(cuiButtonGroup1);
-            cuiPanel1.Controls.Add(loginBtn);
-            cuiPanel1.Controls.Add(cuiTextBox4);
-            cuiPanel1.Controls.Add(cuiTextBox3);
-            cuiPanel1.Controls.Add(cuiTextBox2);
-            cuiPanel1.Controls.Add(emailTxt);
-            cuiPanel1.Location = new Point(13, 76);
-            cuiPanel1.Name = "cuiPanel1";
-            cuiPanel1.OutlineThickness = 1F;
-            cuiPanel1.PanelColor = Color.White;
-            cuiPanel1.PanelOutlineColor = Color.Black;
-            cuiPanel1.Rounding = new Padding(8);
-            cuiPanel1.Size = new Size(774, 347);
-            cuiPanel1.TabIndex = 4;
-            cuiPanel1.Paint += this.cuiPanel1_Paint;
             // 
             // cuiTextBox1
             // 
@@ -92,7 +71,27 @@
             cuiTextBox1.TabIndex = 28;
             cuiTextBox1.TextOffset = new Size(0, 0);
             cuiTextBox1.UnderlinedStyle = false;
-            cuiTextBox1.ContentChanged += this.cuiTextBox1_ContentChanged;
+            // 
+            // cuiPanel1
+            // 
+            cuiPanel1.Controls.Add(cuiTextBox1);
+            cuiPanel1.Controls.Add(cuiCalendarDatePicker2);
+            cuiPanel1.Controls.Add(cuiCalendarDatePicker1);
+            cuiPanel1.Controls.Add(cuiButtonGroup1);
+            cuiPanel1.Controls.Add(loginBtn);
+            cuiPanel1.Controls.Add(cuiTextBox4);
+            cuiPanel1.Controls.Add(cuiTextBox3);
+            cuiPanel1.Controls.Add(cuiTextBox2);
+            cuiPanel1.Controls.Add(emailTxt);
+            cuiPanel1.Location = new Point(13, 76);
+            cuiPanel1.Name = "cuiPanel1";
+            cuiPanel1.OutlineThickness = 1F;
+            cuiPanel1.PanelColor = Color.White;
+            cuiPanel1.PanelOutlineColor = Color.Black;
+            cuiPanel1.Rounding = new Padding(8);
+            cuiPanel1.Size = new Size(774, 347);
+            cuiPanel1.TabIndex = 8;
+            cuiPanel1.Paint += this.cuiPanel1_Paint;
             // 
             // cuiCalendarDatePicker2
             // 
@@ -117,7 +116,6 @@
             cuiCalendarDatePicker2.TabIndex = 27;
             cuiCalendarDatePicker2.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
             cuiCalendarDatePicker2.Value = new DateTime(2025, 6, 4, 0, 0, 0, 0);
-            cuiCalendarDatePicker2.Load += cuiCalendarDatePicker2_Load;
             // 
             // cuiCalendarDatePicker1
             // 
@@ -142,7 +140,6 @@
             cuiCalendarDatePicker1.TabIndex = 26;
             cuiCalendarDatePicker1.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
             cuiCalendarDatePicker1.Value = new DateTime(2025, 6, 4, 0, 0, 0, 0);
-            cuiCalendarDatePicker1.Load += this.cuiCalendarDatePicker1_Load;
             // 
             // cuiButtonGroup1
             // 
@@ -181,7 +178,6 @@
             cuiButtonGroup1.TabIndex = 21;
             cuiButtonGroup1.TextAlignment = StringAlignment.Center;
             cuiButtonGroup1.TextOffset = new Point(0, 0);
-            cuiButtonGroup1.Click += this.cuiButtonGroup1_Click;
             // 
             // loginBtn
             // 
@@ -220,7 +216,6 @@
             loginBtn.TabIndex = 20;
             loginBtn.TextAlignment = StringAlignment.Center;
             loginBtn.TextOffset = new Point(0, 0);
-            loginBtn.Click += this.loginBtn_Click;
             // 
             // cuiTextBox4
             // 
@@ -250,7 +245,6 @@
             cuiTextBox4.TabIndex = 15;
             cuiTextBox4.TextOffset = new Size(0, 0);
             cuiTextBox4.UnderlinedStyle = false;
-            cuiTextBox4.ContentChanged += this.cuiTextBox4_ContentChanged;
             // 
             // cuiTextBox3
             // 
@@ -280,7 +274,6 @@
             cuiTextBox3.TabIndex = 14;
             cuiTextBox3.TextOffset = new Size(0, 0);
             cuiTextBox3.UnderlinedStyle = false;
-            cuiTextBox3.ContentChanged += this.cuiTextBox3_ContentChanged;
             // 
             // cuiTextBox2
             // 
@@ -310,7 +303,6 @@
             cuiTextBox2.TabIndex = 13;
             cuiTextBox2.TextOffset = new Size(0, 0);
             cuiTextBox2.UnderlinedStyle = false;
-            cuiTextBox2.ContentChanged += cuiTextBox2_ContentChanged;
             // 
             // emailTxt
             // 
@@ -340,7 +332,6 @@
             emailTxt.TabIndex = 11;
             emailTxt.TextOffset = new Size(0, 0);
             emailTxt.UnderlinedStyle = false;
-            emailTxt.ContentChanged += this.emailTxt_ContentChanged;
             // 
             // label1
             // 
@@ -350,18 +341,18 @@
             label1.Location = new Point(13, 27);
             label1.Name = "label1";
             label1.Size = new Size(118, 29);
-            label1.TabIndex = 5;
+            label1.TabIndex = 9;
             label1.Text = "Edit Staff";
-            label1.Click += label1_Click;
+            label1.Click += this.label1_Click;
             // 
-            // edit_staff
+            // editStaff
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(cuiPanel1);
             Controls.Add(label1);
-            Name = "edit_staff";
+            Name = "editStaff";
             Text = "Form1";
             cuiPanel1.ResumeLayout(false);
             ResumeLayout(false);
@@ -370,6 +361,7 @@
 
         #endregion
 
+        private CuoreUI.Controls.cuiTextBox cuiTextBox1;
         private CuoreUI.Controls.cuiPanel cuiPanel1;
         private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker2;
         private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker1;
@@ -380,6 +372,5 @@
         private CuoreUI.Controls.cuiTextBox cuiTextBox2;
         private CuoreUI.Controls.cuiTextBox emailTxt;
         private Label label1;
-        private CuoreUI.Controls.cuiTextBox cuiTextBox1;
     }
 }
