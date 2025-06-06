@@ -51,14 +51,15 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(73, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(595, 474);
+            panel1.Size = new Size(635, 502);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // emailTxt
             // 
             emailTxt.Anchor = AnchorStyles.None;
             emailTxt.BackColor = Color.Transparent;
-            emailTxt.Location = new Point(81, 220);
+            emailTxt.Location = new Point(101, 234);
             emailTxt.Name = "emailTxt";
             emailTxt.PasswordChar = false;
             emailTxt.PlaceHolderText = "Enter your text";
@@ -72,7 +73,7 @@
             sendEmailBtn.Anchor = AnchorStyles.None;
             sendEmailBtn.BackColor = Color.Transparent;
             sendEmailBtn.ButtonContent = "BUTTON";
-            sendEmailBtn.Location = new Point(79, 268);
+            sendEmailBtn.Location = new Point(99, 282);
             sendEmailBtn.Name = "sendEmailBtn";
             sendEmailBtn.Size = new Size(321, 43);
             sendEmailBtn.TabIndex = 4;
@@ -82,7 +83,7 @@
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.ForeColor = Color.FromArgb(130, 130, 130);
-            label3.Location = new Point(82, 199);
+            label3.Location = new Point(102, 213);
             label3.Margin = new Padding(10, 15, 3, 0);
             label3.Name = "label3";
             label3.Size = new Size(172, 15);
@@ -96,7 +97,7 @@
             label1.Font = new Font("Segoe UI Black", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(50, 81, 88);
             label1.ImageAlign = ContentAlignment.MiddleLeft;
-            label1.Location = new Point(76, 119);
+            label1.Location = new Point(96, 133);
             label1.Name = "label1";
             label1.Size = new Size(142, 37);
             label1.TabIndex = 0;
@@ -110,7 +111,7 @@
             label2.Font = new Font("Segoe UI", 15F);
             label2.ForeColor = Color.FromArgb(0, 0, 64);
             label2.ImageAlign = ContentAlignment.MiddleLeft;
-            label2.Location = new Point(78, 156);
+            label2.Location = new Point(98, 170);
             label2.Margin = new Padding(5, 0, 3, 0);
             label2.Name = "label2";
             label2.Size = new Size(158, 28);
@@ -131,7 +132,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(671, 480);
+            tableLayoutPanel1.Size = new Size(711, 508);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // backBtn
@@ -147,7 +148,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(671, 480);
+            ClientSize = new Size(711, 508);
             Controls.Add(tableLayoutPanel1);
             Name = "ForgotPassword";
             StartPosition = FormStartPosition.CenterScreen;
