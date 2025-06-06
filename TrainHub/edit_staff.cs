@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TrainHub
 {
-    public partial class editStaff : Form
+    public partial class edit_staff : Form
     {
-        public editStaff()
+        public edit_staff()
         {
             InitializeComponent();
         }

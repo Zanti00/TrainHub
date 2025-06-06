@@ -351,7 +351,7 @@
             Controls.Add(cuiPanel1);
             Controls.Add(label1);
             Name = "add_newstaff";
-            Text = "Form1";
+            Text = "+";
             cuiPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

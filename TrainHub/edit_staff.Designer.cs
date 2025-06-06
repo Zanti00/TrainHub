@@ -1,6 +1,6 @@
 ﻿namespace TrainHub
 {
-    partial class editStaff
+    partial class edit_staff
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(editStaff));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(edit_staff));
             cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             cuiCalendarDatePicker2 = new CuoreUI.Controls.cuiCalendarDatePicker();
@@ -91,7 +91,6 @@
             cuiPanel1.Rounding = new Padding(8);
             cuiPanel1.Size = new Size(774, 347);
             cuiPanel1.TabIndex = 8;
-            cuiPanel1.Paint += this.cuiPanel1_Paint;
             // 
             // cuiCalendarDatePicker2
             // 
@@ -343,16 +342,15 @@
             label1.Size = new Size(118, 29);
             label1.TabIndex = 9;
             label1.Text = "Edit Staff";
-            label1.Click += this.label1_Click;
             // 
-            // editStaff
+            // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(cuiPanel1);
             Controls.Add(label1);
-            Name = "editStaff";
+            Name = "Form1";
             Text = "Form1";
             cuiPanel1.ResumeLayout(false);
             ResumeLayout(false);
