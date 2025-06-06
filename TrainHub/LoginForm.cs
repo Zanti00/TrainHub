@@ -64,5 +64,20 @@ namespace TrainHub
                 }
             }
         }
+
+        private void cuiPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void welcomeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void emailTxt_ContentChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

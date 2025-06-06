@@ -55,6 +55,7 @@
             welcomeLabel.Size = new Size(110, 20);
             welcomeLabel.TabIndex = 6;
             welcomeLabel.Text = "Welcome back";
+            welcomeLabel.Click += welcomeLabel_Click;
             // 
             // forgotPasswordLink
             // 
@@ -75,7 +76,7 @@
             label2.ForeColor = SystemColors.Window;
             label2.Location = new Point(0, 0);
             label2.Name = "label2";
-            label2.Size = new Size(385, 507);
+            label2.Size = new Size(390, 491);
             label2.TabIndex = 1;
             label2.Text = resources.GetString("label2.Text");
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -90,7 +91,7 @@
             cuiPanel1.Controls.Add(cuiPictureBox1);
             cuiPanel1.Controls.Add(welcomeLabel);
             cuiPanel1.Controls.Add(forgotPasswordLink);
-            cuiPanel1.Location = new Point(437, 48);
+            cuiPanel1.Location = new Point(444, 40);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
             cuiPanel1.PanelColor = Color.White;
@@ -98,6 +99,7 @@
             cuiPanel1.Rounding = new Padding(20);
             cuiPanel1.Size = new Size(299, 416);
             cuiPanel1.TabIndex = 2;
+            cuiPanel1.Paint += cuiPanel1_Paint;
             // 
             // loginBtn
             // 
@@ -194,6 +196,7 @@
             emailTxt.TabIndex = 10;
             emailTxt.TextOffset = new Size(0, 0);
             emailTxt.UnderlinedStyle = false;
+            emailTxt.ContentChanged += emailTxt_ContentChanged;
             // 
             // cuiPictureBox1
             // 
@@ -227,7 +230,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(783, 513);
+            tableLayoutPanel1.Size = new Size(792, 497);
             tableLayoutPanel1.TabIndex = 5;
             // 
             // panel1
@@ -237,7 +240,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(385, 507);
+            panel1.Size = new Size(390, 491);
             panel1.TabIndex = 6;
             // 
             // Login
@@ -245,7 +248,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(783, 513);
+            ClientSize = new Size(792, 497);
             Controls.Add(tableLayoutPanel1);
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
