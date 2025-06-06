@@ -117,4 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cuiCalendarDatePicker1.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAADGSURBVEhL7ZVBCoMwEEXTO/RqXsBCj1akCxfdF3qWLlx7g/h/mNSmGY2NSBB88NGZz58BA8YU
+        w1p7paSMSPlJEH5RUkakfBUEKqiRcO8H4HmGHtL30nxmK/YiYNQQeUN+wFO8pQuYJTX7AWi2UAedpHaD
+        nKmg+cxCnNFKa+Q3gPesQ+YMSsqRSeNPii9wB7dSn8MP+DZXanbB5p/oWHAsSFN0QfA3zYFZmaH+TS8Q
+        8fdBjqbvAwKDN9od0sJLdIP0G22nGDMAF0unERl89LkAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

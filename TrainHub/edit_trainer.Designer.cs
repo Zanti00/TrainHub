@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(edit_trainer));
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
             okBtn = new CuoreUI.Controls.cuiButton();
             cancelBtn = new CuoreUI.Controls.cuiButton();
             addressTxt = new CuoreUI.Controls.cuiTextBox();
             emailTxt = new CuoreUI.Controls.cuiTextBox();
-            dateTimePicker1 = new DateTimePicker();
-            dobTxt = new CuoreUI.Controls.cuiTextBox();
             LastNametxt = new CuoreUI.Controls.cuiTextBox();
             mobNumTxt = new CuoreUI.Controls.cuiTextBox();
             firstNametxt = new CuoreUI.Controls.cuiTextBox();
             label1 = new Label();
+            cuiCalendarDatePicker1 = new CuoreUI.Controls.cuiCalendarDatePicker();
             cuiPanel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -46,12 +46,11 @@
             // 
             cuiPanel2.BackColor = Color.Transparent;
             cuiPanel2.BackgroundImageLayout = ImageLayout.None;
+            cuiPanel2.Controls.Add(cuiCalendarDatePicker1);
             cuiPanel2.Controls.Add(okBtn);
             cuiPanel2.Controls.Add(cancelBtn);
             cuiPanel2.Controls.Add(addressTxt);
             cuiPanel2.Controls.Add(emailTxt);
-            cuiPanel2.Controls.Add(dateTimePicker1);
-            cuiPanel2.Controls.Add(dobTxt);
             cuiPanel2.Controls.Add(LastNametxt);
             cuiPanel2.Controls.Add(mobNumTxt);
             cuiPanel2.Controls.Add(firstNametxt);
@@ -155,7 +154,7 @@
             addressTxt.Image = null;
             addressTxt.ImageExpand = new Point(0, 0);
             addressTxt.ImageOffset = new Point(0, 0);
-            addressTxt.Location = new Point(410, 162);
+            addressTxt.Location = new Point(410, 116);
             addressTxt.Margin = new Padding(4);
             addressTxt.Multiline = false;
             addressTxt.Name = "addressTxt";
@@ -198,46 +197,6 @@
             emailTxt.TabIndex = 15;
             emailTxt.TextOffset = new Size(0, 0);
             emailTxt.UnderlinedStyle = false;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(728, 77);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(19, 23);
-            dateTimePicker1.TabIndex = 14;
-            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged_1;
-            // 
-            // dobTxt
-            // 
-            dobTxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            dobTxt.BackColor = Color.Transparent;
-            dobTxt.BackgroundColor = Color.White;
-            dobTxt.BorderColor = Color.FromArgb(50, 81, 88);
-            dobTxt.Content = "";
-            dobTxt.FocusBackgroundColor = Color.White;
-            dobTxt.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            dobTxt.FocusImageTint = Color.White;
-            dobTxt.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dobTxt.ForeColor = Color.Black;
-            dobTxt.Image = null;
-            dobTxt.ImageExpand = new Point(0, 0);
-            dobTxt.ImageOffset = new Point(0, 0);
-            dobTxt.Location = new Point(410, 116);
-            dobTxt.Margin = new Padding(4);
-            dobTxt.Multiline = false;
-            dobTxt.Name = "dobTxt";
-            dobTxt.NormalImageTint = Color.White;
-            dobTxt.Padding = new Padding(13, 13, 13, 0);
-            dobTxt.PasswordChar = false;
-            dobTxt.PlaceholderColor = SystemColors.ScrollBar;
-            dobTxt.PlaceholderText = "Date of Birth";
-            dobTxt.Rounding = new Padding(6);
-            dobTxt.Size = new Size(343, 38);
-            dobTxt.TabIndex = 13;
-            dobTxt.TextOffset = new Size(0, 0);
-            dobTxt.UnderlinedStyle = false;
             // 
             // LastNametxt
             // 
@@ -339,6 +298,30 @@
             label1.Text = "Edit Trainers";
             label1.Click += label1_Click_1;
             // 
+            // cuiCalendarDatePicker1
+            // 
+            cuiCalendarDatePicker1.EnableThemeChangeButton = true;
+            cuiCalendarDatePicker1.Font = new Font("Segoe UI", 9.75F);
+            cuiCalendarDatePicker1.ForeColor = Color.Gray;
+            cuiCalendarDatePicker1.HoverBackground = Color.FromArgb(50, 128, 128, 128);
+            cuiCalendarDatePicker1.HoverOutline = Color.FromArgb(180, 128, 128, 128);
+            cuiCalendarDatePicker1.Icon = (Image)resources.GetObject("cuiCalendarDatePicker1.Icon");
+            cuiCalendarDatePicker1.IconTint = Color.Gray;
+            cuiCalendarDatePicker1.Location = new Point(410, 161);
+            cuiCalendarDatePicker1.Margin = new Padding(4, 3, 4, 3);
+            cuiCalendarDatePicker1.Name = "cuiCalendarDatePicker1";
+            cuiCalendarDatePicker1.NormalBackground = Color.FromArgb(32, 128, 128, 128);
+            cuiCalendarDatePicker1.NormalOutline = Color.FromArgb(150, 128, 128, 128);
+            cuiCalendarDatePicker1.OutlineThickness = 1.5F;
+            cuiCalendarDatePicker1.PressedBackground = Color.FromArgb(80, 128, 128, 128);
+            cuiCalendarDatePicker1.PressedOutline = Color.FromArgb(210, 128, 128, 128);
+            cuiCalendarDatePicker1.Rounding = 8;
+            cuiCalendarDatePicker1.ShowIcon = true;
+            cuiCalendarDatePicker1.Size = new Size(343, 38);
+            cuiCalendarDatePicker1.TabIndex = 7;
+            cuiCalendarDatePicker1.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
+            cuiCalendarDatePicker1.Value = new DateTime(2025, 6, 6, 0, 0, 0, 0);
+            // 
             // edit_trainer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -360,11 +343,10 @@
         private CuoreUI.Controls.cuiButton cancelBtn;
         private CuoreUI.Controls.cuiTextBox addressTxt;
         private CuoreUI.Controls.cuiTextBox emailTxt;
-        private DateTimePicker dateTimePicker1;
-        private CuoreUI.Controls.cuiTextBox dobTxt;
         private CuoreUI.Controls.cuiTextBox LastNametxt;
         private CuoreUI.Controls.cuiTextBox mobNumTxt;
         private CuoreUI.Controls.cuiTextBox firstNametxt;
         private Label label1;
+        private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker1;
     }
 }

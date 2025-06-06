@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(add_trainer));
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             label1 = new Label();
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
-            dateTimePicker1 = new DateTimePicker();
-            cuiTextBox2 = new CuoreUI.Controls.cuiTextBox();
             cuiButton2 = new CuoreUI.Controls.cuiButton();
             cuiButton1 = new CuoreUI.Controls.cuiButton();
             cuiTextBox3 = new CuoreUI.Controls.cuiTextBox();
@@ -45,6 +44,7 @@
             LastNametxt = new CuoreUI.Controls.cuiTextBox();
             mobNumTxt = new CuoreUI.Controls.cuiTextBox();
             firstNametxt = new CuoreUI.Controls.cuiTextBox();
+            cuiCalendarDatePicker1 = new CuoreUI.Controls.cuiCalendarDatePicker();
             cuiPanel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -63,8 +63,7 @@
             // 
             cuiPanel2.BackColor = Color.Transparent;
             cuiPanel2.BackgroundImageLayout = ImageLayout.None;
-            cuiPanel2.Controls.Add(dateTimePicker1);
-            cuiPanel2.Controls.Add(cuiTextBox2);
+            cuiPanel2.Controls.Add(cuiCalendarDatePicker1);
             cuiPanel2.Controls.Add(cuiButton2);
             cuiPanel2.Controls.Add(cuiButton1);
             cuiPanel2.Controls.Add(cuiTextBox3);
@@ -85,45 +84,6 @@
             cuiPanel2.Rounding = new Padding(10);
             cuiPanel2.Size = new Size(779, 289);
             cuiPanel2.TabIndex = 7;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(729, 123);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(18, 23);
-            dateTimePicker1.TabIndex = 25;
-            // 
-            // cuiTextBox2
-            // 
-            cuiTextBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            cuiTextBox2.BackColor = Color.Transparent;
-            cuiTextBox2.BackgroundColor = Color.White;
-            cuiTextBox2.BorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox2.Content = "";
-            cuiTextBox2.FocusBackgroundColor = Color.White;
-            cuiTextBox2.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox2.FocusImageTint = Color.White;
-            cuiTextBox2.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiTextBox2.ForeColor = Color.Black;
-            cuiTextBox2.Image = null;
-            cuiTextBox2.ImageExpand = new Point(0, 0);
-            cuiTextBox2.ImageOffset = new Point(0, 0);
-            cuiTextBox2.Location = new Point(410, 116);
-            cuiTextBox2.Margin = new Padding(4);
-            cuiTextBox2.Multiline = false;
-            cuiTextBox2.Name = "cuiTextBox2";
-            cuiTextBox2.NormalImageTint = Color.White;
-            cuiTextBox2.Padding = new Padding(13, 13, 13, 0);
-            cuiTextBox2.PasswordChar = false;
-            cuiTextBox2.PlaceholderColor = SystemColors.ScrollBar;
-            cuiTextBox2.PlaceholderText = "Date of Birth";
-            cuiTextBox2.Rounding = new Padding(6);
-            cuiTextBox2.Size = new Size(343, 38);
-            cuiTextBox2.TabIndex = 24;
-            cuiTextBox2.TextOffset = new Size(0, 0);
-            cuiTextBox2.UnderlinedStyle = false;
             // 
             // cuiButton2
             // 
@@ -216,7 +176,7 @@
             cuiTextBox3.Image = null;
             cuiTextBox3.ImageExpand = new Point(0, 0);
             cuiTextBox3.ImageOffset = new Point(0, 0);
-            cuiTextBox3.Location = new Point(410, 162);
+            cuiTextBox3.Location = new Point(410, 116);
             cuiTextBox3.Margin = new Padding(4);
             cuiTextBox3.Multiline = false;
             cuiTextBox3.Name = "cuiTextBox3";
@@ -514,6 +474,30 @@
             firstNametxt.TextOffset = new Size(0, 0);
             firstNametxt.UnderlinedStyle = false;
             // 
+            // cuiCalendarDatePicker1
+            // 
+            cuiCalendarDatePicker1.EnableThemeChangeButton = true;
+            cuiCalendarDatePicker1.Font = new Font("Segoe UI", 9.75F);
+            cuiCalendarDatePicker1.ForeColor = Color.Gray;
+            cuiCalendarDatePicker1.HoverBackground = Color.FromArgb(50, 128, 128, 128);
+            cuiCalendarDatePicker1.HoverOutline = Color.FromArgb(180, 128, 128, 128);
+            cuiCalendarDatePicker1.Icon = (Image)resources.GetObject("cuiCalendarDatePicker1.Icon");
+            cuiCalendarDatePicker1.IconTint = Color.Gray;
+            cuiCalendarDatePicker1.Location = new Point(410, 162);
+            cuiCalendarDatePicker1.Margin = new Padding(4, 3, 4, 3);
+            cuiCalendarDatePicker1.Name = "cuiCalendarDatePicker1";
+            cuiCalendarDatePicker1.NormalBackground = Color.FromArgb(32, 128, 128, 128);
+            cuiCalendarDatePicker1.NormalOutline = Color.FromArgb(150, 128, 128, 128);
+            cuiCalendarDatePicker1.OutlineThickness = 1.5F;
+            cuiCalendarDatePicker1.PressedBackground = Color.FromArgb(80, 128, 128, 128);
+            cuiCalendarDatePicker1.PressedOutline = Color.FromArgb(210, 128, 128, 128);
+            cuiCalendarDatePicker1.Rounding = 8;
+            cuiCalendarDatePicker1.ShowIcon = true;
+            cuiCalendarDatePicker1.Size = new Size(343, 38);
+            cuiCalendarDatePicker1.TabIndex = 24;
+            cuiCalendarDatePicker1.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
+            cuiCalendarDatePicker1.Value = new DateTime(2025, 6, 6, 0, 0, 0, 0);
+            // 
             // add_trainer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -546,7 +530,6 @@
         private CuoreUI.Controls.cuiTextBox cuiTextBox3;
         private CuoreUI.Controls.cuiButton cuiButton1;
         private CuoreUI.Controls.cuiButton cuiButton2;
-        private CuoreUI.Controls.cuiTextBox cuiTextBox2;
-        private DateTimePicker dateTimePicker1;
+        private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker1;
     }
 }
