@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterNewMember));
+            label1 = new Label();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             cuiCalendarDatePicker2 = new CuoreUI.Controls.cuiCalendarDatePicker();
             cuiCalendarDatePicker1 = new CuoreUI.Controls.cuiCalendarDatePicker();
@@ -42,9 +43,19 @@
             cuiTextBox2 = new CuoreUI.Controls.cuiTextBox();
             cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
             emailTxt = new CuoreUI.Controls.cuiTextBox();
-            label1 = new Label();
             cuiPanel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(51, 81, 88);
+            label1.Location = new Point(32, 40);
+            label1.Name = "label1";
+            label1.Size = new Size(275, 29);
+            label1.TabIndex = 2;
+            label1.Text = "Register New Member";
             // 
             // cuiPanel1
             // 
@@ -67,7 +78,7 @@
             cuiPanel1.PanelOutlineColor = Color.Black;
             cuiPanel1.Rounding = new Padding(10);
             cuiPanel1.Size = new Size(774, 347);
-            cuiPanel1.TabIndex = 1;
+            cuiPanel1.TabIndex = 3;
             // 
             // cuiCalendarDatePicker2
             // 
@@ -122,11 +133,11 @@
             cuiComboBox2.BackColor = Color.White;
             cuiComboBox2.BackgroundColor = Color.White;
             cuiComboBox2.ButtonCursor = Cursors.Arrow;
-            cuiComboBox2.ButtonHoverBackground = Color.FromArgb(192, 255, 106, 0);
+            cuiComboBox2.ButtonHoverBackground = Color.Silver;
             cuiComboBox2.ButtonHoverOutline = Color.Empty;
-            cuiComboBox2.ButtonNormalBackground = Color.FromArgb(255, 106, 0);
+            cuiComboBox2.ButtonNormalBackground = Color.White;
             cuiComboBox2.ButtonNormalOutline = Color.Empty;
-            cuiComboBox2.ButtonPressedBackground = Color.FromArgb(255, 106, 0);
+            cuiComboBox2.ButtonPressedBackground = Color.Gray;
             cuiComboBox2.ButtonPressedOutline = Color.Empty;
             cuiComboBox2.DropDownBackgroundColor = Color.White;
             cuiComboBox2.DropDownOutlineColor = Color.FromArgb(51, 81, 88);
@@ -170,7 +181,6 @@
             cuiComboBox1.Rounding = 10;
             cuiComboBox1.Size = new Size(343, 39);
             cuiComboBox1.TabIndex = 22;
-            cuiComboBox1.SelectedIndexChanged += cuiComboBox1_SelectedIndexChanged_1;
             // 
             // cuiButtonGroup1
             // 
@@ -247,7 +257,6 @@
             loginBtn.TabIndex = 20;
             loginBtn.TextAlignment = StringAlignment.Center;
             loginBtn.TextOffset = new Point(0, 0);
-            loginBtn.Click += loginBtn_Click;
             // 
             // cuiTextBox6
             // 
@@ -423,25 +432,14 @@
             emailTxt.TextOffset = new Size(0, 0);
             emailTxt.UnderlinedStyle = false;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(51, 81, 88);
-            label1.Location = new Point(32, 40);
-            label1.Name = "label1";
-            label1.Size = new Size(275, 29);
-            label1.TabIndex = 2;
-            label1.Text = "Register New Member";
-            // 
             // RegisterNewMember
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(845, 476);
-            Controls.Add(label1);
             Controls.Add(cuiPanel1);
+            Controls.Add(label1);
             Name = "RegisterNewMember";
             Text = "MemberManagementForm";
             cuiPanel1.ResumeLayout(false);
@@ -450,19 +448,19 @@
         }
 
         #endregion
+        private Label label1;
         private CuoreUI.Controls.cuiPanel cuiPanel1;
-        private CuoreUI.Controls.cuiTextBox cuiTextBox1;
-        private CuoreUI.Controls.cuiTextBox emailTxt;
+        private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker2;
+        private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker1;
+        private CuoreUI.Controls.cuiComboBox cuiComboBox2;
+        private CuoreUI.Controls.cuiComboBox cuiComboBox1;
+        private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup1;
+        private CuoreUI.Controls.cuiButtonGroup loginBtn;
         private CuoreUI.Controls.cuiTextBox cuiTextBox6;
         private CuoreUI.Controls.cuiTextBox cuiTextBox4;
         private CuoreUI.Controls.cuiTextBox cuiTextBox3;
         private CuoreUI.Controls.cuiTextBox cuiTextBox2;
-        private CuoreUI.Controls.cuiButtonGroup loginBtn;
-        private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup1;
-        private Label label1;
-        private CuoreUI.Controls.cuiComboBox cuiComboBox1;
-        private CuoreUI.Controls.cuiComboBox cuiComboBox2;
-        private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker1;
-        private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker2;
+        private CuoreUI.Controls.cuiTextBox cuiTextBox1;
+        private CuoreUI.Controls.cuiTextBox emailTxt;
     }
 }

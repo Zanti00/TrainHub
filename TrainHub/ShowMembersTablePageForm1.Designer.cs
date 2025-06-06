@@ -492,7 +492,7 @@
             cuiTextBox4.NormalImageTint = Color.White;
             cuiTextBox4.Padding = new Padding(17, 13, 17, 0);
             cuiTextBox4.PasswordChar = false;
-            cuiTextBox4.PlaceholderColor = SystemColors.ScrollBar;
+            cuiTextBox4.PlaceholderColor = Color.DimGray;
             cuiTextBox4.PlaceholderText = "Search";
             cuiTextBox4.Rounding = new Padding(10);
             cuiTextBox4.Size = new Size(356, 42);
