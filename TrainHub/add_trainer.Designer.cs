@@ -32,6 +32,7 @@
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             label1 = new Label();
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
+            cuiCalendarDatePicker1 = new CuoreUI.Controls.cuiCalendarDatePicker();
             cuiButton2 = new CuoreUI.Controls.cuiButton();
             cuiButton1 = new CuoreUI.Controls.cuiButton();
             cuiTextBox3 = new CuoreUI.Controls.cuiTextBox();
@@ -44,7 +45,6 @@
             LastNametxt = new CuoreUI.Controls.cuiTextBox();
             mobNumTxt = new CuoreUI.Controls.cuiTextBox();
             firstNametxt = new CuoreUI.Controls.cuiTextBox();
-            cuiCalendarDatePicker1 = new CuoreUI.Controls.cuiCalendarDatePicker();
             cuiPanel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -61,6 +61,7 @@
             // 
             // cuiPanel2
             // 
+            cuiPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cuiPanel2.BackColor = Color.Transparent;
             cuiPanel2.BackgroundImageLayout = ImageLayout.None;
             cuiPanel2.Controls.Add(cuiCalendarDatePicker1);
@@ -84,6 +85,31 @@
             cuiPanel2.Rounding = new Padding(10);
             cuiPanel2.Size = new Size(779, 289);
             cuiPanel2.TabIndex = 7;
+            // 
+            // cuiCalendarDatePicker1
+            // 
+            cuiCalendarDatePicker1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            cuiCalendarDatePicker1.EnableThemeChangeButton = true;
+            cuiCalendarDatePicker1.Font = new Font("Segoe UI", 9.75F);
+            cuiCalendarDatePicker1.ForeColor = Color.Gray;
+            cuiCalendarDatePicker1.HoverBackground = Color.FromArgb(50, 128, 128, 128);
+            cuiCalendarDatePicker1.HoverOutline = Color.FromArgb(180, 128, 128, 128);
+            cuiCalendarDatePicker1.Icon = (Image)resources.GetObject("cuiCalendarDatePicker1.Icon");
+            cuiCalendarDatePicker1.IconTint = Color.Gray;
+            cuiCalendarDatePicker1.Location = new Point(410, 162);
+            cuiCalendarDatePicker1.Margin = new Padding(4, 3, 4, 3);
+            cuiCalendarDatePicker1.Name = "cuiCalendarDatePicker1";
+            cuiCalendarDatePicker1.NormalBackground = Color.FromArgb(32, 128, 128, 128);
+            cuiCalendarDatePicker1.NormalOutline = Color.FromArgb(150, 128, 128, 128);
+            cuiCalendarDatePicker1.OutlineThickness = 1.5F;
+            cuiCalendarDatePicker1.PressedBackground = Color.FromArgb(80, 128, 128, 128);
+            cuiCalendarDatePicker1.PressedOutline = Color.FromArgb(210, 128, 128, 128);
+            cuiCalendarDatePicker1.Rounding = 8;
+            cuiCalendarDatePicker1.ShowIcon = true;
+            cuiCalendarDatePicker1.Size = new Size(343, 38);
+            cuiCalendarDatePicker1.TabIndex = 24;
+            cuiCalendarDatePicker1.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
+            cuiCalendarDatePicker1.Value = new DateTime(2025, 6, 6, 0, 0, 0, 0);
             // 
             // cuiButton2
             // 
@@ -163,7 +189,7 @@
             // 
             // cuiTextBox3
             // 
-            cuiTextBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cuiTextBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cuiTextBox3.BackColor = Color.Transparent;
             cuiTextBox3.BackgroundColor = Color.White;
             cuiTextBox3.BorderColor = Color.FromArgb(50, 81, 88);
@@ -329,6 +355,7 @@
             // 
             // emailTxt
             // 
+            emailTxt.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             emailTxt.BackColor = Color.Transparent;
             emailTxt.BackgroundColor = Color.White;
             emailTxt.BorderColor = Color.FromArgb(50, 81, 88);
@@ -473,30 +500,6 @@
             firstNametxt.TabIndex = 11;
             firstNametxt.TextOffset = new Size(0, 0);
             firstNametxt.UnderlinedStyle = false;
-            // 
-            // cuiCalendarDatePicker1
-            // 
-            cuiCalendarDatePicker1.EnableThemeChangeButton = true;
-            cuiCalendarDatePicker1.Font = new Font("Segoe UI", 9.75F);
-            cuiCalendarDatePicker1.ForeColor = Color.Gray;
-            cuiCalendarDatePicker1.HoverBackground = Color.FromArgb(50, 128, 128, 128);
-            cuiCalendarDatePicker1.HoverOutline = Color.FromArgb(180, 128, 128, 128);
-            cuiCalendarDatePicker1.Icon = (Image)resources.GetObject("cuiCalendarDatePicker1.Icon");
-            cuiCalendarDatePicker1.IconTint = Color.Gray;
-            cuiCalendarDatePicker1.Location = new Point(410, 162);
-            cuiCalendarDatePicker1.Margin = new Padding(4, 3, 4, 3);
-            cuiCalendarDatePicker1.Name = "cuiCalendarDatePicker1";
-            cuiCalendarDatePicker1.NormalBackground = Color.FromArgb(32, 128, 128, 128);
-            cuiCalendarDatePicker1.NormalOutline = Color.FromArgb(150, 128, 128, 128);
-            cuiCalendarDatePicker1.OutlineThickness = 1.5F;
-            cuiCalendarDatePicker1.PressedBackground = Color.FromArgb(80, 128, 128, 128);
-            cuiCalendarDatePicker1.PressedOutline = Color.FromArgb(210, 128, 128, 128);
-            cuiCalendarDatePicker1.Rounding = 8;
-            cuiCalendarDatePicker1.ShowIcon = true;
-            cuiCalendarDatePicker1.Size = new Size(343, 38);
-            cuiCalendarDatePicker1.TabIndex = 24;
-            cuiCalendarDatePicker1.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
-            cuiCalendarDatePicker1.Value = new DateTime(2025, 6, 6, 0, 0, 0, 0);
             // 
             // add_trainer
             // 
