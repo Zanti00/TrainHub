@@ -33,7 +33,7 @@
             // Dashboard
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(1284, 681);
+            ClientSize = new Size(683, 455);
             MaximizeBox = false;
             Name = "Dashboard";
             StartPosition = FormStartPosition.CenterScreen;
