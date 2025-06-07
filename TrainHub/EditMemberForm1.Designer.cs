@@ -28,23 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ComboBox comboBox1;
+            ComboBox comboBox3;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditMemberForm1));
             label1 = new Label();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            cuiPanel3 = new CuoreUI.Controls.cuiPanel();
+            cuiPanel2 = new CuoreUI.Controls.cuiPanel();
             cuiCalendarDatePicker2 = new CuoreUI.Controls.cuiCalendarDatePicker();
             cuiCalendarDatePicker1 = new CuoreUI.Controls.cuiCalendarDatePicker();
-            cuiComboBox2 = new CuoreUI.Controls.cuiComboBox();
-            cuiComboBox1 = new CuoreUI.Controls.cuiComboBox();
             cuiButtonGroup1 = new CuoreUI.Controls.cuiButtonGroup();
-            loginBtn = new CuoreUI.Controls.cuiButtonGroup();
+            cuiButton2 = new CuoreUI.Controls.cuiButtonGroup();
             cuiTextBox6 = new CuoreUI.Controls.cuiTextBox();
             cuiTextBox4 = new CuoreUI.Controls.cuiTextBox();
             cuiTextBox3 = new CuoreUI.Controls.cuiTextBox();
             cuiTextBox2 = new CuoreUI.Controls.cuiTextBox();
             cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
             emailTxt = new CuoreUI.Controls.cuiTextBox();
+            comboBox1 = new ComboBox();
+            comboBox3 = new ComboBox();
             cuiPanel1.SuspendLayout();
+            cuiPanel3.SuspendLayout();
+            cuiPanel2.SuspendLayout();
             SuspendLayout();
+            // 
+            // comboBox1
+            // 
+            comboBox1.BackColor = Color.White;
+            comboBox1.DropDownHeight = 150;
+            comboBox1.FlatStyle = FlatStyle.Flat;
+            comboBox1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboBox1.ForeColor = Color.Black;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.IntegralHeight = false;
+            comboBox1.Items.AddRange(new object[] { "Inactive", "Active" });
+            comboBox1.Location = new Point(13, 7);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(320, 24);
+            comboBox1.TabIndex = 5;
+            comboBox1.Text = "Status";
+            // 
+            // comboBox3
+            // 
+            comboBox3.BackColor = Color.White;
+            comboBox3.DropDownHeight = 150;
+            comboBox3.FlatStyle = FlatStyle.Flat;
+            comboBox3.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboBox3.ForeColor = Color.Black;
+            comboBox3.FormattingEnabled = true;
+            comboBox3.IntegralHeight = false;
+            comboBox3.Items.AddRange(new object[] { "Daily", "Monthly", "Quarterly", "Yearly" });
+            comboBox3.Location = new Point(13, 7);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(320, 24);
+            comboBox3.TabIndex = 5;
+            comboBox3.Text = "Membership Type";
             // 
             // label1
             // 
@@ -59,12 +97,12 @@
             // 
             // cuiPanel1
             // 
+            cuiPanel1.Controls.Add(cuiPanel3);
+            cuiPanel1.Controls.Add(cuiPanel2);
             cuiPanel1.Controls.Add(cuiCalendarDatePicker2);
             cuiPanel1.Controls.Add(cuiCalendarDatePicker1);
-            cuiPanel1.Controls.Add(cuiComboBox2);
-            cuiPanel1.Controls.Add(cuiComboBox1);
             cuiPanel1.Controls.Add(cuiButtonGroup1);
-            cuiPanel1.Controls.Add(loginBtn);
+            cuiPanel1.Controls.Add(cuiButton2);
             cuiPanel1.Controls.Add(cuiTextBox6);
             cuiPanel1.Controls.Add(cuiTextBox4);
             cuiPanel1.Controls.Add(cuiTextBox3);
@@ -80,11 +118,37 @@
             cuiPanel1.Size = new Size(774, 347);
             cuiPanel1.TabIndex = 4;
             // 
+            // cuiPanel3
+            // 
+            cuiPanel3.BackColor = Color.Transparent;
+            cuiPanel3.Controls.Add(comboBox3);
+            cuiPanel3.Location = new Point(400, 192);
+            cuiPanel3.Name = "cuiPanel3";
+            cuiPanel3.OutlineThickness = 1F;
+            cuiPanel3.PanelColor = Color.White;
+            cuiPanel3.PanelOutlineColor = Color.Black;
+            cuiPanel3.Rounding = new Padding(10);
+            cuiPanel3.Size = new Size(343, 38);
+            cuiPanel3.TabIndex = 30;
+            // 
+            // cuiPanel2
+            // 
+            cuiPanel2.BackColor = Color.Transparent;
+            cuiPanel2.Controls.Add(comboBox1);
+            cuiPanel2.Location = new Point(400, 144);
+            cuiPanel2.Name = "cuiPanel2";
+            cuiPanel2.OutlineThickness = 1F;
+            cuiPanel2.PanelColor = Color.White;
+            cuiPanel2.PanelOutlineColor = Color.Black;
+            cuiPanel2.Rounding = new Padding(10);
+            cuiPanel2.Size = new Size(343, 38);
+            cuiPanel2.TabIndex = 29;
+            // 
             // cuiCalendarDatePicker2
             // 
             cuiCalendarDatePicker2.EnableThemeChangeButton = true;
             cuiCalendarDatePicker2.Font = new Font("Segoe UI", 9.75F);
-            cuiCalendarDatePicker2.ForeColor = Color.Gray;
+            cuiCalendarDatePicker2.ForeColor = Color.DarkGray;
             cuiCalendarDatePicker2.HoverBackground = Color.FromArgb(50, 128, 128, 128);
             cuiCalendarDatePicker2.HoverOutline = Color.FromArgb(180, 128, 128, 128);
             cuiCalendarDatePicker2.Icon = (Image)resources.GetObject("cuiCalendarDatePicker2.Icon");
@@ -108,7 +172,7 @@
             // 
             cuiCalendarDatePicker1.EnableThemeChangeButton = true;
             cuiCalendarDatePicker1.Font = new Font("Segoe UI", 9.75F);
-            cuiCalendarDatePicker1.ForeColor = Color.Gray;
+            cuiCalendarDatePicker1.ForeColor = Color.DarkGray;
             cuiCalendarDatePicker1.HoverBackground = Color.FromArgb(50, 128, 128, 128);
             cuiCalendarDatePicker1.HoverOutline = Color.FromArgb(180, 128, 128, 128);
             cuiCalendarDatePicker1.Icon = (Image)resources.GetObject("cuiCalendarDatePicker1.Icon");
@@ -127,60 +191,6 @@
             cuiCalendarDatePicker1.TabIndex = 26;
             cuiCalendarDatePicker1.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
             cuiCalendarDatePicker1.Value = new DateTime(2025, 6, 4, 0, 0, 0, 0);
-            // 
-            // cuiComboBox2
-            // 
-            cuiComboBox2.BackColor = Color.White;
-            cuiComboBox2.BackgroundColor = Color.White;
-            cuiComboBox2.ButtonCursor = Cursors.Arrow;
-            cuiComboBox2.ButtonHoverBackground = Color.Silver;
-            cuiComboBox2.ButtonHoverOutline = Color.Empty;
-            cuiComboBox2.ButtonNormalBackground = Color.FromArgb(255, 106, 0);
-            cuiComboBox2.ButtonNormalOutline = Color.Empty;
-            cuiComboBox2.ButtonPressedBackground = Color.FromArgb(255, 106, 0);
-            cuiComboBox2.ButtonPressedOutline = Color.Gray;
-            cuiComboBox2.DropDownBackgroundColor = Color.White;
-            cuiComboBox2.DropDownOutlineColor = Color.FromArgb(51, 81, 88);
-            cuiComboBox2.ExpandArrowColor = Color.Gray;
-            cuiComboBox2.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiComboBox2.ForeColor = Color.Black;
-            cuiComboBox2.Location = new Point(400, 192);
-            cuiComboBox2.Margin = new Padding(4);
-            cuiComboBox2.Name = "cuiComboBox2";
-            cuiComboBox2.NoSelectionDropdownText = "Empty";
-            cuiComboBox2.NoSelectionText = "Status";
-            cuiComboBox2.OutlineColor = Color.FromArgb(51, 81, 88);
-            cuiComboBox2.OutlineThickness = 1F;
-            cuiComboBox2.Rounding = 10;
-            cuiComboBox2.Size = new Size(343, 39);
-            cuiComboBox2.TabIndex = 23;
-            // 
-            // cuiComboBox1
-            // 
-            cuiComboBox1.BackColor = Color.White;
-            cuiComboBox1.BackgroundColor = Color.White;
-            cuiComboBox1.ButtonCursor = Cursors.Arrow;
-            cuiComboBox1.ButtonHoverBackground = Color.Silver;
-            cuiComboBox1.ButtonHoverOutline = Color.Empty;
-            cuiComboBox1.ButtonNormalBackground = Color.White;
-            cuiComboBox1.ButtonNormalOutline = Color.Empty;
-            cuiComboBox1.ButtonPressedBackground = Color.Gray;
-            cuiComboBox1.ButtonPressedOutline = Color.Empty;
-            cuiComboBox1.DropDownBackgroundColor = Color.White;
-            cuiComboBox1.DropDownOutlineColor = Color.FromArgb(51, 81, 88);
-            cuiComboBox1.ExpandArrowColor = Color.Gray;
-            cuiComboBox1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiComboBox1.ForeColor = Color.Black;
-            cuiComboBox1.Location = new Point(400, 143);
-            cuiComboBox1.Margin = new Padding(4);
-            cuiComboBox1.Name = "cuiComboBox1";
-            cuiComboBox1.NoSelectionDropdownText = "Empty";
-            cuiComboBox1.NoSelectionText = "Membership Type";
-            cuiComboBox1.OutlineColor = Color.FromArgb(51, 81, 88);
-            cuiComboBox1.OutlineThickness = 1F;
-            cuiComboBox1.Rounding = 10;
-            cuiComboBox1.Size = new Size(343, 39);
-            cuiComboBox1.TabIndex = 22;
             // 
             // cuiButtonGroup1
             // 
@@ -219,44 +229,46 @@
             cuiButtonGroup1.TabIndex = 21;
             cuiButtonGroup1.TextAlignment = StringAlignment.Center;
             cuiButtonGroup1.TextOffset = new Point(0, 0);
+            cuiButtonGroup1.Click += cuiButtonGroup1_Click;
             // 
-            // loginBtn
+            // cuiButton2
             // 
-            loginBtn.BackColor = Color.Transparent;
-            loginBtn.Checked = false;
-            loginBtn.CheckedBackground = Color.FromArgb(50, 81, 88);
-            loginBtn.CheckedForeColor = Color.White;
-            loginBtn.CheckedImageTint = Color.White;
-            loginBtn.CheckedOutline = Color.FromArgb(50, 81, 88);
-            loginBtn.Content = "OK";
-            loginBtn.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            loginBtn.ForeColor = Color.White;
-            loginBtn.Group = 0;
-            loginBtn.HoverBackground = Color.White;
-            loginBtn.HoveredImageTint = Color.White;
-            loginBtn.HoverForeColor = Color.Black;
-            loginBtn.HoverOutline = Color.FromArgb(22, 36, 39);
-            loginBtn.Image = null;
-            loginBtn.ImageAutoCenter = true;
-            loginBtn.ImageExpand = new Point(0, 0);
-            loginBtn.ImageOffset = new Point(0, 0);
-            loginBtn.Location = new Point(657, 279);
-            loginBtn.Margin = new Padding(3, 4, 3, 4);
-            loginBtn.Name = "loginBtn";
-            loginBtn.NormalBackground = Color.FromArgb(50, 81, 88);
-            loginBtn.NormalForeColor = Color.White;
-            loginBtn.NormalImageTint = Color.White;
-            loginBtn.NormalOutline = Color.FromArgb(50, 81, 88);
-            loginBtn.OutlineThickness = 1F;
-            loginBtn.PressedBackground = Color.FromArgb(22, 36, 39);
-            loginBtn.PressedForeColor = Color.White;
-            loginBtn.PressedImageTint = Color.White;
-            loginBtn.PressedOutline = Color.FromArgb(22, 36, 39);
-            loginBtn.Rounding = new Padding(10);
-            loginBtn.Size = new Size(86, 35);
-            loginBtn.TabIndex = 20;
-            loginBtn.TextAlignment = StringAlignment.Center;
-            loginBtn.TextOffset = new Point(0, 0);
+            cuiButton2.BackColor = Color.Transparent;
+            cuiButton2.Checked = false;
+            cuiButton2.CheckedBackground = Color.FromArgb(50, 81, 88);
+            cuiButton2.CheckedForeColor = Color.White;
+            cuiButton2.CheckedImageTint = Color.White;
+            cuiButton2.CheckedOutline = Color.FromArgb(50, 81, 88);
+            cuiButton2.Content = "OK";
+            cuiButton2.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cuiButton2.ForeColor = Color.White;
+            cuiButton2.Group = 0;
+            cuiButton2.HoverBackground = Color.White;
+            cuiButton2.HoveredImageTint = Color.White;
+            cuiButton2.HoverForeColor = Color.Black;
+            cuiButton2.HoverOutline = Color.FromArgb(22, 36, 39);
+            cuiButton2.Image = null;
+            cuiButton2.ImageAutoCenter = true;
+            cuiButton2.ImageExpand = new Point(0, 0);
+            cuiButton2.ImageOffset = new Point(0, 0);
+            cuiButton2.Location = new Point(657, 279);
+            cuiButton2.Margin = new Padding(3, 4, 3, 4);
+            cuiButton2.Name = "cuiButton2";
+            cuiButton2.NormalBackground = Color.FromArgb(50, 81, 88);
+            cuiButton2.NormalForeColor = Color.White;
+            cuiButton2.NormalImageTint = Color.White;
+            cuiButton2.NormalOutline = Color.FromArgb(50, 81, 88);
+            cuiButton2.OutlineThickness = 1F;
+            cuiButton2.PressedBackground = Color.FromArgb(22, 36, 39);
+            cuiButton2.PressedForeColor = Color.White;
+            cuiButton2.PressedImageTint = Color.White;
+            cuiButton2.PressedOutline = Color.FromArgb(22, 36, 39);
+            cuiButton2.Rounding = new Padding(10);
+            cuiButton2.Size = new Size(86, 35);
+            cuiButton2.TabIndex = 20;
+            cuiButton2.TextAlignment = StringAlignment.Center;
+            cuiButton2.TextOffset = new Point(0, 0);
+            cuiButton2.Click += cuiButton2_Click;
             // 
             // cuiTextBox6
             // 
@@ -444,6 +456,8 @@
             Name = "EditMemberForm1";
             Text = "EditMemberForm1";
             cuiPanel1.ResumeLayout(false);
+            cuiPanel3.ResumeLayout(false);
+            cuiPanel2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -453,15 +467,16 @@
         private CuoreUI.Controls.cuiPanel cuiPanel1;
         private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker2;
         private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker1;
-        private CuoreUI.Controls.cuiComboBox cuiComboBox2;
-        private CuoreUI.Controls.cuiComboBox cuiComboBox1;
         private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup1;
-        private CuoreUI.Controls.cuiButtonGroup loginBtn;
+        private CuoreUI.Controls.cuiButtonGroup cuiButton2;
         private CuoreUI.Controls.cuiTextBox cuiTextBox6;
         private CuoreUI.Controls.cuiTextBox cuiTextBox4;
         private CuoreUI.Controls.cuiTextBox cuiTextBox3;
         private CuoreUI.Controls.cuiTextBox cuiTextBox2;
         private CuoreUI.Controls.cuiTextBox cuiTextBox1;
         private CuoreUI.Controls.cuiTextBox emailTxt;
+        private ComboBox comboBox1;
+        private CuoreUI.Controls.cuiPanel cuiPanel2;
+        private CuoreUI.Controls.cuiPanel cuiPanel3;
     }
 }
