@@ -51,6 +51,7 @@
             cuiTextBox4 = new CuoreUI.Controls.cuiTextBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
             flowLayoutPanel2 = new FlowLayoutPanel();
+            cuiButtonGroup1 = new CuoreUI.Controls.cuiButtonGroup();
             cuiPanel1.SuspendLayout();
             cuiPanel6.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -340,6 +341,7 @@
             // cuiPanel2
             // 
             cuiPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cuiPanel2.Controls.Add(cuiButtonGroup1);
             cuiPanel2.Controls.Add(cuiTextBox4);
             cuiPanel2.Location = new Point(21, 109);
             cuiPanel2.Margin = new Padding(3, 2, 3, 2);
@@ -403,6 +405,44 @@
             flowLayoutPanel2.Size = new Size(239, 498);
             flowLayoutPanel2.TabIndex = 30;
             // 
+            // cuiButtonGroup1
+            // 
+            cuiButtonGroup1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            cuiButtonGroup1.BackColor = Color.Transparent;
+            cuiButtonGroup1.Checked = false;
+            cuiButtonGroup1.CheckedBackground = Color.FromArgb(50, 81, 88);
+            cuiButtonGroup1.CheckedForeColor = Color.White;
+            cuiButtonGroup1.CheckedImageTint = Color.White;
+            cuiButtonGroup1.CheckedOutline = Color.FromArgb(50, 81, 88);
+            cuiButtonGroup1.Content = "  Sort By";
+            cuiButtonGroup1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cuiButtonGroup1.ForeColor = Color.DimGray;
+            cuiButtonGroup1.Group = 0;
+            cuiButtonGroup1.HoverBackground = Color.FromArgb(51, 81, 88);
+            cuiButtonGroup1.HoveredImageTint = Color.White;
+            cuiButtonGroup1.HoverForeColor = Color.White;
+            cuiButtonGroup1.HoverOutline = Color.FromArgb(51, 81, 88);
+            cuiButtonGroup1.Image = (Image)resources.GetObject("cuiButtonGroup1.Image");
+            cuiButtonGroup1.ImageAutoCenter = true;
+            cuiButtonGroup1.ImageExpand = new Point(0, 0);
+            cuiButtonGroup1.ImageOffset = new Point(0, 0);
+            cuiButtonGroup1.Location = new Point(684, 10);
+            cuiButtonGroup1.Name = "cuiButtonGroup1";
+            cuiButtonGroup1.NormalBackground = Color.White;
+            cuiButtonGroup1.NormalForeColor = Color.DimGray;
+            cuiButtonGroup1.NormalImageTint = Color.White;
+            cuiButtonGroup1.NormalOutline = Color.FromArgb(50, 81, 88);
+            cuiButtonGroup1.OutlineThickness = 1F;
+            cuiButtonGroup1.PressedBackground = Color.FromArgb(22, 36, 39);
+            cuiButtonGroup1.PressedForeColor = Color.White;
+            cuiButtonGroup1.PressedImageTint = Color.White;
+            cuiButtonGroup1.PressedOutline = Color.FromArgb(22, 36, 39);
+            cuiButtonGroup1.Rounding = new Padding(10);
+            cuiButtonGroup1.Size = new Size(89, 32);
+            cuiButtonGroup1.TabIndex = 23;
+            cuiButtonGroup1.TextAlignment = StringAlignment.Center;
+            cuiButtonGroup1.TextOffset = new Point(0, 0);
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -447,5 +487,6 @@
         private CuoreUI.Controls.cuiTextBox cuiTextBox4;
         private FlowLayoutPanel flowLayoutPanel1;
         private FlowLayoutPanel flowLayoutPanel2;
+        private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup1;
     }
 }
