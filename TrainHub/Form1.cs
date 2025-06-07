@@ -29,17 +29,21 @@ namespace TrainHub
 
         private void cuiButtonGroup2_Click(object sender, EventArgs e)
         {
-
+           
+            add_trainer addTrainerForm = new add_trainer();
+            addTrainerForm.Show(); // use ShowDialog() if you want it to block until closed
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            edit_trainer editTrainerForm = new edit_trainer();
+            editTrainerForm.Show(); // Or ShowDialog() if you want it modal
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            edit_trainer editTrainerForm = new edit_trainer();
+            editTrainerForm.Show(); // Or ShowDialog() if you want it modal
         }
 
         private void button2_Click(object sender, EventArgs e)

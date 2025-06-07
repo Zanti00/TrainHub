@@ -311,7 +311,7 @@
             cuiButtonGroup2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cuiButtonGroup2.ForeColor = Color.Black;
             cuiButtonGroup2.Group = 0;
-            cuiButtonGroup2.HoverBackground = Color.Transparent;
+            cuiButtonGroup2.HoverBackground = Color.LightGray;
             cuiButtonGroup2.HoveredImageTint = Color.Transparent;
             cuiButtonGroup2.HoverForeColor = Color.Black;
             cuiButtonGroup2.HoverOutline = Color.White;
