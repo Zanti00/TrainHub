@@ -54,6 +54,7 @@
             // 
             // comboBox1
             // 
+            comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             comboBox1.BackColor = Color.White;
             comboBox1.DropDownHeight = 150;
             comboBox1.FlatStyle = FlatStyle.Flat;
@@ -70,6 +71,7 @@
             // 
             // comboBox3
             // 
+            comboBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             comboBox3.BackColor = Color.White;
             comboBox3.DropDownHeight = 150;
             comboBox3.FlatStyle = FlatStyle.Flat;
@@ -97,6 +99,7 @@
             // 
             // cuiPanel1
             // 
+            cuiPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cuiPanel1.Controls.Add(cuiPanel3);
             cuiPanel1.Controls.Add(cuiPanel2);
             cuiPanel1.Controls.Add(cuiCalendarDatePicker2);
@@ -120,6 +123,7 @@
             // 
             // cuiPanel3
             // 
+            cuiPanel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cuiPanel3.BackColor = Color.Transparent;
             cuiPanel3.Controls.Add(comboBox3);
             cuiPanel3.Location = new Point(400, 192);
@@ -133,6 +137,7 @@
             // 
             // cuiPanel2
             // 
+            cuiPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cuiPanel2.BackColor = Color.Transparent;
             cuiPanel2.Controls.Add(comboBox1);
             cuiPanel2.Location = new Point(400, 144);
@@ -146,6 +151,7 @@
             // 
             // cuiCalendarDatePicker2
             // 
+            cuiCalendarDatePicker2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cuiCalendarDatePicker2.EnableThemeChangeButton = true;
             cuiCalendarDatePicker2.Font = new Font("Segoe UI", 9.75F);
             cuiCalendarDatePicker2.ForeColor = Color.DarkGray;
@@ -170,6 +176,7 @@
             // 
             // cuiCalendarDatePicker1
             // 
+            cuiCalendarDatePicker1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cuiCalendarDatePicker1.EnableThemeChangeButton = true;
             cuiCalendarDatePicker1.Font = new Font("Segoe UI", 9.75F);
             cuiCalendarDatePicker1.ForeColor = Color.DarkGray;
@@ -194,6 +201,7 @@
             // 
             // cuiButtonGroup1
             // 
+            cuiButtonGroup1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cuiButtonGroup1.BackColor = Color.Transparent;
             cuiButtonGroup1.Checked = false;
             cuiButtonGroup1.CheckedBackground = Color.FromArgb(50, 81, 88);
@@ -233,6 +241,7 @@
             // 
             // cuiButton2
             // 
+            cuiButton2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cuiButton2.BackColor = Color.Transparent;
             cuiButton2.Checked = false;
             cuiButton2.CheckedBackground = Color.FromArgb(50, 81, 88);
@@ -272,6 +281,7 @@
             // 
             // cuiTextBox6
             // 
+            cuiTextBox6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cuiTextBox6.BackColor = Color.Transparent;
             cuiTextBox6.BackgroundColor = Color.White;
             cuiTextBox6.BorderColor = Color.FromArgb(50, 81, 88);
@@ -301,6 +311,7 @@
             // 
             // cuiTextBox4
             // 
+            cuiTextBox4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cuiTextBox4.BackColor = Color.Transparent;
             cuiTextBox4.BackgroundColor = Color.White;
             cuiTextBox4.BorderColor = Color.FromArgb(50, 81, 88);
@@ -330,6 +341,7 @@
             // 
             // cuiTextBox3
             // 
+            cuiTextBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cuiTextBox3.BackColor = Color.Transparent;
             cuiTextBox3.BackgroundColor = Color.White;
             cuiTextBox3.BorderColor = Color.FromArgb(50, 81, 88);
@@ -359,6 +371,7 @@
             // 
             // cuiTextBox2
             // 
+            cuiTextBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cuiTextBox2.BackColor = Color.Transparent;
             cuiTextBox2.BackgroundColor = Color.White;
             cuiTextBox2.BorderColor = Color.FromArgb(50, 81, 88);
@@ -388,6 +401,7 @@
             // 
             // cuiTextBox1
             // 
+            cuiTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cuiTextBox1.BackColor = Color.Transparent;
             cuiTextBox1.BackgroundColor = Color.White;
             cuiTextBox1.BorderColor = Color.FromArgb(50, 81, 88);
@@ -417,6 +431,7 @@
             // 
             // emailTxt
             // 
+            emailTxt.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             emailTxt.BackColor = Color.Transparent;
             emailTxt.BackgroundColor = Color.White;
             emailTxt.BorderColor = Color.FromArgb(50, 81, 88);

@@ -15,6 +15,13 @@ namespace TrainHub
         public RegisterNewMember()
         {
             InitializeComponent();
+
+            // Prevent resizing, but allow moving
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.ControlBox = true;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void label1_Click(object sender, EventArgs e)
