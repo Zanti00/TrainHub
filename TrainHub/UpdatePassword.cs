@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace TrainHub
 {
@@ -62,6 +63,12 @@ namespace TrainHub
                 if (string.IsNullOrWhiteSpace(newPasswordTxt1.TextContent))
                 {
                     MessageBox.Show("Password cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!(Regex.IsMatch(newPasswordTxt1.TextContent, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).+$") && (newPasswordTxt1.TextContent).Length >= 8))
+                {
+                    MessageBox.Show("Password should contain at least 1 special, number, uppercase, and a lowercase character and it should be 8 characters long.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 

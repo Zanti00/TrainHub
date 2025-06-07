@@ -16,7 +16,6 @@ namespace TrainHub
 {
     public partial class ForgotPassword : Form
     {
-        string verificationCode;
         public static string to;
         public ForgotPassword()
         {
@@ -75,11 +74,6 @@ namespace TrainHub
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
