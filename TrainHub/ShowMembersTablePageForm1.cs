@@ -15,6 +15,25 @@ namespace TrainHub
         public ShowMembersTablePageForm1()
         {
             InitializeComponent();
+
+            // Lock window size and controls
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.ControlBox = true;
+            this.StartPosition = FormStartPosition.CenterScreen;
+        }
+
+        // Prevent the form from being dragged
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_NCLBUTTONDOWN = 0xA1;
+            const int HTCAPTION = 0x2;
+
+            if (m.Msg == WM_NCLBUTTONDOWN && m.WParam.ToInt32() == HTCAPTION)
+                return;
+
+            base.WndProc(ref m);
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -49,5 +68,4 @@ namespace TrainHub
             f2.ShowDialog();
         }
     }
-
 }

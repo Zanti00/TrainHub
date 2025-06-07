@@ -69,6 +69,7 @@
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             flowLayoutPanel1.BackColor = Color.FromArgb(51, 81, 88);
             flowLayoutPanel1.ForeColor = SystemColors.ControlLightLight;
             flowLayoutPanel1.Location = new Point(-9, -21);
@@ -96,6 +97,7 @@
             // 
             // cuiPanel6
             // 
+            cuiPanel6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cuiPanel6.Controls.Add(tableLayoutPanel1);
             cuiPanel6.Location = new Point(39, 235);
             cuiPanel6.Name = "cuiPanel6";
@@ -108,6 +110,7 @@
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.BackColor = Color.White;
             tableLayoutPanel1.ColumnCount = 12;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
@@ -372,6 +375,7 @@
             // 
             // cuiPanel3
             // 
+            cuiPanel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cuiPanel3.Location = new Point(39, 220);
             cuiPanel3.Name = "cuiPanel3";
             cuiPanel3.OutlineThickness = 1F;
@@ -406,6 +410,8 @@
             // 
             // cuiButtonGroup2
             // 
+            cuiButtonGroup2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cuiButtonGroup2.AutoSize = true;
             cuiButtonGroup2.BackColor = Color.Transparent;
             cuiButtonGroup2.Checked = false;
             cuiButtonGroup2.CheckedBackground = Color.White;
@@ -445,6 +451,7 @@
             // 
             // cuiPanel2
             // 
+            cuiPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cuiPanel2.Controls.Add(cuiButtonGroup1);
             cuiPanel2.Controls.Add(cuiTextBox4);
             cuiPanel2.Location = new Point(39, 145);
@@ -458,7 +465,7 @@
             // 
             // cuiButtonGroup1
             // 
-            cuiButtonGroup1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            cuiButtonGroup1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cuiButtonGroup1.BackColor = Color.Transparent;
             cuiButtonGroup1.Checked = false;
             cuiButtonGroup1.CheckedBackground = Color.FromArgb(50, 81, 88);
@@ -497,6 +504,8 @@
             // 
             // cuiTextBox4
             // 
+            cuiTextBox4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cuiTextBox4.AutoSize = true;
             cuiTextBox4.BackColor = Color.Transparent;
             cuiTextBox4.BackgroundColor = Color.White;
             cuiTextBox4.BorderColor = Color.FromArgb(50, 81, 88);
@@ -543,6 +552,7 @@
             cuiPanel4.ResumeLayout(false);
             cuiPanel4.PerformLayout();
             cuiPanel2.ResumeLayout(false);
+            cuiPanel2.PerformLayout();
             ResumeLayout(false);
         }
 
