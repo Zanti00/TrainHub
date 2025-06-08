@@ -55,8 +55,10 @@
             dataGridView2 = new DataGridView();
             Column8 = new DataGridViewTextBoxColumn();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             cuiButtonGroup3 = new CuoreUI.Controls.cuiButtonGroup();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
+            cuiPanel2.SuspendLayout();
             cuiPanel7.SuspendLayout();
             cuiPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -77,6 +79,7 @@
             // cuiPanel2
             // 
             cuiPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cuiPanel2.Controls.Add(cuiTextBox1);
             cuiPanel2.Location = new Point(39, 145);
             cuiPanel2.Name = "cuiPanel2";
             cuiPanel2.OutlineThickness = 1F;
@@ -396,16 +399,6 @@
             cuiPanel1.Size = new Size(1539, 784);
             cuiPanel1.TabIndex = 9;
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            flowLayoutPanel1.BackColor = Color.FromArgb(51, 81, 88);
-            flowLayoutPanel1.ForeColor = SystemColors.ControlLightLight;
-            flowLayoutPanel1.Location = new Point(-2, -12);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(308, 1049);
-            flowLayoutPanel1.TabIndex = 8;
-            // 
             // cuiButtonGroup3
             // 
             cuiButtonGroup3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -445,6 +438,46 @@
             cuiButtonGroup3.TextAlignment = StringAlignment.Center;
             cuiButtonGroup3.TextOffset = new Point(0, 0);
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            flowLayoutPanel1.BackColor = Color.FromArgb(51, 81, 88);
+            flowLayoutPanel1.ForeColor = SystemColors.ControlLightLight;
+            flowLayoutPanel1.Location = new Point(-2, -12);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(308, 1049);
+            flowLayoutPanel1.TabIndex = 8;
+            // 
+            // cuiTextBox1
+            // 
+            cuiTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cuiTextBox1.BackColor = Color.Transparent;
+            cuiTextBox1.BackgroundColor = Color.White;
+            cuiTextBox1.BorderColor = Color.FromArgb(50, 81, 88);
+            cuiTextBox1.Content = "";
+            cuiTextBox1.FocusBackgroundColor = Color.White;
+            cuiTextBox1.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            cuiTextBox1.FocusImageTint = Color.White;
+            cuiTextBox1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cuiTextBox1.ForeColor = Color.Black;
+            cuiTextBox1.Image = null;
+            cuiTextBox1.ImageExpand = new Point(0, 0);
+            cuiTextBox1.ImageOffset = new Point(0, 0);
+            cuiTextBox1.Location = new Point(964, 17);
+            cuiTextBox1.Margin = new Padding(5);
+            cuiTextBox1.Multiline = false;
+            cuiTextBox1.Name = "cuiTextBox1";
+            cuiTextBox1.NormalImageTint = Color.White;
+            cuiTextBox1.Padding = new Padding(17, 13, 17, 0);
+            cuiTextBox1.PasswordChar = false;
+            cuiTextBox1.PlaceholderColor = Color.DimGray;
+            cuiTextBox1.PlaceholderText = "Search";
+            cuiTextBox1.Rounding = new Padding(10);
+            cuiTextBox1.Size = new Size(357, 43);
+            cuiTextBox1.TabIndex = 40;
+            cuiTextBox1.TextOffset = new Size(0, 0);
+            cuiTextBox1.UnderlinedStyle = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -454,6 +487,7 @@
             Controls.Add(flowLayoutPanel1);
             Name = "Form1";
             Text = "Form1";
+            cuiPanel2.ResumeLayout(false);
             cuiPanel7.ResumeLayout(false);
             cuiPanel7.PerformLayout();
             cuiPanel8.ResumeLayout(false);
@@ -490,5 +524,6 @@
         private CuoreUI.Controls.cuiPanel cuiPanel1;
         private FlowLayoutPanel flowLayoutPanel1;
         private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup3;
+        private CuoreUI.Controls.cuiTextBox cuiTextBox1;
     }
 }
