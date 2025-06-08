@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             label2 = new Label();
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
             cuiTextBox4 = new CuoreUI.Controls.cuiTextBox();
@@ -55,14 +55,19 @@
             dataGridView2 = new DataGridView();
             Column8 = new DataGridViewTextBoxColumn();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             cuiPanel3 = new CuoreUI.Controls.cuiPanel();
             cuiButtonGroup3 = new CuoreUI.Controls.cuiButtonGroup();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            cuiPanel4 = new CuoreUI.Controls.cuiPanel();
+            cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
+            cuiButtonGroup4 = new CuoreUI.Controls.cuiButtonGroup();
+            cuiPanel2.SuspendLayout();
             cuiPanel7.SuspendLayout();
             cuiPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             cuiPanel1.SuspendLayout();
             cuiPanel3.SuspendLayout();
+            cuiPanel4.SuspendLayout();
             SuspendLayout();
             // 
             // label2
@@ -79,6 +84,7 @@
             // cuiPanel2
             // 
             cuiPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cuiPanel2.Controls.Add(cuiPanel4);
             cuiPanel2.Location = new Point(39, 145);
             cuiPanel2.Name = "cuiPanel2";
             cuiPanel2.OutlineThickness = 1F;
@@ -326,44 +332,44 @@
             dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView2.BackgroundColor = Color.White;
             dataGridView2.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 250, 252);
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(248, 250, 252);
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10, Column11d, Column12 });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.Silver;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = Color.Silver;
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dataGridView2.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridView2.EnableHeadersVisualStyles = false;
             dataGridView2.GridColor = SystemColors.HighlightText;
             dataGridView2.Location = new Point(39, 220);
             dataGridView2.Name = "dataGridView2";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new Padding(5, 0, 0, 0);
-            dataGridViewCellStyle3.SelectionBackColor = Color.Silver;
-            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.Padding = new Padding(5, 0, 0, 0);
+            dataGridViewCellStyle7.SelectionBackColor = Color.Silver;
+            dataGridViewCellStyle7.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridView2.RowHeadersVisible = false;
             dataGridView2.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.Padding = new Padding(2, 0, 0, 0);
-            dataGridViewCellStyle4.SelectionBackColor = Color.Silver;
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            dataGridViewCellStyle8.Padding = new Padding(2, 0, 0, 0);
+            dataGridViewCellStyle8.SelectionBackColor = Color.Silver;
+            dataGridViewCellStyle8.SelectionForeColor = Color.Black;
+            dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle8;
             dataGridView2.RowTemplate.DefaultCellStyle.Padding = new Padding(0, 10, 0, 10);
             dataGridView2.RowTemplate.DividerHeight = 1;
             dataGridView2.RowTemplate.Height = 60;
@@ -397,16 +403,6 @@
             cuiPanel1.Rounding = new Padding(8);
             cuiPanel1.Size = new Size(1540, 784);
             cuiPanel1.TabIndex = 9;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            flowLayoutPanel1.BackColor = Color.FromArgb(51, 81, 88);
-            flowLayoutPanel1.ForeColor = SystemColors.ControlLightLight;
-            flowLayoutPanel1.Location = new Point(3, -10);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(315, 1047);
-            flowLayoutPanel1.TabIndex = 8;
             // 
             // cuiPanel3
             // 
@@ -461,6 +457,99 @@
             cuiButtonGroup3.TextAlignment = StringAlignment.Center;
             cuiButtonGroup3.TextOffset = new Point(0, 0);
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            flowLayoutPanel1.BackColor = Color.FromArgb(51, 81, 88);
+            flowLayoutPanel1.ForeColor = SystemColors.ControlLightLight;
+            flowLayoutPanel1.Location = new Point(3, -10);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(315, 1047);
+            flowLayoutPanel1.TabIndex = 8;
+            // 
+            // cuiPanel4
+            // 
+            cuiPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cuiPanel4.Controls.Add(cuiTextBox1);
+            cuiPanel4.Controls.Add(cuiButtonGroup4);
+            cuiPanel4.Location = new Point(990, 12);
+            cuiPanel4.Name = "cuiPanel4";
+            cuiPanel4.OutlineThickness = 1F;
+            cuiPanel4.PanelColor = Color.FromArgb(248, 250, 252);
+            cuiPanel4.PanelOutlineColor = Color.FromArgb(248, 250, 252);
+            cuiPanel4.Rounding = new Padding(8, 8, 0, 0);
+            cuiPanel4.Size = new Size(495, 57);
+            cuiPanel4.TabIndex = 37;
+            // 
+            // cuiTextBox1
+            // 
+            cuiTextBox1.AutoSize = true;
+            cuiTextBox1.BackColor = Color.Transparent;
+            cuiTextBox1.BackgroundColor = Color.White;
+            cuiTextBox1.BorderColor = Color.FromArgb(50, 81, 88);
+            cuiTextBox1.Content = "";
+            cuiTextBox1.FocusBackgroundColor = Color.White;
+            cuiTextBox1.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            cuiTextBox1.FocusImageTint = Color.White;
+            cuiTextBox1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cuiTextBox1.ForeColor = Color.Black;
+            cuiTextBox1.Image = null;
+            cuiTextBox1.ImageExpand = new Point(0, 0);
+            cuiTextBox1.ImageOffset = new Point(0, 0);
+            cuiTextBox1.Location = new Point(44, 5);
+            cuiTextBox1.Margin = new Padding(5);
+            cuiTextBox1.Multiline = false;
+            cuiTextBox1.Name = "cuiTextBox1";
+            cuiTextBox1.NormalImageTint = Color.White;
+            cuiTextBox1.Padding = new Padding(17, 13, 17, 0);
+            cuiTextBox1.PasswordChar = false;
+            cuiTextBox1.PlaceholderColor = Color.DimGray;
+            cuiTextBox1.PlaceholderText = "Search";
+            cuiTextBox1.Rounding = new Padding(10);
+            cuiTextBox1.Size = new Size(338, 42);
+            cuiTextBox1.TabIndex = 15;
+            cuiTextBox1.TextOffset = new Size(0, 0);
+            cuiTextBox1.UnderlinedStyle = false;
+            // 
+            // cuiButtonGroup4
+            // 
+            cuiButtonGroup4.BackColor = Color.Transparent;
+            cuiButtonGroup4.Checked = false;
+            cuiButtonGroup4.CheckedBackground = Color.FromArgb(50, 81, 88);
+            cuiButtonGroup4.CheckedForeColor = Color.White;
+            cuiButtonGroup4.CheckedImageTint = Color.White;
+            cuiButtonGroup4.CheckedOutline = Color.FromArgb(50, 81, 88);
+            cuiButtonGroup4.Content = "  Sort By";
+            cuiButtonGroup4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cuiButtonGroup4.ForeColor = Color.DimGray;
+            cuiButtonGroup4.Group = 0;
+            cuiButtonGroup4.HoverBackground = Color.FromArgb(51, 81, 88);
+            cuiButtonGroup4.HoveredImageTint = Color.White;
+            cuiButtonGroup4.HoverForeColor = Color.White;
+            cuiButtonGroup4.HoverOutline = Color.FromArgb(51, 81, 88);
+            cuiButtonGroup4.Image = (Image)resources.GetObject("cuiButtonGroup4.Image");
+            cuiButtonGroup4.ImageAutoCenter = true;
+            cuiButtonGroup4.ImageExpand = new Point(0, 0);
+            cuiButtonGroup4.ImageOffset = new Point(0, 0);
+            cuiButtonGroup4.Location = new Point(390, 5);
+            cuiButtonGroup4.Margin = new Padding(3, 4, 3, 4);
+            cuiButtonGroup4.MaximumSize = new Size(145, 42);
+            cuiButtonGroup4.Name = "cuiButtonGroup4";
+            cuiButtonGroup4.NormalBackground = Color.White;
+            cuiButtonGroup4.NormalForeColor = Color.DimGray;
+            cuiButtonGroup4.NormalImageTint = Color.White;
+            cuiButtonGroup4.NormalOutline = Color.FromArgb(50, 81, 88);
+            cuiButtonGroup4.OutlineThickness = 1F;
+            cuiButtonGroup4.PressedBackground = Color.FromArgb(22, 36, 39);
+            cuiButtonGroup4.PressedForeColor = Color.White;
+            cuiButtonGroup4.PressedImageTint = Color.White;
+            cuiButtonGroup4.PressedOutline = Color.FromArgb(22, 36, 39);
+            cuiButtonGroup4.Rounding = new Padding(10);
+            cuiButtonGroup4.Size = new Size(105, 42);
+            cuiButtonGroup4.TabIndex = 22;
+            cuiButtonGroup4.TextAlignment = StringAlignment.Center;
+            cuiButtonGroup4.TextOffset = new Point(0, 0);
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -470,6 +559,7 @@
             Controls.Add(flowLayoutPanel1);
             Name = "Form2";
             Text = "Form2";
+            cuiPanel2.ResumeLayout(false);
             cuiPanel7.ResumeLayout(false);
             cuiPanel7.PerformLayout();
             cuiPanel8.ResumeLayout(false);
@@ -479,6 +569,8 @@
             cuiPanel1.PerformLayout();
             cuiPanel3.ResumeLayout(false);
             cuiPanel3.PerformLayout();
+            cuiPanel4.ResumeLayout(false);
+            cuiPanel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -509,5 +601,8 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private CuoreUI.Controls.cuiPanel cuiPanel3;
         private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup3;
+        private CuoreUI.Controls.cuiPanel cuiPanel4;
+        private CuoreUI.Controls.cuiTextBox cuiTextBox1;
+        private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup4;
     }
 }
