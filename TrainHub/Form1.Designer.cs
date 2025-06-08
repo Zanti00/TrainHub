@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label2 = new Label();
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
+            cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
             cuiTextBox4 = new CuoreUI.Controls.cuiTextBox();
             cuiButtonGroup1 = new CuoreUI.Controls.cuiButtonGroup();
             cuiPanel7 = new CuoreUI.Controls.cuiPanel();
@@ -57,7 +58,7 @@
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             cuiButtonGroup3 = new CuoreUI.Controls.cuiButtonGroup();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
+            cuiButtonGroup4 = new CuoreUI.Controls.cuiButtonGroup();
             cuiPanel2.SuspendLayout();
             cuiPanel7.SuspendLayout();
             cuiPanel8.SuspendLayout();
@@ -79,6 +80,7 @@
             // cuiPanel2
             // 
             cuiPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cuiPanel2.Controls.Add(cuiButtonGroup4);
             cuiPanel2.Controls.Add(cuiTextBox1);
             cuiPanel2.Location = new Point(39, 145);
             cuiPanel2.Name = "cuiPanel2";
@@ -88,6 +90,36 @@
             cuiPanel2.Rounding = new Padding(8, 8, 0, 0);
             cuiPanel2.Size = new Size(2303, 76);
             cuiPanel2.TabIndex = 16;
+            // 
+            // cuiTextBox1
+            // 
+            cuiTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cuiTextBox1.BackColor = Color.Transparent;
+            cuiTextBox1.BackgroundColor = Color.White;
+            cuiTextBox1.BorderColor = Color.FromArgb(50, 81, 88);
+            cuiTextBox1.Content = "";
+            cuiTextBox1.FocusBackgroundColor = Color.White;
+            cuiTextBox1.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            cuiTextBox1.FocusImageTint = Color.White;
+            cuiTextBox1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cuiTextBox1.ForeColor = Color.Black;
+            cuiTextBox1.Image = null;
+            cuiTextBox1.ImageExpand = new Point(0, 0);
+            cuiTextBox1.ImageOffset = new Point(0, 0);
+            cuiTextBox1.Location = new Point(967, 16);
+            cuiTextBox1.Margin = new Padding(5);
+            cuiTextBox1.Multiline = false;
+            cuiTextBox1.Name = "cuiTextBox1";
+            cuiTextBox1.NormalImageTint = Color.White;
+            cuiTextBox1.Padding = new Padding(17, 13, 17, 0);
+            cuiTextBox1.PasswordChar = false;
+            cuiTextBox1.PlaceholderColor = Color.DimGray;
+            cuiTextBox1.PlaceholderText = "Search";
+            cuiTextBox1.Rounding = new Padding(10);
+            cuiTextBox1.Size = new Size(357, 43);
+            cuiTextBox1.TabIndex = 40;
+            cuiTextBox1.TextOffset = new Size(0, 0);
+            cuiTextBox1.UnderlinedStyle = false;
             // 
             // cuiTextBox4
             // 
@@ -372,6 +404,7 @@
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView2.Size = new Size(2303, 1156);
             dataGridView2.TabIndex = 35;
+            dataGridView2.CellContentClick += dataGridView2_CellContentClick;
             // 
             // Column8
             // 
@@ -448,35 +481,44 @@
             flowLayoutPanel1.Size = new Size(308, 1049);
             flowLayoutPanel1.TabIndex = 8;
             // 
-            // cuiTextBox1
+            // cuiButtonGroup4
             // 
-            cuiTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            cuiTextBox1.BackColor = Color.Transparent;
-            cuiTextBox1.BackgroundColor = Color.White;
-            cuiTextBox1.BorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox1.Content = "";
-            cuiTextBox1.FocusBackgroundColor = Color.White;
-            cuiTextBox1.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox1.FocusImageTint = Color.White;
-            cuiTextBox1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiTextBox1.ForeColor = Color.Black;
-            cuiTextBox1.Image = null;
-            cuiTextBox1.ImageExpand = new Point(0, 0);
-            cuiTextBox1.ImageOffset = new Point(0, 0);
-            cuiTextBox1.Location = new Point(964, 17);
-            cuiTextBox1.Margin = new Padding(5);
-            cuiTextBox1.Multiline = false;
-            cuiTextBox1.Name = "cuiTextBox1";
-            cuiTextBox1.NormalImageTint = Color.White;
-            cuiTextBox1.Padding = new Padding(17, 13, 17, 0);
-            cuiTextBox1.PasswordChar = false;
-            cuiTextBox1.PlaceholderColor = Color.DimGray;
-            cuiTextBox1.PlaceholderText = "Search";
-            cuiTextBox1.Rounding = new Padding(10);
-            cuiTextBox1.Size = new Size(357, 43);
-            cuiTextBox1.TabIndex = 40;
-            cuiTextBox1.TextOffset = new Size(0, 0);
-            cuiTextBox1.UnderlinedStyle = false;
+            cuiButtonGroup4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            cuiButtonGroup4.BackColor = Color.Transparent;
+            cuiButtonGroup4.Checked = false;
+            cuiButtonGroup4.CheckedBackground = Color.FromArgb(50, 81, 88);
+            cuiButtonGroup4.CheckedForeColor = Color.White;
+            cuiButtonGroup4.CheckedImageTint = Color.White;
+            cuiButtonGroup4.CheckedOutline = Color.FromArgb(50, 81, 88);
+            cuiButtonGroup4.Content = "  Sort By";
+            cuiButtonGroup4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cuiButtonGroup4.ForeColor = Color.DimGray;
+            cuiButtonGroup4.Group = 0;
+            cuiButtonGroup4.HoverBackground = Color.FromArgb(51, 81, 88);
+            cuiButtonGroup4.HoveredImageTint = Color.White;
+            cuiButtonGroup4.HoverForeColor = Color.White;
+            cuiButtonGroup4.HoverOutline = Color.FromArgb(51, 81, 88);
+            cuiButtonGroup4.Image = (Image)resources.GetObject("cuiButtonGroup4.Image");
+            cuiButtonGroup4.ImageAutoCenter = true;
+            cuiButtonGroup4.ImageExpand = new Point(0, 0);
+            cuiButtonGroup4.ImageOffset = new Point(0, 0);
+            cuiButtonGroup4.Location = new Point(1366, 17);
+            cuiButtonGroup4.Margin = new Padding(3, 4, 3, 4);
+            cuiButtonGroup4.Name = "cuiButtonGroup4";
+            cuiButtonGroup4.NormalBackground = Color.White;
+            cuiButtonGroup4.NormalForeColor = Color.DimGray;
+            cuiButtonGroup4.NormalImageTint = Color.White;
+            cuiButtonGroup4.NormalOutline = Color.FromArgb(50, 81, 88);
+            cuiButtonGroup4.OutlineThickness = 1F;
+            cuiButtonGroup4.PressedBackground = Color.FromArgb(22, 36, 39);
+            cuiButtonGroup4.PressedForeColor = Color.White;
+            cuiButtonGroup4.PressedImageTint = Color.White;
+            cuiButtonGroup4.PressedOutline = Color.FromArgb(22, 36, 39);
+            cuiButtonGroup4.Rounding = new Padding(10);
+            cuiButtonGroup4.Size = new Size(104, 43);
+            cuiButtonGroup4.TabIndex = 40;
+            cuiButtonGroup4.TextAlignment = StringAlignment.Center;
+            cuiButtonGroup4.TextOffset = new Point(0, 0);
             // 
             // Form1
             // 
@@ -525,5 +567,6 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup3;
         private CuoreUI.Controls.cuiTextBox cuiTextBox1;
+        private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup4;
     }
 }
