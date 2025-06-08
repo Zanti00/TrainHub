@@ -15,9 +15,29 @@ namespace TrainHub
         public ShowMembersTablePageForm1()
         {
             InitializeComponent();
+            // make the form full screen
+            this.WindowState = FormWindowState.Maximized;
 
+            // add test rows to the DataGridView
+            dataGridView2.Rows.Add("M001", "Alice Rivera", "alice@example.com", "09171234567", "P001", "2025-01-01", "2025-06-01", "Active", "T001", "Gold");
+            dataGridView2.Rows.Add("M001", "Alice Rivera", "alice@example.com", "09171234567", "P001", "2025-01-01", "2025-06-01", "Active", "T001", "Gold");
+            dataGridView2.Rows.Add("M001", "Alice Rivera", "alice@example.com", "09171234567", "P001", "2025-01-01", "2025-06-01", "Active", "T001", "Gold");
+            dataGridView2.Rows.Add("M001", "Alice Rivera", "alice@example.com", "09171234567", "P001", "2025-01-01", "2025-06-01", "Active", "T001", "Gold");
+
+            // Add CellContentClick event handler
+            dataGridView2.CellContentClick += dataGridView2_CellContentClick;
         }
 
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check if the clicked column is column 11 (index 10, since index is zero-based)
+            if (e.ColumnIndex == 10 && e.RowIndex >= 0)
+            {
+                EditMemberForm1 editForm = new EditMemberForm1();
+                editForm.ShowDialog();
+            }
+
+        }
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -43,12 +63,6 @@ namespace TrainHub
         {
             RegisterNewMember f1 = new RegisterNewMember();
             f1.ShowDialog();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            EditMemberForm1 f2 = new EditMemberForm1();
-            f2.ShowDialog();
         }
 
         private void cuiButtonGroup1_Click(object sender, EventArgs e)

@@ -56,18 +56,12 @@ namespace TrainHub
 
         private void cuiButtonGroup1_Click(object sender, EventArgs e)
         {
-            this.Hide(); // to hide current form
-            ShowMembersTablePageForm1 f2 = new ShowMembersTablePageForm1();
-            f2.ShowDialog();
-            this.Show();
+            this.Close(); // closes form
         }
 
         private void cuiButton2_Click(object sender, EventArgs e)
         {
-            this.Hide(); // to hide current form
-            ShowMembersTablePageForm1 f3 = new ShowMembersTablePageForm1();
-            f3.ShowDialog();
-            this.Show();
+            this.Close(); // closes form
         }
     }
 }

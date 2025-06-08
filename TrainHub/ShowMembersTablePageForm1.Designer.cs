@@ -28,46 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowMembersTablePageForm1));
             flowLayoutPanel1 = new FlowLayoutPanel();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            dataGridView2 = new DataGridView();
             cuiPanel8 = new CuoreUI.Controls.cuiPanel();
             cuiButtonGroup2 = new CuoreUI.Controls.cuiButtonGroup();
             cuiPanel7 = new CuoreUI.Controls.cuiPanel();
             cuiTextBox4 = new CuoreUI.Controls.cuiTextBox();
             cuiButtonGroup1 = new CuoreUI.Controls.cuiButtonGroup();
-            cuiPanel6 = new CuoreUI.Controls.cuiPanel();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            button3 = new Button();
-            button2 = new Button();
-            cuiPanel5 = new CuoreUI.Controls.cuiPanel();
-            label15 = new Label();
-            label12 = new Label();
-            label11 = new Label();
-            label10 = new Label();
-            label9 = new Label();
-            label8 = new Label();
-            label7 = new Label();
-            label6 = new Label();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            cuiPanel4 = new CuoreUI.Controls.cuiPanel();
-            label14 = new Label();
-            label13 = new Label();
-            button1 = new Button();
-            button4 = new Button();
-            cuiPanel3 = new CuoreUI.Controls.cuiPanel();
             label2 = new Label();
             label1 = new Label();
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewTextBoxColumn();
+            Column8 = new DataGridViewTextBoxColumn();
+            Column9 = new DataGridViewTextBoxColumn();
+            Column10 = new DataGridViewTextBoxColumn();
+            Column11d = new DataGridViewImageColumn();
+            Column12 = new DataGridViewImageColumn();
             cuiPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             cuiPanel8.SuspendLayout();
             cuiPanel7.SuspendLayout();
-            cuiPanel6.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
-            cuiPanel5.SuspendLayout();
-            cuiPanel4.SuspendLayout();
             SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -83,10 +75,9 @@
             // cuiPanel1
             // 
             cuiPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            cuiPanel1.Controls.Add(dataGridView2);
             cuiPanel1.Controls.Add(cuiPanel8);
             cuiPanel1.Controls.Add(cuiPanel7);
-            cuiPanel1.Controls.Add(cuiPanel6);
-            cuiPanel1.Controls.Add(cuiPanel3);
             cuiPanel1.Controls.Add(label2);
             cuiPanel1.Controls.Add(label1);
             cuiPanel1.Controls.Add(cuiPanel2);
@@ -98,6 +89,57 @@
             cuiPanel1.Rounding = new Padding(8);
             cuiPanel1.Size = new Size(1186, 784);
             cuiPanel1.TabIndex = 7;
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView2.BackgroundColor = Color.White;
+            dataGridView2.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 250, 252);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10, Column11d, Column12 });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Silver;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView2.EnableHeadersVisualStyles = false;
+            dataGridView2.GridColor = SystemColors.HighlightText;
+            dataGridView2.Location = new Point(39, 220);
+            dataGridView2.Name = "dataGridView2";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new Padding(5, 0, 0, 0);
+            dataGridViewCellStyle3.SelectionBackColor = Color.Silver;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridView2.RowHeadersVisible = false;
+            dataGridView2.RowHeadersWidth = 51;
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.Padding = new Padding(2, 0, 0, 0);
+            dataGridViewCellStyle4.SelectionBackColor = Color.Silver;
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridView2.RowTemplate.DefaultCellStyle.Padding = new Padding(0, 10, 0, 10);
+            dataGridView2.RowTemplate.DividerHeight = 1;
+            dataGridView2.RowTemplate.Height = 60;
+            dataGridView2.RowTemplate.Resizable = DataGridViewTriState.False;
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView2.Size = new Size(1110, 522);
+            dataGridView2.TabIndex = 35;
             // 
             // cuiPanel8
             // 
@@ -237,296 +279,6 @@
             cuiButtonGroup1.TextOffset = new Point(0, 0);
             cuiButtonGroup1.Click += cuiButtonGroup1_Click;
             // 
-            // cuiPanel6
-            // 
-            cuiPanel6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            cuiPanel6.Controls.Add(tableLayoutPanel1);
-            cuiPanel6.Location = new Point(39, 235);
-            cuiPanel6.Name = "cuiPanel6";
-            cuiPanel6.OutlineThickness = 1F;
-            cuiPanel6.PanelColor = Color.White;
-            cuiPanel6.PanelOutlineColor = Color.Black;
-            cuiPanel6.Rounding = new Padding(0, 0, 10, 10);
-            cuiPanel6.Size = new Size(1110, 512);
-            cuiPanel6.TabIndex = 32;
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel1.BackColor = Color.White;
-            tableLayoutPanel1.ColumnCount = 12;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8.791209F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8.191808F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 9.081633F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13.9795914F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 65F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 39F));
-            tableLayoutPanel1.Controls.Add(button3, 10, 1);
-            tableLayoutPanel1.Controls.Add(button2, 11, 1);
-            tableLayoutPanel1.Controls.Add(cuiPanel5, 7, 1);
-            tableLayoutPanel1.Controls.Add(label12, 9, 0);
-            tableLayoutPanel1.Controls.Add(label11, 8, 0);
-            tableLayoutPanel1.Controls.Add(label10, 7, 0);
-            tableLayoutPanel1.Controls.Add(label9, 6, 0);
-            tableLayoutPanel1.Controls.Add(label8, 5, 0);
-            tableLayoutPanel1.Controls.Add(label7, 4, 0);
-            tableLayoutPanel1.Controls.Add(label6, 3, 0);
-            tableLayoutPanel1.Controls.Add(label5, 2, 0);
-            tableLayoutPanel1.Controls.Add(label4, 1, 0);
-            tableLayoutPanel1.Controls.Add(label3, 0, 0);
-            tableLayoutPanel1.Controls.Add(cuiPanel4, 7, 2);
-            tableLayoutPanel1.Controls.Add(label13, 10, 0);
-            tableLayoutPanel1.Controls.Add(button1, 10, 2);
-            tableLayoutPanel1.Controls.Add(button4, 11, 2);
-            tableLayoutPanel1.Location = new Point(4, 9);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 36F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(1104, 108);
-            tableLayoutPanel1.TabIndex = 29;
-            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
-            // 
-            // button3
-            // 
-            button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.Location = new Point(1004, 39);
-            button3.Margin = new Padding(13, 3, 3, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(36, 30);
-            button3.TabIndex = 47;
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
-            // button2
-            // 
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(1056, 39);
-            button2.Margin = new Padding(0, 3, 3, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(36, 30);
-            button2.TabIndex = 46;
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // cuiPanel5
-            // 
-            cuiPanel5.Controls.Add(label15);
-            cuiPanel5.Location = new Point(684, 39);
-            cuiPanel5.Name = "cuiPanel5";
-            cuiPanel5.OutlineThickness = 1F;
-            cuiPanel5.PanelColor = SystemColors.ActiveCaption;
-            cuiPanel5.PanelOutlineColor = Color.FromArgb(57, 99, 248);
-            cuiPanel5.Rounding = new Padding(8);
-            cuiPanel5.Size = new Size(75, 30);
-            cuiPanel5.TabIndex = 31;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.BackColor = SystemColors.ActiveCaption;
-            label15.ForeColor = Color.FromArgb(57, 99, 248);
-            label15.Location = new Point(8, 5);
-            label15.Name = "label15";
-            label15.Size = new Size(60, 20);
-            label15.TabIndex = 0;
-            label15.Text = "Inactive";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.BackColor = Color.Transparent;
-            label12.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.ForeColor = Color.Gray;
-            label12.Location = new Point(855, 0);
-            label12.Name = "label12";
-            label12.Size = new Size(126, 18);
-            label12.TabIndex = 39;
-            label12.Text = "Membership Type";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.BackColor = Color.Transparent;
-            label11.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.ForeColor = Color.Gray;
-            label11.Location = new Point(765, 0);
-            label11.Name = "label11";
-            label11.Size = new Size(72, 18);
-            label11.TabIndex = 38;
-            label11.Text = "Trainer ID";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.BackColor = Color.Transparent;
-            label10.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.Gray;
-            label10.Location = new Point(684, 0);
-            label10.Name = "label10";
-            label10.Size = new Size(50, 18);
-            label10.TabIndex = 37;
-            label10.Text = "Status";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.BackColor = Color.Transparent;
-            label9.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.Gray;
-            label9.Location = new Point(597, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(69, 18);
-            label9.TabIndex = 36;
-            label9.Text = "End Date";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.Transparent;
-            label8.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.Gray;
-            label8.Location = new Point(498, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(74, 18);
-            label8.TabIndex = 35;
-            label8.Text = "Start Date";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Transparent;
-            label7.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.Gray;
-            label7.Location = new Point(399, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(84, 18);
-            label7.TabIndex = 34;
-            label7.Text = "Program ID";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.Transparent;
-            label6.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.Gray;
-            label6.Location = new Point(300, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(80, 18);
-            label6.TabIndex = 33;
-            label6.Text = "Mobile No.";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.Gray;
-            label5.Location = new Point(201, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(45, 18);
-            label5.TabIndex = 32;
-            label5.Text = "Email";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Transparent;
-            label4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.Gray;
-            label4.Location = new Point(102, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(48, 18);
-            label4.TabIndex = 31;
-            label4.Text = "Name";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.Gray;
-            label3.Location = new Point(3, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(81, 18);
-            label3.TabIndex = 30;
-            label3.Text = "Member ID";
-            label3.Click += label3_Click_1;
-            // 
-            // cuiPanel4
-            // 
-            cuiPanel4.Controls.Add(label14);
-            cuiPanel4.Location = new Point(684, 75);
-            cuiPanel4.Name = "cuiPanel4";
-            cuiPanel4.OutlineThickness = 1F;
-            cuiPanel4.PanelColor = Color.FromArgb(192, 255, 192);
-            cuiPanel4.PanelOutlineColor = Color.Green;
-            cuiPanel4.Rounding = new Padding(8);
-            cuiPanel4.Size = new Size(75, 30);
-            cuiPanel4.TabIndex = 30;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.BackColor = Color.FromArgb(192, 255, 192);
-            label14.ForeColor = Color.Green;
-            label14.Location = new Point(14, 5);
-            label14.Name = "label14";
-            label14.Size = new Size(50, 20);
-            label14.TabIndex = 0;
-            label14.Text = "Active";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.BackColor = Color.Transparent;
-            label13.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.ForeColor = Color.Gray;
-            label13.Location = new Point(1001, 0);
-            label13.Margin = new Padding(10, 0, 3, 0);
-            label13.Name = "label13";
-            label13.Size = new Size(49, 18);
-            label13.TabIndex = 40;
-            label13.Text = "Action";
-            // 
-            // button1
-            // 
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.Location = new Point(1004, 75);
-            button1.Margin = new Padding(13, 3, 3, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(36, 30);
-            button1.TabIndex = 48;
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.Location = new Point(1056, 75);
-            button4.Margin = new Padding(0, 3, 3, 3);
-            button4.Name = "button4";
-            button4.Size = new Size(36, 30);
-            button4.TabIndex = 49;
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // cuiPanel3
-            // 
-            cuiPanel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cuiPanel3.Location = new Point(39, 220);
-            cuiPanel3.Name = "cuiPanel3";
-            cuiPanel3.OutlineThickness = 1F;
-            cuiPanel3.PanelColor = Color.FromArgb(248, 250, 252);
-            cuiPanel3.PanelOutlineColor = Color.Black;
-            cuiPanel3.Rounding = new Padding(0);
-            cuiPanel3.Size = new Size(1110, 18);
-            cuiPanel3.TabIndex = 30;
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -562,6 +314,98 @@
             cuiPanel2.Size = new Size(1110, 76);
             cuiPanel2.TabIndex = 16;
             // 
+            // Column1
+            // 
+            Column1.HeaderText = "Member ID";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Name";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Email";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Mobile No.";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Program ID";
+            Column5.MinimumWidth = 6;
+            Column5.Name = "Column5";
+            Column5.Width = 125;
+            // 
+            // Column6
+            // 
+            Column6.HeaderText = "Start Date";
+            Column6.MinimumWidth = 6;
+            Column6.Name = "Column6";
+            Column6.Width = 125;
+            // 
+            // Column7
+            // 
+            Column7.HeaderText = "End Date";
+            Column7.MinimumWidth = 6;
+            Column7.Name = "Column7";
+            Column7.Width = 125;
+            // 
+            // Column8
+            // 
+            Column8.HeaderText = "Status";
+            Column8.MinimumWidth = 6;
+            Column8.Name = "Column8";
+            Column8.Width = 125;
+            // 
+            // Column9
+            // 
+            Column9.HeaderText = "Trainer ID";
+            Column9.MinimumWidth = 6;
+            Column9.Name = "Column9";
+            Column9.Width = 125;
+            // 
+            // Column10
+            // 
+            Column10.HeaderText = "Membership Type";
+            Column10.MinimumWidth = 6;
+            Column10.Name = "Column10";
+            Column10.Width = 125;
+            // 
+            // Column11d
+            // 
+            Column11d.HeaderText = "Edit";
+            Column11d.Image = (Image)resources.GetObject("Column11d.Image");
+            Column11d.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Column11d.MinimumWidth = 6;
+            Column11d.Name = "Column11d";
+            Column11d.Resizable = DataGridViewTriState.False;
+            Column11d.SortMode = DataGridViewColumnSortMode.Automatic;
+            Column11d.Width = 125;
+            // 
+            // Column12
+            // 
+            Column12.HeaderText = "Delete";
+            Column12.Image = (Image)resources.GetObject("Column12.Image");
+            Column12.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Column12.MinimumWidth = 6;
+            Column12.Name = "Column12";
+            Column12.Resizable = DataGridViewTriState.False;
+            Column12.SortMode = DataGridViewColumnSortMode.Automatic;
+            Column12.Width = 125;
+            // 
             // ShowMembersTablePageForm1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -573,17 +417,11 @@
             Text = "ShowMembersTablePageForm1";
             cuiPanel1.ResumeLayout(false);
             cuiPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             cuiPanel8.ResumeLayout(false);
             cuiPanel8.PerformLayout();
             cuiPanel7.ResumeLayout(false);
             cuiPanel7.PerformLayout();
-            cuiPanel6.ResumeLayout(false);
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
-            cuiPanel5.ResumeLayout(false);
-            cuiPanel5.PerformLayout();
-            cuiPanel4.ResumeLayout(false);
-            cuiPanel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -597,29 +435,20 @@
         private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup1;
         private Label label2;
         private Label label1;
-        private Label label3;
-        private TableLayoutPanel tableLayoutPanel1;
-        private Label label11;
-        private Label label10;
-        private Label label9;
-        private Label label8;
-        private Label label7;
-        private Label label6;
-        private Label label5;
-        private Label label4;
-        private Label label13;
-        private Label label12;
-        private CuoreUI.Controls.cuiPanel cuiPanel4;
-        private CuoreUI.Controls.cuiPanel cuiPanel5;
-        private Label label15;
-        private Label label14;
-        private Button button2;
-        private Button button3;
-        private Button button1;
-        private Button button4;
-        private CuoreUI.Controls.cuiPanel cuiPanel3;
-        private CuoreUI.Controls.cuiPanel cuiPanel6;
         private CuoreUI.Controls.cuiPanel cuiPanel7;
         private CuoreUI.Controls.cuiPanel cuiPanel8;
+        private DataGridView dataGridView2;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column6;
+        private DataGridViewTextBoxColumn Column7;
+        private DataGridViewTextBoxColumn Column8;
+        private DataGridViewTextBoxColumn Column9;
+        private DataGridViewTextBoxColumn Column10;
+        private DataGridViewImageColumn Column11d;
+        private DataGridViewImageColumn Column12;
     }
 }
