@@ -56,6 +56,7 @@
             Column8 = new DataGridViewTextBoxColumn();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            cuiButtonGroup3 = new CuoreUI.Controls.cuiButtonGroup();
             cuiPanel7.SuspendLayout();
             cuiPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -379,6 +380,7 @@
             // cuiPanel1
             // 
             cuiPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            cuiPanel1.Controls.Add(cuiButtonGroup3);
             cuiPanel1.Controls.Add(dataGridView2);
             cuiPanel1.Controls.Add(cuiPanel8);
             cuiPanel1.Controls.Add(cuiPanel7);
@@ -403,6 +405,45 @@
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(308, 1049);
             flowLayoutPanel1.TabIndex = 8;
+            // 
+            // cuiButtonGroup3
+            // 
+            cuiButtonGroup3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cuiButtonGroup3.BackColor = Color.Transparent;
+            cuiButtonGroup3.Checked = false;
+            cuiButtonGroup3.CheckedBackground = Color.White;
+            cuiButtonGroup3.CheckedForeColor = Color.Black;
+            cuiButtonGroup3.CheckedImageTint = Color.White;
+            cuiButtonGroup3.CheckedOutline = Color.Transparent;
+            cuiButtonGroup3.Content = "+ Add Trainer";
+            cuiButtonGroup3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cuiButtonGroup3.ForeColor = Color.Black;
+            cuiButtonGroup3.Group = 0;
+            cuiButtonGroup3.HoverBackground = Color.LightGray;
+            cuiButtonGroup3.HoveredImageTint = Color.Transparent;
+            cuiButtonGroup3.HoverForeColor = Color.Black;
+            cuiButtonGroup3.HoverOutline = Color.White;
+            cuiButtonGroup3.Image = null;
+            cuiButtonGroup3.ImageAutoCenter = true;
+            cuiButtonGroup3.ImageExpand = new Point(0, 0);
+            cuiButtonGroup3.ImageOffset = new Point(0, 0);
+            cuiButtonGroup3.Location = new Point(1380, 95);
+            cuiButtonGroup3.Margin = new Padding(3, 4, 3, 4);
+            cuiButtonGroup3.Name = "cuiButtonGroup3";
+            cuiButtonGroup3.NormalBackground = Color.White;
+            cuiButtonGroup3.NormalForeColor = Color.Black;
+            cuiButtonGroup3.NormalImageTint = Color.Black;
+            cuiButtonGroup3.NormalOutline = Color.Transparent;
+            cuiButtonGroup3.OutlineThickness = 1F;
+            cuiButtonGroup3.PressedBackground = Color.White;
+            cuiButtonGroup3.PressedForeColor = Color.White;
+            cuiButtonGroup3.PressedImageTint = Color.White;
+            cuiButtonGroup3.PressedOutline = Color.White;
+            cuiButtonGroup3.Rounding = new Padding(10);
+            cuiButtonGroup3.Size = new Size(129, 43);
+            cuiButtonGroup3.TabIndex = 39;
+            cuiButtonGroup3.TextAlignment = StringAlignment.Center;
+            cuiButtonGroup3.TextOffset = new Point(0, 0);
             // 
             // Form1
             // 
@@ -448,5 +489,6 @@
         private DataGridViewTextBoxColumn Column8;
         private CuoreUI.Controls.cuiPanel cuiPanel1;
         private FlowLayoutPanel flowLayoutPanel1;
+        private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup3;
     }
 }
