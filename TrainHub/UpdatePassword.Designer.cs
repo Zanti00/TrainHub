@@ -36,8 +36,8 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            newPasswordTxt1 = new TrainHub.User_Controls.CustomTextFields();
-            newPasswordTxt2 = new TrainHub.User_Controls.CustomTextFields();
+            newPasswordTxt1 = new global::TrainHub.User_Controls.CustomTextFields();
+            newPasswordTxt2 = new global::TrainHub.User_Controls.CustomTextFields();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)showPassBtn1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)showPassBtn2).BeginInit();

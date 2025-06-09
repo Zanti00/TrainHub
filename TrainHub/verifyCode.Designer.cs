@@ -36,7 +36,7 @@
             label2 = new Label();
             label1 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
-            backBtn = new TrainHub.User_Controls.CustomBackButton();
+            backBtn = new global::TrainHub.User_Controls.CustomBackButton();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();

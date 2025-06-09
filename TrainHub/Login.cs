@@ -17,10 +17,9 @@ namespace TrainHub
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            String email, password;
 
-            email = emailTxt.Content;
-            password = passwordTxt.Content;
+            string email = emailTxt.Content;
+            string password = passwordTxt.Content;
 
             try
             {
@@ -36,11 +35,10 @@ namespace TrainHub
 
                 if (dtable.Rows.Count > 0)
                 {
-                    email = emailTxt.Content;
-                    password = passwordTxt.Content;
+                    LoadCurrentUserInfo(email);
 
-                    Dashboard dashboard = new Dashboard();
-                    dashboard.Show();
+                    MainForm mainForm = new MainForm();
+                    mainForm.Show();
                     this.Hide();
                 }
                 else
@@ -55,6 +53,42 @@ namespace TrainHub
             catch
             {
                 MessageBox.Show("An error occurred while trying to connect to the database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        private void LoadCurrentUserInfo(string email)
+        {
+            try
+            {
+                conn.Open();
+                string query = "SELECT * FROM users WHERE Email = @Email";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Email", email);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        CurrentUser.UserId = (int)reader["Id"];
+                        CurrentUser.Username = reader["Username"].ToString();
+                        CurrentUser.FirstName = reader["FirstName"].ToString();
+                        CurrentUser.LastName = reader["LastName"].ToString();
+                        CurrentUser.Email = reader["Email"].ToString();
+                        CurrentUser.IsAdmin = reader["IsAdmin"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading user information: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

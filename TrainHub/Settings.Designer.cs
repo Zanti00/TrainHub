@@ -1,6 +1,6 @@
 ﻿namespace TrainHub
 {
-    partial class Dashboard
+    partial class Settings
     {
         /// <summary>
         /// Required designer variable.
@@ -33,25 +33,23 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
-            label1.Location = new Point(349, 256);
+            label1.Location = new Point(380, 202);
             label1.Name = "label1";
             label1.Size = new Size(38, 15);
             label1.TabIndex = 0;
             label1.Text = "label1";
             // 
-            // Dashboard
+            // Settings
             // 
-            AutoScaleMode = AutoScaleMode.None;
-            BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(753, 529);
-            ControlBox = false;
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Dashboard";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Dashboard";
+            Name = "Settings";
+            Text = "Settings";
+            WindowState = FormWindowState.Maximized;
             ResumeLayout(false);
             PerformLayout();
         }

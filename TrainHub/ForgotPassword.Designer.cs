@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            emailTxt = new TrainHub.User_Controls.CustomTextFields();
+            emailTxt = new global::TrainHub.User_Controls.CustomTextFields();
             sendEmailBtn = new CustomButton();
             label3 = new Label();
             label1 = new Label();
             label2 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
-            backBtn = new TrainHub.User_Controls.CustomBackButton();
+            backBtn = new global::TrainHub.User_Controls.CustomBackButton();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
