@@ -12,6 +12,8 @@ namespace TrainHub
 {
     public partial class add_trainer : Form
     {
+
+   
         public add_trainer()
         {
             InitializeComponent();
@@ -74,7 +76,8 @@ namespace TrainHub
 
         private void cuiButton1_Click(object sender, EventArgs e)
         {
-
+            // Close this form and return to the previous form
+            this.Close();
         }
 
         private void cuiPanel2_Paint(object sender, PaintEventArgs e)
@@ -83,6 +86,17 @@ namespace TrainHub
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cuiButton1_Click_1(object sender, EventArgs e)
+        {
+            // Close this form and return to the previous form
+            this.Close();
+        }
+
+        private void cuiButton2_Click(object sender, EventArgs e)
         {
 
         }

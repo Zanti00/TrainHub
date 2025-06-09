@@ -11,7 +11,7 @@ namespace TrainHub
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new trainer_table());
+            Application.Run(new add_trainer());
         }
     }
 }

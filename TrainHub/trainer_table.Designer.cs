@@ -43,10 +43,6 @@
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             cuiButtonGroup3 = new CuoreUI.Controls.cuiButtonGroup();
             dataGridView2 = new DataGridView();
-            cuiPanel2 = new CuoreUI.Controls.cuiPanel();
-            cuiButtonGroup4 = new CuoreUI.Controls.cuiButtonGroup();
-            cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
-            flowLayoutPanel2 = new FlowLayoutPanel();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
@@ -55,6 +51,10 @@
             Column6 = new DataGridViewTextBoxColumn();
             Column11d = new DataGridViewImageColumn();
             Column12 = new DataGridViewImageColumn();
+            cuiPanel2 = new CuoreUI.Controls.cuiPanel();
+            cuiButtonGroup4 = new CuoreUI.Controls.cuiButtonGroup();
+            cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
+            flowLayoutPanel2 = new FlowLayoutPanel();
             cuiPanel7.SuspendLayout();
             cuiPanel8.SuspendLayout();
             cuiPanel1.SuspendLayout();
@@ -335,6 +335,70 @@
             dataGridView2.TabIndex = 37;
             dataGridView2.CellContentClick += dataGridView2_CellContentClick_1;
             // 
+            // Column1
+            // 
+            Column1.HeaderText = "Trainer ID";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Name";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Email Address";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Mobile No.";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Date of Birth";
+            Column5.MinimumWidth = 6;
+            Column5.Name = "Column5";
+            Column5.Width = 125;
+            // 
+            // Column6
+            // 
+            Column6.HeaderText = "Address";
+            Column6.MinimumWidth = 6;
+            Column6.Name = "Column6";
+            Column6.Width = 125;
+            // 
+            // Column11d
+            // 
+            Column11d.HeaderText = "Edit";
+            Column11d.Image = (Image)resources.GetObject("Column11d.Image");
+            Column11d.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Column11d.MinimumWidth = 6;
+            Column11d.Name = "Column11d";
+            Column11d.Resizable = DataGridViewTriState.False;
+            Column11d.SortMode = DataGridViewColumnSortMode.Automatic;
+            Column11d.Width = 125;
+            // 
+            // Column12
+            // 
+            Column12.HeaderText = "Delete";
+            Column12.Image = (Image)resources.GetObject("Column12.Image");
+            Column12.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Column12.MinimumWidth = 6;
+            Column12.Name = "Column12";
+            Column12.Resizable = DataGridViewTriState.False;
+            Column12.SortMode = DataGridViewColumnSortMode.Automatic;
+            Column12.Width = 125;
+            // 
             // cuiPanel2
             // 
             cuiPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -428,70 +492,6 @@
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(239, 638);
             flowLayoutPanel2.TabIndex = 31;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Trainer ID";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Name";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Email Address";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Mobile No.";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            Column4.Width = 125;
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Date of Birth";
-            Column5.MinimumWidth = 6;
-            Column5.Name = "Column5";
-            Column5.Width = 125;
-            // 
-            // Column6
-            // 
-            Column6.HeaderText = "Address";
-            Column6.MinimumWidth = 6;
-            Column6.Name = "Column6";
-            Column6.Width = 125;
-            // 
-            // Column11d
-            // 
-            Column11d.HeaderText = "Edit";
-            Column11d.Image = (Image)resources.GetObject("Column11d.Image");
-            Column11d.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            Column11d.MinimumWidth = 6;
-            Column11d.Name = "Column11d";
-            Column11d.Resizable = DataGridViewTriState.False;
-            Column11d.SortMode = DataGridViewColumnSortMode.Automatic;
-            Column11d.Width = 125;
-            // 
-            // Column12
-            // 
-            Column12.HeaderText = "Delete";
-            Column12.Image = (Image)resources.GetObject("Column12.Image");
-            Column12.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            Column12.MinimumWidth = 6;
-            Column12.Name = "Column12";
-            Column12.Resizable = DataGridViewTriState.False;
-            Column12.SortMode = DataGridViewColumnSortMode.Automatic;
-            Column12.Width = 125;
             // 
             // trainer_table
             // 

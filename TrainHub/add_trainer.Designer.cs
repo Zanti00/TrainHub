@@ -147,6 +147,7 @@
             cuiButton2.TabIndex = 23;
             cuiButton2.TextAlignment = StringAlignment.Center;
             cuiButton2.TextOffset = new Point(0, 0);
+            cuiButton2.Click += cuiButton2_Click;
             // 
             // cuiButton1
             // 
@@ -185,6 +186,7 @@
             cuiButton1.TabIndex = 22;
             cuiButton1.TextAlignment = StringAlignment.Center;
             cuiButton1.TextOffset = new Point(0, 0);
+            cuiButton1.Click += cuiButton1_Click_1;
             // 
             // cuiTextBox3
             // 
