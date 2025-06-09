@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(edit_trainer));
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
+            cuiCalendarDatePicker1 = new CuoreUI.Controls.cuiCalendarDatePicker();
             okBtn = new CuoreUI.Controls.cuiButton();
             cancelBtn = new CuoreUI.Controls.cuiButton();
             addressTxt = new CuoreUI.Controls.cuiTextBox();
@@ -38,7 +39,6 @@
             mobNumTxt = new CuoreUI.Controls.cuiTextBox();
             firstNametxt = new CuoreUI.Controls.cuiTextBox();
             label1 = new Label();
-            cuiCalendarDatePicker1 = new CuoreUI.Controls.cuiCalendarDatePicker();
             cuiPanel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -62,6 +62,30 @@
             cuiPanel2.Rounding = new Padding(10);
             cuiPanel2.Size = new Size(779, 305);
             cuiPanel2.TabIndex = 6;
+            // 
+            // cuiCalendarDatePicker1
+            // 
+            cuiCalendarDatePicker1.EnableThemeChangeButton = true;
+            cuiCalendarDatePicker1.Font = new Font("Segoe UI", 9.75F);
+            cuiCalendarDatePicker1.ForeColor = Color.Gray;
+            cuiCalendarDatePicker1.HoverBackground = Color.FromArgb(50, 128, 128, 128);
+            cuiCalendarDatePicker1.HoverOutline = Color.FromArgb(180, 128, 128, 128);
+            cuiCalendarDatePicker1.Icon = (Image)resources.GetObject("cuiCalendarDatePicker1.Icon");
+            cuiCalendarDatePicker1.IconTint = Color.Gray;
+            cuiCalendarDatePicker1.Location = new Point(410, 161);
+            cuiCalendarDatePicker1.Margin = new Padding(4, 3, 4, 3);
+            cuiCalendarDatePicker1.Name = "cuiCalendarDatePicker1";
+            cuiCalendarDatePicker1.NormalBackground = Color.FromArgb(32, 128, 128, 128);
+            cuiCalendarDatePicker1.NormalOutline = Color.FromArgb(150, 128, 128, 128);
+            cuiCalendarDatePicker1.OutlineThickness = 1.5F;
+            cuiCalendarDatePicker1.PressedBackground = Color.FromArgb(80, 128, 128, 128);
+            cuiCalendarDatePicker1.PressedOutline = Color.FromArgb(210, 128, 128, 128);
+            cuiCalendarDatePicker1.Rounding = 8;
+            cuiCalendarDatePicker1.ShowIcon = true;
+            cuiCalendarDatePicker1.Size = new Size(343, 38);
+            cuiCalendarDatePicker1.TabIndex = 7;
+            cuiCalendarDatePicker1.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
+            cuiCalendarDatePicker1.Value = new DateTime(2025, 6, 6, 0, 0, 0, 0);
             // 
             // okBtn
             // 
@@ -95,7 +119,7 @@
             okBtn.PressedForeColor = Color.FromArgb(32, 32, 32);
             okBtn.PressedImageTint = Color.White;
             okBtn.PressedOutline = Color.FromArgb(64, 128, 128, 128);
-            okBtn.Rounding = new Padding(8);
+            okBtn.Rounding = new Padding(10);
             okBtn.Size = new Size(71, 32);
             okBtn.TabIndex = 18;
             okBtn.TextAlignment = StringAlignment.Center;
@@ -133,7 +157,7 @@
             cancelBtn.PressedForeColor = Color.FromArgb(32, 32, 32);
             cancelBtn.PressedImageTint = Color.White;
             cancelBtn.PressedOutline = Color.FromArgb(64, 128, 128, 128);
-            cancelBtn.Rounding = new Padding(8);
+            cancelBtn.Rounding = new Padding(10);
             cancelBtn.Size = new Size(64, 32);
             cancelBtn.TabIndex = 17;
             cancelBtn.TextAlignment = StringAlignment.Center;
@@ -163,7 +187,7 @@
             addressTxt.PasswordChar = false;
             addressTxt.PlaceholderColor = SystemColors.ScrollBar;
             addressTxt.PlaceholderText = "Address";
-            addressTxt.Rounding = new Padding(6);
+            addressTxt.Rounding = new Padding(10);
             addressTxt.Size = new Size(343, 38);
             addressTxt.TabIndex = 16;
             addressTxt.TextOffset = new Size(0, 0);
@@ -192,7 +216,7 @@
             emailTxt.PasswordChar = false;
             emailTxt.PlaceholderColor = SystemColors.ScrollBar;
             emailTxt.PlaceholderText = "Email Address ";
-            emailTxt.Rounding = new Padding(6);
+            emailTxt.Rounding = new Padding(10);
             emailTxt.Size = new Size(343, 38);
             emailTxt.TabIndex = 15;
             emailTxt.TextOffset = new Size(0, 0);
@@ -222,7 +246,7 @@
             LastNametxt.PasswordChar = false;
             LastNametxt.PlaceholderColor = SystemColors.ScrollBar;
             LastNametxt.PlaceholderText = "Last Name";
-            LastNametxt.Rounding = new Padding(6);
+            LastNametxt.Rounding = new Padding(10);
             LastNametxt.Size = new Size(343, 38);
             LastNametxt.TabIndex = 11;
             LastNametxt.TextOffset = new Size(0, 0);
@@ -251,7 +275,7 @@
             mobNumTxt.PasswordChar = false;
             mobNumTxt.PlaceholderColor = SystemColors.ScrollBar;
             mobNumTxt.PlaceholderText = "Mobile Number";
-            mobNumTxt.Rounding = new Padding(6);
+            mobNumTxt.Rounding = new Padding(10);
             mobNumTxt.Size = new Size(343, 38);
             mobNumTxt.TabIndex = 12;
             mobNumTxt.TextOffset = new Size(0, 0);
@@ -280,7 +304,7 @@
             firstNametxt.PasswordChar = false;
             firstNametxt.PlaceholderColor = SystemColors.ScrollBar;
             firstNametxt.PlaceholderText = "First Name";
-            firstNametxt.Rounding = new Padding(6);
+            firstNametxt.Rounding = new Padding(10);
             firstNametxt.Size = new Size(343, 38);
             firstNametxt.TabIndex = 11;
             firstNametxt.TextOffset = new Size(0, 0);
@@ -298,35 +322,11 @@
             label1.Text = "Edit Trainers";
             label1.Click += label1_Click_1;
             // 
-            // cuiCalendarDatePicker1
-            // 
-            cuiCalendarDatePicker1.EnableThemeChangeButton = true;
-            cuiCalendarDatePicker1.Font = new Font("Segoe UI", 9.75F);
-            cuiCalendarDatePicker1.ForeColor = Color.Gray;
-            cuiCalendarDatePicker1.HoverBackground = Color.FromArgb(50, 128, 128, 128);
-            cuiCalendarDatePicker1.HoverOutline = Color.FromArgb(180, 128, 128, 128);
-            cuiCalendarDatePicker1.Icon = (Image)resources.GetObject("cuiCalendarDatePicker1.Icon");
-            cuiCalendarDatePicker1.IconTint = Color.Gray;
-            cuiCalendarDatePicker1.Location = new Point(410, 161);
-            cuiCalendarDatePicker1.Margin = new Padding(4, 3, 4, 3);
-            cuiCalendarDatePicker1.Name = "cuiCalendarDatePicker1";
-            cuiCalendarDatePicker1.NormalBackground = Color.FromArgb(32, 128, 128, 128);
-            cuiCalendarDatePicker1.NormalOutline = Color.FromArgb(150, 128, 128, 128);
-            cuiCalendarDatePicker1.OutlineThickness = 1.5F;
-            cuiCalendarDatePicker1.PressedBackground = Color.FromArgb(80, 128, 128, 128);
-            cuiCalendarDatePicker1.PressedOutline = Color.FromArgb(210, 128, 128, 128);
-            cuiCalendarDatePicker1.Rounding = 8;
-            cuiCalendarDatePicker1.ShowIcon = true;
-            cuiCalendarDatePicker1.Size = new Size(343, 38);
-            cuiCalendarDatePicker1.TabIndex = 7;
-            cuiCalendarDatePicker1.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
-            cuiCalendarDatePicker1.Value = new DateTime(2025, 6, 6, 0, 0, 0, 0);
-            // 
             // edit_trainer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
+            BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(829, 467);
             Controls.Add(cuiPanel2);
             Controls.Add(label1);

@@ -61,7 +61,6 @@
             // 
             // cuiPanel2
             // 
-            cuiPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cuiPanel2.BackColor = Color.Transparent;
             cuiPanel2.BackgroundImageLayout = ImageLayout.None;
             cuiPanel2.Controls.Add(cuiCalendarDatePicker1);
@@ -143,7 +142,7 @@
             cuiButton2.PressedForeColor = Color.FromArgb(32, 32, 32);
             cuiButton2.PressedImageTint = Color.White;
             cuiButton2.PressedOutline = Color.FromArgb(64, 128, 128, 128);
-            cuiButton2.Rounding = new Padding(8);
+            cuiButton2.Rounding = new Padding(10);
             cuiButton2.Size = new Size(71, 32);
             cuiButton2.TabIndex = 23;
             cuiButton2.TextAlignment = StringAlignment.Center;
@@ -181,7 +180,7 @@
             cuiButton1.PressedForeColor = Color.FromArgb(32, 32, 32);
             cuiButton1.PressedImageTint = Color.White;
             cuiButton1.PressedOutline = Color.FromArgb(64, 128, 128, 128);
-            cuiButton1.Rounding = new Padding(8);
+            cuiButton1.Rounding = new Padding(10);
             cuiButton1.Size = new Size(64, 32);
             cuiButton1.TabIndex = 22;
             cuiButton1.TextAlignment = StringAlignment.Center;
@@ -211,7 +210,7 @@
             cuiTextBox3.PasswordChar = false;
             cuiTextBox3.PlaceholderColor = SystemColors.ScrollBar;
             cuiTextBox3.PlaceholderText = "Address";
-            cuiTextBox3.Rounding = new Padding(6);
+            cuiTextBox3.Rounding = new Padding(10);
             cuiTextBox3.Size = new Size(343, 38);
             cuiTextBox3.TabIndex = 21;
             cuiTextBox3.TextOffset = new Size(0, 0);
@@ -241,7 +240,7 @@
             cuiTextBox1.PasswordChar = false;
             cuiTextBox1.PlaceholderColor = SystemColors.ScrollBar;
             cuiTextBox1.PlaceholderText = "Last Name";
-            cuiTextBox1.Rounding = new Padding(6);
+            cuiTextBox1.Rounding = new Padding(10);
             cuiTextBox1.Size = new Size(343, 38);
             cuiTextBox1.TabIndex = 19;
             cuiTextBox1.TextOffset = new Size(0, 0);
@@ -377,7 +376,7 @@
             emailTxt.PasswordChar = false;
             emailTxt.PlaceholderColor = SystemColors.ScrollBar;
             emailTxt.PlaceholderText = "Email Address ";
-            emailTxt.Rounding = new Padding(6);
+            emailTxt.Rounding = new Padding(10);
             emailTxt.Size = new Size(343, 38);
             emailTxt.TabIndex = 15;
             emailTxt.TextOffset = new Size(0, 0);
@@ -466,7 +465,7 @@
             mobNumTxt.PasswordChar = false;
             mobNumTxt.PlaceholderColor = SystemColors.ScrollBar;
             mobNumTxt.PlaceholderText = "Mobile Number";
-            mobNumTxt.Rounding = new Padding(6);
+            mobNumTxt.Rounding = new Padding(10);
             mobNumTxt.Size = new Size(343, 38);
             mobNumTxt.TabIndex = 12;
             mobNumTxt.TextOffset = new Size(0, 0);
@@ -495,7 +494,7 @@
             firstNametxt.PasswordChar = false;
             firstNametxt.PlaceholderColor = SystemColors.ScrollBar;
             firstNametxt.PlaceholderText = "First Name";
-            firstNametxt.Rounding = new Padding(6);
+            firstNametxt.Rounding = new Padding(10);
             firstNametxt.Size = new Size(343, 38);
             firstNametxt.TabIndex = 11;
             firstNametxt.TextOffset = new Size(0, 0);
@@ -505,7 +504,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ButtonFace;
+            BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(829, 467);
             Controls.Add(cuiPanel2);
             Controls.Add(label1);
