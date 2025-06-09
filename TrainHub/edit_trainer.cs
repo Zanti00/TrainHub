@@ -22,16 +22,6 @@ namespace TrainHub
 
         }
 
-        private void cuiTextBox4_ContentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void emailTxt_ContentChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cuiButton2_Click(object sender, EventArgs e)
         {
 
@@ -63,6 +53,42 @@ namespace TrainHub
         }
 
         private void dateTimePicker1_ValueChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            // Close this form and return to the previous form
+            this.Close();
+        }
+
+        private void LastNametxt_ContentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void firstNametxt_ContentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mobNumTxt_ContentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void emailTxt_ContentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addressTxt_ContentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void okBtn_Click(object sender, EventArgs e)
         {
 
         }

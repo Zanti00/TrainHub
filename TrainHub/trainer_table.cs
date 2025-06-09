@@ -14,7 +14,7 @@ namespace TrainHub
     {
         public trainer_table()
         {
-            InitializeComponent();
+           
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)

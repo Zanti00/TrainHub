@@ -124,6 +124,7 @@
             okBtn.TabIndex = 18;
             okBtn.TextAlignment = StringAlignment.Center;
             okBtn.TextOffset = new Point(0, 0);
+            okBtn.Click += okBtn_Click;
             // 
             // cancelBtn
             // 
@@ -192,6 +193,7 @@
             addressTxt.TabIndex = 16;
             addressTxt.TextOffset = new Size(0, 0);
             addressTxt.UnderlinedStyle = false;
+            addressTxt.ContentChanged += addressTxt_ContentChanged;
             // 
             // emailTxt
             // 
@@ -221,6 +223,7 @@
             emailTxt.TabIndex = 15;
             emailTxt.TextOffset = new Size(0, 0);
             emailTxt.UnderlinedStyle = false;
+            emailTxt.ContentChanged += emailTxt_ContentChanged;
             // 
             // LastNametxt
             // 
@@ -280,6 +283,7 @@
             mobNumTxt.TabIndex = 12;
             mobNumTxt.TextOffset = new Size(0, 0);
             mobNumTxt.UnderlinedStyle = false;
+            mobNumTxt.ContentChanged += mobNumTxt_ContentChanged;
             // 
             // firstNametxt
             // 
@@ -309,6 +313,7 @@
             firstNametxt.TabIndex = 11;
             firstNametxt.TextOffset = new Size(0, 0);
             firstNametxt.UnderlinedStyle = false;
+            firstNametxt.ContentChanged += firstNametxt_ContentChanged;
             // 
             // label1
             // 
