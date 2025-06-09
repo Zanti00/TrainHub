@@ -1,4 +1,5 @@
-﻿namespace TrainHub
+﻿
+namespace TrainHub
 {
     partial class Form2
     {
@@ -45,18 +46,18 @@
             cuiPanel8 = new CuoreUI.Controls.cuiPanel();
             label1 = new Label();
             dataGridView2 = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column11d = new DataGridViewImageColumn();
+            Column12 = new DataGridViewImageColumn();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             cuiPanel3 = new CuoreUI.Controls.cuiPanel();
             cuiButtonGroup3 = new CuoreUI.Controls.cuiButtonGroup();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            Column12 = new DataGridViewImageColumn();
-            Column11d = new DataGridViewImageColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column1 = new DataGridViewTextBoxColumn();
             cuiPanel2.SuspendLayout();
             cuiPanel4.SuspendLayout();
             cuiPanel7.SuspendLayout();
@@ -68,10 +69,11 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top;
             label2.AutoSize = true;
             label2.BackColor = Color.White;
             label2.ForeColor = Color.Gray;
-            label2.Location = new Point(39, 87);
+            label2.Location = new Point(93, 69);
             label2.Name = "label2";
             label2.Size = new Size(169, 20);
             label2.TabIndex = 25;
@@ -79,23 +81,23 @@
             // 
             // cuiPanel2
             // 
-            cuiPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cuiPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             cuiPanel2.Controls.Add(cuiPanel4);
-            cuiPanel2.Location = new Point(39, 145);
+            cuiPanel2.Location = new Point(44, 145);
             cuiPanel2.Name = "cuiPanel2";
             cuiPanel2.OutlineThickness = 1F;
             cuiPanel2.PanelColor = Color.FromArgb(248, 250, 252);
             cuiPanel2.PanelOutlineColor = Color.Black;
             cuiPanel2.Rounding = new Padding(8, 8, 0, 0);
-            cuiPanel2.Size = new Size(1002, 76);
+            cuiPanel2.Size = new Size(1003, 78);
             cuiPanel2.TabIndex = 16;
             // 
             // cuiPanel4
             // 
-            cuiPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cuiPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cuiPanel4.Controls.Add(cuiTextBox1);
             cuiPanel4.Controls.Add(cuiButtonGroup4);
-            cuiPanel4.Location = new Point(495, 12);
+            cuiPanel4.Location = new Point(496, 12);
             cuiPanel4.Name = "cuiPanel4";
             cuiPanel4.OutlineThickness = 1F;
             cuiPanel4.PanelColor = Color.FromArgb(248, 250, 252);
@@ -103,6 +105,7 @@
             cuiPanel4.Rounding = new Padding(8, 8, 0, 0);
             cuiPanel4.Size = new Size(495, 57);
             cuiPanel4.TabIndex = 37;
+            cuiPanel4.Paint += cuiPanel4_Paint;
             // 
             // cuiTextBox1
             // 
@@ -247,7 +250,7 @@
             cuiPanel7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cuiPanel7.Controls.Add(cuiTextBox4);
             cuiPanel7.Controls.Add(cuiButtonGroup1);
-            cuiPanel7.Location = new Point(1378, 157);
+            cuiPanel7.Location = new Point(1385, 157);
             cuiPanel7.Name = "cuiPanel7";
             cuiPanel7.OutlineThickness = 1F;
             cuiPanel7.PanelColor = Color.FromArgb(248, 250, 252);
@@ -300,7 +303,7 @@
             cuiPanel8.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cuiPanel8.BackColor = Color.White;
             cuiPanel8.Controls.Add(cuiButtonGroup2);
-            cuiPanel8.Location = new Point(1717, 82);
+            cuiPanel8.Location = new Point(1724, 82);
             cuiPanel8.Name = "cuiPanel8";
             cuiPanel8.OutlineThickness = 1F;
             cuiPanel8.PanelColor = Color.White;
@@ -311,11 +314,12 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.BackColor = Color.White;
             label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(51, 81, 88);
-            label1.Location = new Point(39, 58);
+            label1.Location = new Point(93, 40);
             label1.Name = "label1";
             label1.Size = new Size(78, 29);
             label1.TabIndex = 24;
@@ -323,9 +327,9 @@
             // 
             // dataGridView2
             // 
-            dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             dataGridView2.BackgroundColor = Color.White;
-            dataGridView2.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridView2.CellBorderStyle = DataGridViewCellBorderStyle.SingleVertical;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 250, 252);
             dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -346,7 +350,7 @@
             dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView2.EnableHeadersVisualStyles = false;
             dataGridView2.GridColor = SystemColors.HighlightText;
-            dataGridView2.Location = new Point(39, 220);
+            dataGridView2.Location = new Point(44, 220);
             dataGridView2.Name = "dataGridView2";
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
@@ -369,9 +373,75 @@
             dataGridView2.RowTemplate.Height = 60;
             dataGridView2.RowTemplate.Resizable = DataGridViewTriState.False;
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView2.Size = new Size(1002, 687);
+            dataGridView2.Size = new Size(1003, 500);
             dataGridView2.TabIndex = 35;
             dataGridView2.CellContentClick += dataGridView2_CellContentClick_1;
+            // 
+            // Column1
+            // 
+            Column1.FillWeight = 120F;
+            Column1.Frozen = true;
+            Column1.HeaderText = "Trainer ID";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.Width = 130;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Name";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Email Address";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Contact No.";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Date of birth";
+            Column5.MinimumWidth = 6;
+            Column5.Name = "Column5";
+            Column5.Width = 125;
+            // 
+            // Column6
+            // 
+            Column6.HeaderText = "Address";
+            Column6.MinimumWidth = 10;
+            Column6.Name = "Column6";
+            Column6.Width = 125;
+            // 
+            // Column11d
+            // 
+            Column11d.HeaderText = "Edit";
+            Column11d.Image = (Image)resources.GetObject("Column11d.Image");
+            Column11d.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Column11d.MinimumWidth = 6;
+            Column11d.Name = "Column11d";
+            Column11d.Resizable = DataGridViewTriState.True;
+            Column11d.SortMode = DataGridViewColumnSortMode.Automatic;
+            Column11d.Width = 125;
+            // 
+            // Column12
+            // 
+            Column12.HeaderText = "Delete";
+            Column12.Image = (Image)resources.GetObject("Column12.Image");
+            Column12.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Column12.MinimumWidth = 6;
+            Column12.Name = "Column12";
+            Column12.Resizable = DataGridViewTriState.True;
+            Column12.SortMode = DataGridViewColumnSortMode.Automatic;
+            Column12.Width = 125;
             // 
             // cuiPanel1
             // 
@@ -383,21 +453,22 @@
             cuiPanel1.Controls.Add(label2);
             cuiPanel1.Controls.Add(label1);
             cuiPanel1.Controls.Add(cuiPanel2);
-            cuiPanel1.Location = new Point(359, 92);
+            cuiPanel1.Location = new Point(357, 85);
+            cuiPanel1.Margin = new Padding(1, 3, 3, 2);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
             cuiPanel1.PanelColor = Color.White;
             cuiPanel1.PanelOutlineColor = Color.Black;
             cuiPanel1.Rounding = new Padding(8);
-            cuiPanel1.Size = new Size(1084, 945);
+            cuiPanel1.Size = new Size(1091, 751);
             cuiPanel1.TabIndex = 9;
             // 
             // cuiPanel3
             // 
-            cuiPanel3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cuiPanel3.Anchor = AnchorStyles.Top;
             cuiPanel3.BackColor = Color.White;
             cuiPanel3.Controls.Add(cuiButtonGroup3);
-            cuiPanel3.Location = new Point(859, 82);
+            cuiPanel3.Location = new Point(865, 82);
             cuiPanel3.Name = "cuiPanel3";
             cuiPanel3.OutlineThickness = 1F;
             cuiPanel3.PanelColor = Color.White;
@@ -408,6 +479,7 @@
             // 
             // cuiButtonGroup3
             // 
+            cuiButtonGroup3.Anchor = AnchorStyles.Top;
             cuiButtonGroup3.AutoSize = true;
             cuiButtonGroup3.BackColor = Color.Transparent;
             cuiButtonGroup3.Checked = false;
@@ -427,7 +499,7 @@
             cuiButtonGroup3.ImageAutoCenter = true;
             cuiButtonGroup3.ImageExpand = new Point(0, 0);
             cuiButtonGroup3.ImageOffset = new Point(0, 0);
-            cuiButtonGroup3.Location = new Point(25, 5);
+            cuiButtonGroup3.Location = new Point(25, 11);
             cuiButtonGroup3.Margin = new Padding(3, 4, 3, 4);
             cuiButtonGroup3.Name = "cuiButtonGroup3";
             cuiButtonGroup3.NormalBackground = Color.White;
@@ -452,78 +524,14 @@
             flowLayoutPanel1.ForeColor = SystemColors.ControlLightLight;
             flowLayoutPanel1.Location = new Point(3, -10);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(315, 1047);
+            flowLayoutPanel1.Size = new Size(303, 905);
             flowLayoutPanel1.TabIndex = 8;
-            // 
-            // Column12
-            // 
-            Column12.HeaderText = "Delete";
-            Column12.Image = (Image)resources.GetObject("Column12.Image");
-            Column12.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            Column12.MinimumWidth = 6;
-            Column12.Name = "Column12";
-            Column12.Resizable = DataGridViewTriState.False;
-            Column12.SortMode = DataGridViewColumnSortMode.Automatic;
-            Column12.Width = 125;
-            // 
-            // Column11d
-            // 
-            Column11d.HeaderText = "Edit";
-            Column11d.Image = (Image)resources.GetObject("Column11d.Image");
-            Column11d.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            Column11d.MinimumWidth = 6;
-            Column11d.Name = "Column11d";
-            Column11d.Resizable = DataGridViewTriState.False;
-            Column11d.SortMode = DataGridViewColumnSortMode.Automatic;
-            Column11d.Width = 125;
-            // 
-            // Column6
-            // 
-            Column6.HeaderText = "Address";
-            Column6.MinimumWidth = 6;
-            Column6.Name = "Column6";
-            Column6.Width = 125;
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Date of birth";
-            Column5.MinimumWidth = 6;
-            Column5.Name = "Column5";
-            Column5.Width = 125;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Contact No.";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            Column4.Width = 125;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Email Address";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            Column3.Width = 125;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Name";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.Width = 125;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Trainer ID";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.Width = 125;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1492, 1055);
+            ClientSize = new Size(1577, 886);
             Controls.Add(cuiPanel1);
             Controls.Add(flowLayoutPanel1);
             Name = "Form2";
@@ -541,6 +549,11 @@
             cuiPanel3.ResumeLayout(false);
             cuiPanel3.PerformLayout();
             ResumeLayout(false);
+        }
+
+        private void dataGridView2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

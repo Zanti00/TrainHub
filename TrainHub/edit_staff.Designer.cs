@@ -343,14 +343,14 @@
             label1.TabIndex = 9;
             label1.Text = "Edit Staff";
             // 
-            // Form1
+            // edit_staff
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(cuiPanel1);
             Controls.Add(label1);
-            Name = "Form1";
+            Name = "edit_staff";
             Text = "Form1";
             cuiPanel1.ResumeLayout(false);
             ResumeLayout(false);
