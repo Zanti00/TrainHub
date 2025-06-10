@@ -510,6 +510,8 @@
             ClientSize = new Size(829, 467);
             Controls.Add(cuiPanel2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
             Name = "add_trainer";
             Text = "trainer";
             Load += trainer_Load;

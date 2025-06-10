@@ -336,6 +336,7 @@
             ClientSize = new Size(829, 467);
             Controls.Add(cuiPanel2);
             Controls.Add(label1);
+            MaximizeBox = false;
             Name = "edit_trainer";
             Text = "edit_trainer";
             cuiPanel2.ResumeLayout(false);

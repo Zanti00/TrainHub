@@ -285,7 +285,7 @@
             // 
             dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView2.BackgroundColor = Color.White;
-            dataGridView2.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridView2.CellBorderStyle = DataGridViewCellBorderStyle.SingleVertical;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 250, 252);
             dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
