@@ -69,5 +69,20 @@ namespace TrainHub
         {
 
         }
+
+        private void cuiPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cuiPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cuiPanel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
