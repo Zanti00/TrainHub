@@ -87,7 +87,7 @@
             // 
             // cuiCalendarDatePicker1
             // 
-            cuiCalendarDatePicker1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            cuiCalendarDatePicker1.Anchor = AnchorStyles.None;
             cuiCalendarDatePicker1.EnableThemeChangeButton = true;
             cuiCalendarDatePicker1.Font = new Font("Segoe UI", 9.75F);
             cuiCalendarDatePicker1.ForeColor = Color.Gray;
@@ -513,7 +513,10 @@
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             Name = "add_trainer";
+            ShowInTaskbar = false;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "trainer";
+            TopMost = true;
             Load += trainer_Load;
             cuiPanel2.ResumeLayout(false);
             ResumeLayout(false);

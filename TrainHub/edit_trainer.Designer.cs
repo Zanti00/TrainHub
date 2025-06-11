@@ -336,9 +336,14 @@
             ClientSize = new Size(829, 467);
             Controls.Add(cuiPanel2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
+            MinimizeBox = false;
             Name = "edit_trainer";
+            ShowInTaskbar = false;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "edit_trainer";
+            TopMost = true;
             cuiPanel2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
