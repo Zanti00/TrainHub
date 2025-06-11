@@ -33,17 +33,8 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowMembersTablePageForm1));
-            flowLayoutPanel1 = new FlowLayoutPanel();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             dataGridView2 = new DataGridView();
-            cuiPanel8 = new CuoreUI.Controls.cuiPanel();
-            cuiButtonGroup2 = new CuoreUI.Controls.cuiButtonGroup();
-            cuiPanel7 = new CuoreUI.Controls.cuiPanel();
-            cuiTextBox4 = new CuoreUI.Controls.cuiTextBox();
-            cuiButtonGroup1 = new CuoreUI.Controls.cuiButtonGroup();
-            label2 = new Label();
-            label1 = new Label();
-            cuiPanel2 = new CuoreUI.Controls.cuiPanel();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
@@ -56,43 +47,44 @@
             Column10 = new DataGridViewTextBoxColumn();
             Column11d = new DataGridViewImageColumn();
             Column12 = new DataGridViewImageColumn();
+            cuiPanel2 = new CuoreUI.Controls.cuiPanel();
+            cuiPanel7 = new CuoreUI.Controls.cuiPanel();
+            cuiTextBox4 = new CuoreUI.Controls.cuiTextBox();
+            cuiButtonGroup1 = new CuoreUI.Controls.cuiButtonGroup();
+            label2 = new Label();
+            label1 = new Label();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            panel1 = new Panel();
+            cuiPanel8 = new CuoreUI.Controls.cuiPanel();
+            cuiButtonGroup2 = new CuoreUI.Controls.cuiButtonGroup();
             cuiPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
-            cuiPanel8.SuspendLayout();
+            cuiPanel2.SuspendLayout();
             cuiPanel7.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
+            cuiPanel8.SuspendLayout();
             SuspendLayout();
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            flowLayoutPanel1.BackColor = Color.FromArgb(51, 81, 88);
-            flowLayoutPanel1.ForeColor = SystemColors.ControlLightLight;
-            flowLayoutPanel1.Location = new Point(-9, -21);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(273, 1020);
-            flowLayoutPanel1.TabIndex = 6;
             // 
             // cuiPanel1
             // 
-            cuiPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            cuiPanel1.BackColor = Color.Transparent;
             cuiPanel1.Controls.Add(dataGridView2);
-            cuiPanel1.Controls.Add(cuiPanel8);
-            cuiPanel1.Controls.Add(cuiPanel7);
-            cuiPanel1.Controls.Add(label2);
-            cuiPanel1.Controls.Add(label1);
             cuiPanel1.Controls.Add(cuiPanel2);
-            cuiPanel1.Location = new Point(310, 47);
+            cuiPanel1.Dock = DockStyle.Fill;
+            cuiPanel1.Location = new Point(13, 100);
+            cuiPanel1.Margin = new Padding(3, 2, 3, 2);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
-            cuiPanel1.PanelColor = Color.White;
-            cuiPanel1.PanelOutlineColor = Color.Black;
+            cuiPanel1.PanelColor = Color.Transparent;
+            cuiPanel1.PanelOutlineColor = Color.Transparent;
             cuiPanel1.Rounding = new Padding(8);
-            cuiPanel1.Size = new Size(1186, 784);
+            cuiPanel1.Size = new Size(780, 396);
             cuiPanel1.TabIndex = 7;
+            cuiPanel1.Paint += cuiPanel1_Paint;
             // 
             // dataGridView2
             // 
-            dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView2.BackgroundColor = Color.White;
             dataGridView2.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -113,9 +105,11 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView2.Dock = DockStyle.Fill;
             dataGridView2.EnableHeadersVisualStyles = false;
             dataGridView2.GridColor = SystemColors.HighlightText;
-            dataGridView2.Location = new Point(39, 220);
+            dataGridView2.Location = new Point(0, 47);
+            dataGridView2.Margin = new Padding(3, 2, 3, 2);
             dataGridView2.Name = "dataGridView2";
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
@@ -138,181 +132,8 @@
             dataGridView2.RowTemplate.Height = 60;
             dataGridView2.RowTemplate.Resizable = DataGridViewTriState.False;
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView2.Size = new Size(1110, 522);
+            dataGridView2.Size = new Size(780, 349);
             dataGridView2.TabIndex = 35;
-            // 
-            // cuiPanel8
-            // 
-            cuiPanel8.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            cuiPanel8.BackColor = Color.White;
-            cuiPanel8.Controls.Add(cuiButtonGroup2);
-            cuiPanel8.Location = new Point(979, 82);
-            cuiPanel8.Name = "cuiPanel8";
-            cuiPanel8.OutlineThickness = 1F;
-            cuiPanel8.PanelColor = Color.White;
-            cuiPanel8.PanelOutlineColor = Color.White;
-            cuiPanel8.Rounding = new Padding(8, 8, 0, 0);
-            cuiPanel8.Size = new Size(170, 57);
-            cuiPanel8.TabIndex = 34;
-            // 
-            // cuiButtonGroup2
-            // 
-            cuiButtonGroup2.AutoSize = true;
-            cuiButtonGroup2.BackColor = Color.Transparent;
-            cuiButtonGroup2.Checked = false;
-            cuiButtonGroup2.CheckedBackground = Color.White;
-            cuiButtonGroup2.CheckedForeColor = Color.Black;
-            cuiButtonGroup2.CheckedImageTint = Color.White;
-            cuiButtonGroup2.CheckedOutline = Color.Transparent;
-            cuiButtonGroup2.Content = "+ Add Member";
-            cuiButtonGroup2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiButtonGroup2.ForeColor = Color.Black;
-            cuiButtonGroup2.Group = 0;
-            cuiButtonGroup2.HoverBackground = Color.Transparent;
-            cuiButtonGroup2.HoveredImageTint = Color.Transparent;
-            cuiButtonGroup2.HoverForeColor = Color.Black;
-            cuiButtonGroup2.HoverOutline = Color.White;
-            cuiButtonGroup2.Image = null;
-            cuiButtonGroup2.ImageAutoCenter = true;
-            cuiButtonGroup2.ImageExpand = new Point(0, 0);
-            cuiButtonGroup2.ImageOffset = new Point(0, 0);
-            cuiButtonGroup2.Location = new Point(41, 15);
-            cuiButtonGroup2.Margin = new Padding(3, 4, 3, 4);
-            cuiButtonGroup2.Name = "cuiButtonGroup2";
-            cuiButtonGroup2.NormalBackground = Color.White;
-            cuiButtonGroup2.NormalForeColor = Color.Black;
-            cuiButtonGroup2.NormalImageTint = Color.Black;
-            cuiButtonGroup2.NormalOutline = Color.Transparent;
-            cuiButtonGroup2.OutlineThickness = 1F;
-            cuiButtonGroup2.PressedBackground = Color.White;
-            cuiButtonGroup2.PressedForeColor = Color.White;
-            cuiButtonGroup2.PressedImageTint = Color.White;
-            cuiButtonGroup2.PressedOutline = Color.White;
-            cuiButtonGroup2.Rounding = new Padding(10);
-            cuiButtonGroup2.Size = new Size(129, 42);
-            cuiButtonGroup2.TabIndex = 23;
-            cuiButtonGroup2.TextAlignment = StringAlignment.Center;
-            cuiButtonGroup2.TextOffset = new Point(0, 0);
-            cuiButtonGroup2.Click += cuiButtonGroup2_Click;
-            // 
-            // cuiPanel7
-            // 
-            cuiPanel7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            cuiPanel7.Controls.Add(cuiTextBox4);
-            cuiPanel7.Controls.Add(cuiButtonGroup1);
-            cuiPanel7.Location = new Point(640, 157);
-            cuiPanel7.Name = "cuiPanel7";
-            cuiPanel7.OutlineThickness = 1F;
-            cuiPanel7.PanelColor = Color.FromArgb(248, 250, 252);
-            cuiPanel7.PanelOutlineColor = Color.FromArgb(248, 250, 252);
-            cuiPanel7.Rounding = new Padding(8, 8, 0, 0);
-            cuiPanel7.Size = new Size(495, 57);
-            cuiPanel7.TabIndex = 33;
-            // 
-            // cuiTextBox4
-            // 
-            cuiTextBox4.AutoSize = true;
-            cuiTextBox4.BackColor = Color.Transparent;
-            cuiTextBox4.BackgroundColor = Color.White;
-            cuiTextBox4.BorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox4.Content = "";
-            cuiTextBox4.FocusBackgroundColor = Color.White;
-            cuiTextBox4.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox4.FocusImageTint = Color.White;
-            cuiTextBox4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiTextBox4.ForeColor = Color.Black;
-            cuiTextBox4.Image = null;
-            cuiTextBox4.ImageExpand = new Point(0, 0);
-            cuiTextBox4.ImageOffset = new Point(0, 0);
-            cuiTextBox4.Location = new Point(44, 5);
-            cuiTextBox4.Margin = new Padding(5);
-            cuiTextBox4.Multiline = false;
-            cuiTextBox4.Name = "cuiTextBox4";
-            cuiTextBox4.NormalImageTint = Color.White;
-            cuiTextBox4.Padding = new Padding(17, 13, 17, 0);
-            cuiTextBox4.PasswordChar = false;
-            cuiTextBox4.PlaceholderColor = Color.DimGray;
-            cuiTextBox4.PlaceholderText = "Search";
-            cuiTextBox4.Rounding = new Padding(10);
-            cuiTextBox4.Size = new Size(338, 42);
-            cuiTextBox4.TabIndex = 15;
-            cuiTextBox4.TextOffset = new Size(0, 0);
-            cuiTextBox4.UnderlinedStyle = false;
-            // 
-            // cuiButtonGroup1
-            // 
-            cuiButtonGroup1.BackColor = Color.Transparent;
-            cuiButtonGroup1.Checked = false;
-            cuiButtonGroup1.CheckedBackground = Color.FromArgb(50, 81, 88);
-            cuiButtonGroup1.CheckedForeColor = Color.White;
-            cuiButtonGroup1.CheckedImageTint = Color.White;
-            cuiButtonGroup1.CheckedOutline = Color.FromArgb(50, 81, 88);
-            cuiButtonGroup1.Content = "  Sort By";
-            cuiButtonGroup1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiButtonGroup1.ForeColor = Color.DimGray;
-            cuiButtonGroup1.Group = 0;
-            cuiButtonGroup1.HoverBackground = Color.FromArgb(51, 81, 88);
-            cuiButtonGroup1.HoveredImageTint = Color.White;
-            cuiButtonGroup1.HoverForeColor = Color.White;
-            cuiButtonGroup1.HoverOutline = Color.FromArgb(51, 81, 88);
-            cuiButtonGroup1.Image = (Image)resources.GetObject("cuiButtonGroup1.Image");
-            cuiButtonGroup1.ImageAutoCenter = true;
-            cuiButtonGroup1.ImageExpand = new Point(0, 0);
-            cuiButtonGroup1.ImageOffset = new Point(0, 0);
-            cuiButtonGroup1.Location = new Point(390, 5);
-            cuiButtonGroup1.Margin = new Padding(3, 4, 3, 4);
-            cuiButtonGroup1.MaximumSize = new Size(145, 42);
-            cuiButtonGroup1.Name = "cuiButtonGroup1";
-            cuiButtonGroup1.NormalBackground = Color.White;
-            cuiButtonGroup1.NormalForeColor = Color.DimGray;
-            cuiButtonGroup1.NormalImageTint = Color.White;
-            cuiButtonGroup1.NormalOutline = Color.FromArgb(50, 81, 88);
-            cuiButtonGroup1.OutlineThickness = 1F;
-            cuiButtonGroup1.PressedBackground = Color.FromArgb(22, 36, 39);
-            cuiButtonGroup1.PressedForeColor = Color.White;
-            cuiButtonGroup1.PressedImageTint = Color.White;
-            cuiButtonGroup1.PressedOutline = Color.FromArgb(22, 36, 39);
-            cuiButtonGroup1.Rounding = new Padding(10);
-            cuiButtonGroup1.Size = new Size(105, 42);
-            cuiButtonGroup1.TabIndex = 22;
-            cuiButtonGroup1.TextAlignment = StringAlignment.Center;
-            cuiButtonGroup1.TextOffset = new Point(0, 0);
-            cuiButtonGroup1.Click += cuiButtonGroup1_Click;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.White;
-            label2.ForeColor = Color.Gray;
-            label2.Location = new Point(39, 87);
-            label2.Name = "label2";
-            label2.Size = new Size(194, 20);
-            label2.TabIndex = 25;
-            label2.Text = "View and Manage Members";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.White;
-            label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(51, 81, 88);
-            label1.Location = new Point(39, 58);
-            label1.Name = "label1";
-            label1.Size = new Size(122, 29);
-            label1.TabIndex = 24;
-            label1.Text = "Members";
-            // 
-            // cuiPanel2
-            // 
-            cuiPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cuiPanel2.Location = new Point(39, 145);
-            cuiPanel2.Name = "cuiPanel2";
-            cuiPanel2.OutlineThickness = 1F;
-            cuiPanel2.PanelColor = Color.FromArgb(248, 250, 252);
-            cuiPanel2.PanelOutlineColor = Color.Black;
-            cuiPanel2.Rounding = new Padding(8, 8, 0, 0);
-            cuiPanel2.Size = new Size(1110, 76);
-            cuiPanel2.TabIndex = 16;
             // 
             // Column1
             // 
@@ -406,37 +227,240 @@
             Column12.SortMode = DataGridViewColumnSortMode.Automatic;
             Column12.Width = 125;
             // 
+            // cuiPanel2
+            // 
+            cuiPanel2.Controls.Add(cuiPanel7);
+            cuiPanel2.Dock = DockStyle.Top;
+            cuiPanel2.Location = new Point(0, 0);
+            cuiPanel2.Margin = new Padding(3, 2, 3, 2);
+            cuiPanel2.Name = "cuiPanel2";
+            cuiPanel2.OutlineThickness = 1F;
+            cuiPanel2.Padding = new Padding(0, 5, 5, 5);
+            cuiPanel2.PanelColor = Color.FromArgb(248, 250, 252);
+            cuiPanel2.PanelOutlineColor = Color.Black;
+            cuiPanel2.Rounding = new Padding(8, 8, 0, 0);
+            cuiPanel2.Size = new Size(780, 47);
+            cuiPanel2.TabIndex = 16;
+            cuiPanel2.Paint += cuiPanel2_Paint;
+            // 
+            // cuiPanel7
+            // 
+            cuiPanel7.Controls.Add(cuiTextBox4);
+            cuiPanel7.Controls.Add(cuiButtonGroup1);
+            cuiPanel7.Dock = DockStyle.Right;
+            cuiPanel7.Location = new Point(330, 5);
+            cuiPanel7.Margin = new Padding(3, 2, 3, 2);
+            cuiPanel7.Name = "cuiPanel7";
+            cuiPanel7.OutlineThickness = 0F;
+            cuiPanel7.PanelColor = Color.FromArgb(248, 250, 252);
+            cuiPanel7.PanelOutlineColor = Color.FromArgb(248, 250, 252);
+            cuiPanel7.Rounding = new Padding(8, 8, 0, 0);
+            cuiPanel7.Size = new Size(445, 37);
+            cuiPanel7.TabIndex = 34;
+            cuiPanel7.Paint += cuiPanel7_Paint;
+            // 
+            // cuiTextBox4
+            // 
+            cuiTextBox4.AutoSize = true;
+            cuiTextBox4.BackColor = Color.Transparent;
+            cuiTextBox4.BackgroundColor = Color.White;
+            cuiTextBox4.BorderColor = Color.FromArgb(50, 81, 88);
+            cuiTextBox4.Content = "";
+            cuiTextBox4.FocusBackgroundColor = Color.White;
+            cuiTextBox4.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            cuiTextBox4.FocusImageTint = Color.White;
+            cuiTextBox4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cuiTextBox4.ForeColor = Color.Black;
+            cuiTextBox4.Image = null;
+            cuiTextBox4.ImageExpand = new Point(0, 0);
+            cuiTextBox4.ImageOffset = new Point(0, 0);
+            cuiTextBox4.Location = new Point(41, 3);
+            cuiTextBox4.Margin = new Padding(4);
+            cuiTextBox4.Multiline = false;
+            cuiTextBox4.Name = "cuiTextBox4";
+            cuiTextBox4.NormalImageTint = Color.White;
+            cuiTextBox4.Padding = new Padding(14, 9, 14, 0);
+            cuiTextBox4.PasswordChar = false;
+            cuiTextBox4.PlaceholderColor = Color.DimGray;
+            cuiTextBox4.PlaceholderText = "Search";
+            cuiTextBox4.Rounding = new Padding(10);
+            cuiTextBox4.Size = new Size(296, 32);
+            cuiTextBox4.TabIndex = 15;
+            cuiTextBox4.TextOffset = new Size(0, 0);
+            cuiTextBox4.UnderlinedStyle = false;
+            // 
+            // cuiButtonGroup1
+            // 
+            cuiButtonGroup1.BackColor = Color.Transparent;
+            cuiButtonGroup1.Checked = false;
+            cuiButtonGroup1.CheckedBackground = Color.FromArgb(50, 81, 88);
+            cuiButtonGroup1.CheckedForeColor = Color.White;
+            cuiButtonGroup1.CheckedImageTint = Color.White;
+            cuiButtonGroup1.CheckedOutline = Color.FromArgb(50, 81, 88);
+            cuiButtonGroup1.Content = "  Sort By";
+            cuiButtonGroup1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cuiButtonGroup1.ForeColor = Color.DimGray;
+            cuiButtonGroup1.Group = 0;
+            cuiButtonGroup1.HoverBackground = Color.FromArgb(51, 81, 88);
+            cuiButtonGroup1.HoveredImageTint = Color.White;
+            cuiButtonGroup1.HoverForeColor = Color.White;
+            cuiButtonGroup1.HoverOutline = Color.FromArgb(51, 81, 88);
+            cuiButtonGroup1.Image = (Image)resources.GetObject("cuiButtonGroup1.Image");
+            cuiButtonGroup1.ImageAutoCenter = true;
+            cuiButtonGroup1.ImageExpand = new Point(0, 0);
+            cuiButtonGroup1.ImageOffset = new Point(0, 0);
+            cuiButtonGroup1.Location = new Point(344, 3);
+            cuiButtonGroup1.MaximumSize = new Size(127, 32);
+            cuiButtonGroup1.Name = "cuiButtonGroup1";
+            cuiButtonGroup1.NormalBackground = Color.White;
+            cuiButtonGroup1.NormalForeColor = Color.DimGray;
+            cuiButtonGroup1.NormalImageTint = Color.White;
+            cuiButtonGroup1.NormalOutline = Color.FromArgb(50, 81, 88);
+            cuiButtonGroup1.OutlineThickness = 1F;
+            cuiButtonGroup1.PressedBackground = Color.FromArgb(22, 36, 39);
+            cuiButtonGroup1.PressedForeColor = Color.White;
+            cuiButtonGroup1.PressedImageTint = Color.White;
+            cuiButtonGroup1.PressedOutline = Color.FromArgb(22, 36, 39);
+            cuiButtonGroup1.Rounding = new Padding(10);
+            cuiButtonGroup1.Size = new Size(92, 32);
+            cuiButtonGroup1.TabIndex = 22;
+            cuiButtonGroup1.TextAlignment = StringAlignment.Center;
+            cuiButtonGroup1.TextOffset = new Point(0, 0);
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.None;
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.ForeColor = Color.Gray;
+            label2.Location = new Point(0, 28);
+            label2.Name = "label2";
+            label2.Size = new Size(154, 15);
+            label2.TabIndex = 25;
+            label2.Text = "View and Manage Members";
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(51, 81, 88);
+            label1.Location = new Point(0, 4);
+            label1.Name = "label1";
+            label1.Size = new Size(97, 24);
+            label1.TabIndex = 24;
+            label1.Text = "Members";
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel1.Controls.Add(cuiPanel1, 0, 2);
+            tableLayoutPanel1.Controls.Add(cuiPanel8, 0, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.Padding = new Padding(10, 0, 10, 0);
+            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
+            tableLayoutPanel1.Size = new Size(806, 498);
+            tableLayoutPanel1.TabIndex = 8;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label2);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(13, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(200, 43);
+            panel1.TabIndex = 9;
+            // 
+            // cuiPanel8
+            // 
+            cuiPanel8.BackColor = Color.Transparent;
+            cuiPanel8.Controls.Add(cuiButtonGroup2);
+            cuiPanel8.Dock = DockStyle.Right;
+            cuiPanel8.Location = new Point(644, 51);
+            cuiPanel8.Margin = new Padding(3, 2, 3, 2);
+            cuiPanel8.Name = "cuiPanel8";
+            cuiPanel8.OutlineThickness = 1F;
+            cuiPanel8.PanelColor = Color.Transparent;
+            cuiPanel8.PanelOutlineColor = Color.Transparent;
+            cuiPanel8.Rounding = new Padding(8, 8, 0, 0);
+            cuiPanel8.Size = new Size(149, 45);
+            cuiPanel8.TabIndex = 34;
+            // 
+            // cuiButtonGroup2
+            // 
+            cuiButtonGroup2.AutoSize = true;
+            cuiButtonGroup2.BackColor = Color.Transparent;
+            cuiButtonGroup2.Checked = false;
+            cuiButtonGroup2.CheckedBackground = Color.White;
+            cuiButtonGroup2.CheckedForeColor = Color.Black;
+            cuiButtonGroup2.CheckedImageTint = Color.White;
+            cuiButtonGroup2.CheckedOutline = Color.Transparent;
+            cuiButtonGroup2.Content = "+ Add Member";
+            cuiButtonGroup2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cuiButtonGroup2.ForeColor = Color.White;
+            cuiButtonGroup2.Group = 0;
+            cuiButtonGroup2.HoverBackground = Color.FromArgb(22, 36, 39);
+            cuiButtonGroup2.HoveredImageTint = Color.Transparent;
+            cuiButtonGroup2.HoverForeColor = Color.White;
+            cuiButtonGroup2.HoverOutline = Color.FromArgb(22, 36, 39);
+            cuiButtonGroup2.Image = null;
+            cuiButtonGroup2.ImageAutoCenter = true;
+            cuiButtonGroup2.ImageExpand = new Point(0, 0);
+            cuiButtonGroup2.ImageOffset = new Point(0, 0);
+            cuiButtonGroup2.Location = new Point(36, 0);
+            cuiButtonGroup2.Name = "cuiButtonGroup2";
+            cuiButtonGroup2.NormalBackground = Color.FromArgb(50, 81, 88);
+            cuiButtonGroup2.NormalForeColor = Color.White;
+            cuiButtonGroup2.NormalImageTint = Color.Black;
+            cuiButtonGroup2.NormalOutline = Color.FromArgb(50, 81, 88);
+            cuiButtonGroup2.OutlineThickness = 1F;
+            cuiButtonGroup2.PressedBackground = Color.FromArgb(22, 36, 39);
+            cuiButtonGroup2.PressedForeColor = Color.White;
+            cuiButtonGroup2.PressedImageTint = Color.White;
+            cuiButtonGroup2.PressedOutline = Color.FromArgb(22, 36, 39);
+            cuiButtonGroup2.Rounding = new Padding(10);
+            cuiButtonGroup2.Size = new Size(113, 43);
+            cuiButtonGroup2.TabIndex = 23;
+            cuiButtonGroup2.TextAlignment = StringAlignment.Center;
+            cuiButtonGroup2.TextOffset = new Point(0, 0);
+            cuiButtonGroup2.Click += cuiButtonGroup2_Click;
+            // 
             // ShowMembersTablePageForm1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1537, 873);
-            Controls.Add(cuiPanel1);
-            Controls.Add(flowLayoutPanel1);
+            ClientSize = new Size(806, 498);
+            Controls.Add(tableLayoutPanel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ShowMembersTablePageForm1";
             Text = "ShowMembersTablePageForm1";
             cuiPanel1.ResumeLayout(false);
-            cuiPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
-            cuiPanel8.ResumeLayout(false);
-            cuiPanel8.PerformLayout();
+            cuiPanel2.ResumeLayout(false);
             cuiPanel7.ResumeLayout(false);
             cuiPanel7.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            cuiPanel8.ResumeLayout(false);
+            cuiPanel8.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private FlowLayoutPanel flowLayoutPanel1;
         private CuoreUI.Controls.cuiPanel cuiPanel1;
-        private CuoreUI.Controls.cuiTextBox cuiTextBox4;
         private CuoreUI.Controls.cuiPanel cuiPanel2;
-        private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup2;
-        private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup1;
         private Label label2;
         private Label label1;
-        private CuoreUI.Controls.cuiPanel cuiPanel7;
-        private CuoreUI.Controls.cuiPanel cuiPanel8;
         private DataGridView dataGridView2;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
@@ -450,5 +474,12 @@
         private DataGridViewTextBoxColumn Column10;
         private DataGridViewImageColumn Column11d;
         private DataGridViewImageColumn Column12;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Panel panel1;
+        private CuoreUI.Controls.cuiPanel cuiPanel8;
+        private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup2;
+        private CuoreUI.Controls.cuiPanel cuiPanel7;
+        private CuoreUI.Controls.cuiTextBox cuiTextBox4;
+        private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup1;
     }
 }
