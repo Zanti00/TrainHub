@@ -28,451 +28,473 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ComboBox comboBox1;
-            ComboBox comboBox3;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditMemberForm1));
             label1 = new Label();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
-            cuiPanel3 = new CuoreUI.Controls.cuiPanel();
-            cuiPanel2 = new CuoreUI.Controls.cuiPanel();
-            cuiCalendarDatePicker2 = new CuoreUI.Controls.cuiCalendarDatePicker();
-            cuiCalendarDatePicker1 = new CuoreUI.Controls.cuiCalendarDatePicker();
-            cuiButtonGroup1 = new CuoreUI.Controls.cuiButtonGroup();
-            cuiButton2 = new CuoreUI.Controls.cuiButtonGroup();
-            cuiTextBox6 = new CuoreUI.Controls.cuiTextBox();
-            cuiTextBox4 = new CuoreUI.Controls.cuiTextBox();
-            cuiTextBox3 = new CuoreUI.Controls.cuiTextBox();
-            cuiTextBox2 = new CuoreUI.Controls.cuiTextBox();
-            cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
-            emailTxt = new CuoreUI.Controls.cuiTextBox();
-            comboBox1 = new ComboBox();
-            comboBox3 = new ComboBox();
+            birthDate = new CuoreUI.Controls.cuiCalendarDatePicker();
+            label2 = new Label();
+            label4 = new Label();
+            trainerCombo = new CuoreUI.Controls.cuiComboBox();
+            endDate = new CuoreUI.Controls.cuiCalendarDatePicker();
+            label3 = new Label();
+            statusCombo = new CuoreUI.Controls.cuiComboBox();
+            startDate = new CuoreUI.Controls.cuiCalendarDatePicker();
+            membershipTypeCombo = new CuoreUI.Controls.cuiComboBox();
+            cancelBtn = new CuoreUI.Controls.cuiButtonGroup();
+            doneBtn = new CuoreUI.Controls.cuiButtonGroup();
+            phoneNumTxt = new CuoreUI.Controls.cuiTextBox();
+            emailAddTxt = new CuoreUI.Controls.cuiTextBox();
+            lastNameTxt = new CuoreUI.Controls.cuiTextBox();
+            firstNameTxt = new CuoreUI.Controls.cuiTextBox();
             cuiPanel1.SuspendLayout();
-            cuiPanel3.SuspendLayout();
-            cuiPanel2.SuspendLayout();
             SuspendLayout();
-            // 
-            // comboBox1
-            // 
-            comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox1.BackColor = Color.White;
-            comboBox1.DropDownHeight = 150;
-            comboBox1.FlatStyle = FlatStyle.Flat;
-            comboBox1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox1.ForeColor = Color.Black;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.IntegralHeight = false;
-            comboBox1.Items.AddRange(new object[] { "Inactive", "Active" });
-            comboBox1.Location = new Point(13, 7);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(320, 24);
-            comboBox1.TabIndex = 5;
-            comboBox1.Text = "Status";
-            // 
-            // comboBox3
-            // 
-            comboBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox3.BackColor = Color.White;
-            comboBox3.DropDownHeight = 150;
-            comboBox3.FlatStyle = FlatStyle.Flat;
-            comboBox3.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox3.ForeColor = Color.Black;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.IntegralHeight = false;
-            comboBox3.Items.AddRange(new object[] { "Daily", "Monthly", "Quarterly", "Yearly" });
-            comboBox3.Location = new Point(13, 7);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(320, 24);
-            comboBox3.TabIndex = 5;
-            comboBox3.Text = "Membership Type";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(51, 81, 88);
-            label1.Location = new Point(33, 40);
+            label1.Location = new Point(29, 30);
             label1.Name = "label1";
-            label1.Size = new Size(162, 29);
+            label1.Size = new Size(129, 24);
             label1.TabIndex = 3;
             label1.Text = "Edit Member";
             // 
             // cuiPanel1
             // 
-            cuiPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            cuiPanel1.Controls.Add(cuiPanel3);
-            cuiPanel1.Controls.Add(cuiPanel2);
-            cuiPanel1.Controls.Add(cuiCalendarDatePicker2);
-            cuiPanel1.Controls.Add(cuiCalendarDatePicker1);
-            cuiPanel1.Controls.Add(cuiButtonGroup1);
-            cuiPanel1.Controls.Add(cuiButton2);
-            cuiPanel1.Controls.Add(cuiTextBox6);
-            cuiPanel1.Controls.Add(cuiTextBox4);
-            cuiPanel1.Controls.Add(cuiTextBox3);
-            cuiPanel1.Controls.Add(cuiTextBox2);
-            cuiPanel1.Controls.Add(cuiTextBox1);
-            cuiPanel1.Controls.Add(emailTxt);
-            cuiPanel1.Location = new Point(33, 90);
+            cuiPanel1.Controls.Add(birthDate);
+            cuiPanel1.Controls.Add(label2);
+            cuiPanel1.Controls.Add(label4);
+            cuiPanel1.Controls.Add(trainerCombo);
+            cuiPanel1.Controls.Add(endDate);
+            cuiPanel1.Controls.Add(label3);
+            cuiPanel1.Controls.Add(statusCombo);
+            cuiPanel1.Controls.Add(startDate);
+            cuiPanel1.Controls.Add(membershipTypeCombo);
+            cuiPanel1.Controls.Add(cancelBtn);
+            cuiPanel1.Controls.Add(doneBtn);
+            cuiPanel1.Controls.Add(phoneNumTxt);
+            cuiPanel1.Controls.Add(emailAddTxt);
+            cuiPanel1.Controls.Add(lastNameTxt);
+            cuiPanel1.Controls.Add(firstNameTxt);
+            cuiPanel1.Location = new Point(29, 72);
+            cuiPanel1.Margin = new Padding(3, 2, 3, 2);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
             cuiPanel1.PanelColor = Color.White;
             cuiPanel1.PanelOutlineColor = Color.Black;
-            cuiPanel1.Rounding = new Padding(8);
-            cuiPanel1.Size = new Size(774, 347);
-            cuiPanel1.TabIndex = 4;
+            cuiPanel1.Rounding = new Padding(10);
+            cuiPanel1.Size = new Size(677, 260);
+            cuiPanel1.TabIndex = 8;
             // 
-            // cuiPanel3
+            // birthDate
             // 
-            cuiPanel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cuiPanel3.BackColor = Color.Transparent;
-            cuiPanel3.Controls.Add(comboBox3);
-            cuiPanel3.Location = new Point(400, 192);
-            cuiPanel3.Name = "cuiPanel3";
-            cuiPanel3.OutlineThickness = 1F;
-            cuiPanel3.PanelColor = Color.White;
-            cuiPanel3.PanelOutlineColor = Color.Black;
-            cuiPanel3.Rounding = new Padding(10);
-            cuiPanel3.Size = new Size(343, 38);
-            cuiPanel3.TabIndex = 30;
+            birthDate.EnableThemeChangeButton = true;
+            birthDate.Font = new Font("Segoe UI", 9.75F);
+            birthDate.ForeColor = Color.Gray;
+            birthDate.HoverBackground = Color.FromArgb(50, 128, 128, 128);
+            birthDate.HoverOutline = Color.FromArgb(180, 128, 128, 128);
+            birthDate.Icon = (Image)resources.GetObject("birthDate.Icon");
+            birthDate.IconTint = Color.Gray;
+            birthDate.Location = new Point(439, 72);
+            birthDate.Margin = new Padding(4);
+            birthDate.Name = "birthDate";
+            birthDate.NormalBackground = Color.White;
+            birthDate.NormalOutline = Color.FromArgb(51, 81, 88);
+            birthDate.OutlineThickness = 1.5F;
+            birthDate.PressedBackground = Color.FromArgb(80, 128, 128, 128);
+            birthDate.PressedOutline = Color.FromArgb(210, 128, 128, 128);
+            birthDate.Rounding = 10;
+            birthDate.ShowIcon = true;
+            birthDate.Size = new Size(211, 28);
+            birthDate.TabIndex = 32;
+            birthDate.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
+            birthDate.Value = new DateTime(2025, 6, 4, 0, 0, 0, 0);
             // 
-            // cuiPanel2
+            // label2
             // 
-            cuiPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cuiPanel2.BackColor = Color.Transparent;
-            cuiPanel2.Controls.Add(comboBox1);
-            cuiPanel2.Location = new Point(400, 144);
-            cuiPanel2.Name = "cuiPanel2";
-            cuiPanel2.OutlineThickness = 1F;
-            cuiPanel2.PanelColor = Color.White;
-            cuiPanel2.PanelOutlineColor = Color.Black;
-            cuiPanel2.Rounding = new Padding(10);
-            cuiPanel2.Size = new Size(343, 38);
-            cuiPanel2.TabIndex = 29;
+            label2.AutoSize = true;
+            label2.Font = new Font("Inter", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Silver;
+            label2.Location = new Point(353, 75);
+            label2.Name = "label2";
+            label2.Size = new Size(75, 22);
+            label2.TabIndex = 36;
+            label2.Text = "Birthdate";
             // 
-            // cuiCalendarDatePicker2
+            // label4
             // 
-            cuiCalendarDatePicker2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cuiCalendarDatePicker2.EnableThemeChangeButton = true;
-            cuiCalendarDatePicker2.Font = new Font("Segoe UI", 9.75F);
-            cuiCalendarDatePicker2.ForeColor = Color.DarkGray;
-            cuiCalendarDatePicker2.HoverBackground = Color.FromArgb(50, 128, 128, 128);
-            cuiCalendarDatePicker2.HoverOutline = Color.FromArgb(180, 128, 128, 128);
-            cuiCalendarDatePicker2.Icon = (Image)resources.GetObject("cuiCalendarDatePicker2.Icon");
-            cuiCalendarDatePicker2.IconTint = Color.Gray;
-            cuiCalendarDatePicker2.Location = new Point(578, 96);
-            cuiCalendarDatePicker2.Margin = new Padding(4, 5, 4, 5);
-            cuiCalendarDatePicker2.Name = "cuiCalendarDatePicker2";
-            cuiCalendarDatePicker2.NormalBackground = Color.White;
-            cuiCalendarDatePicker2.NormalOutline = Color.FromArgb(51, 81, 88);
-            cuiCalendarDatePicker2.OutlineThickness = 1.5F;
-            cuiCalendarDatePicker2.PressedBackground = Color.FromArgb(80, 128, 128, 128);
-            cuiCalendarDatePicker2.PressedOutline = Color.FromArgb(210, 128, 128, 128);
-            cuiCalendarDatePicker2.Rounding = 10;
-            cuiCalendarDatePicker2.ShowIcon = true;
-            cuiCalendarDatePicker2.Size = new Size(165, 38);
-            cuiCalendarDatePicker2.TabIndex = 27;
-            cuiCalendarDatePicker2.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
-            cuiCalendarDatePicker2.Value = new DateTime(2025, 6, 4, 0, 0, 0, 0);
+            label4.AutoSize = true;
+            label4.Font = new Font("Inter", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Silver;
+            label4.Location = new Point(353, 146);
+            label4.Name = "label4";
+            label4.Size = new Size(72, 22);
+            label4.TabIndex = 38;
+            label4.Text = "End date";
             // 
-            // cuiCalendarDatePicker1
+            // trainerCombo
             // 
-            cuiCalendarDatePicker1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cuiCalendarDatePicker1.EnableThemeChangeButton = true;
-            cuiCalendarDatePicker1.Font = new Font("Segoe UI", 9.75F);
-            cuiCalendarDatePicker1.ForeColor = Color.DarkGray;
-            cuiCalendarDatePicker1.HoverBackground = Color.FromArgb(50, 128, 128, 128);
-            cuiCalendarDatePicker1.HoverOutline = Color.FromArgb(180, 128, 128, 128);
-            cuiCalendarDatePicker1.Icon = (Image)resources.GetObject("cuiCalendarDatePicker1.Icon");
-            cuiCalendarDatePicker1.IconTint = Color.Gray;
-            cuiCalendarDatePicker1.Location = new Point(400, 96);
-            cuiCalendarDatePicker1.Margin = new Padding(4, 5, 4, 5);
-            cuiCalendarDatePicker1.Name = "cuiCalendarDatePicker1";
-            cuiCalendarDatePicker1.NormalBackground = Color.White;
-            cuiCalendarDatePicker1.NormalOutline = Color.FromArgb(51, 81, 88);
-            cuiCalendarDatePicker1.OutlineThickness = 1.5F;
-            cuiCalendarDatePicker1.PressedBackground = Color.FromArgb(80, 128, 128, 128);
-            cuiCalendarDatePicker1.PressedOutline = Color.FromArgb(210, 128, 128, 128);
-            cuiCalendarDatePicker1.Rounding = 10;
-            cuiCalendarDatePicker1.ShowIcon = true;
-            cuiCalendarDatePicker1.Size = new Size(165, 38);
-            cuiCalendarDatePicker1.TabIndex = 26;
-            cuiCalendarDatePicker1.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
-            cuiCalendarDatePicker1.Value = new DateTime(2025, 6, 4, 0, 0, 0, 0);
+            trainerCombo.BackColor = Color.Transparent;
+            trainerCombo.BackgroundColor = Color.White;
+            trainerCombo.ButtonCursor = Cursors.Arrow;
+            trainerCombo.ButtonHoverBackground = Color.FromArgb(22, 36, 39);
+            trainerCombo.ButtonHoverOutline = Color.FromArgb(22, 36, 39);
+            trainerCombo.ButtonNormalBackground = Color.FromArgb(50, 81, 88);
+            trainerCombo.ButtonNormalOutline = Color.FromArgb(50, 81, 88);
+            trainerCombo.ButtonPressedBackground = Color.FromArgb(22, 36, 39);
+            trainerCombo.ButtonPressedOutline = Color.FromArgb(22, 36, 39);
+            trainerCombo.DropDownBackgroundColor = Color.FromArgb(50, 81, 88);
+            trainerCombo.DropDownOutlineColor = Color.FromArgb(50, 81, 88);
+            trainerCombo.ExpandArrowColor = Color.FromArgb(50, 81, 88);
+            trainerCombo.ForeColor = Color.Gray;
+            trainerCombo.Items = new string[]
+    {
+    "None",
+    "Trainer 1",
+    "Trainer 2",
+    "Trainer 3"
+    };
+            trainerCombo.Location = new Point(350, 37);
+            trainerCombo.Margin = new Padding(4, 3, 4, 3);
+            trainerCombo.Name = "trainerCombo";
+            trainerCombo.NoSelectionDropdownText = "Empty";
+            trainerCombo.NoSelectionText = "Select a trainer";
+            trainerCombo.OutlineColor = Color.FromArgb(50, 81, 88);
+            trainerCombo.OutlineThickness = 1F;
+            trainerCombo.Rounding = 8;
+            trainerCombo.Size = new Size(300, 27);
+            trainerCombo.TabIndex = 35;
             // 
-            // cuiButtonGroup1
+            // endDate
             // 
-            cuiButtonGroup1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            cuiButtonGroup1.BackColor = Color.Transparent;
-            cuiButtonGroup1.Checked = false;
-            cuiButtonGroup1.CheckedBackground = Color.FromArgb(50, 81, 88);
-            cuiButtonGroup1.CheckedForeColor = Color.White;
-            cuiButtonGroup1.CheckedImageTint = Color.White;
-            cuiButtonGroup1.CheckedOutline = Color.FromArgb(50, 81, 88);
-            cuiButtonGroup1.Content = "Cancel";
-            cuiButtonGroup1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiButtonGroup1.ForeColor = Color.Black;
-            cuiButtonGroup1.Group = 0;
-            cuiButtonGroup1.HoverBackground = Color.FromArgb(22, 36, 39);
-            cuiButtonGroup1.HoveredImageTint = Color.White;
-            cuiButtonGroup1.HoverForeColor = Color.White;
-            cuiButtonGroup1.HoverOutline = Color.FromArgb(22, 36, 39);
-            cuiButtonGroup1.Image = null;
-            cuiButtonGroup1.ImageAutoCenter = true;
-            cuiButtonGroup1.ImageExpand = new Point(0, 0);
-            cuiButtonGroup1.ImageOffset = new Point(0, 0);
-            cuiButtonGroup1.Location = new Point(565, 279);
-            cuiButtonGroup1.Margin = new Padding(3, 4, 3, 4);
-            cuiButtonGroup1.Name = "cuiButtonGroup1";
-            cuiButtonGroup1.NormalBackground = Color.White;
-            cuiButtonGroup1.NormalForeColor = Color.Black;
-            cuiButtonGroup1.NormalImageTint = Color.White;
-            cuiButtonGroup1.NormalOutline = Color.FromArgb(50, 81, 88);
-            cuiButtonGroup1.OutlineThickness = 1F;
-            cuiButtonGroup1.PressedBackground = Color.FromArgb(22, 36, 39);
-            cuiButtonGroup1.PressedForeColor = Color.White;
-            cuiButtonGroup1.PressedImageTint = Color.White;
-            cuiButtonGroup1.PressedOutline = Color.FromArgb(22, 36, 39);
-            cuiButtonGroup1.Rounding = new Padding(10);
-            cuiButtonGroup1.Size = new Size(86, 35);
-            cuiButtonGroup1.TabIndex = 21;
-            cuiButtonGroup1.TextAlignment = StringAlignment.Center;
-            cuiButtonGroup1.TextOffset = new Point(0, 0);
-            cuiButtonGroup1.Click += cuiButtonGroup1_Click;
+            endDate.EnableThemeChangeButton = true;
+            endDate.Font = new Font("Segoe UI", 9.75F);
+            endDate.ForeColor = Color.Gray;
+            endDate.HoverBackground = Color.FromArgb(50, 128, 128, 128);
+            endDate.HoverOutline = Color.FromArgb(180, 128, 128, 128);
+            endDate.Icon = (Image)resources.GetObject("endDate.Icon");
+            endDate.IconTint = Color.Gray;
+            endDate.Location = new Point(439, 143);
+            endDate.Margin = new Padding(4);
+            endDate.Name = "endDate";
+            endDate.NormalBackground = Color.White;
+            endDate.NormalOutline = Color.FromArgb(51, 81, 88);
+            endDate.OutlineThickness = 1.5F;
+            endDate.PressedBackground = Color.FromArgb(80, 128, 128, 128);
+            endDate.PressedOutline = Color.FromArgb(210, 128, 128, 128);
+            endDate.Rounding = 10;
+            endDate.ShowIcon = true;
+            endDate.Size = new Size(211, 28);
+            endDate.TabIndex = 27;
+            endDate.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
+            endDate.Value = new DateTime(2025, 6, 4, 0, 0, 0, 0);
             // 
-            // cuiButton2
+            // label3
             // 
-            cuiButton2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            cuiButton2.BackColor = Color.Transparent;
-            cuiButton2.Checked = false;
-            cuiButton2.CheckedBackground = Color.FromArgb(50, 81, 88);
-            cuiButton2.CheckedForeColor = Color.White;
-            cuiButton2.CheckedImageTint = Color.White;
-            cuiButton2.CheckedOutline = Color.FromArgb(50, 81, 88);
-            cuiButton2.Content = "OK";
-            cuiButton2.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiButton2.ForeColor = Color.White;
-            cuiButton2.Group = 0;
-            cuiButton2.HoverBackground = Color.White;
-            cuiButton2.HoveredImageTint = Color.White;
-            cuiButton2.HoverForeColor = Color.Black;
-            cuiButton2.HoverOutline = Color.FromArgb(22, 36, 39);
-            cuiButton2.Image = null;
-            cuiButton2.ImageAutoCenter = true;
-            cuiButton2.ImageExpand = new Point(0, 0);
-            cuiButton2.ImageOffset = new Point(0, 0);
-            cuiButton2.Location = new Point(657, 279);
-            cuiButton2.Margin = new Padding(3, 4, 3, 4);
-            cuiButton2.Name = "cuiButton2";
-            cuiButton2.NormalBackground = Color.FromArgb(50, 81, 88);
-            cuiButton2.NormalForeColor = Color.White;
-            cuiButton2.NormalImageTint = Color.White;
-            cuiButton2.NormalOutline = Color.FromArgb(50, 81, 88);
-            cuiButton2.OutlineThickness = 1F;
-            cuiButton2.PressedBackground = Color.FromArgb(22, 36, 39);
-            cuiButton2.PressedForeColor = Color.White;
-            cuiButton2.PressedImageTint = Color.White;
-            cuiButton2.PressedOutline = Color.FromArgb(22, 36, 39);
-            cuiButton2.Rounding = new Padding(10);
-            cuiButton2.Size = new Size(86, 35);
-            cuiButton2.TabIndex = 20;
-            cuiButton2.TextAlignment = StringAlignment.Center;
-            cuiButton2.TextOffset = new Point(0, 0);
-            cuiButton2.Click += cuiButton2_Click;
+            label3.AutoSize = true;
+            label3.Font = new Font("Inter", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Silver;
+            label3.Location = new Point(353, 108);
+            label3.Name = "label3";
+            label3.Size = new Size(79, 22);
+            label3.TabIndex = 37;
+            label3.Text = "Start date";
             // 
-            // cuiTextBox6
+            // statusCombo
             // 
-            cuiTextBox6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cuiTextBox6.BackColor = Color.Transparent;
-            cuiTextBox6.BackgroundColor = Color.White;
-            cuiTextBox6.BorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox6.Content = "";
-            cuiTextBox6.FocusBackgroundColor = Color.White;
-            cuiTextBox6.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox6.FocusImageTint = Color.White;
-            cuiTextBox6.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiTextBox6.ForeColor = Color.Black;
-            cuiTextBox6.Image = null;
-            cuiTextBox6.ImageExpand = new Point(0, 0);
-            cuiTextBox6.ImageOffset = new Point(0, 0);
-            cuiTextBox6.Location = new Point(29, 240);
-            cuiTextBox6.Margin = new Padding(5);
-            cuiTextBox6.Multiline = false;
-            cuiTextBox6.Name = "cuiTextBox6";
-            cuiTextBox6.NormalImageTint = Color.White;
-            cuiTextBox6.Padding = new Padding(16, 11, 16, 0);
-            cuiTextBox6.PasswordChar = false;
-            cuiTextBox6.PlaceholderColor = SystemColors.ScrollBar;
-            cuiTextBox6.PlaceholderText = "Trainer ID ";
-            cuiTextBox6.Rounding = new Padding(10);
-            cuiTextBox6.Size = new Size(343, 38);
-            cuiTextBox6.TabIndex = 17;
-            cuiTextBox6.TextOffset = new Size(0, 0);
-            cuiTextBox6.UnderlinedStyle = false;
+            statusCombo.BackColor = Color.Transparent;
+            statusCombo.BackgroundColor = Color.White;
+            statusCombo.ButtonCursor = Cursors.Arrow;
+            statusCombo.ButtonHoverBackground = Color.FromArgb(22, 36, 39);
+            statusCombo.ButtonHoverOutline = Color.FromArgb(22, 36, 39);
+            statusCombo.ButtonNormalBackground = Color.FromArgb(50, 81, 88);
+            statusCombo.ButtonNormalOutline = Color.FromArgb(50, 81, 88);
+            statusCombo.ButtonPressedBackground = Color.FromArgb(22, 36, 39);
+            statusCombo.ButtonPressedOutline = Color.FromArgb(22, 36, 39);
+            statusCombo.DropDownBackgroundColor = Color.FromArgb(50, 81, 88);
+            statusCombo.DropDownOutlineColor = Color.FromArgb(50, 81, 88);
+            statusCombo.ExpandArrowColor = Color.FromArgb(50, 81, 88);
+            statusCombo.ForeColor = Color.Gray;
+            statusCombo.Items = new string[]
+    {
+    "Active",
+    "Inactive"
+    };
+            statusCombo.Location = new Point(25, 179);
+            statusCombo.Margin = new Padding(4, 3, 4, 3);
+            statusCombo.Name = "statusCombo";
+            statusCombo.NoSelectionDropdownText = "Empty";
+            statusCombo.NoSelectionText = "Select status";
+            statusCombo.OutlineColor = Color.FromArgb(50, 81, 88);
+            statusCombo.OutlineThickness = 1F;
+            statusCombo.Rounding = 8;
+            statusCombo.Size = new Size(148, 27);
+            statusCombo.TabIndex = 34;
             // 
-            // cuiTextBox4
+            // startDate
             // 
-            cuiTextBox4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cuiTextBox4.BackColor = Color.Transparent;
-            cuiTextBox4.BackgroundColor = Color.White;
-            cuiTextBox4.BorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox4.Content = "";
-            cuiTextBox4.FocusBackgroundColor = Color.White;
-            cuiTextBox4.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox4.FocusImageTint = Color.White;
-            cuiTextBox4.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiTextBox4.ForeColor = Color.Black;
-            cuiTextBox4.Image = null;
-            cuiTextBox4.ImageExpand = new Point(0, 0);
-            cuiTextBox4.ImageOffset = new Point(0, 0);
-            cuiTextBox4.Location = new Point(400, 48);
-            cuiTextBox4.Margin = new Padding(5);
-            cuiTextBox4.Multiline = false;
-            cuiTextBox4.Name = "cuiTextBox4";
-            cuiTextBox4.NormalImageTint = Color.White;
-            cuiTextBox4.Padding = new Padding(16, 11, 16, 0);
-            cuiTextBox4.PasswordChar = false;
-            cuiTextBox4.PlaceholderColor = SystemColors.ScrollBar;
-            cuiTextBox4.PlaceholderText = "Last Name";
-            cuiTextBox4.Rounding = new Padding(10);
-            cuiTextBox4.Size = new Size(343, 38);
-            cuiTextBox4.TabIndex = 15;
-            cuiTextBox4.TextOffset = new Size(0, 0);
-            cuiTextBox4.UnderlinedStyle = false;
+            startDate.EnableThemeChangeButton = true;
+            startDate.Font = new Font("Segoe UI", 9.75F);
+            startDate.ForeColor = Color.Gray;
+            startDate.HoverBackground = Color.FromArgb(50, 128, 128, 128);
+            startDate.HoverOutline = Color.FromArgb(180, 128, 128, 128);
+            startDate.Icon = (Image)resources.GetObject("startDate.Icon");
+            startDate.IconTint = Color.Gray;
+            startDate.Location = new Point(439, 107);
+            startDate.Margin = new Padding(4);
+            startDate.Name = "startDate";
+            startDate.NormalBackground = Color.White;
+            startDate.NormalOutline = Color.FromArgb(51, 81, 88);
+            startDate.OutlineThickness = 1.5F;
+            startDate.PressedBackground = Color.FromArgb(80, 128, 128, 128);
+            startDate.PressedOutline = Color.FromArgb(210, 128, 128, 128);
+            startDate.Rounding = 10;
+            startDate.ShowIcon = true;
+            startDate.Size = new Size(211, 28);
+            startDate.TabIndex = 26;
+            startDate.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
+            startDate.Value = new DateTime(2025, 6, 4, 0, 0, 0, 0);
             // 
-            // cuiTextBox3
+            // membershipTypeCombo
             // 
-            cuiTextBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cuiTextBox3.BackColor = Color.Transparent;
-            cuiTextBox3.BackgroundColor = Color.White;
-            cuiTextBox3.BorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox3.Content = "";
-            cuiTextBox3.FocusBackgroundColor = Color.White;
-            cuiTextBox3.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox3.FocusImageTint = Color.White;
-            cuiTextBox3.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiTextBox3.ForeColor = Color.Black;
-            cuiTextBox3.Image = null;
-            cuiTextBox3.ImageExpand = new Point(0, 0);
-            cuiTextBox3.ImageOffset = new Point(0, 0);
-            cuiTextBox3.Location = new Point(29, 144);
-            cuiTextBox3.Margin = new Padding(5);
-            cuiTextBox3.Multiline = false;
-            cuiTextBox3.Name = "cuiTextBox3";
-            cuiTextBox3.NormalImageTint = Color.White;
-            cuiTextBox3.Padding = new Padding(16, 11, 16, 0);
-            cuiTextBox3.PasswordChar = false;
-            cuiTextBox3.PlaceholderColor = SystemColors.ScrollBar;
-            cuiTextBox3.PlaceholderText = "Email Address";
-            cuiTextBox3.Rounding = new Padding(10);
-            cuiTextBox3.Size = new Size(343, 38);
-            cuiTextBox3.TabIndex = 14;
-            cuiTextBox3.TextOffset = new Size(0, 0);
-            cuiTextBox3.UnderlinedStyle = false;
+            membershipTypeCombo.BackColor = Color.Transparent;
+            membershipTypeCombo.BackgroundColor = Color.White;
+            membershipTypeCombo.ButtonCursor = Cursors.Arrow;
+            membershipTypeCombo.ButtonHoverBackground = Color.FromArgb(22, 36, 39);
+            membershipTypeCombo.ButtonHoverOutline = Color.FromArgb(22, 36, 39);
+            membershipTypeCombo.ButtonNormalBackground = Color.FromArgb(50, 81, 88);
+            membershipTypeCombo.ButtonNormalOutline = Color.FromArgb(50, 81, 88);
+            membershipTypeCombo.ButtonPressedBackground = Color.FromArgb(22, 36, 39);
+            membershipTypeCombo.ButtonPressedOutline = Color.FromArgb(22, 36, 39);
+            membershipTypeCombo.DropDownBackgroundColor = Color.FromArgb(50, 81, 88);
+            membershipTypeCombo.DropDownOutlineColor = Color.FromArgb(50, 81, 88);
+            membershipTypeCombo.ExpandArrowColor = Color.FromArgb(50, 81, 88);
+            membershipTypeCombo.ForeColor = Color.Gray;
+            membershipTypeCombo.Items = new string[]
+    {
+    "Monthly",
+    "Quarterly",
+    "Yearly"
+    };
+            membershipTypeCombo.Location = new Point(177, 179);
+            membershipTypeCombo.Margin = new Padding(4, 3, 4, 3);
+            membershipTypeCombo.Name = "membershipTypeCombo";
+            membershipTypeCombo.NoSelectionDropdownText = "Empty";
+            membershipTypeCombo.NoSelectionText = "Membership type";
+            membershipTypeCombo.OutlineColor = Color.FromArgb(50, 81, 88);
+            membershipTypeCombo.OutlineThickness = 1F;
+            membershipTypeCombo.Rounding = 8;
+            membershipTypeCombo.Size = new Size(148, 27);
+            membershipTypeCombo.TabIndex = 33;
             // 
-            // cuiTextBox2
+            // cancelBtn
             // 
-            cuiTextBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            cuiTextBox2.BackColor = Color.Transparent;
-            cuiTextBox2.BackgroundColor = Color.White;
-            cuiTextBox2.BorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox2.Content = "";
-            cuiTextBox2.FocusBackgroundColor = Color.White;
-            cuiTextBox2.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox2.FocusImageTint = Color.White;
-            cuiTextBox2.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiTextBox2.ForeColor = Color.Black;
-            cuiTextBox2.Image = null;
-            cuiTextBox2.ImageExpand = new Point(0, 0);
-            cuiTextBox2.ImageOffset = new Point(0, 0);
-            cuiTextBox2.Location = new Point(29, 96);
-            cuiTextBox2.Margin = new Padding(5);
-            cuiTextBox2.Multiline = false;
-            cuiTextBox2.Name = "cuiTextBox2";
-            cuiTextBox2.NormalImageTint = Color.White;
-            cuiTextBox2.Padding = new Padding(16, 11, 16, 0);
-            cuiTextBox2.PasswordChar = false;
-            cuiTextBox2.PlaceholderColor = SystemColors.ScrollBar;
-            cuiTextBox2.PlaceholderText = "Mobile Number";
-            cuiTextBox2.Rounding = new Padding(10);
-            cuiTextBox2.Size = new Size(343, 38);
-            cuiTextBox2.TabIndex = 13;
-            cuiTextBox2.TextOffset = new Size(0, 0);
-            cuiTextBox2.UnderlinedStyle = false;
+            cancelBtn.BackColor = Color.Transparent;
+            cancelBtn.Checked = false;
+            cancelBtn.CheckedBackground = Color.FromArgb(50, 81, 88);
+            cancelBtn.CheckedForeColor = Color.White;
+            cancelBtn.CheckedImageTint = Color.White;
+            cancelBtn.CheckedOutline = Color.FromArgb(50, 81, 88);
+            cancelBtn.Content = "Cancel";
+            cancelBtn.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cancelBtn.ForeColor = Color.Black;
+            cancelBtn.Group = 0;
+            cancelBtn.HoverBackground = Color.FromArgb(22, 36, 39);
+            cancelBtn.HoveredImageTint = Color.White;
+            cancelBtn.HoverForeColor = Color.White;
+            cancelBtn.HoverOutline = Color.FromArgb(22, 36, 39);
+            cancelBtn.Image = null;
+            cancelBtn.ImageAutoCenter = true;
+            cancelBtn.ImageExpand = new Point(0, 0);
+            cancelBtn.ImageOffset = new Point(0, 0);
+            cancelBtn.Location = new Point(494, 211);
+            cancelBtn.Name = "cancelBtn";
+            cancelBtn.NormalBackground = Color.White;
+            cancelBtn.NormalForeColor = Color.Black;
+            cancelBtn.NormalImageTint = Color.White;
+            cancelBtn.NormalOutline = Color.FromArgb(50, 81, 88);
+            cancelBtn.OutlineThickness = 1F;
+            cancelBtn.PressedBackground = Color.FromArgb(22, 36, 39);
+            cancelBtn.PressedForeColor = Color.White;
+            cancelBtn.PressedImageTint = Color.White;
+            cancelBtn.PressedOutline = Color.FromArgb(22, 36, 39);
+            cancelBtn.Rounding = new Padding(10);
+            cancelBtn.Size = new Size(75, 26);
+            cancelBtn.TabIndex = 21;
+            cancelBtn.TextAlignment = StringAlignment.Center;
+            cancelBtn.TextOffset = new Point(0, 0);
+            cancelBtn.Click += cancelBtn_Click;
             // 
-            // cuiTextBox1
+            // doneBtn
             // 
-            cuiTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cuiTextBox1.BackColor = Color.Transparent;
-            cuiTextBox1.BackgroundColor = Color.White;
-            cuiTextBox1.BorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox1.Content = "";
-            cuiTextBox1.FocusBackgroundColor = Color.White;
-            cuiTextBox1.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox1.FocusImageTint = Color.White;
-            cuiTextBox1.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiTextBox1.ForeColor = Color.Black;
-            cuiTextBox1.Image = null;
-            cuiTextBox1.ImageExpand = new Point(0, 0);
-            cuiTextBox1.ImageOffset = new Point(0, 0);
-            cuiTextBox1.Location = new Point(29, 192);
-            cuiTextBox1.Margin = new Padding(5);
-            cuiTextBox1.Multiline = false;
-            cuiTextBox1.Name = "cuiTextBox1";
-            cuiTextBox1.NormalImageTint = Color.White;
-            cuiTextBox1.Padding = new Padding(16, 11, 16, 0);
-            cuiTextBox1.PasswordChar = false;
-            cuiTextBox1.PlaceholderColor = SystemColors.ScrollBar;
-            cuiTextBox1.PlaceholderText = "Program ID";
-            cuiTextBox1.Rounding = new Padding(10);
-            cuiTextBox1.Size = new Size(343, 38);
-            cuiTextBox1.TabIndex = 12;
-            cuiTextBox1.TextOffset = new Size(0, 0);
-            cuiTextBox1.UnderlinedStyle = false;
+            doneBtn.BackColor = Color.Transparent;
+            doneBtn.Checked = false;
+            doneBtn.CheckedBackground = Color.FromArgb(50, 81, 88);
+            doneBtn.CheckedForeColor = Color.White;
+            doneBtn.CheckedImageTint = Color.White;
+            doneBtn.CheckedOutline = Color.FromArgb(50, 81, 88);
+            doneBtn.Content = "DONE";
+            doneBtn.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            doneBtn.ForeColor = Color.White;
+            doneBtn.Group = 0;
+            doneBtn.HoverBackground = Color.FromArgb(22, 36, 39);
+            doneBtn.HoveredImageTint = Color.White;
+            doneBtn.HoverForeColor = Color.White;
+            doneBtn.HoverOutline = Color.FromArgb(22, 36, 39);
+            doneBtn.Image = null;
+            doneBtn.ImageAutoCenter = true;
+            doneBtn.ImageExpand = new Point(0, 0);
+            doneBtn.ImageOffset = new Point(0, 0);
+            doneBtn.Location = new Point(575, 211);
+            doneBtn.Name = "doneBtn";
+            doneBtn.NormalBackground = Color.FromArgb(50, 81, 88);
+            doneBtn.NormalForeColor = Color.White;
+            doneBtn.NormalImageTint = Color.White;
+            doneBtn.NormalOutline = Color.FromArgb(50, 81, 88);
+            doneBtn.OutlineThickness = 1F;
+            doneBtn.PressedBackground = Color.FromArgb(22, 36, 39);
+            doneBtn.PressedForeColor = Color.White;
+            doneBtn.PressedImageTint = Color.White;
+            doneBtn.PressedOutline = Color.FromArgb(22, 36, 39);
+            doneBtn.Rounding = new Padding(10);
+            doneBtn.Size = new Size(75, 26);
+            doneBtn.TabIndex = 20;
+            doneBtn.TextAlignment = StringAlignment.Center;
+            doneBtn.TextOffset = new Point(0, 0);
+            doneBtn.Click += doneBtn_Click;
             // 
-            // emailTxt
+            // phoneNumTxt
             // 
-            emailTxt.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            emailTxt.BackColor = Color.Transparent;
-            emailTxt.BackgroundColor = Color.White;
-            emailTxt.BorderColor = Color.FromArgb(50, 81, 88);
-            emailTxt.Content = "";
-            emailTxt.FocusBackgroundColor = Color.White;
-            emailTxt.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            emailTxt.FocusImageTint = Color.White;
-            emailTxt.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            emailTxt.ForeColor = Color.Black;
-            emailTxt.Image = null;
-            emailTxt.ImageExpand = new Point(0, 0);
-            emailTxt.ImageOffset = new Point(0, 0);
-            emailTxt.Location = new Point(29, 48);
-            emailTxt.Margin = new Padding(5);
-            emailTxt.Multiline = false;
-            emailTxt.Name = "emailTxt";
-            emailTxt.NormalImageTint = Color.White;
-            emailTxt.Padding = new Padding(16, 11, 16, 0);
-            emailTxt.PasswordChar = false;
-            emailTxt.PlaceholderColor = SystemColors.ScrollBar;
-            emailTxt.PlaceholderText = "First Name";
-            emailTxt.Rounding = new Padding(10);
-            emailTxt.Size = new Size(343, 38);
-            emailTxt.TabIndex = 11;
-            emailTxt.TextOffset = new Size(0, 0);
-            emailTxt.UnderlinedStyle = false;
+            phoneNumTxt.BackColor = Color.Transparent;
+            phoneNumTxt.BackgroundColor = Color.White;
+            phoneNumTxt.BorderColor = Color.FromArgb(50, 81, 88);
+            phoneNumTxt.Content = "";
+            phoneNumTxt.FocusBackgroundColor = Color.White;
+            phoneNumTxt.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            phoneNumTxt.FocusImageTint = Color.White;
+            phoneNumTxt.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            phoneNumTxt.ForeColor = Color.Black;
+            phoneNumTxt.Image = null;
+            phoneNumTxt.ImageExpand = new Point(0, 0);
+            phoneNumTxt.ImageOffset = new Point(0, 0);
+            phoneNumTxt.Location = new Point(25, 144);
+            phoneNumTxt.Margin = new Padding(4);
+            phoneNumTxt.Multiline = false;
+            phoneNumTxt.Name = "phoneNumTxt";
+            phoneNumTxt.NormalImageTint = Color.White;
+            phoneNumTxt.Padding = new Padding(13, 8, 13, 0);
+            phoneNumTxt.PasswordChar = false;
+            phoneNumTxt.PlaceholderColor = SystemColors.ScrollBar;
+            phoneNumTxt.PlaceholderText = "Phone number";
+            phoneNumTxt.Rounding = new Padding(10);
+            phoneNumTxt.Size = new Size(300, 28);
+            phoneNumTxt.TabIndex = 15;
+            phoneNumTxt.TextOffset = new Size(0, 0);
+            phoneNumTxt.UnderlinedStyle = false;
+            phoneNumTxt.KeyPress += phoneNumTxt_KeyPress;
+            // 
+            // emailAddTxt
+            // 
+            emailAddTxt.BackColor = Color.Transparent;
+            emailAddTxt.BackgroundColor = Color.White;
+            emailAddTxt.BorderColor = Color.FromArgb(50, 81, 88);
+            emailAddTxt.Content = "";
+            emailAddTxt.FocusBackgroundColor = Color.White;
+            emailAddTxt.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            emailAddTxt.FocusImageTint = Color.White;
+            emailAddTxt.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            emailAddTxt.ForeColor = Color.Black;
+            emailAddTxt.Image = null;
+            emailAddTxt.ImageExpand = new Point(0, 0);
+            emailAddTxt.ImageOffset = new Point(0, 0);
+            emailAddTxt.Location = new Point(25, 108);
+            emailAddTxt.Margin = new Padding(4);
+            emailAddTxt.Multiline = false;
+            emailAddTxt.Name = "emailAddTxt";
+            emailAddTxt.NormalImageTint = Color.White;
+            emailAddTxt.Padding = new Padding(13, 8, 13, 0);
+            emailAddTxt.PasswordChar = false;
+            emailAddTxt.PlaceholderColor = SystemColors.ScrollBar;
+            emailAddTxt.PlaceholderText = "Email address";
+            emailAddTxt.Rounding = new Padding(10);
+            emailAddTxt.Size = new Size(300, 28);
+            emailAddTxt.TabIndex = 14;
+            emailAddTxt.TextOffset = new Size(0, 0);
+            emailAddTxt.UnderlinedStyle = false;
+            // 
+            // lastNameTxt
+            // 
+            lastNameTxt.BackColor = Color.Transparent;
+            lastNameTxt.BackgroundColor = Color.White;
+            lastNameTxt.BorderColor = Color.FromArgb(50, 81, 88);
+            lastNameTxt.Content = "";
+            lastNameTxt.FocusBackgroundColor = Color.White;
+            lastNameTxt.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            lastNameTxt.FocusImageTint = Color.White;
+            lastNameTxt.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lastNameTxt.ForeColor = Color.Black;
+            lastNameTxt.Image = null;
+            lastNameTxt.ImageExpand = new Point(0, 0);
+            lastNameTxt.ImageOffset = new Point(0, 0);
+            lastNameTxt.Location = new Point(25, 72);
+            lastNameTxt.Margin = new Padding(4);
+            lastNameTxt.Multiline = false;
+            lastNameTxt.Name = "lastNameTxt";
+            lastNameTxt.NormalImageTint = Color.White;
+            lastNameTxt.Padding = new Padding(13, 8, 13, 0);
+            lastNameTxt.PasswordChar = false;
+            lastNameTxt.PlaceholderColor = SystemColors.ScrollBar;
+            lastNameTxt.PlaceholderText = "Last name";
+            lastNameTxt.Rounding = new Padding(10);
+            lastNameTxt.Size = new Size(300, 28);
+            lastNameTxt.TabIndex = 13;
+            lastNameTxt.TextOffset = new Size(0, 0);
+            lastNameTxt.UnderlinedStyle = false;
+            // 
+            // firstNameTxt
+            // 
+            firstNameTxt.BackColor = Color.Transparent;
+            firstNameTxt.BackgroundColor = Color.White;
+            firstNameTxt.BorderColor = Color.FromArgb(50, 81, 88);
+            firstNameTxt.Content = "";
+            firstNameTxt.FocusBackgroundColor = Color.White;
+            firstNameTxt.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            firstNameTxt.FocusImageTint = Color.White;
+            firstNameTxt.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            firstNameTxt.ForeColor = Color.Black;
+            firstNameTxt.Image = null;
+            firstNameTxt.ImageExpand = new Point(0, 0);
+            firstNameTxt.ImageOffset = new Point(0, 0);
+            firstNameTxt.Location = new Point(25, 36);
+            firstNameTxt.Margin = new Padding(4);
+            firstNameTxt.Multiline = false;
+            firstNameTxt.Name = "firstNameTxt";
+            firstNameTxt.NormalImageTint = Color.White;
+            firstNameTxt.Padding = new Padding(13, 8, 13, 0);
+            firstNameTxt.PasswordChar = false;
+            firstNameTxt.PlaceholderColor = SystemColors.ScrollBar;
+            firstNameTxt.PlaceholderText = "First name";
+            firstNameTxt.Rounding = new Padding(10);
+            firstNameTxt.Size = new Size(300, 28);
+            firstNameTxt.TabIndex = 11;
+            firstNameTxt.TextOffset = new Size(0, 0);
+            firstNameTxt.UnderlinedStyle = false;
             // 
             // EditMemberForm1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(845, 476);
+            ClientSize = new Size(739, 357);
             Controls.Add(cuiPanel1);
             Controls.Add(label1);
             ForeColor = Color.White;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "EditMemberForm1";
             Text = "EditMemberForm1";
             cuiPanel1.ResumeLayout(false);
-            cuiPanel3.ResumeLayout(false);
-            cuiPanel2.ResumeLayout(false);
+            cuiPanel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -480,18 +502,20 @@
         #endregion
         private Label label1;
         private CuoreUI.Controls.cuiPanel cuiPanel1;
-        private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker2;
-        private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker1;
-        private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup1;
-        private CuoreUI.Controls.cuiButtonGroup cuiButton2;
-        private CuoreUI.Controls.cuiTextBox cuiTextBox6;
-        private CuoreUI.Controls.cuiTextBox cuiTextBox4;
-        private CuoreUI.Controls.cuiTextBox cuiTextBox3;
-        private CuoreUI.Controls.cuiTextBox cuiTextBox2;
-        private CuoreUI.Controls.cuiTextBox cuiTextBox1;
-        private CuoreUI.Controls.cuiTextBox emailTxt;
-        private ComboBox comboBox1;
-        private CuoreUI.Controls.cuiPanel cuiPanel2;
-        private CuoreUI.Controls.cuiPanel cuiPanel3;
+        private CuoreUI.Controls.cuiCalendarDatePicker birthDate;
+        private Label label2;
+        private Label label4;
+        private CuoreUI.Controls.cuiComboBox trainerCombo;
+        private CuoreUI.Controls.cuiCalendarDatePicker endDate;
+        private Label label3;
+        private CuoreUI.Controls.cuiComboBox statusCombo;
+        private CuoreUI.Controls.cuiCalendarDatePicker startDate;
+        private CuoreUI.Controls.cuiComboBox membershipTypeCombo;
+        private CuoreUI.Controls.cuiButtonGroup cancelBtn;
+        private CuoreUI.Controls.cuiButtonGroup doneBtn;
+        private CuoreUI.Controls.cuiTextBox phoneNumTxt;
+        private CuoreUI.Controls.cuiTextBox emailAddTxt;
+        private CuoreUI.Controls.cuiTextBox lastNameTxt;
+        private CuoreUI.Controls.cuiTextBox firstNameTxt;
     }
 }
