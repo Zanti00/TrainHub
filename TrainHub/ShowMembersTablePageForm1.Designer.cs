@@ -36,19 +36,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowMembersTablePageForm1));
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             advancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
-            dataGridViewCheckBoxColumn1 = new DataGridViewCheckBoxColumn();
-            dataGridViewTextBoxColumn11 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn12 = new DataGridViewTextBoxColumn();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dateOfBirthDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            startDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            endDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            createdDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            softDeleteDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            isDeletedDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
+            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            membershipTypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             Edit = new DataGridViewImageColumn();
             Delete = new DataGridViewImageColumn();
             memberBindingSource = new BindingSource(components);
@@ -79,13 +79,13 @@
             cuiPanel1.Controls.Add(cuiPanel2);
             cuiPanel1.Dock = DockStyle.Fill;
             cuiPanel1.Location = new Point(13, 88);
-            cuiPanel1.Margin = new Padding(3, 2, 3, 2);
+            cuiPanel1.Margin = new Padding(3, 2, 3, 15);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
             cuiPanel1.PanelColor = Color.Transparent;
             cuiPanel1.PanelOutlineColor = Color.Transparent;
             cuiPanel1.Rounding = new Padding(8);
-            cuiPanel1.Size = new Size(778, 346);
+            cuiPanel1.Size = new Size(778, 333);
             cuiPanel1.TabIndex = 7;
             // 
             // advancedDataGridView1
@@ -106,7 +106,7 @@
             advancedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             advancedDataGridView1.ColumnHeadersHeight = 40;
             advancedDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, dataGridViewCheckBoxColumn1, dataGridViewTextBoxColumn11, dataGridViewTextBoxColumn12, Edit, Delete });
+            advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, startDateDataGridViewTextBoxColumn, endDateDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, softDeleteDateDataGridViewTextBoxColumn, isDeletedDataGridViewCheckBoxColumn, statusDataGridViewTextBoxColumn, membershipTypeDataGridViewTextBoxColumn, Edit, Delete });
             advancedDataGridView1.DataSource = memberBindingSource;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
@@ -143,132 +143,129 @@
             advancedDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             advancedDataGridView1.RowTemplate.Height = 40;
             advancedDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            advancedDataGridView1.Size = new Size(778, 299);
+            advancedDataGridView1.Size = new Size(778, 286);
             advancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = false;
             advancedDataGridView1.TabIndex = 17;
             advancedDataGridView1.CellClick += dataGridView2_CellClick;
             // 
-            // dataGridViewTextBoxColumn1
+            // idDataGridViewTextBoxColumn
             // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            dataGridViewTextBoxColumn1.HeaderText = "Member ID";
-            dataGridViewTextBoxColumn1.MinimumWidth = 24;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            dataGridViewTextBoxColumn1.SortMode = DataGridViewColumnSortMode.Programmatic;
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Member ID";
+            idDataGridViewTextBoxColumn.MinimumWidth = 24;
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            idDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
-            // dataGridViewTextBoxColumn2
+            // firstNameDataGridViewTextBoxColumn
             // 
-            dataGridViewTextBoxColumn2.DataPropertyName = "FirstName";
-            dataGridViewTextBoxColumn2.HeaderText = "First Name";
-            dataGridViewTextBoxColumn2.MinimumWidth = 24;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
-            dataGridViewTextBoxColumn2.SortMode = DataGridViewColumnSortMode.Programmatic;
-            dataGridViewTextBoxColumn2.Width = 125;
+            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            firstNameDataGridViewTextBoxColumn.HeaderText = "First Name";
+            firstNameDataGridViewTextBoxColumn.MinimumWidth = 24;
+            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            firstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            firstNameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
-            // dataGridViewTextBoxColumn3
+            // lastNameDataGridViewTextBoxColumn
             // 
-            dataGridViewTextBoxColumn3.DataPropertyName = "LastName";
-            dataGridViewTextBoxColumn3.HeaderText = "Last Name";
-            dataGridViewTextBoxColumn3.MinimumWidth = 24;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
-            dataGridViewTextBoxColumn3.SortMode = DataGridViewColumnSortMode.Programmatic;
-            dataGridViewTextBoxColumn3.Width = 125;
+            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            lastNameDataGridViewTextBoxColumn.HeaderText = "Last Name";
+            lastNameDataGridViewTextBoxColumn.MinimumWidth = 24;
+            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            lastNameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
-            // dataGridViewTextBoxColumn4
+            // emailDataGridViewTextBoxColumn
             // 
-            dataGridViewTextBoxColumn4.DataPropertyName = "Email";
-            dataGridViewTextBoxColumn4.HeaderText = "Email";
-            dataGridViewTextBoxColumn4.MinimumWidth = 24;
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            dataGridViewTextBoxColumn4.ReadOnly = true;
-            dataGridViewTextBoxColumn4.SortMode = DataGridViewColumnSortMode.Programmatic;
-            dataGridViewTextBoxColumn4.Width = 125;
+            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            emailDataGridViewTextBoxColumn.MinimumWidth = 24;
+            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            emailDataGridViewTextBoxColumn.ReadOnly = true;
+            emailDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
-            // dataGridViewTextBoxColumn5
+            // phoneNumberDataGridViewTextBoxColumn
             // 
-            dataGridViewTextBoxColumn5.DataPropertyName = "PhoneNumber";
-            dataGridViewTextBoxColumn5.HeaderText = "Phone Number";
-            dataGridViewTextBoxColumn5.MinimumWidth = 24;
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            dataGridViewTextBoxColumn5.ReadOnly = true;
-            dataGridViewTextBoxColumn5.SortMode = DataGridViewColumnSortMode.Programmatic;
+            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            phoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone Number";
+            phoneNumberDataGridViewTextBoxColumn.MinimumWidth = 24;
+            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            phoneNumberDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
-            // dataGridViewTextBoxColumn6
+            // dateOfBirthDataGridViewTextBoxColumn
             // 
-            dataGridViewTextBoxColumn6.DataPropertyName = "DateOfBirth";
-            dataGridViewTextBoxColumn6.HeaderText = "Date of Birth";
-            dataGridViewTextBoxColumn6.MinimumWidth = 24;
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            dataGridViewTextBoxColumn6.ReadOnly = true;
-            dataGridViewTextBoxColumn6.SortMode = DataGridViewColumnSortMode.Programmatic;
+            dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
+            dateOfBirthDataGridViewTextBoxColumn.HeaderText = "Date of Birth";
+            dateOfBirthDataGridViewTextBoxColumn.MinimumWidth = 24;
+            dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
+            dateOfBirthDataGridViewTextBoxColumn.ReadOnly = true;
+            dateOfBirthDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
-            // dataGridViewTextBoxColumn7
+            // startDateDataGridViewTextBoxColumn
             // 
-            dataGridViewTextBoxColumn7.DataPropertyName = "StartDate";
-            dataGridViewTextBoxColumn7.HeaderText = "Start Date";
-            dataGridViewTextBoxColumn7.MinimumWidth = 24;
-            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            dataGridViewTextBoxColumn7.ReadOnly = true;
-            dataGridViewTextBoxColumn7.SortMode = DataGridViewColumnSortMode.Programmatic;
+            startDateDataGridViewTextBoxColumn.DataPropertyName = "StartDate";
+            startDateDataGridViewTextBoxColumn.HeaderText = "Start Date";
+            startDateDataGridViewTextBoxColumn.MinimumWidth = 24;
+            startDateDataGridViewTextBoxColumn.Name = "startDateDataGridViewTextBoxColumn";
+            startDateDataGridViewTextBoxColumn.ReadOnly = true;
+            startDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
-            // dataGridViewTextBoxColumn8
+            // endDateDataGridViewTextBoxColumn
             // 
-            dataGridViewTextBoxColumn8.DataPropertyName = "EndDate";
-            dataGridViewTextBoxColumn8.HeaderText = "End Date";
-            dataGridViewTextBoxColumn8.MinimumWidth = 24;
-            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            dataGridViewTextBoxColumn8.ReadOnly = true;
-            dataGridViewTextBoxColumn8.SortMode = DataGridViewColumnSortMode.Programmatic;
+            endDateDataGridViewTextBoxColumn.DataPropertyName = "EndDate";
+            endDateDataGridViewTextBoxColumn.HeaderText = "End Date";
+            endDateDataGridViewTextBoxColumn.MinimumWidth = 24;
+            endDateDataGridViewTextBoxColumn.Name = "endDateDataGridViewTextBoxColumn";
+            endDateDataGridViewTextBoxColumn.ReadOnly = true;
+            endDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
-            // dataGridViewTextBoxColumn9
+            // createdDateDataGridViewTextBoxColumn
             // 
-            dataGridViewTextBoxColumn9.DataPropertyName = "CreatedDate";
-            dataGridViewTextBoxColumn9.HeaderText = "Created Date";
-            dataGridViewTextBoxColumn9.MinimumWidth = 24;
-            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            dataGridViewTextBoxColumn9.ReadOnly = true;
-            dataGridViewTextBoxColumn9.SortMode = DataGridViewColumnSortMode.Programmatic;
+            createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
+            createdDateDataGridViewTextBoxColumn.HeaderText = "Created Date";
+            createdDateDataGridViewTextBoxColumn.MinimumWidth = 24;
+            createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
+            createdDateDataGridViewTextBoxColumn.ReadOnly = true;
+            createdDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
-            // dataGridViewTextBoxColumn10
+            // softDeleteDateDataGridViewTextBoxColumn
             // 
-            dataGridViewTextBoxColumn10.DataPropertyName = "SoftDeleteDate";
-            dataGridViewTextBoxColumn10.HeaderText = "Soft Delete Date";
-            dataGridViewTextBoxColumn10.MinimumWidth = 24;
-            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            dataGridViewTextBoxColumn10.ReadOnly = true;
-            dataGridViewTextBoxColumn10.SortMode = DataGridViewColumnSortMode.Programmatic;
-            dataGridViewTextBoxColumn10.Visible = false;
+            softDeleteDateDataGridViewTextBoxColumn.DataPropertyName = "SoftDeleteDate";
+            softDeleteDateDataGridViewTextBoxColumn.HeaderText = "SoftDeleteDate";
+            softDeleteDateDataGridViewTextBoxColumn.MinimumWidth = 24;
+            softDeleteDateDataGridViewTextBoxColumn.Name = "softDeleteDateDataGridViewTextBoxColumn";
+            softDeleteDateDataGridViewTextBoxColumn.ReadOnly = true;
+            softDeleteDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            softDeleteDateDataGridViewTextBoxColumn.Visible = false;
             // 
-            // dataGridViewCheckBoxColumn1
+            // isDeletedDataGridViewCheckBoxColumn
             // 
-            dataGridViewCheckBoxColumn1.DataPropertyName = "IsDeleted";
-            dataGridViewCheckBoxColumn1.HeaderText = "IsDeleted";
-            dataGridViewCheckBoxColumn1.MinimumWidth = 24;
-            dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            dataGridViewCheckBoxColumn1.ReadOnly = true;
-            dataGridViewCheckBoxColumn1.SortMode = DataGridViewColumnSortMode.Programmatic;
-            dataGridViewCheckBoxColumn1.Visible = false;
+            isDeletedDataGridViewCheckBoxColumn.DataPropertyName = "IsDeleted";
+            isDeletedDataGridViewCheckBoxColumn.HeaderText = "IsDeleted";
+            isDeletedDataGridViewCheckBoxColumn.MinimumWidth = 24;
+            isDeletedDataGridViewCheckBoxColumn.Name = "isDeletedDataGridViewCheckBoxColumn";
+            isDeletedDataGridViewCheckBoxColumn.ReadOnly = true;
+            isDeletedDataGridViewCheckBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            isDeletedDataGridViewCheckBoxColumn.Visible = false;
             // 
-            // dataGridViewTextBoxColumn11
+            // statusDataGridViewTextBoxColumn
             // 
-            dataGridViewTextBoxColumn11.DataPropertyName = "Status";
-            dataGridViewTextBoxColumn11.HeaderText = "Status";
-            dataGridViewTextBoxColumn11.MinimumWidth = 24;
-            dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            dataGridViewTextBoxColumn11.ReadOnly = true;
-            dataGridViewTextBoxColumn11.SortMode = DataGridViewColumnSortMode.Programmatic;
+            statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            statusDataGridViewTextBoxColumn.MinimumWidth = 24;
+            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            statusDataGridViewTextBoxColumn.ReadOnly = true;
+            statusDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
-            // dataGridViewTextBoxColumn12
+            // membershipTypeDataGridViewTextBoxColumn
             // 
-            dataGridViewTextBoxColumn12.DataPropertyName = "MembershipType";
-            dataGridViewTextBoxColumn12.HeaderText = "Membership Type";
-            dataGridViewTextBoxColumn12.MinimumWidth = 24;
-            dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            dataGridViewTextBoxColumn12.ReadOnly = true;
-            dataGridViewTextBoxColumn12.SortMode = DataGridViewColumnSortMode.Programmatic;
+            membershipTypeDataGridViewTextBoxColumn.DataPropertyName = "MembershipType";
+            membershipTypeDataGridViewTextBoxColumn.HeaderText = "Membership Type";
+            membershipTypeDataGridViewTextBoxColumn.MinimumWidth = 24;
+            membershipTypeDataGridViewTextBoxColumn.Name = "membershipTypeDataGridViewTextBoxColumn";
+            membershipTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            membershipTypeDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
             // Edit
             // 
@@ -488,9 +485,14 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(804, 436);
+            ControlBox = false;
             Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ShowMembersTablePageForm1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ShowMembersTablePageForm1";
             Load += ShowMembersTablePageForm1_Load;
             cuiPanel1.ResumeLayout(false);
@@ -535,6 +537,19 @@
         private DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn startDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn endDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn softDeleteDateDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn isDeletedDataGridViewCheckBoxColumn;
+        private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn membershipTypeDataGridViewTextBoxColumn;
         private DataGridViewImageColumn Edit;
         private DataGridViewImageColumn Delete;
     }

@@ -17,8 +17,6 @@ namespace TrainHub
         public ShowMembersTablePageForm1()
         {
             InitializeComponent();
-            // make the form full screen
-            this.WindowState = FormWindowState.Maximized;
             dataContext = new TrainHubContext();
 
             advancedDataGridView1.CellFormatting += advancedDataGridView1_CellFormatting;

@@ -9,6 +9,7 @@ namespace TrainHub
         bool isMemberContainerExpanded = false;
         bool isStaffContainerExpanded = false;
         Dashboard dashboard;
+        ShowMembersTablePageForm1 memberPage;
         Login login;
         public MainForm()
         {
@@ -90,15 +91,61 @@ namespace TrainHub
         private void memberBtn_Click(object sender, EventArgs e)
         {
             memberContainerExpand.Start();
+
+            if (memberPage == null)
+            {
+                memberPage = new ShowMembersTablePageForm1();
+                memberPage.FormClosed += member_FormClosed;
+                memberPage.MdiParent = this;
+                memberPage.Dock = DockStyle.Fill;
+                memberPage.Show();
+            }
+            else
+            {
+                memberPage.Activate();
+            }
+            changeBtnNormalBackground("memberBtn");
+
+        }
+
+        private void changeBtnNormalBackground(string btnName)
+        {
+            dashboardBtn.NormalBackground = Color.FromArgb(50, 81, 88);
+            trainerBtn.NormalBackground = Color.FromArgb(50, 81, 88);
+            memberBtn.NormalBackground = Color.FromArgb(50, 81, 88);
+            staffBtn.NormalBackground = Color.FromArgb(50, 81, 88);
+            settingBtn.NormalBackground = Color.FromArgb(50, 81, 88);
+
+            if (btnName == "dashboardBtn")
+                dashboardBtn.NormalBackground = Color.FromArgb(45, 47, 57);
+            else if (btnName == "trainerBtn")
+                trainerBtn.NormalBackground = Color.FromArgb(45, 47, 57);
+            else if (btnName == "memberBtn")
+                memberBtn.NormalBackground = Color.FromArgb(45, 47, 57);
+            else if (btnName == "staffBtn")
+                staffBtn.NormalBackground = Color.FromArgb(45, 47, 57);
+            else if (btnName == "dashboardBtn")
+                dashboardBtn.NormalBackground = Color.FromArgb(45, 47, 57);
+            else
+                settingBtn.NormalBackground = Color.FromArgb(45, 47, 57);
+
+        }
+
+        private void member_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            memberPage = null;
         }
 
         private void staffBtn_Click(object sender, EventArgs e)
         {
             staffContainerExpand.Start();
+
+            changeBtnNormalBackground("staffBtn");
         }
 
         private void settingBtn_Click(object sender, EventArgs e)
         {
+            changeBtnNormalBackground("settingBtn");
         }
 
         private void dashboardBtn_Click(object sender, EventArgs e)
@@ -116,6 +163,8 @@ namespace TrainHub
             {
                 dashboard.Activate();
             }
+
+            changeBtnNormalBackground("dashboardBtn");
         }
 
         private void Dashboard_FormClosed(object? sender, FormClosedEventArgs e)

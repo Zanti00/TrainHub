@@ -397,6 +397,7 @@
             memberBtn.TabIndex = 0;
             memberBtn.TextAlignment = StringAlignment.Near;
             memberBtn.TextOffset = new Point(28, 0);
+            memberBtn.Click += memberBtn_Click;
             // 
             // addMemberBtn
             // 
@@ -663,6 +664,7 @@
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TrainHub";
+            Load += dashboardBtn_Click;
             flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
