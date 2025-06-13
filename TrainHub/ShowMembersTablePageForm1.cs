@@ -20,6 +20,8 @@ namespace TrainHub
             // make the form full screen
             this.WindowState = FormWindowState.Maximized;
             dataContext = new TrainHubContext();
+
+            advancedDataGridView1.CellFormatting += advancedDataGridView1_CellFormatting;
         }
 
         private void cuiButtonGroup2_Click(object sender, EventArgs e)
@@ -32,7 +34,7 @@ namespace TrainHub
         {
             if (e.ColumnIndex == 13 && e.RowIndex >= 0)
             {
-                int memberID = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells[0].Value);
+                int memberID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
                 EditMemberForm1 editForm = new EditMemberForm1(memberID, this);
                 editForm.ShowDialog();
             }
@@ -40,18 +42,19 @@ namespace TrainHub
             if (e.ColumnIndex == 14 && e.RowIndex >= 0)
             {
                 // Confirm deletion
-                var result = MessageBox.Show($"Are you sure you want to delete member {dataGridView2.Rows[e.RowIndex].Cells[1].Value} {dataGridView2.Rows[e.RowIndex].Cells[2].Value}?", "Confirm Deletion",
+                var result = MessageBox.Show($"Are you sure you want to delete member {advancedDataGridView1.Rows[e.RowIndex].Cells[1].Value} {advancedDataGridView1.Rows[e.RowIndex].Cells[2].Value}?", "Confirm Deletion",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
                     try
                     {
                         // Get the selected member's ID
-                        int memberId = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells[0].Value);
+                        int memberId = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
                         var memberToDelete = dataContext.Member.Find(memberId);
                         if (memberToDelete != null)
                         {
-                            dataContext.Member.Remove(memberToDelete);
+                            memberToDelete.IsDeleted = true; // Soft delete
+                            memberToDelete.SoftDeleteDate = DateTime.Today;
                             dataContext.SaveChanges();
                             RefreshMemberData(); // Refresh the DataGridView after deletion
                         }
@@ -65,20 +68,79 @@ namespace TrainHub
             }
         }
 
+        private void advancedDataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Check if this is column 11 (Status column) and has a value
+            if (e.ColumnIndex == 11 && e.Value != null)
+            {
+                string status = e.Value.ToString();
+
+                if (status.Equals("Active", StringComparison.OrdinalIgnoreCase))
+                {
+                    e.CellStyle.ForeColor = Color.Green;
+                }
+                else if (status.Equals("Inactive", StringComparison.OrdinalIgnoreCase))
+                {
+                    e.CellStyle.ForeColor = Color.Red;
+                }
+                else
+                {
+                    e.CellStyle.ForeColor = Color.Black; // Default color
+                }
+            }
+        }
+
         private void ShowMembersTablePageForm1_Load(object sender, EventArgs e)
         {
             RefreshMemberData();
         }
-
-        // Public method to refresh the DataGridView
         public void RefreshMemberData()
         {
             try
             {
-                dataContext.ChangeTracker.Clear(); // Clear the change tracker to avoid stale data
+                dataContext.ChangeTracker.Clear();
                 var members = from member in dataContext.Member
+                              where !member.IsDeleted // Only select non-deleted members
                               select member;
-                dataGridView2.DataSource = members.ToList();
+
+                // Convert to DataTable for sorting/filtering support
+                var dataTable = new DataTable();
+                dataTable.Columns.Add("Id", typeof(int));
+                dataTable.Columns.Add("FirstName", typeof(string));
+                dataTable.Columns.Add("LastName", typeof(string));
+                dataTable.Columns.Add("Email", typeof(string));
+                dataTable.Columns.Add("PhoneNumber", typeof(string));
+                dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
+                dataTable.Columns.Add("StartDate", typeof(DateTime));
+                dataTable.Columns.Add("EndDate", typeof(DateTime));
+                dataTable.Columns.Add("CreatedDate", typeof(DateTime));
+                dataTable.Columns.Add("SoftDeleteDate", typeof(DateTime));
+                dataTable.Columns.Add("IsDeleted", typeof(bool));
+                dataTable.Columns.Add("Status", typeof(string));
+                dataTable.Columns.Add("MembershipType", typeof(string));
+
+                foreach (var member in members)
+                {
+                    dataTable.Rows.Add(
+                        member.Id,
+                        member.FirstName,
+                        member.LastName,
+                        member.Email,
+                        member.PhoneNumber,
+                        member.DateOfBirth,
+                        member.StartDate,
+                        member.EndDate,
+                        member.CreatedDate,
+                        member.SoftDeleteDate,
+                        member.IsDeleted,
+                        member.Status,
+                        member.MembershipType
+                    );
+                }
+
+                this.memberBindingSource.DataSource = dataTable;
+                advancedDataGridView1.DataSource = memberBindingSource;
+
             }
             catch (Exception ex)
             {
@@ -107,13 +169,49 @@ namespace TrainHub
                                   where member.FirstName.ToLower().Contains(memberName.ToLower()) ||
                                         member.LastName.ToLower().Contains(memberName.ToLower())
                                   select member;
-                    dataGridView2.DataSource = members.ToList();
+                    // Convert to DataTable for sorting/filtering support
+                    var dataTable = new DataTable();
+                    dataTable.Columns.Add("Id", typeof(int));
+                    dataTable.Columns.Add("FirstName", typeof(string));
+                    dataTable.Columns.Add("LastName", typeof(string));
+                    dataTable.Columns.Add("Email", typeof(string));
+                    dataTable.Columns.Add("PhoneNumber", typeof(string));
+                    dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
+                    dataTable.Columns.Add("StartDate", typeof(DateTime));
+                    dataTable.Columns.Add("EndDate", typeof(DateTime));
+                    dataTable.Columns.Add("CreatedDate", typeof(DateTime));
+                    dataTable.Columns.Add("SoftDeleteDate", typeof(DateTime));
+                    dataTable.Columns.Add("IsDeleted", typeof(bool));
+                    dataTable.Columns.Add("Status", typeof(string));
+                    dataTable.Columns.Add("MembershipType", typeof(string));
+
+                    foreach (var member in members)
+                    {
+                        dataTable.Rows.Add(
+                            member.Id,
+                            member.FirstName,
+                            member.LastName,
+                            member.Email,
+                            member.PhoneNumber,
+                            member.DateOfBirth,
+                            member.StartDate,
+                            member.EndDate,
+                            member.CreatedDate,
+                            member.SoftDeleteDate,
+                            member.IsDeleted,
+                            member.Status,
+                            member.MembershipType
+                        );
+                    }
+
+                    this.memberBindingSource.DataSource = dataTable;
                 }
                 else
                 {
                     // If search is empty, show all members
                     RefreshMemberData();
                 }
+                advancedDataGridView1.DataSource = memberBindingSource;
             }
             catch (Exception ex)
             {
