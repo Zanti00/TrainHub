@@ -1,5 +1,6 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
+using TrainHub.Data;
 
 namespace TrainHub
 {
@@ -8,8 +9,8 @@ namespace TrainHub
         public Login()
         {
             InitializeComponent();
+
         }
-        SqlConnection conn = new SqlConnection("Data Source=.\\sqlexpress;Initial Catalog=TrainHub;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -18,24 +19,23 @@ namespace TrainHub
         private void loginBtn_Click(object sender, EventArgs e)
         {
 
-            string email = emailTxt.Content;
-            string password = passwordTxt.Content;
-
-            try
+            if (string.IsNullOrWhiteSpace(emailTxt.Content) || string.IsNullOrWhiteSpace(passwordTxt.Content))
             {
-                // to avoid sql injection attacks I used parameterized queries
-                String query = "SELECT * FROM users WHERE email = @Email AND password = @Password";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@Password", password);
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                MessageBox.Show("Please enter your email and password.", "Empty Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-                DataTable dtable = new DataTable();
-                sda.Fill(dtable);
-
-                if (dtable.Rows.Count > 0)
+            using(TrainHubContext dataContext = new TrainHubContext())
+            {
+                var user = dataContext.User.FirstOrDefault(u => u.Email == emailTxt.Content && u.Password == passwordTxt.Content);
+                if (user != null)
                 {
-                    LoadCurrentUserInfo(email);
+                    // Load current user info
+                    CurrentUser.UserId = user.Id;
+                    CurrentUser.Username = user.Username;
+                    CurrentUser.FirstName = user.FirstName;
+                    CurrentUser.LastName = user.LastName;
+                    CurrentUser.Email = user.Email;
 
                     MainForm mainForm = new MainForm();
                     mainForm.Show();
@@ -43,58 +43,10 @@ namespace TrainHub
                 }
                 else
                 {
-                    MessageBox.Show("Invalid email or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalid email or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     emailTxt.ResetText();
                     passwordTxt.ResetText();
-
                     emailTxt.Focus();
-                }
-            }
-            catch
-            {
-                MessageBox.Show("An error occurred while trying to connect to the database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (conn.State == ConnectionState.Open)
-                {
-                    conn.Close();
-                }
-            }
-        }
-
-        private void LoadCurrentUserInfo(string email)
-        {
-            try
-            {
-                conn.Open();
-                string query = "SELECT * FROM users WHERE Email = @Email";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Email", email);
-
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        CurrentUser.UserId = (int)reader["Id"];
-                        CurrentUser.Username = reader["Username"].ToString();
-                        CurrentUser.FirstName = reader["FirstName"].ToString();
-                        CurrentUser.LastName = reader["LastName"].ToString();
-                        CurrentUser.Email = reader["Email"].ToString();
-                        CurrentUser.IsAdmin = reader["IsAdmin"].ToString();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while loading user information: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                if (conn.State == ConnectionState.Open)
-                {
-                    conn.Close();
                 }
             }
         }

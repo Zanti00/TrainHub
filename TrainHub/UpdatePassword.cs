@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
+using TrainHub.Data;
 
 namespace TrainHub
 {
@@ -71,32 +72,24 @@ namespace TrainHub
                     MessageBox.Show("Password should contain at least 1 special, number, uppercase, and a lowercase character and it should be 8 characters long.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
                 try
                 {
-                    using (SqlConnection conn = new SqlConnection("Data Source=.\\sqlexpress;Initial Catalog=TrainHub;Integrated Security=True"))
+                    using (TrainHubContext dataContext = new TrainHubContext())
                     {
-                        // Use parameterized query to prevent SQL injection
-                        using (SqlCommand cmd = new SqlCommand("UPDATE users SET [password] = @password WHERE email = @email", conn))
+                        var user = dataContext.User.FirstOrDefault(u => u.Email == emailRecieved);
+                        if (user != null)
                         {
-                            // Add parameters
-                            cmd.Parameters.AddWithValue("@password", newPasswordTxt1.TextContent);
-                            cmd.Parameters.AddWithValue("@email", emailRecieved);
-
-                            conn.Open();
-                            int rowsAffected = cmd.ExecuteNonQuery();
-
-                            if (rowsAffected > 0)
-                            {
-                                PasswordResetSuccessful passwordResetSuccessful = new PasswordResetSuccessful();
-                                this.Hide();
-                                passwordResetSuccessful.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show("User not found or password update failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
+                            user.Password = newPasswordTxt1.TextContent; // Update the password
+                            dataContext.SaveChanges(); // Save changes to the database
+                            PasswordResetSuccessful passwordResetSuccessful = new PasswordResetSuccessful();
+                            this.Hide();
+                            passwordResetSuccessful.Show();
                         }
+                        else
+                        {
+                            MessageBox.Show("User not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
                     }
                 }
                 catch (Exception ex)

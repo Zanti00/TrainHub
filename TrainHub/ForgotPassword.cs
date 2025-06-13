@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrainHub.Data;
 
 namespace TrainHub
 {
@@ -49,29 +50,32 @@ namespace TrainHub
             }
             else
             {
-                // checks if the email address exists in the database
-                SqlConnection conn = new SqlConnection("Data Source=.\\sqlexpress;Initial Catalog=TrainHub;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
-                String query = "SELECT * FROM users WHERE email = @Email";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Email", emailTxt.TextContent);
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-
-                DataTable dtable = new DataTable();
-                sda.Fill(dtable);
-
-                try
+                using (TrainHubContext dataContext = new TrainHubContext())
                 {
-                    string verificationCode = EmailHelper.SendOTP(emailTxt.TextContent, out MailMessage sentMsg);
+                    var user = dataContext.User.FirstOrDefault(u => u.Email == emailTxt.TextContent);
 
-                    verificationCode = dtable.Rows.Count > 0 ? verificationCode : "000000";
+                    if (user != null)
+                    {
+                        try
+                        {
+                            string verificationCode = EmailHelper.SendOTP(emailTxt.TextContent, out MailMessage sentMsg);
 
-                    VerifyCode verifyCode = new VerifyCode(verificationCode, emailTxt.TextContent);
-                    this.Hide();
-                    verifyCode.Show();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            VerifyCode verifyCode = new VerifyCode(verificationCode, emailTxt.TextContent);
+                            this.Hide();
+                            verifyCode.Show();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        string verificationCode = "000000";
+                        VerifyCode verifyCode = new VerifyCode(verificationCode, emailTxt.TextContent);
+                        this.Hide();
+                        verifyCode.Show();
+                    }
                 }
             }
         }
