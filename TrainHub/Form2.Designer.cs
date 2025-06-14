@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
             label2 = new Label();
@@ -36,7 +37,7 @@
             cuiButton1 = new CuoreUI.Controls.cuiButton();
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
             cuiPanel3 = new CuoreUI.Controls.cuiPanel();
-            cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
+            searchbar = new CuoreUI.Controls.cuiTextBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             cuiPanel1.SuspendLayout();
@@ -53,10 +54,11 @@
             tableLayoutPanel1.Controls.Add(cuiPanel2, 0, 2);
             tableLayoutPanel1.Location = new Point(-1, 1);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 47.8632469F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 52.1367531F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 352F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 331F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new Size(800, 453);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -102,20 +104,20 @@
             cuiPanel1.PanelColor = SystemColors.Control;
             cuiPanel1.PanelOutlineColor = SystemColors.Control;
             cuiPanel1.Rounding = new Padding(8);
-            cuiPanel1.Size = new Size(192, 46);
+            cuiPanel1.Size = new Size(192, 47);
             cuiPanel1.TabIndex = 1;
             // 
             // cuiButton1
             // 
             cuiButton1.CheckButton = false;
             cuiButton1.Checked = false;
-            cuiButton1.CheckedBackground = Color.FromArgb(255, 106, 0);
-            cuiButton1.CheckedForeColor = Color.White;
+            cuiButton1.CheckedBackground = Color.White;
+            cuiButton1.CheckedForeColor = Color.Black;
             cuiButton1.CheckedImageTint = Color.White;
-            cuiButton1.CheckedOutline = Color.FromArgb(255, 106, 0);
+            cuiButton1.CheckedOutline = Color.White;
             cuiButton1.Content = "+ Add Trainers";
             cuiButton1.DialogResult = DialogResult.None;
-            cuiButton1.Font = new Font("Microsoft Sans Serif", 9.75F);
+            cuiButton1.Font = new Font("Microsoft Sans Serif", 10.2F);
             cuiButton1.ForeColor = Color.White;
             cuiButton1.HoverBackground = Color.FromArgb(22, 36, 29);
             cuiButton1.HoveredImageTint = Color.Transparent;
@@ -132,11 +134,11 @@
             cuiButton1.NormalImageTint = Color.Black;
             cuiButton1.NormalOutline = Color.FromArgb(51, 81, 88);
             cuiButton1.OutlineThickness = 1F;
-            cuiButton1.PressedBackground = Color.WhiteSmoke;
-            cuiButton1.PressedForeColor = Color.FromArgb(32, 32, 32);
+            cuiButton1.PressedBackground = Color.FromArgb(22, 36, 29);
+            cuiButton1.PressedForeColor = Color.White;
             cuiButton1.PressedImageTint = Color.White;
-            cuiButton1.PressedOutline = Color.FromArgb(64, 128, 128, 128);
-            cuiButton1.Rounding = new Padding(8);
+            cuiButton1.PressedOutline = Color.FromArgb(22, 36, 29);
+            cuiButton1.Rounding = new Padding(10);
             cuiButton1.Size = new Size(113, 43);
             cuiButton1.TabIndex = 0;
             cuiButton1.TextAlignment = StringAlignment.Center;
@@ -146,19 +148,19 @@
             // 
             cuiPanel2.BackColor = SystemColors.ControlLight;
             cuiPanel2.Controls.Add(cuiPanel3);
-            cuiPanel2.Location = new Point(3, 103);
+            cuiPanel2.Location = new Point(3, 104);
             cuiPanel2.Name = "cuiPanel2";
             cuiPanel2.OutlineThickness = 1F;
             cuiPanel2.PanelColor = Color.White;
-            cuiPanel2.PanelOutlineColor = Color.White;
-            cuiPanel2.Rounding = new Padding(10);
+            cuiPanel2.PanelOutlineColor = Color.Black;
+            cuiPanel2.Rounding = new Padding(10, 10, 0, 0);
             cuiPanel2.Size = new Size(794, 47);
             cuiPanel2.TabIndex = 2;
             // 
             // cuiPanel3
             // 
-            cuiPanel3.Controls.Add(cuiTextBox1);
-            cuiPanel3.Location = new Point(369, 3);
+            cuiPanel3.Controls.Add(searchbar);
+            cuiPanel3.Location = new Point(368, 3);
             cuiPanel3.Name = "cuiPanel3";
             cuiPanel3.OutlineThickness = 1F;
             cuiPanel3.PanelColor = Color.White;
@@ -167,33 +169,34 @@
             cuiPanel3.Size = new Size(423, 41);
             cuiPanel3.TabIndex = 0;
             // 
-            // cuiTextBox1
+            // searchbar
             // 
-            cuiTextBox1.BackgroundColor = Color.White;
-            cuiTextBox1.BorderColor = Color.FromArgb(128, 128, 128, 128);
-            cuiTextBox1.Content = "";
-            cuiTextBox1.FocusBackgroundColor = Color.White;
-            cuiTextBox1.FocusBorderColor = Color.FromArgb(255, 106, 0);
-            cuiTextBox1.FocusImageTint = Color.White;
-            cuiTextBox1.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiTextBox1.ForeColor = Color.Gray;
-            cuiTextBox1.Image = null;
-            cuiTextBox1.ImageExpand = new Point(0, 0);
-            cuiTextBox1.ImageOffset = new Point(0, 0);
-            cuiTextBox1.Location = new Point(57, 1);
-            cuiTextBox1.Margin = new Padding(4);
-            cuiTextBox1.Multiline = false;
-            cuiTextBox1.Name = "cuiTextBox1";
-            cuiTextBox1.NormalImageTint = Color.White;
-            cuiTextBox1.Padding = new Padding(15, 12, 15, 0);
-            cuiTextBox1.PasswordChar = false;
-            cuiTextBox1.PlaceholderColor = SystemColors.WindowText;
-            cuiTextBox1.PlaceholderText = "";
-            cuiTextBox1.Rounding = new Padding(8);
-            cuiTextBox1.Size = new Size(365, 39);
-            cuiTextBox1.TabIndex = 0;
-            cuiTextBox1.TextOffset = new Size(0, 0);
-            cuiTextBox1.UnderlinedStyle = true;
+            searchbar.BackColor = Color.Transparent;
+            searchbar.BackgroundColor = Color.White;
+            searchbar.BorderColor = Color.FromArgb(50, 81, 88);
+            searchbar.Content = "";
+            searchbar.FocusBackgroundColor = Color.White;
+            searchbar.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            searchbar.FocusImageTint = Color.White;
+            searchbar.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            searchbar.ForeColor = Color.Black;
+            searchbar.Image = (Image)resources.GetObject("searchbar.Image");
+            searchbar.ImageExpand = new Point(5, 5);
+            searchbar.ImageOffset = new Point(0, 0);
+            searchbar.Location = new Point(121, 2);
+            searchbar.Margin = new Padding(4);
+            searchbar.Multiline = false;
+            searchbar.Name = "searchbar";
+            searchbar.NormalImageTint = Color.White;
+            searchbar.Padding = new Padding(13, 11, 13, 0);
+            searchbar.PasswordChar = false;
+            searchbar.PlaceholderColor = SystemColors.WindowFrame;
+            searchbar.PlaceholderText = "Search...";
+            searchbar.Rounding = new Padding(10);
+            searchbar.Size = new Size(296, 35);
+            searchbar.TabIndex = 12;
+            searchbar.TextOffset = new Size(0, 0);
+            searchbar.UnderlinedStyle = false;
             // 
             // Form2
             // 
@@ -222,6 +225,6 @@
         private CuoreUI.Controls.cuiButton cuiButton1;
         private CuoreUI.Controls.cuiPanel cuiPanel2;
         private CuoreUI.Controls.cuiPanel cuiPanel3;
-        private CuoreUI.Controls.cuiTextBox cuiTextBox1;
+        private CuoreUI.Controls.cuiTextBox searchbar;
     }
 }
