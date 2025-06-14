@@ -35,8 +35,6 @@
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             cuiButton1 = new CuoreUI.Controls.cuiButton();
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
-            cuiPanel3 = new CuoreUI.Controls.cuiPanel();
-            searchbar = new CuoreUI.Controls.cuiTextBox();
             advancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -46,13 +44,14 @@
             Column6 = new DataGridViewTextBoxColumn();
             Column7 = new DataGridViewImageColumn();
             Column8 = new DataGridViewImageColumn();
-            cuiPictureBox1 = new CuoreUI.Controls.cuiPictureBox();
+            cuiPanel3 = new CuoreUI.Controls.cuiPanel();
+            searchbar = new CuoreUI.Controls.cuiTextBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             cuiPanel1.SuspendLayout();
             cuiPanel2.SuspendLayout();
-            cuiPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)advancedDataGridView1).BeginInit();
+            cuiPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -68,7 +67,7 @@
             tableLayoutPanel1.RowCount = 3;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 47.5247536F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 52.4752464F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 329F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 339F));
             tableLayoutPanel1.Size = new Size(804, 451);
             tableLayoutPanel1.TabIndex = 0;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
@@ -109,13 +108,13 @@
             // 
             cuiPanel1.Controls.Add(cuiButton1);
             cuiPanel1.Dock = DockStyle.Right;
-            cuiPanel1.Location = new Point(599, 56);
+            cuiPanel1.Location = new Point(599, 51);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
             cuiPanel1.PanelColor = SystemColors.Control;
             cuiPanel1.PanelOutlineColor = SystemColors.Control;
             cuiPanel1.Rounding = new Padding(8);
-            cuiPanel1.Size = new Size(192, 52);
+            cuiPanel1.Size = new Size(192, 47);
             cuiPanel1.TabIndex = 1;
             // 
             // cuiButton1
@@ -162,59 +161,15 @@
             cuiPanel2.Controls.Add(advancedDataGridView1);
             cuiPanel2.Controls.Add(cuiPanel3);
             cuiPanel2.Dock = DockStyle.Fill;
-            cuiPanel2.Location = new Point(13, 114);
+            cuiPanel2.Location = new Point(13, 104);
             cuiPanel2.Name = "cuiPanel2";
             cuiPanel2.OutlineThickness = 1F;
             cuiPanel2.Padding = new Padding(0, 10, 10, 10);
             cuiPanel2.PanelColor = Color.White;
             cuiPanel2.PanelOutlineColor = Color.Black;
             cuiPanel2.Rounding = new Padding(10, 10, 0, 0);
-            cuiPanel2.Size = new Size(778, 324);
+            cuiPanel2.Size = new Size(778, 334);
             cuiPanel2.TabIndex = 2;
-            // 
-            // cuiPanel3
-            // 
-            cuiPanel3.Controls.Add(cuiPictureBox1);
-            cuiPanel3.Controls.Add(searchbar);
-            cuiPanel3.Location = new Point(349, 1);
-            cuiPanel3.Name = "cuiPanel3";
-            cuiPanel3.OutlineThickness = 1F;
-            cuiPanel3.PanelColor = Color.White;
-            cuiPanel3.PanelOutlineColor = Color.White;
-            cuiPanel3.Rounding = new Padding(8);
-            cuiPanel3.Size = new Size(423, 41);
-            cuiPanel3.TabIndex = 0;
-            cuiPanel3.Paint += cuiPanel3_Paint;
-            // 
-            // searchbar
-            // 
-            searchbar.BackColor = Color.Transparent;
-            searchbar.BackgroundColor = Color.White;
-            searchbar.BorderColor = Color.FromArgb(50, 81, 88);
-            searchbar.Content = "";
-            searchbar.FocusBackgroundColor = Color.White;
-            searchbar.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            searchbar.FocusImageTint = Color.White;
-            searchbar.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            searchbar.ForeColor = Color.Black;
-            searchbar.Image = null;
-            searchbar.ImageExpand = new Point(5, 5);
-            searchbar.ImageOffset = new Point(0, 0);
-            searchbar.Location = new Point(123, 2);
-            searchbar.Margin = new Padding(4);
-            searchbar.Multiline = false;
-            searchbar.Name = "searchbar";
-            searchbar.NormalImageTint = Color.White;
-            searchbar.Padding = new Padding(13, 11, 13, 0);
-            searchbar.PasswordChar = false;
-            searchbar.PlaceholderColor = SystemColors.WindowFrame;
-            searchbar.PlaceholderText = "";
-            searchbar.Rounding = new Padding(10);
-            searchbar.Size = new Size(296, 35);
-            searchbar.TabIndex = 12;
-            searchbar.TextOffset = new Size(0, 0);
-            searchbar.UnderlinedStyle = false;
-            searchbar.ContentChanged += searchbar_ContentChanged;
             // 
             // advancedDataGridView1
             // 
@@ -227,13 +182,13 @@
             advancedDataGridView1.FilterAndSortEnabled = true;
             advancedDataGridView1.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
             advancedDataGridView1.GridColor = Color.DimGray;
-            advancedDataGridView1.Location = new Point(0, 45);
+            advancedDataGridView1.Location = new Point(0, 48);
             advancedDataGridView1.MaxFilterButtonImageHeight = 23;
             advancedDataGridView1.Name = "advancedDataGridView1";
             advancedDataGridView1.ReadOnly = true;
             advancedDataGridView1.RightToLeft = RightToLeft.No;
             advancedDataGridView1.RowHeadersVisible = false;
-            advancedDataGridView1.Size = new Size(778, 268);
+            advancedDataGridView1.Size = new Size(778, 275);
             advancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = true;
             advancedDataGridView1.TabIndex = 1;
             // 
@@ -301,20 +256,48 @@
             Column8.ReadOnly = true;
             Column8.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
-            // cuiPictureBox1
+            // cuiPanel3
             // 
-            cuiPictureBox1.BackColor = Color.White;
-            cuiPictureBox1.Content = null;
-            cuiPictureBox1.ImageTint = Color.White;
-            cuiPictureBox1.Location = new Point(137, 10);
-            cuiPictureBox1.Margin = new Padding(4, 3, 4, 3);
-            cuiPictureBox1.Name = "cuiPictureBox1";
-            cuiPictureBox1.OutlineThickness = 1F;
-            cuiPictureBox1.PanelOutlineColor = Color.Empty;
-            cuiPictureBox1.Rotation = 0;
-            cuiPictureBox1.Rounding = new Padding(8);
-            cuiPictureBox1.Size = new Size(129, 20);
-            cuiPictureBox1.TabIndex = 13;
+            cuiPanel3.Controls.Add(searchbar);
+            cuiPanel3.Location = new Point(349, 1);
+            cuiPanel3.Name = "cuiPanel3";
+            cuiPanel3.OutlineThickness = 1F;
+            cuiPanel3.PanelColor = Color.White;
+            cuiPanel3.PanelOutlineColor = Color.White;
+            cuiPanel3.Rounding = new Padding(8);
+            cuiPanel3.Size = new Size(423, 49);
+            cuiPanel3.TabIndex = 0;
+            cuiPanel3.Paint += cuiPanel3_Paint;
+            // 
+            // searchbar
+            // 
+            searchbar.BackColor = Color.Transparent;
+            searchbar.BackgroundColor = Color.White;
+            searchbar.BorderColor = Color.FromArgb(50, 81, 88);
+            searchbar.Content = "";
+            searchbar.FocusBackgroundColor = Color.White;
+            searchbar.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            searchbar.FocusImageTint = Color.White;
+            searchbar.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            searchbar.ForeColor = Color.Black;
+            searchbar.Image = null;
+            searchbar.ImageExpand = new Point(3, 3);
+            searchbar.ImageOffset = new Point(0, 0);
+            searchbar.Location = new Point(123, 6);
+            searchbar.Margin = new Padding(4);
+            searchbar.Multiline = false;
+            searchbar.Name = "searchbar";
+            searchbar.NormalImageTint = Color.White;
+            searchbar.Padding = new Padding(13, 11, 13, 0);
+            searchbar.PasswordChar = false;
+            searchbar.PlaceholderColor = SystemColors.WindowFrame;
+            searchbar.PlaceholderText = "Search...";
+            searchbar.Rounding = new Padding(10);
+            searchbar.Size = new Size(296, 35);
+            searchbar.TabIndex = 12;
+            searchbar.TextOffset = new Size(0, 0);
+            searchbar.UnderlinedStyle = false;
+            searchbar.ContentChanged += searchbar_ContentChanged;
             // 
             // Form2
             // 
@@ -331,8 +314,8 @@
             panel1.PerformLayout();
             cuiPanel1.ResumeLayout(false);
             cuiPanel2.ResumeLayout(false);
-            cuiPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)advancedDataGridView1).EndInit();
+            cuiPanel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -356,6 +339,5 @@
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewImageColumn Column7;
         private DataGridViewImageColumn Column8;
-        private CuoreUI.Controls.cuiPictureBox cuiPictureBox1;
     }
 }
