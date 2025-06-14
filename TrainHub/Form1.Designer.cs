@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle37 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle38 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle39 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle40 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tableLayoutPanel1 = new TableLayoutPanel();
             this.panel1 = new Panel();
@@ -74,6 +74,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
             this.tableLayoutPanel1.Size = new Size(800, 450);
             this.tableLayoutPanel1.TabIndex = 9;
+            this.tableLayoutPanel1.Paint += this.tableLayoutPanel1_Paint;
             // 
             // panel1
             // 
@@ -85,6 +86,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new Size(200, 39);
             this.panel1.TabIndex = 9;
+            this.panel1.Paint += this.panel1_Paint;
             // 
             // label3
             // 
@@ -119,9 +121,10 @@
             this.label2.ForeColor = Color.Gray;
             this.label2.Location = new Point(-1, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new Size(154, 15);
+            this.label2.Size = new Size(144, 15);
             this.label2.TabIndex = 25;
-            this.label2.Text = "View and Manage Members";
+            this.label2.Text = "View and Manage Trainers";
+            this.label2.Click += this.label2_Click;
             // 
             // cuiPanel1
             // 
@@ -146,25 +149,25 @@
             advancedDataGridView1.AllowUserToResizeRows = false;
             advancedDataGridView1.BackgroundColor = Color.White;
             advancedDataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(50, 81, 88);
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            advancedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle37.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle37.BackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle37.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle37.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle37.SelectionBackColor = Color.FromArgb(50, 81, 88);
+            dataGridViewCellStyle37.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle37.WrapMode = DataGridViewTriState.True;
+            advancedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
             advancedDataGridView1.ColumnHeadersHeight = 40;
             advancedDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { Edit, Delete });
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = SystemColors.Window;
-            dataGridViewCellStyle10.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle10.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(50, 81, 88);
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
-            advancedDataGridView1.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle38.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = SystemColors.Window;
+            dataGridViewCellStyle38.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle38.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle38.SelectionBackColor = Color.FromArgb(50, 81, 88);
+            dataGridViewCellStyle38.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = DataGridViewTriState.False;
+            advancedDataGridView1.DefaultCellStyle = dataGridViewCellStyle38;
             advancedDataGridView1.Dock = DockStyle.Fill;
             advancedDataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
             advancedDataGridView1.FilterAndSortEnabled = true;
@@ -175,21 +178,21 @@
             advancedDataGridView1.Name = "advancedDataGridView1";
             advancedDataGridView1.ReadOnly = true;
             advancedDataGridView1.RightToLeft = RightToLeft.No;
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle11.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(50, 81, 88);
-            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
-            advancedDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle39.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle39.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle39.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle39.SelectionBackColor = Color.FromArgb(50, 81, 88);
+            dataGridViewCellStyle39.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle39.WrapMode = DataGridViewTriState.True;
+            advancedDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
             advancedDataGridView1.RowHeadersVisible = false;
             advancedDataGridView1.RowHeadersWidth = 120;
-            dataGridViewCellStyle12.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle12.ForeColor = Color.Black;
-            dataGridViewCellStyle12.Padding = new Padding(0, 5, 0, 5);
-            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(50, 81, 88);
-            advancedDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle40.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle40.ForeColor = Color.Black;
+            dataGridViewCellStyle40.Padding = new Padding(0, 5, 0, 5);
+            dataGridViewCellStyle40.SelectionBackColor = Color.FromArgb(50, 81, 88);
+            advancedDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle40;
             advancedDataGridView1.RowTemplate.Height = 40;
             advancedDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             advancedDataGridView1.Size = new Size(774, 296);
@@ -233,6 +236,7 @@
             cuiPanel2.Rounding = new Padding(8, 8, 0, 0);
             cuiPanel2.Size = new Size(774, 47);
             cuiPanel2.TabIndex = 16;
+            cuiPanel2.Paint += cuiPanel2_Paint;
             // 
             // cuiPanel7
             // 
@@ -248,6 +252,7 @@
             cuiPanel7.Rounding = new Padding(8, 8, 0, 0);
             cuiPanel7.Size = new Size(445, 37);
             cuiPanel7.TabIndex = 34;
+            cuiPanel7.Paint += cuiPanel7_Paint;
             // 
             // cuiPictureBox1
             // 
@@ -312,6 +317,7 @@
             cuiPanel8.Rounding = new Padding(8, 8, 0, 0);
             cuiPanel8.Size = new Size(149, 41);
             cuiPanel8.TabIndex = 34;
+            cuiPanel8.Paint += cuiPanel8_Paint;
             // 
             // cuiButtonGroup2
             // 
@@ -322,7 +328,7 @@
             cuiButtonGroup2.CheckedForeColor = Color.Black;
             cuiButtonGroup2.CheckedImageTint = Color.White;
             cuiButtonGroup2.CheckedOutline = Color.Transparent;
-            cuiButtonGroup2.Content = "+ Add Member";
+            cuiButtonGroup2.Content = "+ Add Trainers";
             cuiButtonGroup2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cuiButtonGroup2.ForeColor = Color.White;
             cuiButtonGroup2.Group = 0;
