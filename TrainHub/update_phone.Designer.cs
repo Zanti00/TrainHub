@@ -32,6 +32,7 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
+            passwordTxt = new CuoreUI.Controls.cuiTextBox();
             SuspendLayout();
             // 
             // label1
@@ -93,11 +94,41 @@
             label4.Text = "Enter New Phone Number";
             label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // passwordTxt
+            // 
+            passwordTxt.BackColor = Color.Transparent;
+            passwordTxt.BackgroundColor = Color.Silver;
+            passwordTxt.BorderColor = Color.FromArgb(50, 81, 88);
+            passwordTxt.Content = "";
+            passwordTxt.FocusBackgroundColor = Color.White;
+            passwordTxt.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            passwordTxt.FocusImageTint = Color.White;
+            passwordTxt.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            passwordTxt.ForeColor = Color.Black;
+            passwordTxt.Image = null;
+            passwordTxt.ImageExpand = new Point(0, 0);
+            passwordTxt.ImageOffset = new Point(0, 0);
+            passwordTxt.Location = new Point(218, 323);
+            passwordTxt.Margin = new Padding(5);
+            passwordTxt.Multiline = false;
+            passwordTxt.Name = "passwordTxt";
+            passwordTxt.NormalImageTint = Color.White;
+            passwordTxt.Padding = new Padding(16, 7, 16, 0);
+            passwordTxt.PasswordChar = true;
+            passwordTxt.PlaceholderColor = SystemColors.ScrollBar;
+            passwordTxt.PlaceholderText = "Password";
+            passwordTxt.Rounding = new Padding(6);
+            passwordTxt.Size = new Size(218, 31);
+            passwordTxt.TabIndex = 12;
+            passwordTxt.TextOffset = new Size(0, 0);
+            passwordTxt.UnderlinedStyle = false;
+            // 
             // update_phone
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(831, 731);
+            Controls.Add(passwordTxt);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -117,5 +148,6 @@
         private Label label2;
         private Label label3;
         private Label label4;
+        private CuoreUI.Controls.cuiTextBox passwordTxt;
     }
 }

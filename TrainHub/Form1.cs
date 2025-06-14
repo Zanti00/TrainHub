@@ -16,5 +16,10 @@ namespace TrainHub
         {
             InitializeComponent();
         }
+
+        private void cuiPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
