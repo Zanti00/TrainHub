@@ -57,7 +57,7 @@
             cuiPanel1.PanelColor = Color.White;
             cuiPanel1.PanelOutlineColor = Color.Black;
             cuiPanel1.Rounding = new Padding(8);
-            cuiPanel1.Size = new Size(653, 619);
+            cuiPanel1.Size = new Size(653, 576);
             cuiPanel1.TabIndex = 10;
             // 
             // loginBtn
@@ -80,7 +80,7 @@
             loginBtn.ImageAutoCenter = true;
             loginBtn.ImageExpand = new Point(0, 0);
             loginBtn.ImageOffset = new Point(0, 0);
-            loginBtn.Location = new Point(133, 437);
+            loginBtn.Location = new Point(133, 457);
             loginBtn.Margin = new Padding(3, 4, 3, 4);
             loginBtn.Name = "loginBtn";
             loginBtn.NormalBackground = Color.FromArgb(50, 81, 88);
@@ -113,7 +113,7 @@
             cuiTextBox1.Image = null;
             cuiTextBox1.ImageExpand = new Point(0, 0);
             cuiTextBox1.ImageOffset = new Point(0, 0);
-            cuiTextBox1.Location = new Point(133, 368);
+            cuiTextBox1.Location = new Point(133, 371);
             cuiTextBox1.Margin = new Padding(5);
             cuiTextBox1.Multiline = false;
             cuiTextBox1.Name = "cuiTextBox1";
@@ -136,7 +136,7 @@
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(0, 0, 64);
             label5.ImageAlign = ContentAlignment.MiddleLeft;
-            label5.Location = new Point(133, 343);
+            label5.Location = new Point(133, 346);
             label5.Margin = new Padding(6, 0, 3, 0);
             label5.Name = "label5";
             label5.Size = new Size(127, 20);
@@ -158,7 +158,7 @@
             passwordTxt.Image = null;
             passwordTxt.ImageExpand = new Point(0, 0);
             passwordTxt.ImageOffset = new Point(0, 0);
-            passwordTxt.Location = new Point(133, 264);
+            passwordTxt.Location = new Point(133, 266);
             passwordTxt.Margin = new Padding(5);
             passwordTxt.Multiline = false;
             passwordTxt.Name = "passwordTxt";
@@ -180,7 +180,7 @@
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(0, 0, 64);
             label4.ImageAlign = ContentAlignment.MiddleLeft;
-            label4.Location = new Point(133, 239);
+            label4.Location = new Point(133, 241);
             label4.Margin = new Padding(6, 0, 3, 0);
             label4.Name = "label4";
             label4.Size = new Size(118, 20);
@@ -193,7 +193,7 @@
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.ForeColor = Color.FromArgb(130, 130, 130);
-            label3.Location = new Point(133, 190);
+            label3.Location = new Point(133, 181);
             label3.Margin = new Padding(11, 20, 3, 0);
             label3.Name = "label3";
             label3.Size = new Size(135, 20);
@@ -207,7 +207,7 @@
             label2.Font = new Font("Segoe UI", 16.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(0, 0, 64);
             label2.ImageAlign = ContentAlignment.MiddleLeft;
-            label2.Location = new Point(133, 130);
+            label2.Location = new Point(133, 121);
             label2.Margin = new Padding(6, 0, 3, 0);
             label2.Name = "label2";
             label2.Size = new Size(188, 40);
@@ -223,7 +223,7 @@
             label1.Font = new Font("Segoe UI Black", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(50, 81, 88);
             label1.ImageAlign = ContentAlignment.MiddleLeft;
-            label1.Location = new Point(133, 69);
+            label1.Location = new Point(133, 58);
             label1.Name = "label1";
             label1.Size = new Size(177, 46);
             label1.TabIndex = 13;
@@ -231,13 +231,13 @@
             label1.TextAlign = ContentAlignment.MiddleLeft;
             label1.Click += label1_Click;
             // 
-            // Form1
+            // update_email
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(734, 701);
+            ClientSize = new Size(734, 671);
             Controls.Add(cuiPanel1);
-            Name = "Form1";
+            Name = "update_email";
             Text = "Form1";
             cuiPanel1.ResumeLayout(false);
             cuiPanel1.PerformLayout();
