@@ -35,9 +35,13 @@
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             cuiButton1 = new CuoreUI.Controls.cuiButton();
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
+            cuiPanel3 = new CuoreUI.Controls.cuiPanel();
+            cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             cuiPanel1.SuspendLayout();
+            cuiPanel2.SuspendLayout();
+            cuiPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -109,45 +113,87 @@
             cuiButton1.CheckedForeColor = Color.White;
             cuiButton1.CheckedImageTint = Color.White;
             cuiButton1.CheckedOutline = Color.FromArgb(255, 106, 0);
-            cuiButton1.Content = "Your text here!";
+            cuiButton1.Content = "+ Add Trainers";
             cuiButton1.DialogResult = DialogResult.None;
             cuiButton1.Font = new Font("Microsoft Sans Serif", 9.75F);
-            cuiButton1.ForeColor = Color.WhiteSmoke;
-            cuiButton1.HoverBackground = Color.FromArgb(51, 81, 88);
-            cuiButton1.HoveredImageTint = Color.White;
+            cuiButton1.ForeColor = Color.White;
+            cuiButton1.HoverBackground = Color.FromArgb(22, 36, 29);
+            cuiButton1.HoveredImageTint = Color.Transparent;
             cuiButton1.HoverForeColor = Color.Black;
-            cuiButton1.HoverOutline = Color.FromArgb(32, 128, 128, 128);
+            cuiButton1.HoverOutline = Color.FromArgb(22, 36, 29);
             cuiButton1.Image = null;
             cuiButton1.ImageAutoCenter = true;
             cuiButton1.ImageExpand = new Point(0, 0);
             cuiButton1.ImageOffset = new Point(0, 0);
-            cuiButton1.Location = new Point(26, 1);
+            cuiButton1.Location = new Point(79, 0);
             cuiButton1.Name = "cuiButton1";
             cuiButton1.NormalBackground = Color.FromArgb(51, 81, 88);
-            cuiButton1.NormalForeColor = Color.WhiteSmoke;
-            cuiButton1.NormalImageTint = Color.White;
-            cuiButton1.NormalOutline = Color.FromArgb(64, 128, 128, 128);
+            cuiButton1.NormalForeColor = Color.White;
+            cuiButton1.NormalImageTint = Color.Black;
+            cuiButton1.NormalOutline = Color.FromArgb(51, 81, 88);
             cuiButton1.OutlineThickness = 1F;
             cuiButton1.PressedBackground = Color.WhiteSmoke;
             cuiButton1.PressedForeColor = Color.FromArgb(32, 32, 32);
             cuiButton1.PressedImageTint = Color.White;
             cuiButton1.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             cuiButton1.Rounding = new Padding(8);
-            cuiButton1.Size = new Size(148, 45);
+            cuiButton1.Size = new Size(113, 43);
             cuiButton1.TabIndex = 0;
             cuiButton1.TextAlignment = StringAlignment.Center;
             cuiButton1.TextOffset = new Point(0, 0);
             // 
             // cuiPanel2
             // 
+            cuiPanel2.BackColor = SystemColors.ControlLight;
+            cuiPanel2.Controls.Add(cuiPanel3);
             cuiPanel2.Location = new Point(3, 103);
             cuiPanel2.Name = "cuiPanel2";
             cuiPanel2.OutlineThickness = 1F;
-            cuiPanel2.PanelColor = Color.FromArgb(255, 106, 0);
-            cuiPanel2.PanelOutlineColor = Color.FromArgb(255, 106, 0);
-            cuiPanel2.Rounding = new Padding(8);
-            cuiPanel2.Size = new Size(794, 58);
+            cuiPanel2.PanelColor = Color.White;
+            cuiPanel2.PanelOutlineColor = Color.White;
+            cuiPanel2.Rounding = new Padding(10);
+            cuiPanel2.Size = new Size(794, 47);
             cuiPanel2.TabIndex = 2;
+            // 
+            // cuiPanel3
+            // 
+            cuiPanel3.Controls.Add(cuiTextBox1);
+            cuiPanel3.Location = new Point(369, 3);
+            cuiPanel3.Name = "cuiPanel3";
+            cuiPanel3.OutlineThickness = 1F;
+            cuiPanel3.PanelColor = Color.White;
+            cuiPanel3.PanelOutlineColor = Color.White;
+            cuiPanel3.Rounding = new Padding(8);
+            cuiPanel3.Size = new Size(423, 41);
+            cuiPanel3.TabIndex = 0;
+            // 
+            // cuiTextBox1
+            // 
+            cuiTextBox1.BackgroundColor = Color.White;
+            cuiTextBox1.BorderColor = Color.FromArgb(128, 128, 128, 128);
+            cuiTextBox1.Content = "";
+            cuiTextBox1.FocusBackgroundColor = Color.White;
+            cuiTextBox1.FocusBorderColor = Color.FromArgb(255, 106, 0);
+            cuiTextBox1.FocusImageTint = Color.White;
+            cuiTextBox1.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cuiTextBox1.ForeColor = Color.Gray;
+            cuiTextBox1.Image = null;
+            cuiTextBox1.ImageExpand = new Point(0, 0);
+            cuiTextBox1.ImageOffset = new Point(0, 0);
+            cuiTextBox1.Location = new Point(57, 1);
+            cuiTextBox1.Margin = new Padding(4);
+            cuiTextBox1.Multiline = false;
+            cuiTextBox1.Name = "cuiTextBox1";
+            cuiTextBox1.NormalImageTint = Color.White;
+            cuiTextBox1.Padding = new Padding(15, 12, 15, 0);
+            cuiTextBox1.PasswordChar = false;
+            cuiTextBox1.PlaceholderColor = SystemColors.WindowText;
+            cuiTextBox1.PlaceholderText = "";
+            cuiTextBox1.Rounding = new Padding(8);
+            cuiTextBox1.Size = new Size(365, 39);
+            cuiTextBox1.TabIndex = 0;
+            cuiTextBox1.TextOffset = new Size(0, 0);
+            cuiTextBox1.UnderlinedStyle = true;
             // 
             // Form2
             // 
@@ -161,6 +207,8 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             cuiPanel1.ResumeLayout(false);
+            cuiPanel2.ResumeLayout(false);
+            cuiPanel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -173,5 +221,7 @@
         private CuoreUI.Controls.cuiPanel cuiPanel1;
         private CuoreUI.Controls.cuiButton cuiButton1;
         private CuoreUI.Controls.cuiPanel cuiPanel2;
+        private CuoreUI.Controls.cuiPanel cuiPanel3;
+        private CuoreUI.Controls.cuiTextBox cuiTextBox1;
     }
 }
