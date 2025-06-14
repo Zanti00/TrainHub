@@ -36,17 +36,23 @@
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             cuiButton1 = new CuoreUI.Controls.cuiButton();
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
-            cuiPanel3 = new CuoreUI.Controls.cuiPanel();
-            searchbar = new CuoreUI.Controls.cuiTextBox();
             advancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewTextBoxColumn();
+            Column8 = new DataGridViewTextBoxColumn();
+            cuiPanel3 = new CuoreUI.Controls.cuiPanel();
+            searchbar = new CuoreUI.Controls.cuiTextBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             cuiPanel1.SuspendLayout();
             cuiPanel2.SuspendLayout();
-            cuiPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)advancedDataGridView1).BeginInit();
+            cuiPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -58,18 +64,20 @@
             tableLayoutPanel1.Controls.Add(cuiPanel2, 0, 2);
             tableLayoutPanel1.Location = new Point(-1, 1);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.Padding = new Padding(10, 0, 10, 0);
             tableLayoutPanel1.RowCount = 3;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 47.8632469F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 52.1367531F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 350F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 49F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 51F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 352F));
             tableLayoutPanel1.Size = new Size(800, 453);
             tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // panel1
             // 
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(3, 3);
+            panel1.Location = new Point(13, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(200, 42);
             panel1.TabIndex = 0;
@@ -101,13 +109,13 @@
             // 
             cuiPanel1.Controls.Add(cuiButton1);
             cuiPanel1.Dock = DockStyle.Right;
-            cuiPanel1.Location = new Point(605, 52);
+            cuiPanel1.Location = new Point(595, 52);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
             cuiPanel1.PanelColor = SystemColors.Control;
             cuiPanel1.PanelOutlineColor = SystemColors.Control;
             cuiPanel1.Rounding = new Padding(8);
-            cuiPanel1.Size = new Size(192, 47);
+            cuiPanel1.Size = new Size(192, 45);
             cuiPanel1.TabIndex = 1;
             // 
             // cuiButton1
@@ -146,26 +154,111 @@
             cuiButton1.TabIndex = 0;
             cuiButton1.TextAlignment = StringAlignment.Center;
             cuiButton1.TextOffset = new Point(0, 0);
+            cuiButton1.Click += cuiButton1_Click;
             // 
             // cuiPanel2
             // 
             cuiPanel2.BackColor = SystemColors.ControlLight;
             cuiPanel2.Controls.Add(advancedDataGridView1);
             cuiPanel2.Controls.Add(cuiPanel3);
-            cuiPanel2.Location = new Point(3, 105);
+            cuiPanel2.Location = new Point(13, 103);
             cuiPanel2.Name = "cuiPanel2";
             cuiPanel2.OutlineThickness = 1F;
             cuiPanel2.Padding = new Padding(0, 10, 10, 10);
             cuiPanel2.PanelColor = Color.White;
             cuiPanel2.PanelOutlineColor = Color.Black;
             cuiPanel2.Rounding = new Padding(10, 10, 0, 0);
-            cuiPanel2.Size = new Size(794, 340);
+            cuiPanel2.Size = new Size(774, 334);
             cuiPanel2.TabIndex = 2;
+            // 
+            // advancedDataGridView1
+            // 
+            advancedDataGridView1.AllowUserToAddRows = false;
+            advancedDataGridView1.AllowUserToDeleteRows = false;
+            advancedDataGridView1.BackgroundColor = SystemColors.ButtonHighlight;
+            advancedDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8 });
+            advancedDataGridView1.FilterAndSortEnabled = true;
+            advancedDataGridView1.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
+            advancedDataGridView1.Location = new Point(0, 45);
+            advancedDataGridView1.MaxFilterButtonImageHeight = 23;
+            advancedDataGridView1.Name = "advancedDataGridView1";
+            advancedDataGridView1.ReadOnly = true;
+            advancedDataGridView1.RightToLeft = RightToLeft.No;
+            advancedDataGridView1.RowHeadersVisible = false;
+            advancedDataGridView1.Size = new Size(774, 289);
+            advancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = true;
+            advancedDataGridView1.TabIndex = 1;
+            advancedDataGridView1.CellContentClick += advancedDataGridView1_CellContentClick;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Trainer ID";
+            Column1.MinimumWidth = 24;
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Name";
+            Column2.MinimumWidth = 24;
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Email Address";
+            Column3.MinimumWidth = 24;
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Contact Number";
+            Column4.MinimumWidth = 24;
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            Column4.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Date of Birth";
+            Column5.MinimumWidth = 24;
+            Column5.Name = "Column5";
+            Column5.ReadOnly = true;
+            Column5.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Column6
+            // 
+            Column6.HeaderText = "Address";
+            Column6.MinimumWidth = 24;
+            Column6.Name = "Column6";
+            Column6.ReadOnly = true;
+            Column6.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Column7
+            // 
+            Column7.HeaderText = "Edit";
+            Column7.MinimumWidth = 24;
+            Column7.Name = "Column7";
+            Column7.ReadOnly = true;
+            Column7.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Column8
+            // 
+            Column8.HeaderText = "Delete";
+            Column8.MinimumWidth = 24;
+            Column8.Name = "Column8";
+            Column8.ReadOnly = true;
+            Column8.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
             // cuiPanel3
             // 
             cuiPanel3.Controls.Add(searchbar);
-            cuiPanel3.Location = new Point(368, 3);
+            cuiPanel3.Location = new Point(349, 1);
             cuiPanel3.Name = "cuiPanel3";
             cuiPanel3.OutlineThickness = 1F;
             cuiPanel3.PanelColor = Color.White;
@@ -173,6 +266,7 @@
             cuiPanel3.Rounding = new Padding(8);
             cuiPanel3.Size = new Size(423, 41);
             cuiPanel3.TabIndex = 0;
+            cuiPanel3.Paint += cuiPanel3_Paint;
             // 
             // searchbar
             // 
@@ -202,41 +296,7 @@
             searchbar.TabIndex = 12;
             searchbar.TextOffset = new Size(0, 0);
             searchbar.UnderlinedStyle = false;
-            // 
-            // advancedDataGridView1
-            // 
-            advancedDataGridView1.AllowUserToAddRows = false;
-            advancedDataGridView1.AllowUserToDeleteRows = false;
-            advancedDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column2, Column3 });
-            advancedDataGridView1.FilterAndSortEnabled = true;
-            advancedDataGridView1.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
-            advancedDataGridView1.Location = new Point(-3, 47);
-            advancedDataGridView1.MaxFilterButtonImageHeight = 23;
-            advancedDataGridView1.Name = "advancedDataGridView1";
-            advancedDataGridView1.ReadOnly = true;
-            advancedDataGridView1.RightToLeft = RightToLeft.No;
-            advancedDataGridView1.RowHeadersVisible = false;
-            advancedDataGridView1.RowHeadersWidth = 20;
-            advancedDataGridView1.Size = new Size(797, 293);
-            advancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = true;
-            advancedDataGridView1.TabIndex = 1;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Column2";
-            Column2.MinimumWidth = 24;
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Column3";
-            Column3.MinimumWidth = 24;
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.SortMode = DataGridViewColumnSortMode.Programmatic;
+            searchbar.ContentChanged += searchbar_ContentChanged;
             // 
             // Form2
             // 
@@ -253,8 +313,8 @@
             panel1.PerformLayout();
             cuiPanel1.ResumeLayout(false);
             cuiPanel2.ResumeLayout(false);
-            cuiPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)advancedDataGridView1).EndInit();
+            cuiPanel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -270,7 +330,13 @@
         private CuoreUI.Controls.cuiPanel cuiPanel3;
         private CuoreUI.Controls.cuiTextBox searchbar;
         private Zuby.ADGV.AdvancedDataGridView advancedDataGridView1;
+        private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column6;
+        private DataGridViewTextBoxColumn Column7;
+        private DataGridViewTextBoxColumn Column8;
     }
 }
