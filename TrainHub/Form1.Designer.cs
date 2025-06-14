@@ -53,6 +53,7 @@
             cuiPanel1.Rounding = new Padding(8);
             cuiPanel1.Size = new Size(659, 619);
             cuiPanel1.TabIndex = 9;
+            cuiPanel1.Paint += cuiPanel1_Paint_1;
             // 
             // passwordTxt
             // 
