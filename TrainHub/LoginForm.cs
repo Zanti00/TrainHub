@@ -9,7 +9,7 @@ namespace TrainHub
         {
             InitializeComponent();
         }
-        SqlConnection conn = new SqlConnection("Data Source=.\\sqlexpress;Initial Catalog=TrainHub;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
+        SqlConnection conn = new SqlConnection("Data Source=.\\sqlexpress;Initial Catalog=TrainHub;Integrated Security=True;Trust Server Certificate=True");
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -25,7 +25,7 @@ namespace TrainHub
             try
             {
                 // to avoid sql injection attacks I used parameterized queries
-                String query = "SELECT * FROM admin WHERE email = @Email AND password = @Password";
+                String query = "SELECT * FROM users WHERE email = @Email AND password = @Password";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Email", email);
                 cmd.Parameters.AddWithValue("@Password", password);
