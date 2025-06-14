@@ -1,6 +1,6 @@
 ﻿namespace TrainHub
 {
-    partial class update_phone
+    partial class update_email
     {
         /// <summary>
         /// Required designer variable.
@@ -51,15 +51,14 @@
             cuiPanel1.Controls.Add(label3);
             cuiPanel1.Controls.Add(label2);
             cuiPanel1.Controls.Add(label1);
-            cuiPanel1.Location = new Point(34, 18);
+            cuiPanel1.Location = new Point(41, 33);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
             cuiPanel1.PanelColor = Color.White;
             cuiPanel1.PanelOutlineColor = Color.Black;
             cuiPanel1.Rounding = new Padding(8);
             cuiPanel1.Size = new Size(653, 619);
-            cuiPanel1.TabIndex = 9;
-            cuiPanel1.Paint += cuiPanel1_Paint_1;
+            cuiPanel1.TabIndex = 10;
             // 
             // loginBtn
             // 
@@ -81,7 +80,7 @@
             loginBtn.ImageAutoCenter = true;
             loginBtn.ImageExpand = new Point(0, 0);
             loginBtn.ImageOffset = new Point(0, 0);
-            loginBtn.Location = new Point(133, 456);
+            loginBtn.Location = new Point(133, 437);
             loginBtn.Margin = new Padding(3, 4, 3, 4);
             loginBtn.Name = "loginBtn";
             loginBtn.NormalBackground = Color.FromArgb(50, 81, 88);
@@ -114,7 +113,7 @@
             cuiTextBox1.Image = null;
             cuiTextBox1.ImageExpand = new Point(0, 0);
             cuiTextBox1.ImageOffset = new Point(0, 0);
-            cuiTextBox1.Location = new Point(133, 387);
+            cuiTextBox1.Location = new Point(133, 368);
             cuiTextBox1.Margin = new Padding(5);
             cuiTextBox1.Multiline = false;
             cuiTextBox1.Name = "cuiTextBox1";
@@ -128,6 +127,7 @@
             cuiTextBox1.TabIndex = 19;
             cuiTextBox1.TextOffset = new Size(0, 0);
             cuiTextBox1.UnderlinedStyle = false;
+            cuiTextBox1.ContentChanged += cuiTextBox1_ContentChanged;
             // 
             // label5
             // 
@@ -136,7 +136,7 @@
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(0, 0, 64);
             label5.ImageAlign = ContentAlignment.MiddleLeft;
-            label5.Location = new Point(133, 362);
+            label5.Location = new Point(133, 343);
             label5.Margin = new Padding(6, 0, 3, 0);
             label5.Name = "label5";
             label5.Size = new Size(127, 20);
@@ -158,7 +158,7 @@
             passwordTxt.Image = null;
             passwordTxt.ImageExpand = new Point(0, 0);
             passwordTxt.ImageOffset = new Point(0, 0);
-            passwordTxt.Location = new Point(133, 295);
+            passwordTxt.Location = new Point(133, 264);
             passwordTxt.Margin = new Padding(5);
             passwordTxt.Multiline = false;
             passwordTxt.Name = "passwordTxt";
@@ -166,7 +166,7 @@
             passwordTxt.Padding = new Padding(16, 12, 16, 0);
             passwordTxt.PasswordChar = true;
             passwordTxt.PlaceholderColor = SystemColors.ScrollBar;
-            passwordTxt.PlaceholderText = "Please enter your new phone number...";
+            passwordTxt.PlaceholderText = "Please enter your new email...";
             passwordTxt.Rounding = new Padding(6);
             passwordTxt.Size = new Size(336, 40);
             passwordTxt.TabIndex = 17;
@@ -180,12 +180,12 @@
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(0, 0, 64);
             label4.ImageAlign = ContentAlignment.MiddleLeft;
-            label4.Location = new Point(133, 270);
+            label4.Location = new Point(133, 239);
             label4.Margin = new Padding(6, 0, 3, 0);
             label4.Name = "label4";
-            label4.Size = new Size(180, 20);
+            label4.Size = new Size(118, 20);
             label4.TabIndex = 16;
-            label4.Text = "Enter New Phone Number";
+            label4.Text = "Enter New Email";
             label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label3
@@ -193,12 +193,12 @@
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.ForeColor = Color.FromArgb(130, 130, 130);
-            label3.Location = new Point(133, 220);
+            label3.Location = new Point(133, 190);
             label3.Margin = new Padding(11, 20, 3, 0);
             label3.Name = "label3";
-            label3.Size = new Size(144, 20);
+            label3.Size = new Size(135, 20);
             label3.TabIndex = 15;
-            label3.Text = "Set a New Password.";
+            label3.Text = "Update your Email.";
             // 
             // label2
             // 
@@ -207,13 +207,14 @@
             label2.Font = new Font("Segoe UI", 16.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(0, 0, 64);
             label2.ImageAlign = ContentAlignment.MiddleLeft;
-            label2.Location = new Point(133, 142);
+            label2.Location = new Point(133, 130);
             label2.Margin = new Padding(6, 0, 3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(312, 40);
+            label2.Size = new Size(188, 40);
             label2.TabIndex = 14;
-            label2.Text = "Update Phone Number";
+            label2.Text = "Update Email";
             label2.TextAlign = ContentAlignment.MiddleLeft;
+            label2.Click += label2_Click;
             // 
             // label1
             // 
@@ -222,21 +223,21 @@
             label1.Font = new Font("Segoe UI Black", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(50, 81, 88);
             label1.ImageAlign = ContentAlignment.MiddleLeft;
-            label1.Location = new Point(133, 75);
+            label1.Location = new Point(133, 69);
             label1.Name = "label1";
             label1.Size = new Size(177, 46);
             label1.TabIndex = 13;
             label1.Text = "TrainHub";
             label1.TextAlign = ContentAlignment.MiddleLeft;
+            label1.Click += label1_Click;
             // 
-            // update_phone
+            // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(734, 684);
+            ClientSize = new Size(734, 701);
             Controls.Add(cuiPanel1);
-            Name = "update_phone";
-            StartPosition = FormStartPosition.CenterScreen;
+            Name = "Form1";
             Text = "Form1";
             cuiPanel1.ResumeLayout(false);
             cuiPanel1.PerformLayout();
@@ -246,13 +247,13 @@
         #endregion
 
         private CuoreUI.Controls.cuiPanel cuiPanel1;
+        private CuoreUI.Controls.cuiButtonGroup loginBtn;
+        private CuoreUI.Controls.cuiTextBox cuiTextBox1;
+        private Label label5;
         private CuoreUI.Controls.cuiTextBox passwordTxt;
         private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;
-        private CuoreUI.Controls.cuiTextBox cuiTextBox1;
-        private Label label5;
-        private CuoreUI.Controls.cuiButtonGroup loginBtn;
     }
 }
