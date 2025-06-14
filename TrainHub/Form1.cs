@@ -26,5 +26,18 @@ namespace TrainHub
         {
 
         }
+
+        private void showPassBtn_Click(object sender, EventArgs e)
+        {
+            if (passwordTxt.PasswordChar)
+            {
+                passwordTxt.PasswordChar = false;
+            }
+            else
+            {
+                passwordTxt.PasswordChar = true;
+            }
+        }
+
     }
 }
