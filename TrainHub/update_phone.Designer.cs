@@ -40,7 +40,7 @@
             label1.Font = new Font("Segoe UI Black", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(50, 81, 88);
             label1.ImageAlign = ContentAlignment.MiddleLeft;
-            label1.Location = new Point(154, 82);
+            label1.Location = new Point(218, 99);
             label1.Name = "label1";
             label1.Size = new Size(177, 46);
             label1.TabIndex = 1;
@@ -54,7 +54,7 @@
             label2.Font = new Font("Segoe UI", 15F);
             label2.ForeColor = Color.FromArgb(0, 0, 64);
             label2.ImageAlign = ContentAlignment.MiddleLeft;
-            label2.Location = new Point(154, 162);
+            label2.Location = new Point(218, 162);
             label2.Margin = new Padding(6, 0, 3, 0);
             label2.Name = "label2";
             label2.Size = new Size(272, 35);
@@ -68,24 +68,25 @@
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.ForeColor = Color.FromArgb(130, 130, 130);
-            label3.Location = new Point(-14, 217);
+            label3.Location = new Point(218, 233);
             label3.Margin = new Padding(11, 20, 3, 0);
             label3.Name = "label3";
-            label3.Size = new Size(218, 20);
+            label3.Size = new Size(144, 20);
             label3.TabIndex = 3;
-            label3.Text = "Please enter your email address";
+            label3.Text = "Set a New Password.";
             label3.Click += label3_Click;
             // 
             // update_phone
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(562, 731);
+            ClientSize = new Size(831, 731);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "update_phone";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "update_phone";
             Load += update_phone_Load;
             ResumeLayout(false);
