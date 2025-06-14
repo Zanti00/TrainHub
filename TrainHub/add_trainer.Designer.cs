@@ -510,8 +510,8 @@
             ClientSize = new Size(829, 467);
             Controls.Add(cuiPanel2);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
+            MinimizeBox = false;
             Name = "add_trainer";
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;

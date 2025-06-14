@@ -1,6 +1,6 @@
 ﻿namespace TrainHub
 {
-    partial class Form2
+    partial class table_trainer
     {
         /// <summary>
         /// Required designer variable.

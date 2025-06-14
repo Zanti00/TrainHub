@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TrainHub
 {
-    public partial class Form2 : Form
+    public partial class table_trainer : Form
     {
-        public Form2()
+        public table_trainer()
         {
             InitializeComponent();
         }
