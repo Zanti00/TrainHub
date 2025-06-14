@@ -31,6 +31,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            label4 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -46,18 +47,19 @@
             label1.TabIndex = 1;
             label1.Text = "TrainHub";
             label1.TextAlign = ContentAlignment.MiddleLeft;
+            label1.Click += label1_Click;
             // 
             // label2
             // 
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 15F);
+            label2.Font = new Font("Segoe UI", 16.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(0, 0, 64);
             label2.ImageAlign = ContentAlignment.MiddleLeft;
             label2.Location = new Point(218, 162);
             label2.Margin = new Padding(6, 0, 3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(272, 35);
+            label2.Size = new Size(312, 40);
             label2.TabIndex = 2;
             label2.Text = "Update Phone Number";
             label2.TextAlign = ContentAlignment.MiddleLeft;
@@ -76,11 +78,27 @@
             label3.Text = "Set a New Password.";
             label3.Click += label3_Click;
             // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.None;
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.FromArgb(0, 0, 64);
+            label4.ImageAlign = ContentAlignment.MiddleLeft;
+            label4.Location = new Point(218, 288);
+            label4.Margin = new Padding(6, 0, 3, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(180, 20);
+            label4.TabIndex = 4;
+            label4.Text = "Enter New Phone Number";
+            label4.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // update_phone
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(831, 731);
+            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -98,5 +116,6 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private Label label4;
     }
 }
