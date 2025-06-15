@@ -21,7 +21,11 @@ namespace TrainHub.Models
         public bool IsDeleted { get; set; } = false;
         public string Status { get; set; }
         public string MembershipType { get; set; }
-        
+
+        public string? ProfileImagePath { get; set; }
+        public string? ImageFileName { get; set; }
+        public DateTime? ImageCapturedDate { get; set; }
+
         //public int TrainerID { get; set; }
         //public Trainer TrainerName { get; set; }
     }

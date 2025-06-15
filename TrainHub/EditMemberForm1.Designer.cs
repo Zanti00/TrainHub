@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditMemberForm1));
             label1 = new Label();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            pictureBox1 = new PictureBox();
+            openCameraBtn = new CuoreUI.Controls.cuiButtonGroup();
+            captureBtn = new CuoreUI.Controls.cuiButtonGroup();
             birthDate = new CuoreUI.Controls.cuiCalendarDatePicker();
             label2 = new Label();
             label4 = new Label();
@@ -47,6 +50,7 @@
             lastNameTxt = new CuoreUI.Controls.cuiTextBox();
             firstNameTxt = new CuoreUI.Controls.cuiTextBox();
             cuiPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -62,6 +66,9 @@
             // 
             // cuiPanel1
             // 
+            cuiPanel1.Controls.Add(pictureBox1);
+            cuiPanel1.Controls.Add(openCameraBtn);
+            cuiPanel1.Controls.Add(captureBtn);
             cuiPanel1.Controls.Add(birthDate);
             cuiPanel1.Controls.Add(label2);
             cuiPanel1.Controls.Add(label4);
@@ -77,15 +84,101 @@
             cuiPanel1.Controls.Add(emailAddTxt);
             cuiPanel1.Controls.Add(lastNameTxt);
             cuiPanel1.Controls.Add(firstNameTxt);
-            cuiPanel1.Location = new Point(29, 72);
+            cuiPanel1.Location = new Point(29, 67);
             cuiPanel1.Margin = new Padding(3, 2, 3, 2);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
             cuiPanel1.PanelColor = Color.White;
             cuiPanel1.PanelOutlineColor = Color.Black;
             cuiPanel1.Rounding = new Padding(10);
-            cuiPanel1.Size = new Size(677, 260);
+            cuiPanel1.Size = new Size(677, 354);
             cuiPanel1.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox1.InitialImage = null;
+            pictureBox1.Location = new Point(22, 18);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(220, 125);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 43;
+            pictureBox1.TabStop = false;
+            // 
+            // openCameraBtn
+            // 
+            openCameraBtn.Checked = false;
+            openCameraBtn.CheckedBackground = Color.FromArgb(50, 81, 88);
+            openCameraBtn.CheckedForeColor = Color.White;
+            openCameraBtn.CheckedImageTint = Color.White;
+            openCameraBtn.CheckedOutline = Color.FromArgb(50, 81, 88);
+            openCameraBtn.Content = "Open camera";
+            openCameraBtn.Font = new Font("Microsoft Sans Serif", 6.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            openCameraBtn.ForeColor = Color.Black;
+            openCameraBtn.Group = 0;
+            openCameraBtn.HoverBackground = Color.FromArgb(50, 81, 88);
+            openCameraBtn.HoveredImageTint = Color.White;
+            openCameraBtn.HoverForeColor = Color.White;
+            openCameraBtn.HoverOutline = Color.FromArgb(50, 81, 88);
+            openCameraBtn.Image = null;
+            openCameraBtn.ImageAutoCenter = true;
+            openCameraBtn.ImageExpand = new Point(0, 0);
+            openCameraBtn.ImageOffset = new Point(0, 0);
+            openCameraBtn.Location = new Point(257, 52);
+            openCameraBtn.Name = "openCameraBtn";
+            openCameraBtn.NormalBackground = Color.White;
+            openCameraBtn.NormalForeColor = Color.Black;
+            openCameraBtn.NormalImageTint = Color.White;
+            openCameraBtn.NormalOutline = Color.FromArgb(50, 81, 88);
+            openCameraBtn.OutlineThickness = 1F;
+            openCameraBtn.PressedBackground = Color.FromArgb(22, 36, 39);
+            openCameraBtn.PressedForeColor = Color.White;
+            openCameraBtn.PressedImageTint = Color.White;
+            openCameraBtn.PressedOutline = Color.FromArgb(22, 36, 39);
+            openCameraBtn.Rounding = new Padding(8);
+            openCameraBtn.Size = new Size(80, 28);
+            openCameraBtn.TabIndex = 42;
+            openCameraBtn.TextAlignment = StringAlignment.Center;
+            openCameraBtn.TextOffset = new Point(0, 0);
+            openCameraBtn.Click += openCameraBtn_Click;
+            // 
+            // captureBtn
+            // 
+            captureBtn.Checked = false;
+            captureBtn.CheckedBackground = Color.FromArgb(50, 81, 88);
+            captureBtn.CheckedForeColor = Color.White;
+            captureBtn.CheckedImageTint = Color.White;
+            captureBtn.CheckedOutline = Color.FromArgb(50, 81, 88);
+            captureBtn.Content = "Capture";
+            captureBtn.Font = new Font("Microsoft Sans Serif", 6.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            captureBtn.ForeColor = Color.Black;
+            captureBtn.Group = 0;
+            captureBtn.HoverBackground = Color.FromArgb(50, 81, 88);
+            captureBtn.HoveredImageTint = Color.White;
+            captureBtn.HoverForeColor = Color.White;
+            captureBtn.HoverOutline = Color.FromArgb(50, 81, 88);
+            captureBtn.Image = null;
+            captureBtn.ImageAutoCenter = true;
+            captureBtn.ImageExpand = new Point(0, 0);
+            captureBtn.ImageOffset = new Point(0, 0);
+            captureBtn.Location = new Point(257, 18);
+            captureBtn.Name = "captureBtn";
+            captureBtn.NormalBackground = Color.White;
+            captureBtn.NormalForeColor = Color.Black;
+            captureBtn.NormalImageTint = Color.White;
+            captureBtn.NormalOutline = Color.FromArgb(50, 81, 88);
+            captureBtn.OutlineThickness = 1F;
+            captureBtn.PressedBackground = Color.FromArgb(22, 36, 39);
+            captureBtn.PressedForeColor = Color.White;
+            captureBtn.PressedImageTint = Color.White;
+            captureBtn.PressedOutline = Color.FromArgb(22, 36, 39);
+            captureBtn.Rounding = new Padding(8);
+            captureBtn.Size = new Size(80, 28);
+            captureBtn.TabIndex = 40;
+            captureBtn.TextAlignment = StringAlignment.Center;
+            captureBtn.TextOffset = new Point(0, 0);
+            captureBtn.Click += captureBtn_Click;
             // 
             // birthDate
             // 
@@ -96,7 +189,7 @@
             birthDate.HoverOutline = Color.FromArgb(180, 128, 128, 128);
             birthDate.Icon = (Image)resources.GetObject("birthDate.Icon");
             birthDate.IconTint = Color.Gray;
-            birthDate.Location = new Point(439, 72);
+            birthDate.Location = new Point(110, 184);
             birthDate.Margin = new Padding(4);
             birthDate.Name = "birthDate";
             birthDate.NormalBackground = Color.White;
@@ -116,7 +209,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Inter", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Silver;
-            label2.Location = new Point(353, 75);
+            label2.Location = new Point(24, 187);
             label2.Name = "label2";
             label2.Size = new Size(75, 22);
             label2.TabIndex = 36;
@@ -127,7 +220,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Inter", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Silver;
-            label4.Location = new Point(353, 146);
+            label4.Location = new Point(24, 258);
             label4.Name = "label4";
             label4.Size = new Size(72, 22);
             label4.TabIndex = 38;
@@ -155,7 +248,7 @@
     "Trainer 2",
     "Trainer 3"
     };
-            trainerCombo.Location = new Point(350, 37);
+            trainerCombo.Location = new Point(349, 256);
             trainerCombo.Margin = new Padding(4, 3, 4, 3);
             trainerCombo.Name = "trainerCombo";
             trainerCombo.NoSelectionDropdownText = "Empty";
@@ -175,7 +268,7 @@
             endDate.HoverOutline = Color.FromArgb(180, 128, 128, 128);
             endDate.Icon = (Image)resources.GetObject("endDate.Icon");
             endDate.IconTint = Color.Gray;
-            endDate.Location = new Point(439, 143);
+            endDate.Location = new Point(110, 255);
             endDate.Margin = new Padding(4);
             endDate.Name = "endDate";
             endDate.NormalBackground = Color.White;
@@ -195,7 +288,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Inter", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Silver;
-            label3.Location = new Point(353, 108);
+            label3.Location = new Point(24, 220);
             label3.Name = "label3";
             label3.Size = new Size(79, 22);
             label3.TabIndex = 37;
@@ -221,7 +314,7 @@
     "Active",
     "Inactive"
     };
-            statusCombo.Location = new Point(25, 179);
+            statusCombo.Location = new Point(349, 222);
             statusCombo.Margin = new Padding(4, 3, 4, 3);
             statusCombo.Name = "statusCombo";
             statusCombo.NoSelectionDropdownText = "Empty";
@@ -241,7 +334,7 @@
             startDate.HoverOutline = Color.FromArgb(180, 128, 128, 128);
             startDate.Icon = (Image)resources.GetObject("startDate.Icon");
             startDate.IconTint = Color.Gray;
-            startDate.Location = new Point(439, 107);
+            startDate.Location = new Point(110, 219);
             startDate.Margin = new Padding(4);
             startDate.Name = "startDate";
             startDate.NormalBackground = Color.White;
@@ -277,7 +370,7 @@
     "Quarterly",
     "Yearly"
     };
-            membershipTypeCombo.Location = new Point(177, 179);
+            membershipTypeCombo.Location = new Point(501, 222);
             membershipTypeCombo.Margin = new Padding(4, 3, 4, 3);
             membershipTypeCombo.Name = "membershipTypeCombo";
             membershipTypeCombo.NoSelectionDropdownText = "Empty";
@@ -308,7 +401,7 @@
             cancelBtn.ImageAutoCenter = true;
             cancelBtn.ImageExpand = new Point(0, 0);
             cancelBtn.ImageOffset = new Point(0, 0);
-            cancelBtn.Location = new Point(494, 211);
+            cancelBtn.Location = new Point(493, 304);
             cancelBtn.Name = "cancelBtn";
             cancelBtn.NormalBackground = Color.White;
             cancelBtn.NormalForeColor = Color.Black;
@@ -346,7 +439,7 @@
             doneBtn.ImageAutoCenter = true;
             doneBtn.ImageExpand = new Point(0, 0);
             doneBtn.ImageOffset = new Point(0, 0);
-            doneBtn.Location = new Point(575, 211);
+            doneBtn.Location = new Point(574, 304);
             doneBtn.Name = "doneBtn";
             doneBtn.NormalBackground = Color.FromArgb(50, 81, 88);
             doneBtn.NormalForeColor = Color.White;
@@ -378,7 +471,7 @@
             phoneNumTxt.Image = null;
             phoneNumTxt.ImageExpand = new Point(0, 0);
             phoneNumTxt.ImageOffset = new Point(0, 0);
-            phoneNumTxt.Location = new Point(25, 144);
+            phoneNumTxt.Location = new Point(349, 183);
             phoneNumTxt.Margin = new Padding(4);
             phoneNumTxt.Multiline = false;
             phoneNumTxt.Name = "phoneNumTxt";
@@ -392,7 +485,6 @@
             phoneNumTxt.TabIndex = 15;
             phoneNumTxt.TextOffset = new Size(0, 0);
             phoneNumTxt.UnderlinedStyle = false;
-            phoneNumTxt.KeyPress += phoneNumTxt_KeyPress;
             // 
             // emailAddTxt
             // 
@@ -408,7 +500,7 @@
             emailAddTxt.Image = null;
             emailAddTxt.ImageExpand = new Point(0, 0);
             emailAddTxt.ImageOffset = new Point(0, 0);
-            emailAddTxt.Location = new Point(25, 108);
+            emailAddTxt.Location = new Point(349, 146);
             emailAddTxt.Margin = new Padding(4);
             emailAddTxt.Multiline = false;
             emailAddTxt.Name = "emailAddTxt";
@@ -437,7 +529,7 @@
             lastNameTxt.Image = null;
             lastNameTxt.ImageExpand = new Point(0, 0);
             lastNameTxt.ImageOffset = new Point(0, 0);
-            lastNameTxt.Location = new Point(25, 72);
+            lastNameTxt.Location = new Point(349, 110);
             lastNameTxt.Margin = new Padding(4);
             lastNameTxt.Multiline = false;
             lastNameTxt.Name = "lastNameTxt";
@@ -466,7 +558,7 @@
             firstNameTxt.Image = null;
             firstNameTxt.ImageExpand = new Point(0, 0);
             firstNameTxt.ImageOffset = new Point(0, 0);
-            firstNameTxt.Location = new Point(25, 36);
+            firstNameTxt.Location = new Point(349, 74);
             firstNameTxt.Margin = new Padding(4);
             firstNameTxt.Multiline = false;
             firstNameTxt.Name = "firstNameTxt";
@@ -486,15 +578,20 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(739, 357);
+            ClientSize = new Size(728, 446);
+            ControlBox = false;
             Controls.Add(cuiPanel1);
             Controls.Add(label1);
             ForeColor = Color.White;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 2, 3, 2);
             Name = "EditMemberForm1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "EditMemberForm1";
+            FormClosing += EditMemberForm1_FormClosing;
             cuiPanel1.ResumeLayout(false);
             cuiPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -502,6 +599,9 @@
         #endregion
         private Label label1;
         private CuoreUI.Controls.cuiPanel cuiPanel1;
+        private PictureBox pictureBox1;
+        private CuoreUI.Controls.cuiButtonGroup openCameraBtn;
+        private CuoreUI.Controls.cuiButtonGroup captureBtn;
         private CuoreUI.Controls.cuiCalendarDatePicker birthDate;
         private Label label2;
         private Label label4;

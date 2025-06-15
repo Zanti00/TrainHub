@@ -1,9 +1,14 @@
-﻿using System;
+﻿using AForge.Video;
+using AForge.Video.DirectShow;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -19,6 +24,11 @@ namespace TrainHub
     {
         private readonly TrainHubContext _context;
         private readonly ShowMembersTablePageForm1 _showMembersTablePageForm1;
+        private VideoCaptureDevice videoSource;
+        private Bitmap currentFrame;
+        private Bitmap capturedImage;
+        private bool isImageCaptured = false;
+
         string pattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
         public RegisterNewMember(ShowMembersTablePageForm1 showMembersTablePageForm1)
         {
@@ -28,16 +38,48 @@ namespace TrainHub
 
             // Initialize the context
             _context = new TrainHubContext();
-
-            // Prevent resizing, but allow moving
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.ControlBox = true;
-            this.StartPosition = FormStartPosition.CenterScreen;
+            InitializeWebcam();
 
             startDate.Value = DateTime.Today;
             endDate.Value = DateTime.Today;
+        }
+
+        private void InitializeWebcam()
+        {
+            // Get list of video devices
+            FilterInfoCollection videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+
+            if (videoDevices.Count > 0)
+            {
+                // Use first available camera
+                videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
+                videoSource.NewFrame += VideoSource_NewFrame;
+            }
+            else
+            {
+                MessageBox.Show("No video devices found!");
+            }
+        }
+
+        private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            // Get the current frame
+            currentFrame = (Bitmap)eventArgs.Frame.Clone();
+
+            // Display in PictureBox (invoke required for cross-thread operation)
+            if (pictureBox1.InvokeRequired)
+            {
+                pictureBox1.Invoke(new Action(() =>
+                {
+                    pictureBox1.Image?.Dispose();
+                    pictureBox1.Image = (Bitmap)currentFrame.Clone();
+                }));
+            }
+            else
+            {
+                pictureBox1.Image?.Dispose();
+                pictureBox1.Image = (Bitmap)currentFrame.Clone();
+            }
         }
 
         private async void addBtn_Click(object sender, EventArgs e)
@@ -51,7 +93,9 @@ namespace TrainHub
                 endDate.Value == null ||
                 statusCombo.SelectedIndex == -1 ||
                 membershipTypeCombo.SelectedIndex == -1 ||
-                trainerCombo.SelectedIndex == -1)
+                trainerCombo.SelectedIndex == -1 ||
+                isImageCaptured == null ||
+                capturedImage == null)
             {
                 MessageBox.Show("Please fill in all fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -103,31 +147,184 @@ namespace TrainHub
 
         private void AddMember()
         {
-            Member member = new Member()
+            try
             {
-                FirstName = firstNameTxt.Content,
-                LastName = lastNameTxt.Content,
-                Email = emailAddTxt.Content,
-                PhoneNumber = phoneNumTxt.Content,
-                DateOfBirth = birthDate.Value.Date,
-                StartDate = startDate.Value.Date,
-                EndDate = endDate.Value.Date,
-                Status = statusCombo.SelectedItem.ToString(),
-                MembershipType = membershipTypeCombo.SelectedItem.ToString(),
-                //TrainerID = 1 // Assuming a default trainer ID for now
-            };
-            _context.Add(member);
-            _context.SaveChanges(); // Ensure changes are saved to the database
+                Member member = new Member()
+                {
+                    FirstName = firstNameTxt.Content,
+                    LastName = lastNameTxt.Content,
+                    Email = emailAddTxt.Content,
+                    PhoneNumber = phoneNumTxt.Content,
+                    DateOfBirth = birthDate.Value.Date,
+                    StartDate = startDate.Value.Date,
+                    EndDate = endDate.Value.Date,
+                    Status = statusCombo.SelectedItem.ToString(),
+                    MembershipType = membershipTypeCombo.SelectedItem.ToString(),
+                    //TrainerID = 1 // Assuming a default trainer ID for now
+                };
 
-            MessageBox.Show("Member registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _context.Add(member);
+                _context.SaveChanges(); // Ensure changes are saved to the database
+                if (isImageCaptured && capturedImage != null)
+                {
+                    try
+                    {
+                        string imagePath = ImageFileManager.SaveMemberImage(capturedImage, member.Id, member.Email);
 
-            _showMembersTablePageForm1?.RefreshMemberData();
+                        string relativePath = ImageFileManager.GetRelativePath(imagePath);
+
+                        member.ProfileImagePath = relativePath;
+                        member.ImageFileName = System.IO.Path.GetFileName(imagePath);
+                        member.ImageCapturedDate = DateTime.Now;
+
+                        _context.SaveChanges(); // Save image path
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Member registered successfully, but failed to save image: {ex.Message}",
+                            "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                GenerateQrCode(member.Id);
+                MessageBox.Show("Member registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _showMembersTablePageForm1?.RefreshMemberData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error registering member: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void GenerateQrCode(int memberID)
+        {
+            try
+            {
+                Bitmap picQRCode = QrCode.GetCode(memberID.ToString());
+                if (picQRCode != null)
+                {
+                    SendQRCode(picQRCode);
+                }
+                else
+                {
+                    MessageBox.Show("Failed to generate QR code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error generating QR code: " +
+                    $"{ex.Message}",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void SendQRCode(Bitmap picQRCode)
+        {
+            string from = "zantialdama1@gmail.com";
+            string pass = "ecql vlsa psql jbxu";
+
+            string messageBody = "Congratulations for registration. Here's your QR Code pass attached to this email.";
+
+            MailMessage message = new MailMessage();
+            message.To.Add(emailAddTxt.Content);
+            message.From = new MailAddress(from);
+            message.Subject = "QR Code for TrainHub Membership";
+            message.Body = messageBody;
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                picQRCode.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                ms.Position = 0;
+
+                Attachment attachment = new Attachment(ms, "QRCode.png", "image/png");
+                message.Attachments.Add(attachment);
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    EnableSsl = true,
+                    Credentials = new NetworkCredential(from, pass),
+                    DeliveryMethod = SmtpDeliveryMethod.Network
+                };
+
+                try
+                {
+                    smtp.Send(message);
+                    MessageBox.Show("QR Code sent to " + emailAddTxt.Content, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error sending email: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    smtp.Dispose();
+                    message.Dispose();
+                }
+            }
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
             _context?.Dispose();
             base.OnFormClosed(e);
+        }
+
+        private void captureBtn_Click(object sender, EventArgs e)
+        {
+            if (currentFrame != null)
+            {
+                // Capture the current frame
+                capturedImage?.Dispose(); // Dispose previous captured image
+                capturedImage = (Bitmap)currentFrame.Clone();
+                isImageCaptured = true;
+
+                // Stop the camera after capture
+                if (videoSource != null && videoSource.IsRunning)
+                {
+                    videoSource.SignalToStop();
+                    videoSource.WaitForStop();
+                }
+
+                // Optional: Show the captured image in the same PictureBox or another one
+                pictureBox1.Image?.Dispose();
+                pictureBox1.Image = (Bitmap)capturedImage.Clone();
+
+                MessageBox.Show("Image captured successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No frame to capture!");
+            }
+        }
+
+        private void openCameraBtn_Click(object sender, EventArgs e)
+        {
+            if (videoSource != null && !videoSource.IsRunning)
+            {
+                videoSource.Start();
+                isImageCaptured = false;
+            }
+            else
+            {
+                videoSource.SignalToStop();
+                videoSource.WaitForStop();
+            }
+        }
+
+        private void RegisterNewMember_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (videoSource != null && videoSource.IsRunning)
+            {
+                videoSource.SignalToStop();
+                videoSource.WaitForStop();
+            }
+
+            // Clean up resources
+            currentFrame?.Dispose();
+            capturedImage?.Dispose();
         }
     }
 }

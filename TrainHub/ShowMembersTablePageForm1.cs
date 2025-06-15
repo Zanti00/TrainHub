@@ -1,13 +1,17 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrainHub.Data;
+using TrainHub.Static_Classes;
+using Zuby.ADGV;
 
 namespace TrainHub
 {
@@ -21,23 +25,28 @@ namespace TrainHub
 
             advancedDataGridView1.CellFormatting += advancedDataGridView1_CellFormatting;
         }
-
         private void cuiButtonGroup2_Click(object sender, EventArgs e)
         {
             RegisterNewMember registerNewMember = new RegisterNewMember(this);
             registerNewMember.ShowDialog();
         }
-
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 13 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 11 && e.RowIndex >= 0)
+            {
+                int memberID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                ViewMember viewMember = new ViewMember(memberID);
+                viewMember.ShowDialog();
+            }
+
+            if (e.ColumnIndex == 12 && e.RowIndex >= 0)
             {
                 int memberID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
                 EditMemberForm1 editForm = new EditMemberForm1(memberID, this);
                 editForm.ShowDialog();
             }
 
-            if (e.ColumnIndex == 14 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 13 && e.RowIndex >= 0)
             {
                 // Confirm deletion
                 var result = MessageBox.Show($"Are you sure you want to delete member {advancedDataGridView1.Rows[e.RowIndex].Cells[1].Value} {advancedDataGridView1.Rows[e.RowIndex].Cells[2].Value}?", "Confirm Deletion",
@@ -65,7 +74,6 @@ namespace TrainHub
                 }
             }
         }
-
         private void advancedDataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             // Check if this is column 11 (Status column) and has a value
@@ -87,7 +95,56 @@ namespace TrainHub
                 }
             }
         }
+        private void advancedDataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check if clicked on image column (ProfileImage column)
+            if (e.ColumnIndex == 1 && e.RowIndex >= 0) // Adjust column index based on your layout
+            {
+                try
+                {
+                    int memberId = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                    var member = dataContext.Member.Find(memberId);
 
+                    if (member != null && !string.IsNullOrEmpty(member.ProfileImagePath))
+                    {
+                        string fullPath = ImageFileManager.GetFullPath(member.ProfileImagePath);
+
+                        if (File.Exists(fullPath))
+                        {
+                            // Show image in a popup form
+                            ShowImagePopup(fullPath, $"{member.FirstName} {member.LastName}");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error displaying image: {ex.Message}", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void ShowImagePopup(string imagePath, string memberName)
+        {
+            Form imageForm = new Form();
+            imageForm.Text = $"Photo - {memberName}";
+            imageForm.Size = new Size(400, 400);
+            imageForm.StartPosition = FormStartPosition.CenterParent;
+            imageForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+            imageForm.MaximizeBox = false;
+            imageForm.MinimizeBox = false;
+
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Dock = DockStyle.Fill;
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox.Image = Image.FromFile(imagePath);
+
+            imageForm.Controls.Add(pictureBox);
+
+            // Clean up image when form closes
+            imageForm.FormClosed += (s, e) => pictureBox.Image?.Dispose();
+
+            imageForm.ShowDialog(this);
+        }
         private void ShowMembersTablePageForm1_Load(object sender, EventArgs e)
         {
             RefreshMemberData();
@@ -116,9 +173,13 @@ namespace TrainHub
                 dataTable.Columns.Add("IsDeleted", typeof(bool));
                 dataTable.Columns.Add("Status", typeof(string));
                 dataTable.Columns.Add("MembershipType", typeof(string));
+                dataTable.Columns.Add("ProfileImagePath", typeof(Image));
 
                 foreach (var member in members)
                 {
+
+                    Image profileImage = LoadMemberImage(member.ProfileImagePath);
+
                     dataTable.Rows.Add(
                         member.Id,
                         member.FirstName,
@@ -132,12 +193,23 @@ namespace TrainHub
                         member.SoftDeleteDate,
                         member.IsDeleted,
                         member.Status,
-                        member.MembershipType
+                        member.MembershipType,
+                        profileImage
                     );
                 }
 
                 this.memberBindingSource.DataSource = dataTable;
                 advancedDataGridView1.DataSource = memberBindingSource;
+
+                // to disable sort and filter for unbounded columns
+                foreach (DataGridViewColumn col in advancedDataGridView1.Columns)
+                {
+                    if (string.IsNullOrEmpty(col.DataPropertyName))
+                    {
+                        advancedDataGridView1.SetFilterAndSortEnabled(col, false);
+                    }
+                    
+                }
 
             }
             catch (Exception ex)
@@ -146,14 +218,60 @@ namespace TrainHub
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        // Clean up resources
-        protected override void OnFormClosed(FormClosedEventArgs e)
+        private Image LoadMemberImage(string imagePath)
         {
-            dataContext?.Dispose();
-            base.OnFormClosed(e);
-        }
+            try
+            {
+                if (!string.IsNullOrEmpty(imagePath))
+                {
+                    // Construct full path from relative path
+                    string fullPath = ImageFileManager.GetFullPath(imagePath);
 
+                    if (File.Exists(fullPath))
+                    {
+                        // Load and resize image for DataGridView display
+                        using (var originalImage = Image.FromFile(fullPath))
+                        {
+                            return ResizeImage(originalImage, 60, 60); // Resize to 60x60 for display
+                        }
+                    }
+                }
+
+                // Return default/placeholder image if no image found
+                return CreateDefaultImage();
+            }
+            catch (Exception ex)
+            {
+                // Return default image on error
+                return CreateDefaultImage();
+            }
+        }
+        private Image ResizeImage(Image originalImage, int width, int height)
+        {
+            Bitmap resized = new Bitmap(width, height);
+            using (Graphics g = Graphics.FromImage(resized))
+            {
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                g.DrawImage(originalImage, 0, 0, width, height);
+            }
+            return resized;
+        }
+        private Image CreateDefaultImage()
+        {
+            // Create a simple default image (gray rectangle with text)
+            Bitmap defaultImage = new Bitmap(60, 60);
+            using (Graphics g = Graphics.FromImage(defaultImage))
+            {
+                g.FillRectangle(Brushes.LightGray, 0, 0, 60, 60);
+                g.DrawRectangle(Pens.Gray, 0, 0, 59, 59);
+
+                using (Font font = new Font("Arial", 8))
+                {
+                    g.DrawString("No\nPhoto", font, Brushes.DarkGray, 10, 20);
+                }
+            }
+            return defaultImage;
+        }
         private void searchBar_ContentChanged(object sender, EventArgs e)
         {
             string memberName = searchBar.Content.Trim();
@@ -182,9 +300,13 @@ namespace TrainHub
                     dataTable.Columns.Add("IsDeleted", typeof(bool));
                     dataTable.Columns.Add("Status", typeof(string));
                     dataTable.Columns.Add("MembershipType", typeof(string));
+                    dataTable.Columns.Add("ProfileImagePath", typeof(Image));
 
                     foreach (var member in members)
                     {
+
+                        Image profileImage = LoadMemberImage(member.ProfileImagePath);
+
                         dataTable.Rows.Add(
                             member.Id,
                             member.FirstName,
@@ -198,7 +320,8 @@ namespace TrainHub
                             member.SoftDeleteDate,
                             member.IsDeleted,
                             member.Status,
-                            member.MembershipType
+                            member.MembershipType,
+                            profileImage
                         );
                     }
 
@@ -217,5 +340,6 @@ namespace TrainHub
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }
