@@ -7,6 +7,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -110,6 +112,7 @@ namespace TrainHub
                     }
 
                     pictureBox1.Image = loadedImage;
+                    isImageCaptured = true;
                 }
                 else
                 {
@@ -187,8 +190,7 @@ namespace TrainHub
                     string.IsNullOrWhiteSpace(lastNameTxt.Content) ||
                     string.IsNullOrWhiteSpace(emailAddTxt.Content) ||
                     string.IsNullOrWhiteSpace(phoneNumTxt.Content) ||
-                    isImageCaptured == null ||
-                    capturedImage == null)
+                    pictureBox1.Image == null)
                 {
                     MessageBox.Show("Please fill in all required fields.", "Validation Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -214,6 +216,13 @@ namespace TrainHub
                     MessageBox.Show("Email already exists. Please use a different email.",
                         "Duplicate Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     emailAddTxt.Focus();
+                    return;
+                }
+
+                if (videoSource.IsRunning == true)
+                {
+                    MessageBox.Show("Please stop the camera before saving changes.", "Camera Running",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -317,6 +326,83 @@ namespace TrainHub
             {
                 videoSource.SignalToStop();
                 videoSource.WaitForStop();
+            }
+        }
+
+        private void generateQrBtn_Click(object sender, EventArgs e)
+        {
+            GenerateQrCode(memberID);
+        }
+
+        private void GenerateQrCode(int memberID)
+        {
+            try
+            {
+                Bitmap picQRCode = QrCode.GetCode(memberID.ToString());
+                if (picQRCode != null)
+                {
+                    SendQRCode(picQRCode);
+                }
+                else
+                {
+                    MessageBox.Show("Failed to generate QR code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error generating QR code: " +
+                    $"{ex.Message}",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void SendQRCode(Bitmap picQRCode)
+        {
+            var selectedMember = dataContext.Member.Find(memberID);
+
+            string from = "zantialdama1@gmail.com";
+            string pass = "ecql vlsa psql jbxu";
+
+            string messageBody = "Here's your new QR Code pass attached to this email.";
+
+            MailMessage message = new MailMessage();
+            message.To.Add(selectedMember.Email);
+            message.From = new MailAddress(from);
+            message.Subject = "New QR Code for TrainHub Membership";
+            message.Body = messageBody;
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                picQRCode.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                ms.Position = 0;
+
+                Attachment attachment = new Attachment(ms, "QRCode.png", "image/png");
+                message.Attachments.Add(attachment);
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    EnableSsl = true,
+                    Credentials = new NetworkCredential(from, pass),
+                    DeliveryMethod = SmtpDeliveryMethod.Network
+                };
+
+                try
+                {
+                    smtp.Send(message);
+                    MessageBox.Show("QR Code sent to " + emailAddTxt.Content, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error sending email: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    smtp.Dispose();
+                    message.Dispose();
+                }
             }
         }
 

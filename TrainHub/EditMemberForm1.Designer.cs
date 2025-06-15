@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditMemberForm1));
             label1 = new Label();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            generateQrBtn = new CuoreUI.Controls.cuiButtonGroup();
             pictureBox1 = new PictureBox();
             openCameraBtn = new CuoreUI.Controls.cuiButtonGroup();
             captureBtn = new CuoreUI.Controls.cuiButtonGroup();
@@ -66,6 +67,7 @@
             // 
             // cuiPanel1
             // 
+            cuiPanel1.Controls.Add(generateQrBtn);
             cuiPanel1.Controls.Add(pictureBox1);
             cuiPanel1.Controls.Add(openCameraBtn);
             cuiPanel1.Controls.Add(captureBtn);
@@ -94,6 +96,43 @@
             cuiPanel1.Size = new Size(677, 354);
             cuiPanel1.TabIndex = 8;
             // 
+            // generateQrBtn
+            // 
+            generateQrBtn.Checked = false;
+            generateQrBtn.CheckedBackground = Color.FromArgb(50, 81, 88);
+            generateQrBtn.CheckedForeColor = Color.White;
+            generateQrBtn.CheckedImageTint = Color.White;
+            generateQrBtn.CheckedOutline = Color.FromArgb(50, 81, 88);
+            generateQrBtn.Content = "Generate QR";
+            generateQrBtn.Font = new Font("Microsoft Sans Serif", 6F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            generateQrBtn.ForeColor = Color.Black;
+            generateQrBtn.Group = 0;
+            generateQrBtn.HoverBackground = Color.FromArgb(50, 81, 88);
+            generateQrBtn.HoveredImageTint = Color.White;
+            generateQrBtn.HoverForeColor = Color.White;
+            generateQrBtn.HoverOutline = Color.FromArgb(50, 81, 88);
+            generateQrBtn.Image = null;
+            generateQrBtn.ImageAutoCenter = true;
+            generateQrBtn.ImageExpand = new Point(0, 0);
+            generateQrBtn.ImageOffset = new Point(0, 0);
+            generateQrBtn.Location = new Point(257, 86);
+            generateQrBtn.Name = "generateQrBtn";
+            generateQrBtn.NormalBackground = Color.White;
+            generateQrBtn.NormalForeColor = Color.Black;
+            generateQrBtn.NormalImageTint = Color.White;
+            generateQrBtn.NormalOutline = Color.FromArgb(50, 81, 88);
+            generateQrBtn.OutlineThickness = 1F;
+            generateQrBtn.PressedBackground = Color.FromArgb(22, 36, 39);
+            generateQrBtn.PressedForeColor = Color.White;
+            generateQrBtn.PressedImageTint = Color.White;
+            generateQrBtn.PressedOutline = Color.FromArgb(22, 36, 39);
+            generateQrBtn.Rounding = new Padding(8);
+            generateQrBtn.Size = new Size(80, 28);
+            generateQrBtn.TabIndex = 44;
+            generateQrBtn.TextAlignment = StringAlignment.Center;
+            generateQrBtn.TextOffset = new Point(0, 0);
+            generateQrBtn.Click += generateQrBtn_Click;
+            // 
             // pictureBox1
             // 
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
@@ -113,7 +152,7 @@
             openCameraBtn.CheckedForeColor = Color.White;
             openCameraBtn.CheckedImageTint = Color.White;
             openCameraBtn.CheckedOutline = Color.FromArgb(50, 81, 88);
-            openCameraBtn.Content = "Open camera";
+            openCameraBtn.Content = "Camera";
             openCameraBtn.Font = new Font("Microsoft Sans Serif", 6.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             openCameraBtn.ForeColor = Color.Black;
             openCameraBtn.Group = 0;
@@ -617,5 +656,6 @@
         private CuoreUI.Controls.cuiTextBox emailAddTxt;
         private CuoreUI.Controls.cuiTextBox lastNameTxt;
         private CuoreUI.Controls.cuiTextBox firstNameTxt;
+        private CuoreUI.Controls.cuiButtonGroup generateQrBtn;
     }
 }

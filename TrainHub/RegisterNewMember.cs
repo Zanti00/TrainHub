@@ -151,10 +151,10 @@ namespace TrainHub
             {
                 Member member = new Member()
                 {
-                    FirstName = firstNameTxt.Content,
-                    LastName = lastNameTxt.Content,
-                    Email = emailAddTxt.Content,
-                    PhoneNumber = phoneNumTxt.Content,
+                    FirstName = firstNameTxt.Content.Trim(),
+                    LastName = lastNameTxt.Content.Trim(),
+                    Email = emailAddTxt.Content.Trim(),
+                    PhoneNumber = phoneNumTxt.Content.Trim(),
                     DateOfBirth = birthDate.Value.Date,
                     StartDate = startDate.Value.Date,
                     EndDate = endDate.Value.Date,
@@ -264,12 +264,6 @@ namespace TrainHub
                     message.Dispose();
                 }
             }
-        }
-
-        protected override void OnFormClosed(FormClosedEventArgs e)
-        {
-            _context?.Dispose();
-            base.OnFormClosed(e);
         }
 
         private void captureBtn_Click(object sender, EventArgs e)
