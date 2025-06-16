@@ -331,79 +331,9 @@ namespace TrainHub
 
         private void generateQrBtn_Click(object sender, EventArgs e)
         {
-            GenerateQrCode(memberID);
-        }
-
-        private void GenerateQrCode(int memberID)
-        {
-            try
-            {
-                Bitmap picQRCode = QrCode.GetCode(memberID.ToString());
-                if (picQRCode != null)
-                {
-                    SendQRCode(picQRCode);
-                }
-                else
-                {
-                    MessageBox.Show("Failed to generate QR code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error generating QR code: " +
-                    $"{ex.Message}",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-        }
-
-        private void SendQRCode(Bitmap picQRCode)
-        {
-            var selectedMember = dataContext.Member.Find(memberID);
-
-            string from = "zantialdama1@gmail.com";
-            string pass = "ecql vlsa psql jbxu";
-
-            string messageBody = "Here's your new QR Code pass attached to this email.";
-
-            MailMessage message = new MailMessage();
-            message.To.Add(selectedMember.Email);
-            message.From = new MailAddress(from);
-            message.Subject = "New QR Code for TrainHub Membership";
-            message.Body = messageBody;
-
-            using (MemoryStream ms = new MemoryStream())
-            {
-                picQRCode.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                ms.Position = 0;
-
-                Attachment attachment = new Attachment(ms, "QRCode.png", "image/png");
-                message.Attachments.Add(attachment);
-
-                SmtpClient smtp = new SmtpClient("smtp.gmail.com")
-                {
-                    Port = 587,
-                    EnableSsl = true,
-                    Credentials = new NetworkCredential(from, pass),
-                    DeliveryMethod = SmtpDeliveryMethod.Network
-                };
-
-                try
-                {
-                    smtp.Send(message);
-                    MessageBox.Show("QR Code sent to " + emailAddTxt.Content, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error sending email: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    smtp.Dispose();
-                    message.Dispose();
-                }
-            }
+            QrCode qrCodeGenerator = new QrCode(); // Create an instance of QrCode
+            Bitmap picQRCode = QrCode.GetCode(memberID.ToString());
+            qrCodeGenerator.GenerateQrCode(memberID, picQRCode); // Use the instance to call the non-static method
         }
 
         private void EditMemberForm1_FormClosing(object sender, FormClosingEventArgs e)
