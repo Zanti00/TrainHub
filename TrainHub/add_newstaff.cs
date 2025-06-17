@@ -16,5 +16,10 @@ namespace TrainHub
         {
             InitializeComponent();
         }
+
+        private void cuiButtonGroup1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

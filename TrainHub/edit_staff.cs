@@ -18,12 +18,12 @@ namespace TrainHub
     {
         private TrainHubContext dataContext = new TrainHubContext();
         private int userID;
-        private ShowUsersTablePageForm1? ShowUsersTablePageForm1;
+        private readonly ShowUsersTablePageForm1? ShowUsersTablePageForm1;
         private ShowUsersTablePageForm1? showUserTablePageForm1;
         string pattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
         private object? selectedUser;
 
-        public edit_staff(int userID, ShowUsersTablePageForm1? showUserTablePageForm1 = null)
+        internal edit_staff(int userID, ShowUsersTablePageForm1? showUserTablePageForm1 = null)
         {
             InitializeComponent();
 
@@ -193,8 +193,8 @@ namespace TrainHub
         }
     }
 }
-
 public class ShowUsersTablePageForm1
+
 {
     internal void RefreshUserData()
     {
