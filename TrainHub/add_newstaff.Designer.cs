@@ -32,7 +32,6 @@
             cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             cuiCalendarDatePicker2 = new CuoreUI.Controls.cuiCalendarDatePicker();
-            cuiCalendarDatePicker1 = new CuoreUI.Controls.cuiCalendarDatePicker();
             cuiButtonGroup1 = new CuoreUI.Controls.cuiButtonGroup();
             loginBtn = new CuoreUI.Controls.cuiButtonGroup();
             cuiTextBox4 = new CuoreUI.Controls.cuiTextBox();
@@ -76,7 +75,6 @@
             // 
             cuiPanel1.Controls.Add(cuiTextBox1);
             cuiPanel1.Controls.Add(cuiCalendarDatePicker2);
-            cuiPanel1.Controls.Add(cuiCalendarDatePicker1);
             cuiPanel1.Controls.Add(cuiButtonGroup1);
             cuiPanel1.Controls.Add(loginBtn);
             cuiPanel1.Controls.Add(cuiTextBox4);
@@ -101,7 +99,7 @@
             cuiCalendarDatePicker2.HoverOutline = Color.FromArgb(180, 128, 128, 128);
             cuiCalendarDatePicker2.Icon = (Image)resources.GetObject("cuiCalendarDatePicker2.Icon");
             cuiCalendarDatePicker2.IconTint = Color.Gray;
-            cuiCalendarDatePicker2.Location = new Point(573, 111);
+            cuiCalendarDatePicker2.Location = new Point(400, 111);
             cuiCalendarDatePicker2.Margin = new Padding(4, 5, 4, 5);
             cuiCalendarDatePicker2.Name = "cuiCalendarDatePicker2";
             cuiCalendarDatePicker2.NormalBackground = Color.White;
@@ -111,34 +109,10 @@
             cuiCalendarDatePicker2.PressedOutline = Color.FromArgb(210, 128, 128, 128);
             cuiCalendarDatePicker2.Rounding = 4;
             cuiCalendarDatePicker2.ShowIcon = true;
-            cuiCalendarDatePicker2.Size = new Size(170, 61);
+            cuiCalendarDatePicker2.Size = new Size(343, 61);
             cuiCalendarDatePicker2.TabIndex = 27;
             cuiCalendarDatePicker2.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
             cuiCalendarDatePicker2.Value = new DateTime(2025, 6, 4, 0, 0, 0, 0);
-            // 
-            // cuiCalendarDatePicker1
-            // 
-            cuiCalendarDatePicker1.EnableThemeChangeButton = true;
-            cuiCalendarDatePicker1.Font = new Font("Segoe UI", 9.75F);
-            cuiCalendarDatePicker1.ForeColor = Color.Gray;
-            cuiCalendarDatePicker1.HoverBackground = Color.FromArgb(50, 128, 128, 128);
-            cuiCalendarDatePicker1.HoverOutline = Color.FromArgb(180, 128, 128, 128);
-            cuiCalendarDatePicker1.Icon = (Image)resources.GetObject("cuiCalendarDatePicker1.Icon");
-            cuiCalendarDatePicker1.IconTint = Color.Gray;
-            cuiCalendarDatePicker1.Location = new Point(400, 111);
-            cuiCalendarDatePicker1.Margin = new Padding(4, 5, 4, 5);
-            cuiCalendarDatePicker1.Name = "cuiCalendarDatePicker1";
-            cuiCalendarDatePicker1.NormalBackground = Color.White;
-            cuiCalendarDatePicker1.NormalOutline = Color.FromArgb(51, 81, 88);
-            cuiCalendarDatePicker1.OutlineThickness = 1.5F;
-            cuiCalendarDatePicker1.PressedBackground = Color.FromArgb(80, 128, 128, 128);
-            cuiCalendarDatePicker1.PressedOutline = Color.FromArgb(210, 128, 128, 128);
-            cuiCalendarDatePicker1.Rounding = 4;
-            cuiCalendarDatePicker1.ShowIcon = true;
-            cuiCalendarDatePicker1.Size = new Size(165, 61);
-            cuiCalendarDatePicker1.TabIndex = 26;
-            cuiCalendarDatePicker1.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
-            cuiCalendarDatePicker1.Value = new DateTime(2025, 6, 4, 0, 0, 0, 0);
             // 
             // cuiButtonGroup1
             // 
@@ -362,7 +336,6 @@
         private CuoreUI.Controls.cuiTextBox cuiTextBox1;
         private CuoreUI.Controls.cuiPanel cuiPanel1;
         private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker2;
-        private CuoreUI.Controls.cuiCalendarDatePicker cuiCalendarDatePicker1;
         private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup1;
         private CuoreUI.Controls.cuiButtonGroup loginBtn;
         private CuoreUI.Controls.cuiTextBox cuiTextBox4;
