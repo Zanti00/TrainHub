@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace TrainHub
 {
-    public partial class update_phone : Form
+    public partial class Admin_Settings : Form
     {
-        public update_phone()
+        public Admin_Settings()
         {
             InitializeComponent();
         }
 
-        private void cuiPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void cuiPanel1_Paint_1(object sender, PaintEventArgs e)
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }
@@ -37,10 +32,9 @@ namespace TrainHub
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void passwordTxt_ContentChanged(object sender, EventArgs e)
         {
 
         }
     }
 }
-

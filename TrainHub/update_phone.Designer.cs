@@ -81,7 +81,7 @@
             loginBtn.ImageAutoCenter = true;
             loginBtn.ImageExpand = new Point(0, 0);
             loginBtn.ImageOffset = new Point(0, 0);
-            loginBtn.Location = new Point(133, 456);
+            loginBtn.Location = new Point(133, 483);
             loginBtn.Margin = new Padding(3, 4, 3, 4);
             loginBtn.Name = "loginBtn";
             loginBtn.NormalBackground = Color.FromArgb(50, 81, 88);
@@ -128,6 +128,7 @@
             cuiTextBox1.TabIndex = 19;
             cuiTextBox1.TextOffset = new Size(0, 0);
             cuiTextBox1.UnderlinedStyle = false;
+            cuiTextBox1.ContentChanged += this.cuiTextBox1_ContentChanged;
             // 
             // label5
             // 
@@ -143,6 +144,7 @@
             label5.TabIndex = 18;
             label5.Text = "Confirm Password";
             label5.TextAlign = ContentAlignment.MiddleLeft;
+            label5.Click += this.label5_Click;
             // 
             // passwordTxt
             // 
@@ -172,6 +174,7 @@
             passwordTxt.TabIndex = 17;
             passwordTxt.TextOffset = new Size(0, 0);
             passwordTxt.UnderlinedStyle = false;
+            passwordTxt.ContentChanged += this.passwordTxt_ContentChanged;
             // 
             // label4
             // 
@@ -187,6 +190,7 @@
             label4.TabIndex = 16;
             label4.Text = "Enter New Phone Number";
             label4.TextAlign = ContentAlignment.MiddleLeft;
+            label4.Click += this.label4_Click;
             // 
             // label3
             // 
@@ -199,6 +203,7 @@
             label3.Size = new Size(144, 20);
             label3.TabIndex = 15;
             label3.Text = "Set a New Password.";
+            label3.Click += this.label3_Click;
             // 
             // label2
             // 
@@ -214,6 +219,7 @@
             label2.TabIndex = 14;
             label2.Text = "Update Phone Number";
             label2.TextAlign = ContentAlignment.MiddleLeft;
+            label2.Click += label2_Click;
             // 
             // label1
             // 
@@ -228,6 +234,7 @@
             label1.TabIndex = 13;
             label1.Text = "TrainHub";
             label1.TextAlign = ContentAlignment.MiddleLeft;
+            label1.Click += this.label1_Click;
             // 
             // update_phone
             // 

@@ -235,7 +235,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(734, 671);
+            ClientSize = new Size(736, 671);
             Controls.Add(cuiPanel1);
             Name = "update_email";
             Text = "Form1";
