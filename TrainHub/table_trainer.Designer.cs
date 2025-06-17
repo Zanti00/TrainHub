@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(table_trainer));
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
             label2 = new Label();
@@ -36,6 +37,8 @@
             cuiButton1 = new CuoreUI.Controls.cuiButton();
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
             advancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
+            cuiPanel3 = new CuoreUI.Controls.cuiPanel();
+            searchbar = new CuoreUI.Controls.cuiTextBox();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
@@ -44,8 +47,6 @@
             Column6 = new DataGridViewTextBoxColumn();
             Column7 = new DataGridViewImageColumn();
             Column8 = new DataGridViewImageColumn();
-            cuiPanel3 = new CuoreUI.Controls.cuiPanel();
-            searchbar = new CuoreUI.Controls.cuiTextBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             cuiPanel1.SuspendLayout();
@@ -192,6 +193,49 @@
             advancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = true;
             advancedDataGridView1.TabIndex = 1;
             // 
+            // cuiPanel3
+            // 
+            cuiPanel3.Controls.Add(searchbar);
+            cuiPanel3.Location = new Point(349, 1);
+            cuiPanel3.Name = "cuiPanel3";
+            cuiPanel3.OutlineThickness = 1F;
+            cuiPanel3.PanelColor = Color.White;
+            cuiPanel3.PanelOutlineColor = Color.White;
+            cuiPanel3.Rounding = new Padding(8);
+            cuiPanel3.Size = new Size(423, 49);
+            cuiPanel3.TabIndex = 0;
+            cuiPanel3.Paint += cuiPanel3_Paint;
+            // 
+            // searchbar
+            // 
+            searchbar.BackColor = Color.Transparent;
+            searchbar.BackgroundColor = Color.White;
+            searchbar.BorderColor = Color.FromArgb(50, 81, 88);
+            searchbar.Content = "";
+            searchbar.FocusBackgroundColor = Color.White;
+            searchbar.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            searchbar.FocusImageTint = Color.White;
+            searchbar.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            searchbar.ForeColor = Color.Black;
+            searchbar.Image = null;
+            searchbar.ImageExpand = new Point(3, 3);
+            searchbar.ImageOffset = new Point(0, 0);
+            searchbar.Location = new Point(123, 6);
+            searchbar.Margin = new Padding(4);
+            searchbar.Multiline = false;
+            searchbar.Name = "searchbar";
+            searchbar.NormalImageTint = Color.White;
+            searchbar.Padding = new Padding(13, 11, 13, 0);
+            searchbar.PasswordChar = false;
+            searchbar.PlaceholderColor = SystemColors.WindowFrame;
+            searchbar.PlaceholderText = "Search...";
+            searchbar.Rounding = new Padding(10);
+            searchbar.Size = new Size(296, 35);
+            searchbar.TabIndex = 12;
+            searchbar.TextOffset = new Size(0, 0);
+            searchbar.UnderlinedStyle = false;
+            searchbar.ContentChanged += searchbar_ContentChanged;
+            // 
             // Column1
             // 
             Column1.HeaderText = "Trainer ID";
@@ -243,6 +287,7 @@
             // Column7
             // 
             Column7.HeaderText = "Edit";
+            Column7.Image = (Image)resources.GetObject("Column7.Image");
             Column7.MinimumWidth = 24;
             Column7.Name = "Column7";
             Column7.ReadOnly = true;
@@ -251,62 +296,20 @@
             // Column8
             // 
             Column8.HeaderText = "Delete";
+            Column8.Image = (Image)resources.GetObject("Column8.Image");
             Column8.MinimumWidth = 24;
             Column8.Name = "Column8";
             Column8.ReadOnly = true;
             Column8.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
-            // cuiPanel3
-            // 
-            cuiPanel3.Controls.Add(searchbar);
-            cuiPanel3.Location = new Point(349, 1);
-            cuiPanel3.Name = "cuiPanel3";
-            cuiPanel3.OutlineThickness = 1F;
-            cuiPanel3.PanelColor = Color.White;
-            cuiPanel3.PanelOutlineColor = Color.White;
-            cuiPanel3.Rounding = new Padding(8);
-            cuiPanel3.Size = new Size(423, 49);
-            cuiPanel3.TabIndex = 0;
-            cuiPanel3.Paint += cuiPanel3_Paint;
-            // 
-            // searchbar
-            // 
-            searchbar.BackColor = Color.Transparent;
-            searchbar.BackgroundColor = Color.White;
-            searchbar.BorderColor = Color.FromArgb(50, 81, 88);
-            searchbar.Content = "";
-            searchbar.FocusBackgroundColor = Color.White;
-            searchbar.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            searchbar.FocusImageTint = Color.White;
-            searchbar.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            searchbar.ForeColor = Color.Black;
-            searchbar.Image = null;
-            searchbar.ImageExpand = new Point(3, 3);
-            searchbar.ImageOffset = new Point(0, 0);
-            searchbar.Location = new Point(123, 6);
-            searchbar.Margin = new Padding(4);
-            searchbar.Multiline = false;
-            searchbar.Name = "searchbar";
-            searchbar.NormalImageTint = Color.White;
-            searchbar.Padding = new Padding(13, 11, 13, 0);
-            searchbar.PasswordChar = false;
-            searchbar.PlaceholderColor = SystemColors.WindowFrame;
-            searchbar.PlaceholderText = "Search...";
-            searchbar.Rounding = new Padding(10);
-            searchbar.Size = new Size(296, 35);
-            searchbar.TabIndex = 12;
-            searchbar.TextOffset = new Size(0, 0);
-            searchbar.UnderlinedStyle = false;
-            searchbar.ContentChanged += searchbar_ContentChanged;
-            // 
-            // Form2
+            // table_trainer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Form2";
+            Name = "table_trainer";
             ShowInTaskbar = false;
             Text = "Form2";
             tableLayoutPanel1.ResumeLayout(false);
