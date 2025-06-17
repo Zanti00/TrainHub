@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(change_password));
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            cuiTextBox2 = new CuoreUI.Controls.cuiTextBox();
+            label3 = new Label();
+            label6 = new Label();
             loginBtn = new CuoreUI.Controls.cuiButtonGroup();
             cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
             label5 = new Label();
@@ -36,15 +40,18 @@
             label4 = new Label();
             label2 = new Label();
             label1 = new Label();
-            label6 = new Label();
-            label3 = new Label();
-            cuiTextBox2 = new CuoreUI.Controls.cuiTextBox();
+            emailEyeButton = new CuoreUI.Controls.cuiButton();
+            cuiButton1 = new CuoreUI.Controls.cuiButton();
+            cuiButton2 = new CuoreUI.Controls.cuiButton();
             cuiPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // cuiPanel1
             // 
             cuiPanel1.BackColor = SystemColors.ButtonHighlight;
+            cuiPanel1.Controls.Add(cuiButton2);
+            cuiPanel1.Controls.Add(cuiButton1);
+            cuiPanel1.Controls.Add(emailEyeButton);
             cuiPanel1.Controls.Add(cuiTextBox2);
             cuiPanel1.Controls.Add(label3);
             cuiPanel1.Controls.Add(label6);
@@ -63,6 +70,61 @@
             cuiPanel1.Rounding = new Padding(8);
             cuiPanel1.Size = new Size(653, 655);
             cuiPanel1.TabIndex = 10;
+            // 
+            // cuiTextBox2
+            // 
+            cuiTextBox2.BackColor = Color.Transparent;
+            cuiTextBox2.BackgroundColor = Color.WhiteSmoke;
+            cuiTextBox2.BorderColor = Color.FromArgb(50, 81, 88);
+            cuiTextBox2.Content = "";
+            cuiTextBox2.FocusBackgroundColor = Color.White;
+            cuiTextBox2.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            cuiTextBox2.FocusImageTint = Color.White;
+            cuiTextBox2.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cuiTextBox2.ForeColor = Color.Black;
+            cuiTextBox2.Image = null;
+            cuiTextBox2.ImageExpand = new Point(0, 0);
+            cuiTextBox2.ImageOffset = new Point(0, 0);
+            cuiTextBox2.Location = new Point(146, 415);
+            cuiTextBox2.Margin = new Padding(5);
+            cuiTextBox2.Multiline = false;
+            cuiTextBox2.Name = "cuiTextBox2";
+            cuiTextBox2.NormalImageTint = Color.White;
+            cuiTextBox2.Padding = new Padding(16, 12, 16, 0);
+            cuiTextBox2.PasswordChar = true;
+            cuiTextBox2.PlaceholderColor = SystemColors.ScrollBar;
+            cuiTextBox2.PlaceholderText = "Please enter confirm password...";
+            cuiTextBox2.Rounding = new Padding(6);
+            cuiTextBox2.Size = new Size(336, 40);
+            cuiTextBox2.TabIndex = 24;
+            cuiTextBox2.TextOffset = new Size(0, 0);
+            cuiTextBox2.UnderlinedStyle = false;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.None;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.FromArgb(0, 0, 64);
+            label3.ImageAlign = ContentAlignment.MiddleLeft;
+            label3.Location = new Point(146, 390);
+            label3.Margin = new Padding(6, 0, 3, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(127, 20);
+            label3.TabIndex = 23;
+            label3.Text = "Confirm Password";
+            label3.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.None;
+            label6.AutoSize = true;
+            label6.ForeColor = Color.FromArgb(130, 130, 130);
+            label6.Location = new Point(146, 188);
+            label6.Margin = new Padding(11, 20, 3, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(0, 20);
+            label6.TabIndex = 22;
             // 
             // loginBtn
             // 
@@ -222,60 +284,125 @@
             label1.Text = "TrainHub";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label6
+            // emailEyeButton
             // 
-            label6.Anchor = AnchorStyles.None;
-            label6.AutoSize = true;
-            label6.ForeColor = Color.FromArgb(130, 130, 130);
-            label6.Location = new Point(146, 188);
-            label6.Margin = new Padding(11, 20, 3, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(0, 20);
-            label6.TabIndex = 22;
+            emailEyeButton.BackColor = Color.WhiteSmoke;
+            emailEyeButton.BackgroundImage = (Image)resources.GetObject("emailEyeButton.BackgroundImage");
+            emailEyeButton.BackgroundImageLayout = ImageLayout.Zoom;
+            emailEyeButton.CheckButton = false;
+            emailEyeButton.Checked = false;
+            emailEyeButton.CheckedBackground = Color.FromArgb(255, 106, 0);
+            emailEyeButton.CheckedForeColor = Color.Transparent;
+            emailEyeButton.CheckedImageTint = Color.Transparent;
+            emailEyeButton.CheckedOutline = Color.FromArgb(255, 106, 0);
+            emailEyeButton.Content = "";
+            emailEyeButton.DialogResult = DialogResult.None;
+            emailEyeButton.Font = new Font("Microsoft Sans Serif", 9.75F);
+            emailEyeButton.ForeColor = Color.Transparent;
+            emailEyeButton.HoverBackground = Color.Transparent;
+            emailEyeButton.HoveredImageTint = Color.Transparent;
+            emailEyeButton.HoverForeColor = Color.Transparent;
+            emailEyeButton.HoverOutline = Color.Transparent;
+            emailEyeButton.Image = null;
+            emailEyeButton.ImageAutoCenter = true;
+            emailEyeButton.ImageExpand = new Point(0, 0);
+            emailEyeButton.ImageOffset = new Point(0, 0);
+            emailEyeButton.Location = new Point(421, 236);
+            emailEyeButton.Name = "emailEyeButton";
+            emailEyeButton.NormalBackground = Color.Transparent;
+            emailEyeButton.NormalForeColor = Color.Transparent;
+            emailEyeButton.NormalImageTint = Color.White;
+            emailEyeButton.NormalOutline = Color.FromArgb(64, 128, 128, 128);
+            emailEyeButton.OutlineThickness = 1F;
+            emailEyeButton.PressedBackground = Color.WhiteSmoke;
+            emailEyeButton.PressedForeColor = Color.FromArgb(32, 32, 32);
+            emailEyeButton.PressedImageTint = Color.White;
+            emailEyeButton.PressedOutline = Color.FromArgb(64, 128, 128, 128);
+            emailEyeButton.Rounding = new Padding(8);
+            emailEyeButton.Size = new Size(52, 20);
+            emailEyeButton.TabIndex = 25;
+            emailEyeButton.TextAlignment = StringAlignment.Center;
+            emailEyeButton.TextOffset = new Point(0, 0);
             // 
-            // label3
+            // cuiButton1
             // 
-            label3.Anchor = AnchorStyles.None;
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.FromArgb(0, 0, 64);
-            label3.ImageAlign = ContentAlignment.MiddleLeft;
-            label3.Location = new Point(146, 390);
-            label3.Margin = new Padding(6, 0, 3, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(127, 20);
-            label3.TabIndex = 23;
-            label3.Text = "Confirm Password";
-            label3.TextAlign = ContentAlignment.MiddleLeft;
+            cuiButton1.BackColor = Color.WhiteSmoke;
+            cuiButton1.BackgroundImage = (Image)resources.GetObject("cuiButton1.BackgroundImage");
+            cuiButton1.BackgroundImageLayout = ImageLayout.Zoom;
+            cuiButton1.CheckButton = false;
+            cuiButton1.Checked = false;
+            cuiButton1.CheckedBackground = Color.FromArgb(255, 106, 0);
+            cuiButton1.CheckedForeColor = Color.Transparent;
+            cuiButton1.CheckedImageTint = Color.Transparent;
+            cuiButton1.CheckedOutline = Color.FromArgb(255, 106, 0);
+            cuiButton1.Content = "";
+            cuiButton1.DialogResult = DialogResult.None;
+            cuiButton1.Font = new Font("Microsoft Sans Serif", 9.75F);
+            cuiButton1.ForeColor = Color.Transparent;
+            cuiButton1.HoverBackground = Color.Transparent;
+            cuiButton1.HoveredImageTint = Color.Transparent;
+            cuiButton1.HoverForeColor = Color.Transparent;
+            cuiButton1.HoverOutline = Color.Transparent;
+            cuiButton1.Image = null;
+            cuiButton1.ImageAutoCenter = true;
+            cuiButton1.ImageExpand = new Point(0, 0);
+            cuiButton1.ImageOffset = new Point(0, 0);
+            cuiButton1.Location = new Point(421, 328);
+            cuiButton1.Name = "cuiButton1";
+            cuiButton1.NormalBackground = Color.Transparent;
+            cuiButton1.NormalForeColor = Color.Transparent;
+            cuiButton1.NormalImageTint = Color.White;
+            cuiButton1.NormalOutline = Color.FromArgb(64, 128, 128, 128);
+            cuiButton1.OutlineThickness = 1F;
+            cuiButton1.PressedBackground = Color.WhiteSmoke;
+            cuiButton1.PressedForeColor = Color.FromArgb(32, 32, 32);
+            cuiButton1.PressedImageTint = Color.White;
+            cuiButton1.PressedOutline = Color.FromArgb(64, 128, 128, 128);
+            cuiButton1.Rounding = new Padding(8);
+            cuiButton1.Size = new Size(52, 20);
+            cuiButton1.TabIndex = 26;
+            cuiButton1.TextAlignment = StringAlignment.Center;
+            cuiButton1.TextOffset = new Point(0, 0);
             // 
-            // cuiTextBox2
+            // cuiButton2
             // 
-            cuiTextBox2.BackColor = Color.Transparent;
-            cuiTextBox2.BackgroundColor = Color.WhiteSmoke;
-            cuiTextBox2.BorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox2.Content = "";
-            cuiTextBox2.FocusBackgroundColor = Color.White;
-            cuiTextBox2.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox2.FocusImageTint = Color.White;
-            cuiTextBox2.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiTextBox2.ForeColor = Color.Black;
-            cuiTextBox2.Image = null;
-            cuiTextBox2.ImageExpand = new Point(0, 0);
-            cuiTextBox2.ImageOffset = new Point(0, 0);
-            cuiTextBox2.Location = new Point(146, 415);
-            cuiTextBox2.Margin = new Padding(5);
-            cuiTextBox2.Multiline = false;
-            cuiTextBox2.Name = "cuiTextBox2";
-            cuiTextBox2.NormalImageTint = Color.White;
-            cuiTextBox2.Padding = new Padding(16, 12, 16, 0);
-            cuiTextBox2.PasswordChar = true;
-            cuiTextBox2.PlaceholderColor = SystemColors.ScrollBar;
-            cuiTextBox2.PlaceholderText = "Please enter confirm password...";
-            cuiTextBox2.Rounding = new Padding(6);
-            cuiTextBox2.Size = new Size(336, 40);
-            cuiTextBox2.TabIndex = 24;
-            cuiTextBox2.TextOffset = new Size(0, 0);
-            cuiTextBox2.UnderlinedStyle = false;
+            cuiButton2.BackColor = Color.WhiteSmoke;
+            cuiButton2.BackgroundImage = (Image)resources.GetObject("cuiButton2.BackgroundImage");
+            cuiButton2.BackgroundImageLayout = ImageLayout.Zoom;
+            cuiButton2.CheckButton = false;
+            cuiButton2.Checked = false;
+            cuiButton2.CheckedBackground = Color.FromArgb(255, 106, 0);
+            cuiButton2.CheckedForeColor = Color.Transparent;
+            cuiButton2.CheckedImageTint = Color.Transparent;
+            cuiButton2.CheckedOutline = Color.FromArgb(255, 106, 0);
+            cuiButton2.Content = "";
+            cuiButton2.DialogResult = DialogResult.None;
+            cuiButton2.Font = new Font("Microsoft Sans Serif", 9.75F);
+            cuiButton2.ForeColor = Color.Transparent;
+            cuiButton2.HoverBackground = Color.Transparent;
+            cuiButton2.HoveredImageTint = Color.Transparent;
+            cuiButton2.HoverForeColor = Color.Transparent;
+            cuiButton2.HoverOutline = Color.Transparent;
+            cuiButton2.Image = null;
+            cuiButton2.ImageAutoCenter = true;
+            cuiButton2.ImageExpand = new Point(0, 0);
+            cuiButton2.ImageOffset = new Point(0, 0);
+            cuiButton2.Location = new Point(421, 425);
+            cuiButton2.Name = "cuiButton2";
+            cuiButton2.NormalBackground = Color.Transparent;
+            cuiButton2.NormalForeColor = Color.Transparent;
+            cuiButton2.NormalImageTint = Color.White;
+            cuiButton2.NormalOutline = Color.FromArgb(64, 128, 128, 128);
+            cuiButton2.OutlineThickness = 1F;
+            cuiButton2.PressedBackground = Color.WhiteSmoke;
+            cuiButton2.PressedForeColor = Color.FromArgb(32, 32, 32);
+            cuiButton2.PressedImageTint = Color.White;
+            cuiButton2.PressedOutline = Color.FromArgb(64, 128, 128, 128);
+            cuiButton2.Rounding = new Padding(8);
+            cuiButton2.Size = new Size(52, 20);
+            cuiButton2.TabIndex = 27;
+            cuiButton2.TextAlignment = StringAlignment.Center;
+            cuiButton2.TextOffset = new Point(0, 0);
             // 
             // change_password
             // 
@@ -303,5 +430,8 @@
         private Label label6;
         private CuoreUI.Controls.cuiTextBox cuiTextBox2;
         private Label label3;
+        private CuoreUI.Controls.cuiButton cuiButton1;
+        private CuoreUI.Controls.cuiButton emailEyeButton;
+        private CuoreUI.Controls.cuiButton cuiButton2;
     }
 }
