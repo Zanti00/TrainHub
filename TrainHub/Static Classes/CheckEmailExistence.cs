@@ -9,28 +9,28 @@ namespace TrainHub.Static_Classes
     public static class CheckEmailExistence
     {
 
-        public static bool IsMemberEmailExists(string email, int? excludeMemberId = null)
-        {
-            try
-            {
-                using (var dataContext = new Data.TrainHubContext())
-                {
-                    var query = dataContext.Member.Where(m => m.Email.ToLower() == email.ToLower());
+        //public static bool IsMemberEmailExists(string email, int? excludeMemberId = null)
+        //{
+        //    try
+        //    {
+        //        using (var dataContext = new Data.TrainHubContext())
+        //        {
+        //            var query = dataContext.Member.Where(m => m.Email.ToLower() == email.ToLower());
 
-                    if (excludeMemberId.HasValue)
-                    {
-                        query = query.Where(m => m.Id != excludeMemberId.Value);
-                    }
+        //            if (excludeMemberId.HasValue)
+        //            {
+        //                query = query.Where(m => m.Id != excludeMemberId.Value);
+        //            }
 
-                    return query.Any();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error checking email: {ex.Message}");
-                return false;
-            }
-        }
+        //            return query.Any();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"Error checking email: {ex.Message}");
+        //        return false;
+        //    }
+        //}
 
         public static bool IsUserEmailExists(string email, int? excludeUserId = null)
         {
@@ -55,10 +55,10 @@ namespace TrainHub.Static_Classes
             }
         }
 
-        public static async Task<bool> IsMemberEmailExistsAsync(string email, int? excludeMemberId = null)
-        {
-            return await Task.Run(() => IsMemberEmailExists(email, excludeMemberId));
-        }
+        //public static async Task<bool> IsMemberEmailExistsAsync(string email, int? excludeMemberId = null)
+        //{
+        //    return await Task.Run(() => IsMemberEmailExists(email, excludeMemberId));
+        //}
 
         public static async Task<bool> IsUserEmailExistsAsync(string email, int? excludeUserId = null)
         {

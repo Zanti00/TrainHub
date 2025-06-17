@@ -1,7 +1,7 @@
 ﻿
 namespace TrainHub
 {
-    partial class Form2
+    partial class StaffTable
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace TrainHub
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffTable));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -73,9 +73,9 @@ namespace TrainHub
             label2.AutoSize = true;
             label2.BackColor = Color.White;
             label2.ForeColor = Color.Gray;
-            label2.Location = new Point(93, 69);
+            label2.Location = new Point(81, 52);
             label2.Name = "label2";
-            label2.Size = new Size(169, 20);
+            label2.Size = new Size(133, 15);
             label2.TabIndex = 25;
             label2.Text = "View and Manage Staffs";
             // 
@@ -83,13 +83,14 @@ namespace TrainHub
             // 
             cuiPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             cuiPanel2.Controls.Add(cuiPanel4);
-            cuiPanel2.Location = new Point(44, 145);
+            cuiPanel2.Location = new Point(38, 109);
+            cuiPanel2.Margin = new Padding(3, 2, 3, 2);
             cuiPanel2.Name = "cuiPanel2";
             cuiPanel2.OutlineThickness = 1F;
             cuiPanel2.PanelColor = Color.FromArgb(248, 250, 252);
             cuiPanel2.PanelOutlineColor = Color.Black;
             cuiPanel2.Rounding = new Padding(8, 8, 0, 0);
-            cuiPanel2.Size = new Size(1003, 78);
+            cuiPanel2.Size = new Size(878, 58);
             cuiPanel2.TabIndex = 16;
             // 
             // cuiPanel4
@@ -97,15 +98,15 @@ namespace TrainHub
             cuiPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cuiPanel4.Controls.Add(cuiTextBox1);
             cuiPanel4.Controls.Add(cuiButtonGroup4);
-            cuiPanel4.Location = new Point(496, 12);
+            cuiPanel4.Location = new Point(434, 9);
+            cuiPanel4.Margin = new Padding(3, 2, 3, 2);
             cuiPanel4.Name = "cuiPanel4";
             cuiPanel4.OutlineThickness = 1F;
             cuiPanel4.PanelColor = Color.FromArgb(248, 250, 252);
             cuiPanel4.PanelOutlineColor = Color.FromArgb(248, 250, 252);
             cuiPanel4.Rounding = new Padding(8, 8, 0, 0);
-            cuiPanel4.Size = new Size(495, 57);
+            cuiPanel4.Size = new Size(433, 43);
             cuiPanel4.TabIndex = 37;
-            cuiPanel4.Paint += cuiPanel4_Paint;
             // 
             // cuiTextBox1
             // 
@@ -122,17 +123,17 @@ namespace TrainHub
             cuiTextBox1.Image = null;
             cuiTextBox1.ImageExpand = new Point(0, 0);
             cuiTextBox1.ImageOffset = new Point(0, 0);
-            cuiTextBox1.Location = new Point(44, 5);
-            cuiTextBox1.Margin = new Padding(5);
+            cuiTextBox1.Location = new Point(38, 4);
+            cuiTextBox1.Margin = new Padding(4);
             cuiTextBox1.Multiline = false;
             cuiTextBox1.Name = "cuiTextBox1";
             cuiTextBox1.NormalImageTint = Color.White;
-            cuiTextBox1.Padding = new Padding(17, 13, 17, 0);
+            cuiTextBox1.Padding = new Padding(14, 9, 14, 0);
             cuiTextBox1.PasswordChar = false;
             cuiTextBox1.PlaceholderColor = Color.DimGray;
             cuiTextBox1.PlaceholderText = "Search";
             cuiTextBox1.Rounding = new Padding(10);
-            cuiTextBox1.Size = new Size(338, 42);
+            cuiTextBox1.Size = new Size(296, 32);
             cuiTextBox1.TabIndex = 15;
             cuiTextBox1.TextOffset = new Size(0, 0);
             cuiTextBox1.UnderlinedStyle = false;
@@ -157,9 +158,8 @@ namespace TrainHub
             cuiButtonGroup4.ImageAutoCenter = true;
             cuiButtonGroup4.ImageExpand = new Point(0, 0);
             cuiButtonGroup4.ImageOffset = new Point(0, 0);
-            cuiButtonGroup4.Location = new Point(390, 5);
-            cuiButtonGroup4.Margin = new Padding(3, 4, 3, 4);
-            cuiButtonGroup4.MaximumSize = new Size(145, 42);
+            cuiButtonGroup4.Location = new Point(341, 4);
+            cuiButtonGroup4.MaximumSize = new Size(127, 32);
             cuiButtonGroup4.Name = "cuiButtonGroup4";
             cuiButtonGroup4.NormalBackground = Color.White;
             cuiButtonGroup4.NormalForeColor = Color.DimGray;
@@ -171,7 +171,7 @@ namespace TrainHub
             cuiButtonGroup4.PressedImageTint = Color.White;
             cuiButtonGroup4.PressedOutline = Color.FromArgb(22, 36, 39);
             cuiButtonGroup4.Rounding = new Padding(10);
-            cuiButtonGroup4.Size = new Size(105, 42);
+            cuiButtonGroup4.Size = new Size(92, 32);
             cuiButtonGroup4.TabIndex = 22;
             cuiButtonGroup4.TextAlignment = StringAlignment.Center;
             cuiButtonGroup4.TextOffset = new Point(0, 0);
@@ -191,17 +191,17 @@ namespace TrainHub
             cuiTextBox4.Image = null;
             cuiTextBox4.ImageExpand = new Point(0, 0);
             cuiTextBox4.ImageOffset = new Point(0, 0);
-            cuiTextBox4.Location = new Point(44, 5);
-            cuiTextBox4.Margin = new Padding(5);
+            cuiTextBox4.Location = new Point(38, 4);
+            cuiTextBox4.Margin = new Padding(4);
             cuiTextBox4.Multiline = false;
             cuiTextBox4.Name = "cuiTextBox4";
             cuiTextBox4.NormalImageTint = Color.White;
-            cuiTextBox4.Padding = new Padding(17, 13, 17, 0);
+            cuiTextBox4.Padding = new Padding(15, 10, 15, 0);
             cuiTextBox4.PasswordChar = false;
             cuiTextBox4.PlaceholderColor = Color.DimGray;
             cuiTextBox4.PlaceholderText = "Search";
             cuiTextBox4.Rounding = new Padding(10);
-            cuiTextBox4.Size = new Size(338, 42);
+            cuiTextBox4.Size = new Size(296, 32);
             cuiTextBox4.TabIndex = 15;
             cuiTextBox4.TextOffset = new Size(0, 0);
             cuiTextBox4.UnderlinedStyle = false;
@@ -226,9 +226,8 @@ namespace TrainHub
             cuiButtonGroup1.ImageAutoCenter = true;
             cuiButtonGroup1.ImageExpand = new Point(0, 0);
             cuiButtonGroup1.ImageOffset = new Point(0, 0);
-            cuiButtonGroup1.Location = new Point(390, 5);
-            cuiButtonGroup1.Margin = new Padding(3, 4, 3, 4);
-            cuiButtonGroup1.MaximumSize = new Size(145, 42);
+            cuiButtonGroup1.Location = new Point(341, 4);
+            cuiButtonGroup1.MaximumSize = new Size(127, 32);
             cuiButtonGroup1.Name = "cuiButtonGroup1";
             cuiButtonGroup1.NormalBackground = Color.White;
             cuiButtonGroup1.NormalForeColor = Color.DimGray;
@@ -240,7 +239,7 @@ namespace TrainHub
             cuiButtonGroup1.PressedImageTint = Color.White;
             cuiButtonGroup1.PressedOutline = Color.FromArgb(22, 36, 39);
             cuiButtonGroup1.Rounding = new Padding(10);
-            cuiButtonGroup1.Size = new Size(105, 42);
+            cuiButtonGroup1.Size = new Size(92, 32);
             cuiButtonGroup1.TabIndex = 22;
             cuiButtonGroup1.TextAlignment = StringAlignment.Center;
             cuiButtonGroup1.TextOffset = new Point(0, 0);
@@ -250,13 +249,14 @@ namespace TrainHub
             cuiPanel7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cuiPanel7.Controls.Add(cuiTextBox4);
             cuiPanel7.Controls.Add(cuiButtonGroup1);
-            cuiPanel7.Location = new Point(1385, 157);
+            cuiPanel7.Location = new Point(1212, 118);
+            cuiPanel7.Margin = new Padding(3, 2, 3, 2);
             cuiPanel7.Name = "cuiPanel7";
             cuiPanel7.OutlineThickness = 1F;
             cuiPanel7.PanelColor = Color.FromArgb(248, 250, 252);
             cuiPanel7.PanelOutlineColor = Color.FromArgb(248, 250, 252);
             cuiPanel7.Rounding = new Padding(8, 8, 0, 0);
-            cuiPanel7.Size = new Size(495, 57);
+            cuiPanel7.Size = new Size(433, 43);
             cuiPanel7.TabIndex = 33;
             // 
             // cuiButtonGroup2
@@ -280,8 +280,7 @@ namespace TrainHub
             cuiButtonGroup2.ImageAutoCenter = true;
             cuiButtonGroup2.ImageExpand = new Point(0, 0);
             cuiButtonGroup2.ImageOffset = new Point(0, 0);
-            cuiButtonGroup2.Location = new Point(41, 15);
-            cuiButtonGroup2.Margin = new Padding(3, 4, 3, 4);
+            cuiButtonGroup2.Location = new Point(36, 11);
             cuiButtonGroup2.Name = "cuiButtonGroup2";
             cuiButtonGroup2.NormalBackground = Color.White;
             cuiButtonGroup2.NormalForeColor = Color.Black;
@@ -293,7 +292,7 @@ namespace TrainHub
             cuiButtonGroup2.PressedImageTint = Color.White;
             cuiButtonGroup2.PressedOutline = Color.White;
             cuiButtonGroup2.Rounding = new Padding(10);
-            cuiButtonGroup2.Size = new Size(129, 42);
+            cuiButtonGroup2.Size = new Size(113, 32);
             cuiButtonGroup2.TabIndex = 23;
             cuiButtonGroup2.TextAlignment = StringAlignment.Center;
             cuiButtonGroup2.TextOffset = new Point(0, 0);
@@ -303,13 +302,14 @@ namespace TrainHub
             cuiPanel8.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cuiPanel8.BackColor = Color.White;
             cuiPanel8.Controls.Add(cuiButtonGroup2);
-            cuiPanel8.Location = new Point(1724, 82);
+            cuiPanel8.Location = new Point(1508, 62);
+            cuiPanel8.Margin = new Padding(3, 2, 3, 2);
             cuiPanel8.Name = "cuiPanel8";
             cuiPanel8.OutlineThickness = 1F;
             cuiPanel8.PanelColor = Color.White;
             cuiPanel8.PanelOutlineColor = Color.White;
             cuiPanel8.Rounding = new Padding(8, 8, 0, 0);
-            cuiPanel8.Size = new Size(170, 57);
+            cuiPanel8.Size = new Size(149, 43);
             cuiPanel8.TabIndex = 34;
             // 
             // label1
@@ -319,9 +319,9 @@ namespace TrainHub
             label1.BackColor = Color.White;
             label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(51, 81, 88);
-            label1.Location = new Point(93, 40);
+            label1.Location = new Point(81, 30);
             label1.Name = "label1";
-            label1.Size = new Size(78, 29);
+            label1.Size = new Size(59, 24);
             label1.TabIndex = 24;
             label1.Text = "Staffs";
             // 
@@ -343,14 +343,15 @@ namespace TrainHub
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = Color.Silver;
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView2.EnableHeadersVisualStyles = false;
             dataGridView2.GridColor = SystemColors.HighlightText;
-            dataGridView2.Location = new Point(44, 220);
+            dataGridView2.Location = new Point(38, 165);
+            dataGridView2.Margin = new Padding(3, 2, 3, 2);
             dataGridView2.Name = "dataGridView2";
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
@@ -373,9 +374,10 @@ namespace TrainHub
             dataGridView2.RowTemplate.Height = 60;
             dataGridView2.RowTemplate.Resizable = DataGridViewTriState.False;
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView2.Size = new Size(1003, 500);
+            dataGridView2.Size = new Size(878, 375);
             dataGridView2.TabIndex = 35;
-            dataGridView2.CellContentClick += dataGridView2_CellContentClick_1;
+            dataGridView2.CellClick += dataGridView2_CellClick;
+            dataGridView2.CellContentClick += dataGridView2_CellContentClick;
             // 
             // Column1
             // 
@@ -453,14 +455,14 @@ namespace TrainHub
             cuiPanel1.Controls.Add(label2);
             cuiPanel1.Controls.Add(label1);
             cuiPanel1.Controls.Add(cuiPanel2);
-            cuiPanel1.Location = new Point(357, 85);
-            cuiPanel1.Margin = new Padding(1, 3, 3, 2);
+            cuiPanel1.Location = new Point(312, 64);
+            cuiPanel1.Margin = new Padding(1, 2, 3, 2);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
             cuiPanel1.PanelColor = Color.White;
             cuiPanel1.PanelOutlineColor = Color.Black;
             cuiPanel1.Rounding = new Padding(8);
-            cuiPanel1.Size = new Size(1091, 751);
+            cuiPanel1.Size = new Size(955, 563);
             cuiPanel1.TabIndex = 9;
             // 
             // cuiPanel3
@@ -468,13 +470,14 @@ namespace TrainHub
             cuiPanel3.Anchor = AnchorStyles.Top;
             cuiPanel3.BackColor = Color.White;
             cuiPanel3.Controls.Add(cuiButtonGroup3);
-            cuiPanel3.Location = new Point(865, 82);
+            cuiPanel3.Location = new Point(757, 62);
+            cuiPanel3.Margin = new Padding(3, 2, 3, 2);
             cuiPanel3.Name = "cuiPanel3";
             cuiPanel3.OutlineThickness = 1F;
             cuiPanel3.PanelColor = Color.White;
             cuiPanel3.PanelOutlineColor = Color.White;
             cuiPanel3.Rounding = new Padding(8, 8, 0, 0);
-            cuiPanel3.Size = new Size(170, 57);
+            cuiPanel3.Size = new Size(149, 43);
             cuiPanel3.TabIndex = 36;
             // 
             // cuiButtonGroup3
@@ -489,7 +492,7 @@ namespace TrainHub
             cuiButtonGroup3.CheckedOutline = Color.Transparent;
             cuiButtonGroup3.Content = "+ Add Staff";
             cuiButtonGroup3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiButtonGroup3.ForeColor = Color.Black;
+            cuiButtonGroup3.ForeColor = Color.White;
             cuiButtonGroup3.Group = 0;
             cuiButtonGroup3.HoverBackground = Color.Transparent;
             cuiButtonGroup3.HoveredImageTint = Color.Transparent;
@@ -499,11 +502,10 @@ namespace TrainHub
             cuiButtonGroup3.ImageAutoCenter = true;
             cuiButtonGroup3.ImageExpand = new Point(0, 0);
             cuiButtonGroup3.ImageOffset = new Point(0, 0);
-            cuiButtonGroup3.Location = new Point(25, 11);
-            cuiButtonGroup3.Margin = new Padding(3, 4, 3, 4);
+            cuiButtonGroup3.Location = new Point(22, 8);
             cuiButtonGroup3.Name = "cuiButtonGroup3";
-            cuiButtonGroup3.NormalBackground = Color.White;
-            cuiButtonGroup3.NormalForeColor = Color.Black;
+            cuiButtonGroup3.NormalBackground = Color.FromArgb(50, 81, 88);
+            cuiButtonGroup3.NormalForeColor = Color.White;
             cuiButtonGroup3.NormalImageTint = Color.Black;
             cuiButtonGroup3.NormalOutline = Color.Transparent;
             cuiButtonGroup3.OutlineThickness = 1F;
@@ -512,29 +514,33 @@ namespace TrainHub
             cuiButtonGroup3.PressedImageTint = Color.White;
             cuiButtonGroup3.PressedOutline = Color.White;
             cuiButtonGroup3.Rounding = new Padding(10);
-            cuiButtonGroup3.Size = new Size(129, 42);
+            cuiButtonGroup3.Size = new Size(113, 32);
             cuiButtonGroup3.TabIndex = 23;
             cuiButtonGroup3.TextAlignment = StringAlignment.Center;
             cuiButtonGroup3.TextOffset = new Point(0, 0);
+            cuiButtonGroup3.Click += cuiButtonGroup3_Click;
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             flowLayoutPanel1.BackColor = Color.FromArgb(51, 81, 88);
             flowLayoutPanel1.ForeColor = SystemColors.ControlLightLight;
-            flowLayoutPanel1.Location = new Point(3, -10);
+            flowLayoutPanel1.Location = new Point(3, -8);
+            flowLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(303, 905);
+            flowLayoutPanel1.Size = new Size(265, 679);
             flowLayoutPanel1.TabIndex = 8;
             // 
-            // Form2
+            // StaffTable
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1577, 886);
+            ClientSize = new Size(1380, 664);
             Controls.Add(cuiPanel1);
             Controls.Add(flowLayoutPanel1);
-            Name = "Form2";
+            ForeColor = Color.White;
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "StaffTable";
             Text = "Form2";
             cuiPanel2.ResumeLayout(false);
             cuiPanel4.ResumeLayout(false);
