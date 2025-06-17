@@ -47,7 +47,6 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.BackColor = Color.White;
             label1.Font = new Font("Microsoft YaHei", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -62,7 +61,7 @@
             // 
             // cuiPanel1
             // 
-            cuiPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            cuiPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             cuiPanel1.BackColor = SystemColors.ButtonHighlight;
             cuiPanel1.Controls.Add(passwordEditBtn);
             cuiPanel1.Controls.Add(phoneEditBtn);
@@ -207,7 +206,6 @@
             // 
             // label4
             // 
-            label4.Anchor = AnchorStyles.Top;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(0, 0, 64);
@@ -222,7 +220,6 @@
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Top;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(0, 0, 64);
@@ -266,7 +263,6 @@
             // 
             // label6
             // 
-            label6.Anchor = AnchorStyles.Top;
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(0, 0, 64);
@@ -380,7 +376,6 @@
             // 
             // label3
             // 
-            label3.Anchor = AnchorStyles.Top;
             label3.AutoSize = true;
             label3.ForeColor = Color.FromArgb(130, 130, 130);
             label3.Location = new Point(77, 113);
