@@ -1,4 +1,5 @@
-﻿namespace TrainHub
+﻿
+namespace TrainHub
 {
     partial class update_phone
     {
@@ -248,6 +249,36 @@
             cuiPanel1.ResumeLayout(false);
             cuiPanel1.PerformLayout();
             ResumeLayout(false);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void passwordTxt_ContentChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void cuiTextBox1_ContentChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
