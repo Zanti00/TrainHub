@@ -274,7 +274,7 @@
             label6.TabIndex = 22;
             label6.Text = "Enter Email Address";
             label6.TextAlign = ContentAlignment.MiddleLeft;
-            label6.Click += label6_Click;
+          //label6.Click += label6_Click;
             // 
             // loginBtn
             // 
@@ -313,7 +313,7 @@
             loginBtn.TabIndex = 21;
             loginBtn.TextAlignment = StringAlignment.Center;
             loginBtn.TextOffset = new Point(0, 0);
-            loginBtn.Click += loginBtn_Click;
+          //loginBtn.Click += loginBtn_Click;
             // 
             // cuiTextBox1
             // 
@@ -372,7 +372,7 @@
             passwordTxt.TabIndex = 17;
             passwordTxt.TextOffset = new Size(0, 0);
             passwordTxt.UnderlinedStyle = false;
-            passwordTxt.ContentChanged += passwordTxt_ContentChanged;
+          //passwordTxt.ContentChanged += passwordTxt_ContentChanged;
             // 
             // label3
             // 

@@ -22,25 +22,6 @@ namespace TrainHub
             passwordEditBtn.Click += passwordEditBtn_Click;
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loginBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void passwordTxt_ContentChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void emailEditBtn_Click(object sender, EventArgs e)
         {
