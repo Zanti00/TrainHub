@@ -32,9 +32,9 @@
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             passwordEyeButton = new CuoreUI.Controls.cuiButton();
             saveBtn = new CuoreUI.Controls.cuiButtonGroup();
-            passwordTextBox = new CuoreUI.Controls.cuiTextBox();
+            txtPassword = new CuoreUI.Controls.cuiTextBox();
             label5 = new Label();
-            emailTextBox = new CuoreUI.Controls.cuiTextBox();
+            txtNewEmail = new CuoreUI.Controls.cuiTextBox();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -47,9 +47,9 @@
             cuiPanel1.BackColor = SystemColors.ButtonHighlight;
             cuiPanel1.Controls.Add(passwordEyeButton);
             cuiPanel1.Controls.Add(saveBtn);
-            cuiPanel1.Controls.Add(passwordTextBox);
+            cuiPanel1.Controls.Add(txtPassword);
             cuiPanel1.Controls.Add(label5);
-            cuiPanel1.Controls.Add(emailTextBox);
+            cuiPanel1.Controls.Add(txtNewEmail);
             cuiPanel1.Controls.Add(label4);
             cuiPanel1.Controls.Add(label3);
             cuiPanel1.Controls.Add(label2);
@@ -142,34 +142,34 @@
             saveBtn.TextAlignment = StringAlignment.Center;
             saveBtn.TextOffset = new Point(0, 0);
             // 
-            // passwordTextBox
+            // txtPassword
             // 
-            passwordTextBox.BackColor = Color.Transparent;
-            passwordTextBox.BackgroundColor = Color.WhiteSmoke;
-            passwordTextBox.BorderColor = Color.FromArgb(50, 81, 88);
-            passwordTextBox.Content = "";
-            passwordTextBox.FocusBackgroundColor = Color.White;
-            passwordTextBox.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            passwordTextBox.FocusImageTint = Color.White;
-            passwordTextBox.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            passwordTextBox.ForeColor = Color.Black;
-            passwordTextBox.Image = null;
-            passwordTextBox.ImageExpand = new Point(0, 0);
-            passwordTextBox.ImageOffset = new Point(0, 0);
-            passwordTextBox.Location = new Point(116, 278);
-            passwordTextBox.Margin = new Padding(4);
-            passwordTextBox.Multiline = false;
-            passwordTextBox.Name = "passwordTextBox";
-            passwordTextBox.NormalImageTint = Color.White;
-            passwordTextBox.Padding = new Padding(13, 9, 13, 0);
-            passwordTextBox.PasswordChar = true;
-            passwordTextBox.PlaceholderColor = SystemColors.ScrollBar;
-            passwordTextBox.PlaceholderText = "Please enter your password...";
-            passwordTextBox.Rounding = new Padding(6);
-            passwordTextBox.Size = new Size(294, 30);
-            passwordTextBox.TabIndex = 19;
-            passwordTextBox.TextOffset = new Size(0, 0);
-            passwordTextBox.UnderlinedStyle = false;
+            txtPassword.BackColor = Color.Transparent;
+            txtPassword.BackgroundColor = Color.WhiteSmoke;
+            txtPassword.BorderColor = Color.FromArgb(50, 81, 88);
+            txtPassword.Content = "";
+            txtPassword.FocusBackgroundColor = Color.White;
+            txtPassword.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            txtPassword.FocusImageTint = Color.White;
+            txtPassword.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPassword.ForeColor = Color.Black;
+            txtPassword.Image = null;
+            txtPassword.ImageExpand = new Point(0, 0);
+            txtPassword.ImageOffset = new Point(0, 0);
+            txtPassword.Location = new Point(116, 278);
+            txtPassword.Margin = new Padding(4);
+            txtPassword.Multiline = false;
+            txtPassword.Name = "txtPassword";
+            txtPassword.NormalImageTint = Color.White;
+            txtPassword.Padding = new Padding(13, 9, 13, 0);
+            txtPassword.PasswordChar = true;
+            txtPassword.PlaceholderColor = SystemColors.ScrollBar;
+            txtPassword.PlaceholderText = "Please enter your password...";
+            txtPassword.Rounding = new Padding(6);
+            txtPassword.Size = new Size(294, 30);
+            txtPassword.TabIndex = 19;
+            txtPassword.TextOffset = new Size(0, 0);
+            txtPassword.UnderlinedStyle = false;
             // 
             // label5
             // 
@@ -186,34 +186,34 @@
             label5.Text = "Confirm Password";
             label5.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // emailTextBox
+            // txtNewEmail
             // 
-            emailTextBox.BackColor = Color.Transparent;
-            emailTextBox.BackgroundColor = Color.WhiteSmoke;
-            emailTextBox.BorderColor = Color.FromArgb(50, 81, 88);
-            emailTextBox.Content = "";
-            emailTextBox.FocusBackgroundColor = Color.White;
-            emailTextBox.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            emailTextBox.FocusImageTint = Color.White;
-            emailTextBox.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            emailTextBox.ForeColor = Color.Black;
-            emailTextBox.Image = null;
-            emailTextBox.ImageExpand = new Point(0, 0);
-            emailTextBox.ImageOffset = new Point(0, 0);
-            emailTextBox.Location = new Point(116, 200);
-            emailTextBox.Margin = new Padding(4);
-            emailTextBox.Multiline = false;
-            emailTextBox.Name = "emailTextBox";
-            emailTextBox.NormalImageTint = Color.White;
-            emailTextBox.Padding = new Padding(13, 9, 13, 0);
-            emailTextBox.PasswordChar = true;
-            emailTextBox.PlaceholderColor = SystemColors.ScrollBar;
-            emailTextBox.PlaceholderText = "Please enter your new email...";
-            emailTextBox.Rounding = new Padding(6);
-            emailTextBox.Size = new Size(294, 30);
-            emailTextBox.TabIndex = 17;
-            emailTextBox.TextOffset = new Size(0, 0);
-            emailTextBox.UnderlinedStyle = false;
+            txtNewEmail.BackColor = Color.Transparent;
+            txtNewEmail.BackgroundColor = Color.WhiteSmoke;
+            txtNewEmail.BorderColor = Color.FromArgb(50, 81, 88);
+            txtNewEmail.Content = "";
+            txtNewEmail.FocusBackgroundColor = Color.White;
+            txtNewEmail.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            txtNewEmail.FocusImageTint = Color.White;
+            txtNewEmail.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNewEmail.ForeColor = Color.Black;
+            txtNewEmail.Image = null;
+            txtNewEmail.ImageExpand = new Point(0, 0);
+            txtNewEmail.ImageOffset = new Point(0, 0);
+            txtNewEmail.Location = new Point(116, 200);
+            txtNewEmail.Margin = new Padding(4);
+            txtNewEmail.Multiline = false;
+            txtNewEmail.Name = "txtNewEmail";
+            txtNewEmail.NormalImageTint = Color.White;
+            txtNewEmail.Padding = new Padding(13, 9, 13, 0);
+            txtNewEmail.PasswordChar = true;
+            txtNewEmail.PlaceholderColor = SystemColors.ScrollBar;
+            txtNewEmail.PlaceholderText = "Please enter your new email...";
+            txtNewEmail.Rounding = new Padding(6);
+            txtNewEmail.Size = new Size(294, 30);
+            txtNewEmail.TabIndex = 17;
+            txtNewEmail.TextOffset = new Size(0, 0);
+            txtNewEmail.UnderlinedStyle = false;
             // 
             // label4
             // 
@@ -289,9 +289,9 @@
 
         private CuoreUI.Controls.cuiPanel cuiPanel1;
         private CuoreUI.Controls.cuiButtonGroup saveBtn;
-        private CuoreUI.Controls.cuiTextBox passwordTextBox;
+        private CuoreUI.Controls.cuiTextBox txtPassword;
         private Label label5;
-        private CuoreUI.Controls.cuiTextBox emailTextBox;
+        private CuoreUI.Controls.cuiTextBox txtNewEmail;
         private Label label4;
         private Label label3;
         private Label label2;
