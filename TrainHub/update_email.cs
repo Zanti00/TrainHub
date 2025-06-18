@@ -16,25 +16,5 @@ namespace TrainHub
         {
             InitializeComponent();
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loginBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cuiTextBox1_ContentChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -14,148 +9,116 @@ namespace TrainHub
 {
     public partial class update_phone : Form
     {
-        private const int PHONE_MIN_LENGTH = 10;
-        private const int PHONE_MAX_LENGTH = 11;
+        private const int PHONE_LENGTH = 11;
+        private bool isPasswordVisible = false;
 
         public update_phone()
         {
             InitializeComponent();
-            InitializeForm();
+            SetupForm();
         }
 
-        private void InitializeForm()
+        private void SetupForm()
         {
-            txtPassword.PasswordChar = '*'; // Password masking  
-            txtPhoneNumber.MaxLength = PHONE_MAX_LENGTH;  // Limit input length
+            this.Text = "TrainHub - Update Phone Number";
 
-            // Add input validation events
-            txtPhoneNumber.KeyPress += TxtPhoneNumber_KeyPress;
-            txtPassword.KeyDown += TxtPassword_KeyDown;
-            txtPhoneNumber.KeyDown += TxtPhoneNumber_KeyDown;
+            // Setup password field
+            //txtPassword.PasswordChar = '*';
+
+            // Setup event handlers
+            txtPhoneNumber.KeyPress += OnlyAllowDigits;
+            txtPhoneNumber.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) txtPassword.Focus(); };
+            txtPassword.KeyDown += (s, e) => { if (e.KeyCode == Keys.Enter) btnSave_Click(s, e); };
         }
 
-        // Only allow numeric input for phone number
-        private void TxtPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        private void OnlyAllowDigits(object sender, KeyPressEventArgs e)
         {
+            // Only allow digits and control characters (backspace, delete)
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
 
-        // Allow Enter key to trigger save action
-        private void TxtPassword_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnSave_Click(sender, e);
-            }
-        }
-
-        private void TxtPhoneNumber_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                txtPassword.Focus();
-            }
-        }
-
         private void btnTogglePasswordVisibility_Click(object sender, EventArgs e)
         {
-            bool isVisible = txtPassword.PasswordChar == '\0';
-            txtPassword.PasswordChar = isVisible ? '\0' : '*';
-
-            // Update button text/icon to reflect current state
-            btnTogglePasswordVisibility.Text = isVisible ? "Hide" : "Show";
+            isPasswordVisible = !isPasswordVisible;
+           //txtPassword.PasswordChar = isPasswordVisible ? '\0' : '*';
+            btnTogglePasswordVisibility.Text = isPasswordVisible ? "Hide" : "Show";
         }
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
+            // Disable button during processing
+            btnSave.Enabled = false;
+            btnSave.Text = "Updating...";
+
             try
             {
-                // Disable button to prevent multiple clicks
-                btnSave.Enabled = false;
-                btnSave.Text = "Updating...";
-
-                string newPhone = txtPhoneNumber.Text.Trim();
+                string phone = txtPhoneNumber.Text.Trim();
                 string password = txtPassword.Text.Trim();
 
-                // Comprehensive field validation
-                if (!ValidateInput(newPhone, password))
-                {
+                // Validate inputs
+                if (!IsValidInput(phone, password))
                     return;
-                }
 
-                // Verify password asynchronously
+                // Verify password
                 if (!await VerifyPasswordAsync(password))
                 {
-                    MessageBox.Show("Incorrect password.", "Authentication Failed",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtPassword.Content = string.Empty; // Clear the content
+                    ShowError("Incorrect password.");
+                    txtPassword.Content = string.Empty; // Clear the password field
                     txtPassword.Focus();
                     return;
                 }
 
-                // Format phone number for consistency
-                string formattedPhone = FormatPhoneNumber(newPhone);
+                // Update phone number
+                string formattedPhone = FormatPhoneNumber(phone);
+                bool success = await UpdatePhoneInDatabaseAsync(formattedPhone);
 
-                // Update phone number in database
-                bool updateSuccess = await UpdatePhoneNumberInDatabase(formattedPhone);
-
-                if (updateSuccess)
+                if (success)
                 {
-                    MessageBox.Show($"Phone number updated successfully to: {formattedPhone}",
+                    MessageBox.Show($"Phone number updated to: {formattedPhone}",
                         "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Set dialog result for parent form
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Failed to update phone number. Please try again.",
-                        "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ShowError("Failed to update phone number. Please try again.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowError($"An error occurred: {ex.Message}");
             }
             finally
             {
-                // Re-enable button
                 btnSave.Enabled = true;
-                btnSave.Text = "Save";
+                btnSave.Text = "SAVE CHANGES";
             }
         }
 
-        private bool ValidateInput(string phoneNumber, string password)
+        private bool IsValidInput(string phone, string password)
         {
-            // Check for empty fields  
-            if (string.IsNullOrWhiteSpace(phoneNumber))
+            if (string.IsNullOrWhiteSpace(phone))
             {
-                MessageBox.Show("Please enter a phone number.", "Validation Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtPhoneNumber.Content = string.Empty; // Clear the content
+                ShowError("Please enter a phone number.");
                 txtPhoneNumber.Focus();
                 return false;
             }
 
             if (string.IsNullOrWhiteSpace(password))
             {
-                MessageBox.Show("Please enter your password.", "Validation Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowError("Please enter your password.");
                 txtPassword.Focus();
                 return false;
             }
 
-            // Enhanced phone validation
-            if (!IsValidPhoneNumber(phoneNumber))
+            // Remove non-digits and check length
+            string digitsOnly = Regex.Replace(phone, @"\D", "");
+            if (digitsOnly.Length != PHONE_LENGTH)
             {
-                MessageBox.Show($"Please enter a valid {PHONE_MIN_LENGTH} or {PHONE_MAX_LENGTH}-digit phone number.",
-                    "Invalid Phone Number", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtPhoneNumber.Content = string.Empty; // Clear the content
+                ShowError($"Please enter exactly {PHONE_LENGTH} digits.");
                 txtPhoneNumber.Focus();
                 return false;
             }
@@ -163,92 +126,43 @@ namespace TrainHub
             return true;
         }
 
-        private bool IsValidPhoneNumber(string phoneNumber)
+        private string FormatPhoneNumber(string phone)
         {
-            // Remove any non-digit characters for validation
-            string digitsOnly = Regex.Replace(phoneNumber, @"\D", "");
-
-            // Check length and format
-            if (digitsOnly.Length < PHONE_MIN_LENGTH || digitsOnly.Length > PHONE_MAX_LENGTH)
-            {
-                return false;
-            }
-
-            // Additional validation: ensure it doesn't start with 0 or 1 (US format)
-            if (digitsOnly.StartsWith("0") || digitsOnly.StartsWith("1"))
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        private string FormatPhoneNumber(string phoneNumber)
-        {
-            // Remove any non-digit characters
-            string digitsOnly = Regex.Replace(phoneNumber, @"\D", "");
-
-            // Format based on length
-            if (digitsOnly.Length == 10)
-            {
-                return $"({digitsOnly.Substring(0, 3)}) {digitsOnly.Substring(3, 3)}-{digitsOnly.Substring(6)}";
-            }
-            else if (digitsOnly.Length == 11)
-            {
-                return $"+{digitsOnly.Substring(0, 1)} ({digitsOnly.Substring(1, 3)}) {digitsOnly.Substring(4, 3)}-{digitsOnly.Substring(7)}";
-            }
-
-            return phoneNumber; // Return original if formatting fails
+            string digits = Regex.Replace(phone, @"\D", "");
+            // Format: +1 (XXX) XXX-XXXX
+            return $"+{digits.Substring(0, 1)} ({digits.Substring(1, 3)}) {digits.Substring(4, 3)}-{digits.Substring(7)}";
         }
 
         private async Task<bool> VerifyPasswordAsync(string password)
         {
-            // TODO: Replace with actual database password verification
-            // This should hash the input password and compare with stored hash
-
-            // Simulate async database call
+            // Simulate password verification delay
             await Task.Delay(500);
 
-            // Placeholder - replace with actual authentication logic
-            string storedPasswordHash = GetStoredPasswordHash(); // Get from database
-            string inputPasswordHash = HashPassword(password);
-
-            return storedPasswordHash == inputPasswordHash;
+            // TODO: Replace with actual password verification logic
+            // This should hash the input password and compare with stored hash
+            return password == "demo123"; // Temporary for demonstration
         }
 
-        private string HashPassword(string password)
-        {
-            // TODO: Implement proper password hashing (e.g., bcrypt, Argon2, or PBKDF2)
-            // This is a placeholder - DO NOT use in production
-            using (SHA256 sha256Hash = SHA256.Create())
-            {
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password + "salt"));
-                return Convert.ToBase64String(bytes);
-            }
-        }
-
-        private string GetStoredPasswordHash()
-        {
-            // TODO: Retrieve password hash from database
-            // Placeholder implementation
-            return HashPassword("yourPassword");
-        }
-
-        private async Task<bool> UpdatePhoneNumberInDatabase(string phoneNumber)
+        private async Task<bool> UpdatePhoneInDatabaseAsync(string phoneNumber)
         {
             try
             {
-
-                // Simulate async database operation
+                // Simulate database update delay
                 await Task.Delay(1000);
-                return true; // Placeholder - always succeeds
+
+                // TODO: Implement actual database update
+                // Example: return await database.UpdateUserPhone(userId, phoneNumber);
+                return true; // Temporary success response
             }
-            catch (Exception ex)
+            catch
             {
-                // Log the exception
-                System.Diagnostics.Debug.WriteLine($"Database update error: {ex.Message}");
                 return false;
             }
+        }
+
+        private void ShowError(string message)
+        {
+            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
