@@ -13,8 +13,9 @@ namespace TrainHub.Models
         public string LastName { get; set; }
         public string Address { get; set; }
         public bool IsDeleted { get; set; } = false;
-        public string EmailAddress { get; set; }
-        public int YearsOfExperience { get; set; }
+        public string Email { get; set; }
+        public string MobileNumber { get; set; }
+        public string YearsOfExperience { get; set; }
         public DateTime? CreatedDate { get; set; } = DateTime.Today;
         public DateTime? SoftDeleteDate { get; set; }
         public DateTime? DateOfBirth { get; set; } 

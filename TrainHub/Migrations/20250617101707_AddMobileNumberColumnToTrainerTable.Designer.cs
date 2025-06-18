@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrainHub.Data;
 
@@ -11,9 +12,11 @@ using TrainHub.Data;
 namespace TrainHub.Migrations
 {
     [DbContext(typeof(TrainHubContext))]
-    partial class TrainHubContextModelSnapshot : ModelSnapshot
+    [Migration("20250617101707_AddMobileNumberColumnToTrainerTable")]
+    partial class AddMobileNumberColumnToTrainerTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,7 +43,7 @@ namespace TrainHub.Migrations
                     b.Property<DateTime?>("DateOfBirth")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("EmailAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -62,9 +65,8 @@ namespace TrainHub.Migrations
                     b.Property<DateTime?>("SoftDeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("YearsOfExperience")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("YearsOfExperience")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
