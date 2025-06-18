@@ -11,7 +11,7 @@ namespace TrainHub
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new StaffTable());
+            Application.Run(new update_phone());
         }
     }
 }
