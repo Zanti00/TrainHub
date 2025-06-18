@@ -17,30 +17,6 @@ namespace TrainHub
             InitializeComponent();
         }
 
-        private void cuiPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void cuiPanel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loginBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
 

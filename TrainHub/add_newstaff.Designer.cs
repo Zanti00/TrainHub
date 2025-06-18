@@ -33,7 +33,7 @@
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             birthDate = new CuoreUI.Controls.cuiCalendarDatePicker();
             cuiButtonGroup1 = new CuoreUI.Controls.cuiButtonGroup();
-            loginBtn = new CuoreUI.Controls.cuiButtonGroup();
+            okBtn = new CuoreUI.Controls.cuiButtonGroup();
             lastNameTxt = new CuoreUI.Controls.cuiTextBox();
             emailTxt = new CuoreUI.Controls.cuiTextBox();
             phoneNumTxt = new CuoreUI.Controls.cuiTextBox();
@@ -57,7 +57,7 @@
             addressTxt.ImageExpand = new Point(0, 0);
             addressTxt.ImageOffset = new Point(0, 0);
             addressTxt.Location = new Point(350, 136);
-            addressTxt.Margin = new Padding(4, 4, 4, 4);
+            addressTxt.Margin = new Padding(4);
             addressTxt.Multiline = false;
             addressTxt.Name = "addressTxt";
             addressTxt.NormalImageTint = Color.White;
@@ -76,7 +76,7 @@
             cuiPanel1.Controls.Add(addressTxt);
             cuiPanel1.Controls.Add(birthDate);
             cuiPanel1.Controls.Add(cuiButtonGroup1);
-            cuiPanel1.Controls.Add(loginBtn);
+            cuiPanel1.Controls.Add(okBtn);
             cuiPanel1.Controls.Add(lastNameTxt);
             cuiPanel1.Controls.Add(emailTxt);
             cuiPanel1.Controls.Add(phoneNumTxt);
@@ -101,7 +101,7 @@
             birthDate.Icon = (Image)resources.GetObject("birthDate.Icon");
             birthDate.IconTint = Color.Gray;
             birthDate.Location = new Point(350, 83);
-            birthDate.Margin = new Padding(4, 4, 4, 4);
+            birthDate.Margin = new Padding(4);
             birthDate.Name = "birthDate";
             birthDate.NormalBackground = Color.White;
             birthDate.NormalOutline = Color.FromArgb(51, 81, 88);
@@ -153,42 +153,43 @@
             cuiButtonGroup1.TextOffset = new Point(0, 0);
             cuiButtonGroup1.Click += cuiButtonGroup1_Click;
             // 
-            // loginBtn
+            // okBtn
             // 
-            loginBtn.BackColor = Color.Transparent;
-            loginBtn.Checked = false;
-            loginBtn.CheckedBackground = Color.FromArgb(50, 81, 88);
-            loginBtn.CheckedForeColor = Color.White;
-            loginBtn.CheckedImageTint = Color.White;
-            loginBtn.CheckedOutline = Color.FromArgb(50, 81, 88);
-            loginBtn.Content = "OK";
-            loginBtn.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            loginBtn.ForeColor = Color.White;
-            loginBtn.Group = 0;
-            loginBtn.HoverBackground = Color.White;
-            loginBtn.HoveredImageTint = Color.White;
-            loginBtn.HoverForeColor = Color.Black;
-            loginBtn.HoverOutline = Color.FromArgb(22, 36, 39);
-            loginBtn.Image = null;
-            loginBtn.ImageAutoCenter = true;
-            loginBtn.ImageExpand = new Point(0, 0);
-            loginBtn.ImageOffset = new Point(0, 0);
-            loginBtn.Location = new Point(575, 202);
-            loginBtn.Name = "loginBtn";
-            loginBtn.NormalBackground = Color.FromArgb(50, 81, 88);
-            loginBtn.NormalForeColor = Color.White;
-            loginBtn.NormalImageTint = Color.White;
-            loginBtn.NormalOutline = Color.FromArgb(50, 81, 88);
-            loginBtn.OutlineThickness = 1F;
-            loginBtn.PressedBackground = Color.FromArgb(22, 36, 39);
-            loginBtn.PressedForeColor = Color.White;
-            loginBtn.PressedImageTint = Color.White;
-            loginBtn.PressedOutline = Color.FromArgb(22, 36, 39);
-            loginBtn.Rounding = new Padding(6);
-            loginBtn.Size = new Size(75, 34);
-            loginBtn.TabIndex = 20;
-            loginBtn.TextAlignment = StringAlignment.Center;
-            loginBtn.TextOffset = new Point(0, 0);
+            okBtn.BackColor = Color.Transparent;
+            okBtn.Checked = false;
+            okBtn.CheckedBackground = Color.FromArgb(50, 81, 88);
+            okBtn.CheckedForeColor = Color.White;
+            okBtn.CheckedImageTint = Color.White;
+            okBtn.CheckedOutline = Color.FromArgb(50, 81, 88);
+            okBtn.Content = "OK";
+            okBtn.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            okBtn.ForeColor = Color.White;
+            okBtn.Group = 0;
+            okBtn.HoverBackground = Color.White;
+            okBtn.HoveredImageTint = Color.White;
+            okBtn.HoverForeColor = Color.Black;
+            okBtn.HoverOutline = Color.FromArgb(22, 36, 39);
+            okBtn.Image = null;
+            okBtn.ImageAutoCenter = true;
+            okBtn.ImageExpand = new Point(0, 0);
+            okBtn.ImageOffset = new Point(0, 0);
+            okBtn.Location = new Point(575, 202);
+            okBtn.Name = "okBtn";
+            okBtn.NormalBackground = Color.FromArgb(50, 81, 88);
+            okBtn.NormalForeColor = Color.White;
+            okBtn.NormalImageTint = Color.White;
+            okBtn.NormalOutline = Color.FromArgb(50, 81, 88);
+            okBtn.OutlineThickness = 1F;
+            okBtn.PressedBackground = Color.FromArgb(22, 36, 39);
+            okBtn.PressedForeColor = Color.White;
+            okBtn.PressedImageTint = Color.White;
+            okBtn.PressedOutline = Color.FromArgb(22, 36, 39);
+            okBtn.Rounding = new Padding(6);
+            okBtn.Size = new Size(75, 34);
+            okBtn.TabIndex = 20;
+            okBtn.TextAlignment = StringAlignment.Center;
+            okBtn.TextOffset = new Point(0, 0);
+            okBtn.Click += okBtn_Click;
             // 
             // lastNameTxt
             // 
@@ -205,7 +206,7 @@
             lastNameTxt.ImageExpand = new Point(0, 0);
             lastNameTxt.ImageOffset = new Point(0, 0);
             lastNameTxt.Location = new Point(350, 36);
-            lastNameTxt.Margin = new Padding(4, 4, 4, 4);
+            lastNameTxt.Margin = new Padding(4);
             lastNameTxt.Multiline = false;
             lastNameTxt.Name = "lastNameTxt";
             lastNameTxt.NormalImageTint = Color.White;
@@ -234,7 +235,7 @@
             emailTxt.ImageExpand = new Point(0, 0);
             emailTxt.ImageOffset = new Point(0, 0);
             emailTxt.Location = new Point(25, 136);
-            emailTxt.Margin = new Padding(4, 4, 4, 4);
+            emailTxt.Margin = new Padding(4);
             emailTxt.Multiline = false;
             emailTxt.Name = "emailTxt";
             emailTxt.NormalImageTint = Color.White;
@@ -263,7 +264,7 @@
             phoneNumTxt.ImageExpand = new Point(0, 0);
             phoneNumTxt.ImageOffset = new Point(0, 0);
             phoneNumTxt.Location = new Point(25, 83);
-            phoneNumTxt.Margin = new Padding(4, 4, 4, 4);
+            phoneNumTxt.Margin = new Padding(4);
             phoneNumTxt.Multiline = false;
             phoneNumTxt.Name = "phoneNumTxt";
             phoneNumTxt.NormalImageTint = Color.White;
@@ -292,7 +293,7 @@
             firstNameTxt.ImageExpand = new Point(0, 0);
             firstNameTxt.ImageOffset = new Point(0, 0);
             firstNameTxt.Location = new Point(25, 36);
-            firstNameTxt.Margin = new Padding(4, 4, 4, 4);
+            firstNameTxt.Margin = new Padding(4);
             firstNameTxt.Multiline = false;
             firstNameTxt.Name = "firstNameTxt";
             firstNameTxt.NormalImageTint = Color.White;
@@ -338,7 +339,7 @@
         private CuoreUI.Controls.cuiPanel cuiPanel1;
         private CuoreUI.Controls.cuiCalendarDatePicker birthDate;
         private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup1;
-        private CuoreUI.Controls.cuiButtonGroup loginBtn;
+        private CuoreUI.Controls.cuiButtonGroup okBtn;
         private CuoreUI.Controls.cuiTextBox lastNameTxt;
         private CuoreUI.Controls.cuiTextBox emailTxt;
         private CuoreUI.Controls.cuiTextBox phoneNumTxt;
