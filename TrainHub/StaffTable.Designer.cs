@@ -37,8 +37,8 @@ namespace TrainHub
             label2 = new Label();
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
             cuiPanel4 = new CuoreUI.Controls.cuiPanel();
-            cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
-            cuiButtonGroup4 = new CuoreUI.Controls.cuiButtonGroup();
+            searchTextBox = new CuoreUI.Controls.cuiTextBox();
+            sortBtn = new CuoreUI.Controls.cuiButtonGroup();
             cuiTextBox4 = new CuoreUI.Controls.cuiTextBox();
             cuiButtonGroup1 = new CuoreUI.Controls.cuiButtonGroup();
             cuiPanel7 = new CuoreUI.Controls.cuiPanel();
@@ -56,7 +56,7 @@ namespace TrainHub
             Column12 = new DataGridViewImageColumn();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             cuiPanel3 = new CuoreUI.Controls.cuiPanel();
-            cuiButtonGroup3 = new CuoreUI.Controls.cuiButtonGroup();
+            addStaffBtn = new CuoreUI.Controls.cuiButtonGroup();
             flowLayoutPanel1 = new FlowLayoutPanel();
             cuiPanel2.SuspendLayout();
             cuiPanel4.SuspendLayout();
@@ -96,8 +96,8 @@ namespace TrainHub
             // cuiPanel4
             // 
             cuiPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            cuiPanel4.Controls.Add(cuiTextBox1);
-            cuiPanel4.Controls.Add(cuiButtonGroup4);
+            cuiPanel4.Controls.Add(searchTextBox);
+            cuiPanel4.Controls.Add(sortBtn);
             cuiPanel4.Location = new Point(434, 9);
             cuiPanel4.Margin = new Padding(3, 2, 3, 2);
             cuiPanel4.Name = "cuiPanel4";
@@ -108,73 +108,75 @@ namespace TrainHub
             cuiPanel4.Size = new Size(433, 43);
             cuiPanel4.TabIndex = 37;
             // 
-            // cuiTextBox1
+            // searchTextBox
             // 
-            cuiTextBox1.AutoSize = true;
-            cuiTextBox1.BackColor = Color.Transparent;
-            cuiTextBox1.BackgroundColor = Color.White;
-            cuiTextBox1.BorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox1.Content = "";
-            cuiTextBox1.FocusBackgroundColor = Color.White;
-            cuiTextBox1.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox1.FocusImageTint = Color.White;
-            cuiTextBox1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiTextBox1.ForeColor = Color.Black;
-            cuiTextBox1.Image = null;
-            cuiTextBox1.ImageExpand = new Point(0, 0);
-            cuiTextBox1.ImageOffset = new Point(0, 0);
-            cuiTextBox1.Location = new Point(38, 4);
-            cuiTextBox1.Margin = new Padding(4);
-            cuiTextBox1.Multiline = false;
-            cuiTextBox1.Name = "cuiTextBox1";
-            cuiTextBox1.NormalImageTint = Color.White;
-            cuiTextBox1.Padding = new Padding(14, 9, 14, 0);
-            cuiTextBox1.PasswordChar = false;
-            cuiTextBox1.PlaceholderColor = Color.DimGray;
-            cuiTextBox1.PlaceholderText = "Search";
-            cuiTextBox1.Rounding = new Padding(10);
-            cuiTextBox1.Size = new Size(296, 32);
-            cuiTextBox1.TabIndex = 15;
-            cuiTextBox1.TextOffset = new Size(0, 0);
-            cuiTextBox1.UnderlinedStyle = false;
+            searchTextBox.AutoSize = true;
+            searchTextBox.BackColor = Color.Transparent;
+            searchTextBox.BackgroundColor = Color.White;
+            searchTextBox.BorderColor = Color.FromArgb(50, 81, 88);
+            searchTextBox.Content = "";
+            searchTextBox.FocusBackgroundColor = Color.White;
+            searchTextBox.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            searchTextBox.FocusImageTint = Color.White;
+            searchTextBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            searchTextBox.ForeColor = Color.Black;
+            searchTextBox.Image = null;
+            searchTextBox.ImageExpand = new Point(0, 0);
+            searchTextBox.ImageOffset = new Point(0, 0);
+            searchTextBox.Location = new Point(38, 4);
+            searchTextBox.Margin = new Padding(4);
+            searchTextBox.Multiline = false;
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.NormalImageTint = Color.White;
+            searchTextBox.Padding = new Padding(14, 9, 14, 0);
+            searchTextBox.PasswordChar = false;
+            searchTextBox.PlaceholderColor = Color.DimGray;
+            searchTextBox.PlaceholderText = "Search";
+            searchTextBox.Rounding = new Padding(10);
+            searchTextBox.Size = new Size(296, 32);
+            searchTextBox.TabIndex = 15;
+            searchTextBox.TextOffset = new Size(0, 0);
+            searchTextBox.UnderlinedStyle = false;
+            searchTextBox.ContentChanged += searchTextBox_ContentChanged;
             // 
-            // cuiButtonGroup4
+            // sortBtn
             // 
-            cuiButtonGroup4.BackColor = Color.Transparent;
-            cuiButtonGroup4.Checked = false;
-            cuiButtonGroup4.CheckedBackground = Color.FromArgb(50, 81, 88);
-            cuiButtonGroup4.CheckedForeColor = Color.White;
-            cuiButtonGroup4.CheckedImageTint = Color.White;
-            cuiButtonGroup4.CheckedOutline = Color.FromArgb(50, 81, 88);
-            cuiButtonGroup4.Content = "  Sort By";
-            cuiButtonGroup4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiButtonGroup4.ForeColor = Color.DimGray;
-            cuiButtonGroup4.Group = 0;
-            cuiButtonGroup4.HoverBackground = Color.FromArgb(51, 81, 88);
-            cuiButtonGroup4.HoveredImageTint = Color.White;
-            cuiButtonGroup4.HoverForeColor = Color.White;
-            cuiButtonGroup4.HoverOutline = Color.FromArgb(51, 81, 88);
-            cuiButtonGroup4.Image = (Image)resources.GetObject("cuiButtonGroup4.Image");
-            cuiButtonGroup4.ImageAutoCenter = true;
-            cuiButtonGroup4.ImageExpand = new Point(0, 0);
-            cuiButtonGroup4.ImageOffset = new Point(0, 0);
-            cuiButtonGroup4.Location = new Point(341, 4);
-            cuiButtonGroup4.MaximumSize = new Size(127, 32);
-            cuiButtonGroup4.Name = "cuiButtonGroup4";
-            cuiButtonGroup4.NormalBackground = Color.White;
-            cuiButtonGroup4.NormalForeColor = Color.DimGray;
-            cuiButtonGroup4.NormalImageTint = Color.White;
-            cuiButtonGroup4.NormalOutline = Color.FromArgb(50, 81, 88);
-            cuiButtonGroup4.OutlineThickness = 1F;
-            cuiButtonGroup4.PressedBackground = Color.FromArgb(22, 36, 39);
-            cuiButtonGroup4.PressedForeColor = Color.White;
-            cuiButtonGroup4.PressedImageTint = Color.White;
-            cuiButtonGroup4.PressedOutline = Color.FromArgb(22, 36, 39);
-            cuiButtonGroup4.Rounding = new Padding(10);
-            cuiButtonGroup4.Size = new Size(92, 32);
-            cuiButtonGroup4.TabIndex = 22;
-            cuiButtonGroup4.TextAlignment = StringAlignment.Center;
-            cuiButtonGroup4.TextOffset = new Point(0, 0);
+            sortBtn.BackColor = Color.Transparent;
+            sortBtn.Checked = false;
+            sortBtn.CheckedBackground = Color.FromArgb(50, 81, 88);
+            sortBtn.CheckedForeColor = Color.White;
+            sortBtn.CheckedImageTint = Color.White;
+            sortBtn.CheckedOutline = Color.FromArgb(50, 81, 88);
+            sortBtn.Content = "  Sort By";
+            sortBtn.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            sortBtn.ForeColor = Color.DimGray;
+            sortBtn.Group = 0;
+            sortBtn.HoverBackground = Color.FromArgb(51, 81, 88);
+            sortBtn.HoveredImageTint = Color.White;
+            sortBtn.HoverForeColor = Color.White;
+            sortBtn.HoverOutline = Color.FromArgb(51, 81, 88);
+            sortBtn.Image = (Image)resources.GetObject("sortBtn.Image");
+            sortBtn.ImageAutoCenter = true;
+            sortBtn.ImageExpand = new Point(0, 0);
+            sortBtn.ImageOffset = new Point(0, 0);
+            sortBtn.Location = new Point(341, 4);
+            sortBtn.MaximumSize = new Size(127, 32);
+            sortBtn.Name = "sortBtn";
+            sortBtn.NormalBackground = Color.White;
+            sortBtn.NormalForeColor = Color.DimGray;
+            sortBtn.NormalImageTint = Color.White;
+            sortBtn.NormalOutline = Color.FromArgb(50, 81, 88);
+            sortBtn.OutlineThickness = 1F;
+            sortBtn.PressedBackground = Color.FromArgb(22, 36, 39);
+            sortBtn.PressedForeColor = Color.White;
+            sortBtn.PressedImageTint = Color.White;
+            sortBtn.PressedOutline = Color.FromArgb(22, 36, 39);
+            sortBtn.Rounding = new Padding(10);
+            sortBtn.Size = new Size(92, 32);
+            sortBtn.TabIndex = 22;
+            sortBtn.TextAlignment = StringAlignment.Center;
+            sortBtn.TextOffset = new Point(0, 0);
+            sortBtn.Click += sortBtn_Click;
             // 
             // cuiTextBox4
             // 
@@ -376,7 +378,6 @@ namespace TrainHub
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView2.Size = new Size(878, 375);
             dataGridView2.TabIndex = 35;
-            dataGridView2.CellClick += dataGridView2_CellClick;
             dataGridView2.CellContentClick += dataGridView2_CellContentClick;
             // 
             // Column1
@@ -448,8 +449,8 @@ namespace TrainHub
             // cuiPanel1
             // 
             cuiPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            cuiPanel1.Controls.Add(cuiPanel3);
             cuiPanel1.Controls.Add(dataGridView2);
+            cuiPanel1.Controls.Add(cuiPanel3);
             cuiPanel1.Controls.Add(cuiPanel8);
             cuiPanel1.Controls.Add(cuiPanel7);
             cuiPanel1.Controls.Add(label2);
@@ -469,7 +470,7 @@ namespace TrainHub
             // 
             cuiPanel3.Anchor = AnchorStyles.Top;
             cuiPanel3.BackColor = Color.White;
-            cuiPanel3.Controls.Add(cuiButtonGroup3);
+            cuiPanel3.Controls.Add(addStaffBtn);
             cuiPanel3.Location = new Point(757, 62);
             cuiPanel3.Margin = new Padding(3, 2, 3, 2);
             cuiPanel3.Name = "cuiPanel3";
@@ -480,45 +481,45 @@ namespace TrainHub
             cuiPanel3.Size = new Size(149, 43);
             cuiPanel3.TabIndex = 36;
             // 
-            // cuiButtonGroup3
+            // addStaffBtn
             // 
-            cuiButtonGroup3.Anchor = AnchorStyles.Top;
-            cuiButtonGroup3.AutoSize = true;
-            cuiButtonGroup3.BackColor = Color.Transparent;
-            cuiButtonGroup3.Checked = false;
-            cuiButtonGroup3.CheckedBackground = Color.White;
-            cuiButtonGroup3.CheckedForeColor = Color.Black;
-            cuiButtonGroup3.CheckedImageTint = Color.White;
-            cuiButtonGroup3.CheckedOutline = Color.Transparent;
-            cuiButtonGroup3.Content = "+ Add Staff";
-            cuiButtonGroup3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiButtonGroup3.ForeColor = Color.White;
-            cuiButtonGroup3.Group = 0;
-            cuiButtonGroup3.HoverBackground = Color.Transparent;
-            cuiButtonGroup3.HoveredImageTint = Color.Transparent;
-            cuiButtonGroup3.HoverForeColor = Color.Black;
-            cuiButtonGroup3.HoverOutline = Color.White;
-            cuiButtonGroup3.Image = null;
-            cuiButtonGroup3.ImageAutoCenter = true;
-            cuiButtonGroup3.ImageExpand = new Point(0, 0);
-            cuiButtonGroup3.ImageOffset = new Point(0, 0);
-            cuiButtonGroup3.Location = new Point(22, 8);
-            cuiButtonGroup3.Name = "cuiButtonGroup3";
-            cuiButtonGroup3.NormalBackground = Color.FromArgb(50, 81, 88);
-            cuiButtonGroup3.NormalForeColor = Color.White;
-            cuiButtonGroup3.NormalImageTint = Color.Black;
-            cuiButtonGroup3.NormalOutline = Color.Transparent;
-            cuiButtonGroup3.OutlineThickness = 1F;
-            cuiButtonGroup3.PressedBackground = Color.White;
-            cuiButtonGroup3.PressedForeColor = Color.White;
-            cuiButtonGroup3.PressedImageTint = Color.White;
-            cuiButtonGroup3.PressedOutline = Color.White;
-            cuiButtonGroup3.Rounding = new Padding(10);
-            cuiButtonGroup3.Size = new Size(113, 32);
-            cuiButtonGroup3.TabIndex = 23;
-            cuiButtonGroup3.TextAlignment = StringAlignment.Center;
-            cuiButtonGroup3.TextOffset = new Point(0, 0);
-            cuiButtonGroup3.Click += cuiButtonGroup3_Click;
+            addStaffBtn.Anchor = AnchorStyles.Top;
+            addStaffBtn.AutoSize = true;
+            addStaffBtn.BackColor = Color.Transparent;
+            addStaffBtn.Checked = false;
+            addStaffBtn.CheckedBackground = Color.White;
+            addStaffBtn.CheckedForeColor = Color.Black;
+            addStaffBtn.CheckedImageTint = Color.White;
+            addStaffBtn.CheckedOutline = Color.Transparent;
+            addStaffBtn.Content = "+ Add Staff";
+            addStaffBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            addStaffBtn.ForeColor = Color.White;
+            addStaffBtn.Group = 0;
+            addStaffBtn.HoverBackground = Color.Transparent;
+            addStaffBtn.HoveredImageTint = Color.Transparent;
+            addStaffBtn.HoverForeColor = Color.Black;
+            addStaffBtn.HoverOutline = Color.White;
+            addStaffBtn.Image = null;
+            addStaffBtn.ImageAutoCenter = true;
+            addStaffBtn.ImageExpand = new Point(0, 0);
+            addStaffBtn.ImageOffset = new Point(0, 0);
+            addStaffBtn.Location = new Point(22, 8);
+            addStaffBtn.Name = "addStaffBtn";
+            addStaffBtn.NormalBackground = Color.FromArgb(50, 81, 88);
+            addStaffBtn.NormalForeColor = Color.White;
+            addStaffBtn.NormalImageTint = Color.Black;
+            addStaffBtn.NormalOutline = Color.Transparent;
+            addStaffBtn.OutlineThickness = 1F;
+            addStaffBtn.PressedBackground = Color.White;
+            addStaffBtn.PressedForeColor = Color.White;
+            addStaffBtn.PressedImageTint = Color.White;
+            addStaffBtn.PressedOutline = Color.White;
+            addStaffBtn.Rounding = new Padding(10);
+            addStaffBtn.Size = new Size(113, 32);
+            addStaffBtn.TabIndex = 23;
+            addStaffBtn.TextAlignment = StringAlignment.Center;
+            addStaffBtn.TextOffset = new Point(0, 0);
+            addStaffBtn.Click += addStaffBtn_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -576,10 +577,10 @@ namespace TrainHub
         private CuoreUI.Controls.cuiPanel cuiPanel1;
         private FlowLayoutPanel flowLayoutPanel1;
         private CuoreUI.Controls.cuiPanel cuiPanel3;
-        private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup3;
+        private CuoreUI.Controls.cuiButtonGroup addStaffBtn;
         private CuoreUI.Controls.cuiPanel cuiPanel4;
-        private CuoreUI.Controls.cuiTextBox cuiTextBox1;
-        private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup4;
+        private CuoreUI.Controls.cuiTextBox searchTextBox;
+        private CuoreUI.Controls.cuiButtonGroup sortBtn;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;

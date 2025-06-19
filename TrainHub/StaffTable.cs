@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrainHub;
+using TrainHub.Data;
 
 namespace TrainHub
 {
     public partial class StaffTable : Form
     {
+        private int userID;
+
         public StaffTable()
         {
             InitializeComponent();
@@ -20,23 +24,13 @@ namespace TrainHub
 
             // add test rows to the DataGridView
             dataGridView2.Rows.Add("M001", "Alice Rivera", "alice@example.com", "09171234567", "P001", "2025-01-01");
-            dataGridView2.Rows.Add("M001", "Alice Rivera", "alice@example.com", "09171234567", "P001", "2025-01-01");
-            dataGridView2.Rows.Add("M001", "Alice Rivera", "alice@example.com", "09171234567", "P001", "2025-01-01");
-            dataGridView2.Rows.Add("M001", "Alice Rivera", "alice@example.com", "09171234567", "P001", "2025-01-01");
 
         }
-        private void cuiButtonGroup3_Click(object sender, EventArgs e)
-        {
-            add_newstaff f1 = new add_newstaff();
-            f1.ShowDialog();
-        }
-
-        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 6 && e.RowIndex >= 0)
             {
-                // Assuming you have a way to retrieve the userID and pass the current StaffTable reference
-                int userID = GetUserIDFromRow(e.RowIndex); // Replace with actual logic to fetch userID
+                int memberID = Convert.ToInt32(e.RowIndex);
                 edit_staff editForm = new edit_staff(userID, this);
                 editForm.ShowDialog();
             }
@@ -50,14 +44,21 @@ namespace TrainHub
             return int.TryParse(userIDString, out int userID) ? userID : 0;
         }
 
-        private void cuiButtonGroup2_Click(object sender, EventArgs e)
+        private void addStaffBtn_Click(object sender, EventArgs e)
+        {
+            add_newstaff f1 = new add_newstaff();
+            f1.ShowDialog();
+        }
+
+        private void sortBtn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void searchTextBox_ContentChanged(object sender, EventArgs e)
         {
 
         }
+    
     }
 }

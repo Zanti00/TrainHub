@@ -151,7 +151,7 @@
             cancelBtn.TabIndex = 21;
             cancelBtn.TextAlignment = StringAlignment.Center;
             cancelBtn.TextOffset = new Point(0, 0);
-            cancelBtn.Click += cancelBtn_Click;
+            cancelBtn.Click += cuiButtonGroup1_Click;
             // 
             // okBtn
             // 
