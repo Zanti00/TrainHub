@@ -40,13 +40,6 @@ namespace TrainHub
             }
         }
 
-        private void btnTogglePasswordVisibility_Click(object sender, EventArgs e)
-        {
-            isPasswordVisible = !isPasswordVisible;
-           //txtPassword.PasswordChar = isPasswordVisible ? '\0' : '*';
-            btnTogglePasswordVisibility.Text = isPasswordVisible ? "Hide" : "Show";
-        }
-
         private async void btnSave_Click(object sender, EventArgs e)
         {
             // Disable button during processing
@@ -169,6 +162,17 @@ namespace TrainHub
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+        private void showPassBtn_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.PasswordChar)
+            {
+                txtPassword.PasswordChar = false;
+            }
+            else
+            {
+                txtPassword.PasswordChar = true;
+            }
         }
     }
 }

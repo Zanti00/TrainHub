@@ -105,6 +105,7 @@ namespace TrainHub
             btnTogglePasswordVisibility.TabIndex = 28;
             btnTogglePasswordVisibility.TextAlignment = StringAlignment.Center;
             btnTogglePasswordVisibility.TextOffset = new Point(0, 0);
+            btnTogglePasswordVisibility.Click += showPassBtn_Click;
             // 
             // btnSave
             // 
@@ -142,6 +143,7 @@ namespace TrainHub
             btnSave.TabIndex = 21;
             btnSave.TextAlignment = StringAlignment.Center;
             btnSave.TextOffset = new Point(0, 0);
+            btnSave.Click += btnSave_Click;
             // 
             // txtPassword
             // 
@@ -207,7 +209,7 @@ namespace TrainHub
             txtPhoneNumber.Name = "txtPhoneNumber";
             txtPhoneNumber.NormalImageTint = Color.White;
             txtPhoneNumber.Padding = new Padding(13, 9, 13, 0);
-            txtPhoneNumber.PasswordChar = true;
+            txtPhoneNumber.PasswordChar = false;
             txtPhoneNumber.PlaceholderColor = SystemColors.ScrollBar;
             txtPhoneNumber.PlaceholderText = "Please enter your new phone number...";
             txtPhoneNumber.Rounding = new Padding(6);

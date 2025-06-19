@@ -253,5 +253,16 @@ namespace TrainHub
                 UpdatedDate = DateTime.Now
             };
         }
+        private void showPassBtn_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.PasswordChar)
+            {
+                txtPassword.PasswordChar = false;
+            }
+            else
+            {
+                txtPassword.PasswordChar = true;
+            }
+        }
     }
 }

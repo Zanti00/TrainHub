@@ -35,9 +35,19 @@ namespace TrainHub
         {
             if (e.ColumnIndex == 6 && e.RowIndex >= 0)
             {
-                edit_staff editForm = new edit_staff();
+                // Assuming you have a way to retrieve the userID and pass the current StaffTable reference
+                int userID = GetUserIDFromRow(e.RowIndex); // Replace with actual logic to fetch userID
+                edit_staff editForm = new edit_staff(userID, this);
                 editForm.ShowDialog();
             }
+        }
+
+        // Example method to retrieve userID from the DataGridView row
+        private int GetUserIDFromRow(int rowIndex)
+        {
+            // Replace with actual logic to fetch userID from the DataGridView row
+            string userIDString = dataGridView2.Rows[rowIndex].Cells[0].Value.ToString();
+            return int.TryParse(userIDString, out int userID) ? userID : 0;
         }
 
         private void cuiButtonGroup2_Click(object sender, EventArgs e)

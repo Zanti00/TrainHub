@@ -104,6 +104,7 @@
             passwordEyeButton.TabIndex = 22;
             passwordEyeButton.TextAlignment = StringAlignment.Center;
             passwordEyeButton.TextOffset = new Point(0, 0);
+            passwordEyeButton.Click += showPassBtn_Click;
             // 
             // saveBtn
             // 
@@ -141,6 +142,7 @@
             saveBtn.TabIndex = 21;
             saveBtn.TextAlignment = StringAlignment.Center;
             saveBtn.TextOffset = new Point(0, 0);
+            saveBtn.Click += btnSaveChanges_Click;
             // 
             // txtPassword
             // 
@@ -206,7 +208,7 @@
             txtNewEmail.Name = "txtNewEmail";
             txtNewEmail.NormalImageTint = Color.White;
             txtNewEmail.Padding = new Padding(13, 9, 13, 0);
-            txtNewEmail.PasswordChar = true;
+            txtNewEmail.PasswordChar = false;
             txtNewEmail.PlaceholderColor = SystemColors.ScrollBar;
             txtNewEmail.PlaceholderText = "Please enter your new email...";
             txtNewEmail.Rounding = new Padding(6);
