@@ -18,11 +18,13 @@ namespace TrainHub
     {
         private int memberID;
         TrainHubContext dataContext = new TrainHubContext();
-        public ViewMember(int memberID)
+        private ReadQRForm _readQRForm;
+        public ViewMember(int memberID, ReadQRForm? _readQRForm)
         {
             InitializeComponent();
 
             this.memberID = memberID;
+            this._readQRForm = _readQRForm;
 
             LoadMemberData();
         }
@@ -140,6 +142,11 @@ namespace TrainHub
 
             string fullPath = ImageFileManager.GetFullPath(selectedMember.ProfileImagePath);
             ShowImagePopup(fullPath);
+        }
+
+        private void ViewMember_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _readQRForm?.AddMemberAttendnace(memberID);
         }
     }
 }

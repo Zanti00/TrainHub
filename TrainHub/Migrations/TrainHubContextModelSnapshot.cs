@@ -86,6 +86,36 @@ namespace TrainHub.Migrations
                     b.ToTable("Member");
                 });
 
+            modelBuilder.Entity("TrainHub.Models.MemberAttendances", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("AttendanceDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<TimeSpan?>("CheckInTime")
+                        .HasColumnType("time");
+
+                    b.Property<TimeSpan?>("CheckOutTime")
+                        .HasColumnType("time");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("MemberId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MemberId");
+
+                    b.ToTable("MemberAttendances");
+                });
+
             modelBuilder.Entity("TrainHub.Models.Trainer", b =>
                 {
                     b.Property<int>("Id")
@@ -142,6 +172,17 @@ namespace TrainHub.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("User");
+                });
+
+            modelBuilder.Entity("TrainHub.Models.MemberAttendances", b =>
+                {
+                    b.HasOne("TrainHub.Models.Member", "Member")
+                        .WithMany()
+                        .HasForeignKey("MemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Member");
                 });
 #pragma warning restore 612, 618
         }

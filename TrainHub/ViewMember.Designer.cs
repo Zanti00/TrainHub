@@ -351,6 +351,7 @@
             Name = "ViewMember";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TrainHub";
+            FormClosing += ViewMember_FormClosing;
             cuiPanel1.ResumeLayout(false);
             cuiPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

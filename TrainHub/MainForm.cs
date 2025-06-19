@@ -8,7 +8,7 @@ namespace TrainHub
         bool isTrainerContainerExpanded = false;
         bool isMemberContainerExpanded = false;
         bool isStaffContainerExpanded = false;
-        Dashboard dashboard;
+        Dashboar dashboar;
         ShowMembersTablePageForm1 memberPage;
         Login login;
         public MainForm()
@@ -83,18 +83,18 @@ namespace TrainHub
 
         private void dashboardBtn_Click(object sender, EventArgs e)
         {
-            if (dashboard == null)
+            if (dashboar == null)
             {
-                dashboard = new Dashboard();
+                dashboar = new Dashboar();
 
-                dashboard.FormClosed += Dashboard_FormClosed;
-                dashboard.MdiParent = this;
-                dashboard.Dock = DockStyle.Fill;
-                dashboard.Show();
+                dashboar.FormClosed += Dashboard_FormClosed;
+                dashboar.MdiParent = this;
+                dashboar.Dock = DockStyle.Fill;
+                dashboar.Show();
             }
             else
             {
-                dashboard.Activate();
+                dashboar.Activate();
             }
 
             changeBtnNormalBackground("dashboardBtn");
@@ -102,7 +102,7 @@ namespace TrainHub
 
         private void Dashboard_FormClosed(object? sender, FormClosedEventArgs e)
         {
-            dashboard = null;
+            dashboar = null;
         }
 
         private void logOutBtn_Click(object sender, EventArgs e)

@@ -112,6 +112,7 @@ namespace TrainHub
                     }
 
                     pictureBox1.Image = loadedImage;
+                    capturedImage = (Bitmap)loadedImage.Clone();
                     isImageCaptured = true;
                 }
                 else
@@ -241,9 +242,9 @@ namespace TrainHub
                     selectedMember.MembershipType = membershipTypeCombo.SelectedItem?.ToString() ?? selectedMember.MembershipType;
 
                     // Update date values
-                    selectedMember.DateOfBirth = birthDate.Value.Date;
-                    selectedMember.StartDate = startDate.Value.Date;
-                    selectedMember.EndDate = endDate.Value.Date;
+                    selectedMember.DateOfBirth = birthDate.Value;
+                    selectedMember.StartDate = startDate.Value;
+                    selectedMember.EndDate = endDate.Value;
 
                     if (isImageCaptured && capturedImage != null)
                     {
@@ -258,16 +259,19 @@ namespace TrainHub
                             selectedMember.ImageCapturedDate = DateTime.Now;
 
                             dataContext.SaveChanges(); // Save image path
+                            MessageBox.Show("Member updated successfully!", 
+                                "Success", 
+                                MessageBoxButtons.OK, 
+                                MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show($"Member registered successfully, but failed to save image: {ex.Message}",
-                                "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                "Warning", 
+                                MessageBoxButtons.OK, 
+                                MessageBoxIcon.Warning);
                         }
                     }
-
-                    MessageBox.Show("Member updated successfully!", "Success",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Refresh the parent form's data grid
                     showMembersTablePageForm1?.RefreshMemberData();

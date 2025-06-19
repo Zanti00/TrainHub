@@ -35,7 +35,7 @@ namespace TrainHub
             if (e.ColumnIndex == 11 && e.RowIndex >= 0)
             {
                 int memberID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                ViewMember viewMember = new ViewMember(memberID);
+                ViewMember viewMember = new ViewMember(memberID, null);
                 viewMember.ShowDialog();
             }
 
@@ -208,7 +208,7 @@ namespace TrainHub
                     {
                         advancedDataGridView1.SetFilterAndSortEnabled(col, false);
                     }
-                    
+
                 }
 
             }
