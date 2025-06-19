@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(add_newstaff));
             addressTxt = new CuoreUI.Controls.cuiTextBox();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            usernameTxt = new CuoreUI.Controls.cuiTextBox();
+            passwordTxt = new CuoreUI.Controls.cuiTextBox();
             birthDate = new CuoreUI.Controls.cuiCalendarDatePicker();
             cuiButtonGroup1 = new CuoreUI.Controls.cuiButtonGroup();
             okBtn = new CuoreUI.Controls.cuiButtonGroup();
@@ -73,6 +75,8 @@
             // 
             // cuiPanel1
             // 
+            cuiPanel1.Controls.Add(usernameTxt);
+            cuiPanel1.Controls.Add(passwordTxt);
             cuiPanel1.Controls.Add(addressTxt);
             cuiPanel1.Controls.Add(birthDate);
             cuiPanel1.Controls.Add(cuiButtonGroup1);
@@ -88,8 +92,66 @@
             cuiPanel1.PanelColor = Color.White;
             cuiPanel1.PanelOutlineColor = Color.Black;
             cuiPanel1.Rounding = new Padding(8);
-            cuiPanel1.Size = new Size(677, 260);
+            cuiPanel1.Size = new Size(677, 306);
             cuiPanel1.TabIndex = 6;
+            // 
+            // usernameTxt
+            // 
+            usernameTxt.BackColor = Color.Transparent;
+            usernameTxt.BackgroundColor = Color.White;
+            usernameTxt.BorderColor = Color.FromArgb(50, 81, 88);
+            usernameTxt.Content = "";
+            usernameTxt.FocusBackgroundColor = Color.White;
+            usernameTxt.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            usernameTxt.FocusImageTint = Color.White;
+            usernameTxt.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            usernameTxt.ForeColor = Color.Black;
+            usernameTxt.Image = null;
+            usernameTxt.ImageExpand = new Point(0, 0);
+            usernameTxt.ImageOffset = new Point(0, 0);
+            usernameTxt.Location = new Point(25, 185);
+            usernameTxt.Margin = new Padding(4);
+            usernameTxt.Multiline = false;
+            usernameTxt.Name = "usernameTxt";
+            usernameTxt.NormalImageTint = Color.White;
+            usernameTxt.Padding = new Padding(13, 14, 13, 0);
+            usernameTxt.PasswordChar = false;
+            usernameTxt.PlaceholderColor = SystemColors.ScrollBar;
+            usernameTxt.PlaceholderText = "Username";
+            usernameTxt.Rounding = new Padding(6);
+            usernameTxt.Size = new Size(300, 41);
+            usernameTxt.TabIndex = 30;
+            usernameTxt.TextOffset = new Size(0, 0);
+            usernameTxt.UnderlinedStyle = false;
+            // 
+            // passwordTxt
+            // 
+            passwordTxt.BackColor = Color.Transparent;
+            passwordTxt.BackgroundColor = Color.White;
+            passwordTxt.BorderColor = Color.FromArgb(50, 81, 88);
+            passwordTxt.Content = "";
+            passwordTxt.FocusBackgroundColor = Color.White;
+            passwordTxt.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            passwordTxt.FocusImageTint = Color.White;
+            passwordTxt.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            passwordTxt.ForeColor = Color.Black;
+            passwordTxt.Image = null;
+            passwordTxt.ImageExpand = new Point(0, 0);
+            passwordTxt.ImageOffset = new Point(0, 0);
+            passwordTxt.Location = new Point(350, 185);
+            passwordTxt.Margin = new Padding(4);
+            passwordTxt.Multiline = false;
+            passwordTxt.Name = "passwordTxt";
+            passwordTxt.NormalImageTint = Color.White;
+            passwordTxt.Padding = new Padding(13, 14, 13, 0);
+            passwordTxt.PasswordChar = false;
+            passwordTxt.PlaceholderColor = SystemColors.ScrollBar;
+            passwordTxt.PlaceholderText = "Password";
+            passwordTxt.Rounding = new Padding(6);
+            passwordTxt.Size = new Size(300, 41);
+            passwordTxt.TabIndex = 29;
+            passwordTxt.TextOffset = new Size(0, 0);
+            passwordTxt.UnderlinedStyle = false;
             // 
             // birthDate
             // 
@@ -135,7 +197,7 @@
             cuiButtonGroup1.ImageAutoCenter = true;
             cuiButtonGroup1.ImageExpand = new Point(0, 0);
             cuiButtonGroup1.ImageOffset = new Point(0, 0);
-            cuiButtonGroup1.Location = new Point(494, 202);
+            cuiButtonGroup1.Location = new Point(494, 256);
             cuiButtonGroup1.Name = "cuiButtonGroup1";
             cuiButtonGroup1.NormalBackground = Color.White;
             cuiButtonGroup1.NormalForeColor = Color.Black;
@@ -173,7 +235,7 @@
             okBtn.ImageAutoCenter = true;
             okBtn.ImageExpand = new Point(0, 0);
             okBtn.ImageOffset = new Point(0, 0);
-            okBtn.Location = new Point(575, 202);
+            okBtn.Location = new Point(575, 256);
             okBtn.Name = "okBtn";
             okBtn.NormalBackground = Color.FromArgb(50, 81, 88);
             okBtn.NormalForeColor = Color.White;
@@ -322,7 +384,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(700, 390);
             Controls.Add(cuiPanel1);
             Controls.Add(label1);
             Margin = new Padding(3, 2, 3, 2);
@@ -345,5 +407,7 @@
         private CuoreUI.Controls.cuiTextBox phoneNumTxt;
         private CuoreUI.Controls.cuiTextBox firstNameTxt;
         private Label label1;
+        private CuoreUI.Controls.cuiTextBox usernameTxt;
+        private CuoreUI.Controls.cuiTextBox passwordTxt;
     }
 }

@@ -1,64 +1,182 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using TrainHub;
+﻿using System.Data;
 using TrainHub.Data;
 
 namespace TrainHub
 {
     public partial class StaffTable : Form
     {
+        private TrainHubContext dataContext;
         private int userID;
+        private bool isSortedAscending = true;
 
         public StaffTable()
         {
             InitializeComponent();
-            // make the form full screen
+
+            dataContext = new TrainHubContext();
+            // Make the form full screen
             this.WindowState = FormWindowState.Maximized;
 
-            // add test rows to the DataGridView
-            dataGridView2.Rows.Add("M001", "Alice Rivera", "alice@example.com", "09171234567", "P001", "2025-01-01");
+            // Hook search box
+            searchTextBox.TextChanged += searchTextBox_TextChanged;
 
         }
+
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 6 && e.RowIndex >= 0)
+            // Edit button column index = 6
+            if (e.ColumnIndex == 7 && e.RowIndex >= 0)
             {
-                int memberID = Convert.ToInt32(e.RowIndex);
-                edit_staff editForm = new edit_staff(userID, this);
+                int selectedUserID = GetUserIDFromRow(e.RowIndex);
+                edit_staff editForm = new edit_staff(selectedUserID, this);
                 editForm.ShowDialog();
+            }
+
+            // Delete button column index = 7
+            if (e.ColumnIndex == 8 && e.RowIndex >= 0)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this staff?", "Confirm Delete", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    advancedDataGridView1.Rows[e.RowIndex].Visible = false; // Soft delete
+                }
             }
         }
 
-        // Example method to retrieve userID from the DataGridView row
         private int GetUserIDFromRow(int rowIndex)
         {
-            // Replace with actual logic to fetch userID from the DataGridView row
-            string userIDString = dataGridView2.Rows[rowIndex].Cells[0].Value.ToString();
-            return int.TryParse(userIDString, out int userID) ? userID : 0;
+            // You can customize this to get actual user ID if stored in DB
+            string userIDString = advancedDataGridView1.Rows[rowIndex].Cells[0].Value?.ToString();
+            return int.TryParse(userIDString?.Substring(1), out int id) ? id : 0; // e.g., M001 -> 1
         }
 
         private void addStaffBtn_Click(object sender, EventArgs e)
         {
-            add_newstaff f1 = new add_newstaff();
+            add_newstaff f1 = new add_newstaff(this);
             f1.ShowDialog();
         }
 
-        private void sortBtn_Click(object sender, EventArgs e)
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
+            string userName = searchTextBox.Content.Trim();
 
+            try
+            {
+                if (!string.IsNullOrEmpty(userName))
+                {
+                    var users = from user in dataContext.User
+                                where user.FirstName.ToLower().Contains(userName.ToLower()) ||
+                                      user.LastName.ToLower().Contains(userName.ToLower())
+                                select user;
+
+                    var dataTable = new DataTable();
+                    dataTable.Columns.Add("Id", typeof(int));
+                    dataTable.Columns.Add("FirstName", typeof(string));
+                    dataTable.Columns.Add("LastName", typeof(string));
+                    dataTable.Columns.Add("Email", typeof(string));
+                    dataTable.Columns.Add("MobileNumber", typeof(string));
+                    dataTable.Columns.Add("Address", typeof(string));
+                    dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
+                    dataTable.Columns.Add("Username", typeof(string));
+                    dataTable.Columns.Add("Password", typeof(string));
+                    dataTable.Columns.Add("CreatedDate", typeof(DateTime));
+                    dataTable.Columns.Add("softDeleteDate", typeof(DateTime));
+                    dataTable.Columns.Add("isDeleted", typeof(bool));
+
+                    foreach (var user in users)
+                    {
+                        dataTable.Rows.Add(
+                            user.Id,
+                            user.FirstName,
+                            user.LastName,
+                            user.Email,
+                            user.MobileNumber,
+                            user.DateOfBirth,
+                            user.Address,
+                            user.Username,
+                            user.Password,
+                            user.CreatedDate,
+                            user.softDeleteDate,
+                            user.isDeleted
+                        );
+                    }
+
+                    userBindingSource.DataSource = dataTable;
+                }
+                else
+                {
+                    // If search is empty, show all users
+                    RefreshUserData();
+                }
+                advancedDataGridView1.DataSource = userBindingSource;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error searching user data: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void searchTextBox_ContentChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Refreshes the user data displayed in the StaffTable.
+        /// </summary>
+        public void RefreshUserData()
         {
+            try
+            {
+                dataContext.ChangeTracker.Clear();
+                var users = from user in dataContext.User
+                              where !user.isDeleted // Only select non-deleted members
+                              select user;
 
+                // Convert to DataTable for sorting/filtering support
+                var dataTable = new DataTable();
+                dataTable.Columns.Add("Id", typeof(int));
+                dataTable.Columns.Add("FirstName", typeof(string));
+                dataTable.Columns.Add("LastName", typeof(string));
+                dataTable.Columns.Add("Email", typeof(string));
+                dataTable.Columns.Add("MobileNumber", typeof(string));
+                dataTable.Columns.Add("Address", typeof(string));
+                dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
+                dataTable.Columns.Add("Username", typeof(string));
+                dataTable.Columns.Add("Password", typeof(string));
+                dataTable.Columns.Add("CreatedDate", typeof(DateTime));
+                dataTable.Columns.Add("softDeleteDate", typeof(DateTime));
+                dataTable.Columns.Add("isDeleted", typeof(bool));
+
+                foreach (var user in users)
+                {
+                    dataTable.Rows.Add(
+                        user.Id,
+                        user.FirstName,
+                        user.LastName,
+                        user.Email,
+                        user.MobileNumber,
+                        user.DateOfBirth,
+                        user.Address,
+                        user.Username,
+                        user.Password,
+                        user.CreatedDate,
+                        user.softDeleteDate,
+                        user.isDeleted
+                    );
+                }
+
+                this.userBindingSource.DataSource = dataTable;
+                advancedDataGridView1.DataSource = userBindingSource;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading user data: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-    
+
+        private void StaffTable_Load(object sender, EventArgs e)
+        {
+            RefreshUserData();
+        }
+
     }
 }

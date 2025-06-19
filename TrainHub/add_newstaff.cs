@@ -30,13 +30,15 @@ namespace TrainHub
                 string.IsNullOrWhiteSpace(lastNameTxt.Content) ||
                 string.IsNullOrWhiteSpace(emailTxt.Content) ||
                 string.IsNullOrWhiteSpace(addressTxt.Content) ||
-                string.IsNullOrWhiteSpace(phoneNumTxt.Content))
+                string.IsNullOrWhiteSpace(phoneNumTxt.Content) ||
+                string.IsNullOrWhiteSpace(passwordTxt.Content) ||
+                string.IsNullOrWhiteSpace(usernameTxt.Content))
             {
                 MessageBox.Show("Please fill in all required fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (addressTxt.Text.Length > 5)
+            if (addressTxt.Content.Length < 6)
             {
                 MessageBox.Show("Address is too short. Please enter a complete address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -74,9 +76,11 @@ namespace TrainHub
                     FirstName = firstNameTxt.Content.Trim(),
                     LastName = lastNameTxt.Content.Trim(),
                     Email = emailTxt.Content.Trim(),
-                    PhoneNumber = phoneNumTxt.Content.Trim(),
+                    Password = passwordTxt.Content.Trim(),
+                    Username = usernameTxt.Content.Trim(),
+                    MobileNumber = phoneNumTxt.Content.Trim(),
                     Address = addressTxt.Content.Trim(),
-                    DateOfBirth = birthDate.Value.ToString("MM-dd-yyyy"),
+                    DateOfBirth = birthDate.Value.Date,
                 };
 
                 dataContext.User.Add(newUser);
@@ -84,7 +88,7 @@ namespace TrainHub
 
                 MessageBox.Show("New staff added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                //parentForm?.RefreshUserData();
+                parentForm?.RefreshUserData();
                 this.Close();
             }
             catch (Exception ex)
@@ -95,11 +99,8 @@ namespace TrainHub
 
         private void phoneNumTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (phoneNumTxt.Content.Length >= 11 && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-            else if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if ((phoneNumTxt.Content.Length >= 11 && !char.IsControl(e.KeyChar)) ||
+                (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)))
             {
                 e.Handled = true;
             }

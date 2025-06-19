@@ -74,9 +74,11 @@ namespace TrainHub
                     FirstName = firstNameTxt.Content.Trim(),
                     LastName = lastNameTxt.Content.Trim(),
                     Email = emailTxt.Content.Trim(),
-                    PhoneNumber = phoneNumTxt.Content.Trim(),
+                    Password = passwordTxt.Content.Trim(),
+                    Username = usernameTxt.Content.Trim(),
+                    MobileNumber = phoneNumTxt.Content.Trim(),
                     Address = addressTxt.Content.Trim(),
-                    DateOfBirth = birthDate.Value.ToString("MM-dd-yyyy"),
+                    DateOfBirth = birthDate.Value.Date,
                 };
 
                 dataContext.User.Add(newUser);
@@ -86,6 +88,8 @@ namespace TrainHub
 
                 //parentForm?.RefreshUserData();
                 this.Close();
+
+                parentForm?.RefreshUserData(); // Refresh the parent form's data
             }
             catch (Exception ex)
             {

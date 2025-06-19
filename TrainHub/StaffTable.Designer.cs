@@ -29,11 +29,8 @@ namespace TrainHub
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffTable));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             label2 = new Label();
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
             cuiPanel4 = new CuoreUI.Controls.cuiPanel();
@@ -45,16 +42,22 @@ namespace TrainHub
             cuiButtonGroup2 = new CuoreUI.Controls.cuiButtonGroup();
             cuiPanel8 = new CuoreUI.Controls.cuiPanel();
             label1 = new Label();
-            dataGridView2 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column11d = new DataGridViewImageColumn();
-            Column12 = new DataGridViewImageColumn();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            advancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            usernameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            mobileNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dateOfBirthDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            passwordDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            isAdminDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
+            isDeletedDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
+            softDeleteDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            createdDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            userBindingSource = new BindingSource(components);
             cuiPanel3 = new CuoreUI.Controls.cuiPanel();
             addStaffBtn = new CuoreUI.Controls.cuiButtonGroup();
             flowLayoutPanel1 = new FlowLayoutPanel();
@@ -62,8 +65,9 @@ namespace TrainHub
             cuiPanel4.SuspendLayout();
             cuiPanel7.SuspendLayout();
             cuiPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             cuiPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)advancedDataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
             cuiPanel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -137,7 +141,6 @@ namespace TrainHub
             searchTextBox.TabIndex = 15;
             searchTextBox.TextOffset = new Size(0, 0);
             searchTextBox.UnderlinedStyle = false;
-            searchTextBox.ContentChanged += searchTextBox_ContentChanged;
             // 
             // sortBtn
             // 
@@ -176,7 +179,6 @@ namespace TrainHub
             sortBtn.TabIndex = 22;
             sortBtn.TextAlignment = StringAlignment.Center;
             sortBtn.TextOffset = new Point(0, 0);
-            sortBtn.Click += sortBtn_Click;
             // 
             // cuiTextBox4
             // 
@@ -327,129 +329,10 @@ namespace TrainHub
             label1.TabIndex = 24;
             label1.Text = "Staffs";
             // 
-            // dataGridView2
-            // 
-            dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            dataGridView2.BackgroundColor = Color.White;
-            dataGridView2.CellBorderStyle = DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 250, 252);
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column11d, Column12 });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.Silver;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView2.EnableHeadersVisualStyles = false;
-            dataGridView2.GridColor = SystemColors.HighlightText;
-            dataGridView2.Location = new Point(38, 165);
-            dataGridView2.Margin = new Padding(3, 2, 3, 2);
-            dataGridView2.Name = "dataGridView2";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new Padding(5, 0, 0, 0);
-            dataGridViewCellStyle3.SelectionBackColor = Color.Silver;
-            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView2.RowHeadersVisible = false;
-            dataGridView2.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.Padding = new Padding(2, 0, 0, 0);
-            dataGridViewCellStyle4.SelectionBackColor = Color.Silver;
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridView2.RowTemplate.DefaultCellStyle.Padding = new Padding(0, 10, 0, 10);
-            dataGridView2.RowTemplate.DividerHeight = 1;
-            dataGridView2.RowTemplate.Height = 60;
-            dataGridView2.RowTemplate.Resizable = DataGridViewTriState.False;
-            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView2.Size = new Size(878, 375);
-            dataGridView2.TabIndex = 35;
-            dataGridView2.CellContentClick += dataGridView2_CellContentClick;
-            // 
-            // Column1
-            // 
-            Column1.FillWeight = 120F;
-            Column1.Frozen = true;
-            Column1.HeaderText = "Trainer ID";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.Width = 130;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Name";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Email Address";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Contact No.";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            Column4.Width = 125;
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Date of birth";
-            Column5.MinimumWidth = 6;
-            Column5.Name = "Column5";
-            Column5.Width = 125;
-            // 
-            // Column6
-            // 
-            Column6.HeaderText = "Address";
-            Column6.MinimumWidth = 10;
-            Column6.Name = "Column6";
-            Column6.Width = 125;
-            // 
-            // Column11d
-            // 
-            Column11d.HeaderText = "Edit";
-            Column11d.Image = (Image)resources.GetObject("Column11d.Image");
-            Column11d.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            Column11d.MinimumWidth = 6;
-            Column11d.Name = "Column11d";
-            Column11d.Resizable = DataGridViewTriState.True;
-            Column11d.SortMode = DataGridViewColumnSortMode.Automatic;
-            Column11d.Width = 125;
-            // 
-            // Column12
-            // 
-            Column12.HeaderText = "Delete";
-            Column12.Image = (Image)resources.GetObject("Column12.Image");
-            Column12.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            Column12.MinimumWidth = 6;
-            Column12.Name = "Column12";
-            Column12.Resizable = DataGridViewTriState.True;
-            Column12.SortMode = DataGridViewColumnSortMode.Automatic;
-            Column12.Width = 125;
-            // 
             // cuiPanel1
             // 
             cuiPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            cuiPanel1.Controls.Add(dataGridView2);
+            cuiPanel1.Controls.Add(advancedDataGridView1);
             cuiPanel1.Controls.Add(cuiPanel3);
             cuiPanel1.Controls.Add(cuiPanel8);
             cuiPanel1.Controls.Add(cuiPanel7);
@@ -465,6 +348,130 @@ namespace TrainHub
             cuiPanel1.Rounding = new Padding(8);
             cuiPanel1.Size = new Size(955, 563);
             cuiPanel1.TabIndex = 9;
+            // 
+            // advancedDataGridView1
+            // 
+            advancedDataGridView1.AutoGenerateColumns = false;
+            advancedDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, mobileNumberDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, passwordDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, isAdminDataGridViewCheckBoxColumn, isDeletedDataGridViewCheckBoxColumn, softDeleteDateDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn });
+            advancedDataGridView1.DataSource = userBindingSource;
+            advancedDataGridView1.FilterAndSortEnabled = true;
+            advancedDataGridView1.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
+            advancedDataGridView1.Location = new Point(38, 166);
+            advancedDataGridView1.MaxFilterButtonImageHeight = 23;
+            advancedDataGridView1.Name = "advancedDataGridView1";
+            advancedDataGridView1.RightToLeft = RightToLeft.No;
+            advancedDataGridView1.Size = new Size(878, 366);
+            advancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = true;
+            advancedDataGridView1.TabIndex = 37;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.MinimumWidth = 24;
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            firstNameDataGridViewTextBoxColumn.MinimumWidth = 24;
+            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            firstNameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            lastNameDataGridViewTextBoxColumn.MinimumWidth = 24;
+            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            lastNameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
+            usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+            usernameDataGridViewTextBoxColumn.MinimumWidth = 24;
+            usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            usernameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // mobileNumberDataGridViewTextBoxColumn
+            // 
+            mobileNumberDataGridViewTextBoxColumn.DataPropertyName = "MobileNumber";
+            mobileNumberDataGridViewTextBoxColumn.HeaderText = "MobileNumber";
+            mobileNumberDataGridViewTextBoxColumn.MinimumWidth = 24;
+            mobileNumberDataGridViewTextBoxColumn.Name = "mobileNumberDataGridViewTextBoxColumn";
+            mobileNumberDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dateOfBirthDataGridViewTextBoxColumn
+            // 
+            dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
+            dateOfBirthDataGridViewTextBoxColumn.HeaderText = "DateOfBirth";
+            dateOfBirthDataGridViewTextBoxColumn.MinimumWidth = 24;
+            dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
+            dateOfBirthDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            emailDataGridViewTextBoxColumn.MinimumWidth = 24;
+            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            emailDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            passwordDataGridViewTextBoxColumn.MinimumWidth = 24;
+            passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            passwordDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            addressDataGridViewTextBoxColumn.MinimumWidth = 24;
+            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            addressDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // isAdminDataGridViewCheckBoxColumn
+            // 
+            isAdminDataGridViewCheckBoxColumn.DataPropertyName = "isAdmin";
+            isAdminDataGridViewCheckBoxColumn.HeaderText = "isAdmin";
+            isAdminDataGridViewCheckBoxColumn.MinimumWidth = 24;
+            isAdminDataGridViewCheckBoxColumn.Name = "isAdminDataGridViewCheckBoxColumn";
+            isAdminDataGridViewCheckBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // isDeletedDataGridViewCheckBoxColumn
+            // 
+            isDeletedDataGridViewCheckBoxColumn.DataPropertyName = "isDeleted";
+            isDeletedDataGridViewCheckBoxColumn.HeaderText = "isDeleted";
+            isDeletedDataGridViewCheckBoxColumn.MinimumWidth = 24;
+            isDeletedDataGridViewCheckBoxColumn.Name = "isDeletedDataGridViewCheckBoxColumn";
+            isDeletedDataGridViewCheckBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // softDeleteDateDataGridViewTextBoxColumn
+            // 
+            softDeleteDateDataGridViewTextBoxColumn.DataPropertyName = "softDeleteDate";
+            softDeleteDateDataGridViewTextBoxColumn.HeaderText = "softDeleteDate";
+            softDeleteDateDataGridViewTextBoxColumn.MinimumWidth = 24;
+            softDeleteDateDataGridViewTextBoxColumn.Name = "softDeleteDateDataGridViewTextBoxColumn";
+            softDeleteDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // createdDateDataGridViewTextBoxColumn
+            // 
+            createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
+            createdDateDataGridViewTextBoxColumn.HeaderText = "CreatedDate";
+            createdDateDataGridViewTextBoxColumn.MinimumWidth = 24;
+            createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
+            createdDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // userBindingSource
+            // 
+            userBindingSource.DataSource = typeof(Models.User);
             // 
             // cuiPanel3
             // 
@@ -485,35 +492,36 @@ namespace TrainHub
             // 
             addStaffBtn.Anchor = AnchorStyles.Top;
             addStaffBtn.AutoSize = true;
-            addStaffBtn.BackColor = Color.Transparent;
+            addStaffBtn.BackColor = Color.FromArgb(50, 81, 88);
+            addStaffBtn.BorderStyle = BorderStyle.FixedSingle;
             addStaffBtn.Checked = false;
-            addStaffBtn.CheckedBackground = Color.White;
+            addStaffBtn.CheckedBackground = Color.FromArgb(50, 81, 88);
             addStaffBtn.CheckedForeColor = Color.Black;
-            addStaffBtn.CheckedImageTint = Color.White;
+            addStaffBtn.CheckedImageTint = Color.FromArgb(50, 81, 88);
             addStaffBtn.CheckedOutline = Color.Transparent;
             addStaffBtn.Content = "+ Add Staff";
             addStaffBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             addStaffBtn.ForeColor = Color.White;
             addStaffBtn.Group = 0;
-            addStaffBtn.HoverBackground = Color.Transparent;
-            addStaffBtn.HoveredImageTint = Color.Transparent;
-            addStaffBtn.HoverForeColor = Color.Black;
-            addStaffBtn.HoverOutline = Color.White;
+            addStaffBtn.HoverBackground = Color.FromArgb(50, 81, 88);
+            addStaffBtn.HoveredImageTint = Color.White;
+            addStaffBtn.HoverForeColor = Color.White;
+            addStaffBtn.HoverOutline = Color.FromArgb(50, 81, 88);
             addStaffBtn.Image = null;
             addStaffBtn.ImageAutoCenter = true;
             addStaffBtn.ImageExpand = new Point(0, 0);
             addStaffBtn.ImageOffset = new Point(0, 0);
             addStaffBtn.Location = new Point(22, 8);
             addStaffBtn.Name = "addStaffBtn";
-            addStaffBtn.NormalBackground = Color.FromArgb(50, 81, 88);
+            addStaffBtn.NormalBackground = Color.Empty;
             addStaffBtn.NormalForeColor = Color.White;
             addStaffBtn.NormalImageTint = Color.Black;
             addStaffBtn.NormalOutline = Color.Transparent;
             addStaffBtn.OutlineThickness = 1F;
-            addStaffBtn.PressedBackground = Color.White;
-            addStaffBtn.PressedForeColor = Color.White;
-            addStaffBtn.PressedImageTint = Color.White;
-            addStaffBtn.PressedOutline = Color.White;
+            addStaffBtn.PressedBackground = Color.FromArgb(50, 81, 88);
+            addStaffBtn.PressedForeColor = Color.FromArgb(50, 81, 88);
+            addStaffBtn.PressedImageTint = Color.FromArgb(50, 81, 88);
+            addStaffBtn.PressedOutline = Color.FromArgb(50, 81, 88);
             addStaffBtn.Rounding = new Padding(10);
             addStaffBtn.Size = new Size(113, 32);
             addStaffBtn.TabIndex = 23;
@@ -543,6 +551,7 @@ namespace TrainHub
             Margin = new Padding(3, 2, 3, 2);
             Name = "StaffTable";
             Text = "Form2";
+            Load += StaffTable_Load;
             cuiPanel2.ResumeLayout(false);
             cuiPanel4.ResumeLayout(false);
             cuiPanel4.PerformLayout();
@@ -550,9 +559,10 @@ namespace TrainHub
             cuiPanel7.PerformLayout();
             cuiPanel8.ResumeLayout(false);
             cuiPanel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             cuiPanel1.ResumeLayout(false);
             cuiPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)advancedDataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
             cuiPanel3.ResumeLayout(false);
             cuiPanel3.PerformLayout();
             ResumeLayout(false);
@@ -573,7 +583,6 @@ namespace TrainHub
         private CuoreUI.Controls.cuiButtonGroup cuiButtonGroup2;
         private CuoreUI.Controls.cuiPanel cuiPanel8;
         private Label label1;
-        private DataGridView dataGridView2;
         private CuoreUI.Controls.cuiPanel cuiPanel1;
         private FlowLayoutPanel flowLayoutPanel1;
         private CuoreUI.Controls.cuiPanel cuiPanel3;
@@ -581,13 +590,20 @@ namespace TrainHub
         private CuoreUI.Controls.cuiPanel cuiPanel4;
         private CuoreUI.Controls.cuiTextBox searchTextBox;
         private CuoreUI.Controls.cuiButtonGroup sortBtn;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
-        private DataGridViewImageColumn Column11d;
-        private DataGridViewImageColumn Column12;
+        private BindingSource userBindingSource;
+        private Zuby.ADGV.AdvancedDataGridView advancedDataGridView1;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn mobileNumberDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn isAdminDataGridViewCheckBoxColumn;
+        private DataGridViewCheckBoxColumn isDeletedDataGridViewCheckBoxColumn;
+        private DataGridViewTextBoxColumn softDeleteDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
     }
 }

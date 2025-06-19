@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="CuoreUI.Winforms" Version="2025.5.7" />
+    <PackageReference Include="DG.AdvancedDataGridView" Version="1.2.30115.18" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.6">
