@@ -6,19 +6,12 @@ namespace TrainHub
     public partial class StaffTable : Form
     {
         private TrainHubContext dataContext;
-        private int userID;
-        private bool isSortedAscending = true;
 
         public StaffTable()
         {
             InitializeComponent();
 
             dataContext = new TrainHubContext();
-            // Make the form full screen
-            this.WindowState = FormWindowState.Maximized;
-
-            // Hook search box
-            searchTextBox.TextChanged += searchTextBox_TextChanged;
 
         }
 
@@ -27,8 +20,8 @@ namespace TrainHub
             // Edit button column index = 6
             if (e.ColumnIndex == 7 && e.RowIndex >= 0)
             {
-                int selectedUserID = GetUserIDFromRow(e.RowIndex);
-                edit_staff editForm = new edit_staff(selectedUserID, this);
+                int userID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                edit_staff editForm = new edit_staff(userID, this);
                 editForm.ShowDialog();
             }
 
@@ -41,13 +34,6 @@ namespace TrainHub
                     advancedDataGridView1.Rows[e.RowIndex].Visible = false; // Soft delete
                 }
             }
-        }
-
-        private int GetUserIDFromRow(int rowIndex)
-        {
-            // You can customize this to get actual user ID if stored in DB
-            string userIDString = advancedDataGridView1.Rows[rowIndex].Cells[0].Value?.ToString();
-            return int.TryParse(userIDString?.Substring(1), out int id) ? id : 0; // e.g., M001 -> 1
         }
 
         private void addStaffBtn_Click(object sender, EventArgs e)
@@ -73,12 +59,12 @@ namespace TrainHub
                     dataTable.Columns.Add("Id", typeof(int));
                     dataTable.Columns.Add("FirstName", typeof(string));
                     dataTable.Columns.Add("LastName", typeof(string));
-                    dataTable.Columns.Add("Email", typeof(string));
-                    dataTable.Columns.Add("MobileNumber", typeof(string));
-                    dataTable.Columns.Add("Address", typeof(string));
-                    dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
                     dataTable.Columns.Add("Username", typeof(string));
+                    dataTable.Columns.Add("MobileNumber", typeof(string));
+                    dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
+                    dataTable.Columns.Add("Email", typeof(string));
                     dataTable.Columns.Add("Password", typeof(string));
+                    dataTable.Columns.Add("Address", typeof(string));
                     dataTable.Columns.Add("CreatedDate", typeof(DateTime));
                     dataTable.Columns.Add("softDeleteDate", typeof(DateTime));
                     dataTable.Columns.Add("isDeleted", typeof(bool));
@@ -126,20 +112,20 @@ namespace TrainHub
             {
                 dataContext.ChangeTracker.Clear();
                 var users = from user in dataContext.User
-                              where !user.isDeleted // Only select non-deleted members
-                              select user;
+                            where !user.isDeleted // Only select non-deleted members
+                            select user;
 
                 // Convert to DataTable for sorting/filtering support
                 var dataTable = new DataTable();
                 dataTable.Columns.Add("Id", typeof(int));
                 dataTable.Columns.Add("FirstName", typeof(string));
                 dataTable.Columns.Add("LastName", typeof(string));
-                dataTable.Columns.Add("Email", typeof(string));
-                dataTable.Columns.Add("MobileNumber", typeof(string));
-                dataTable.Columns.Add("Address", typeof(string));
-                dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
                 dataTable.Columns.Add("Username", typeof(string));
+                dataTable.Columns.Add("MobileNumber", typeof(string));
+                dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
+                dataTable.Columns.Add("Email", typeof(string));
                 dataTable.Columns.Add("Password", typeof(string));
+                dataTable.Columns.Add("Address", typeof(string));
                 dataTable.Columns.Add("CreatedDate", typeof(DateTime));
                 dataTable.Columns.Add("softDeleteDate", typeof(DateTime));
                 dataTable.Columns.Add("isDeleted", typeof(bool));
@@ -178,5 +164,14 @@ namespace TrainHub
             RefreshUserData();
         }
 
+        private void cuiPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
