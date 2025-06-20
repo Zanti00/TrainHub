@@ -5,7 +5,7 @@
 namespace TrainHub.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateDateTimeToToday : Migration
+    public partial class RemoveExpiryDateColumn : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
