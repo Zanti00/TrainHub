@@ -24,6 +24,10 @@ namespace TrainHub
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
+        public edit_staff()
+        {
+        }
+
         private async void okBtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(firstNameTxt.Content) ||

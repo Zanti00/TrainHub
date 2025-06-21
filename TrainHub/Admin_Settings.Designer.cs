@@ -31,17 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_Settings));
             label1 = new Label();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
-            passwordEditBtn = new CuoreUI.Controls.cuiButton();
+            label4 = new Label();
+            passwordTextBox = new CuoreUI.Controls.cuiTextBox();
             phoneEditBtn = new CuoreUI.Controls.cuiButton();
             emailEditBtn = new CuoreUI.Controls.cuiButton();
-            label4 = new Label();
             label2 = new Label();
             cuiTextBox2 = new CuoreUI.Controls.cuiTextBox();
             label6 = new Label();
-            loginBtn = new CuoreUI.Controls.cuiButtonGroup();
-            cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
-            passwordTxt = new CuoreUI.Controls.cuiTextBox();
+            saveChangesBtn = new CuoreUI.Controls.cuiButtonGroup();
+            phoneTextBox = new CuoreUI.Controls.cuiTextBox();
             label3 = new Label();
+            passwordEditBtn = new CuoreUI.Controls.cuiButton();
             cuiPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -52,9 +52,9 @@
             label1.Font = new Font("Microsoft YaHei", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(50, 81, 88);
             label1.ImageAlign = ContentAlignment.MiddleLeft;
-            label1.Location = new Point(77, 48);
+            label1.Location = new Point(67, 36);
             label1.Name = "label1";
-            label1.Size = new Size(409, 45);
+            label1.Size = new Size(324, 36);
             label1.TabIndex = 13;
             label1.Text = "Administrator Settings";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -64,65 +64,69 @@
             cuiPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             cuiPanel1.BackColor = SystemColors.ButtonHighlight;
             cuiPanel1.Controls.Add(passwordEditBtn);
+            cuiPanel1.Controls.Add(label4);
+            cuiPanel1.Controls.Add(passwordTextBox);
             cuiPanel1.Controls.Add(phoneEditBtn);
             cuiPanel1.Controls.Add(emailEditBtn);
-            cuiPanel1.Controls.Add(label4);
             cuiPanel1.Controls.Add(label2);
             cuiPanel1.Controls.Add(cuiTextBox2);
             cuiPanel1.Controls.Add(label6);
-            cuiPanel1.Controls.Add(loginBtn);
-            cuiPanel1.Controls.Add(cuiTextBox1);
-            cuiPanel1.Controls.Add(passwordTxt);
+            cuiPanel1.Controls.Add(saveChangesBtn);
+            cuiPanel1.Controls.Add(phoneTextBox);
             cuiPanel1.Controls.Add(label3);
             cuiPanel1.Controls.Add(label1);
-            cuiPanel1.Location = new Point(42, 27);
+            cuiPanel1.Location = new Point(37, 20);
+            cuiPanel1.Margin = new Padding(3, 2, 3, 2);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
             cuiPanel1.PanelColor = Color.White;
             cuiPanel1.PanelOutlineColor = Color.Black;
             cuiPanel1.Rounding = new Padding(8);
-            cuiPanel1.Size = new Size(653, 660);
+            cuiPanel1.Size = new Size(571, 495);
             cuiPanel1.TabIndex = 10;
             // 
-            // passwordEditBtn
+            // label4
             // 
-            passwordEditBtn.BackColor = Color.Transparent;
-            passwordEditBtn.BackgroundImage = (Image)resources.GetObject("passwordEditBtn.BackgroundImage");
-            passwordEditBtn.BackgroundImageLayout = ImageLayout.Zoom;
-            passwordEditBtn.CheckButton = false;
-            passwordEditBtn.Checked = false;
-            passwordEditBtn.CheckedBackground = Color.FromArgb(255, 106, 0);
-            passwordEditBtn.CheckedForeColor = SystemColors.ButtonHighlight;
-            passwordEditBtn.CheckedImageTint = SystemColors.ButtonHighlight;
-            passwordEditBtn.CheckedOutline = Color.FromArgb(255, 106, 0);
-            passwordEditBtn.Content = "Edit";
-            passwordEditBtn.DialogResult = DialogResult.None;
-            passwordEditBtn.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            passwordEditBtn.ForeColor = Color.FromArgb(50, 81, 88);
-            passwordEditBtn.HoverBackground = Color.Transparent;
-            passwordEditBtn.HoveredImageTint = Color.Transparent;
-            passwordEditBtn.HoverForeColor = Color.Black;
-            passwordEditBtn.HoverOutline = Color.FromArgb(32, 128, 128, 128);
-            passwordEditBtn.Image = null;
-            passwordEditBtn.ImageAutoCenter = true;
-            passwordEditBtn.ImageExpand = new Point(0, 0);
-            passwordEditBtn.ImageOffset = new Point(0, 0);
-            passwordEditBtn.Location = new Point(442, 453);
-            passwordEditBtn.Name = "passwordEditBtn";
-            passwordEditBtn.NormalBackground = Color.White;
-            passwordEditBtn.NormalForeColor = Color.FromArgb(50, 81, 88);
-            passwordEditBtn.NormalImageTint = Color.White;
-            passwordEditBtn.NormalOutline = Color.FromArgb(64, 128, 128, 128);
-            passwordEditBtn.OutlineThickness = 1F;
-            passwordEditBtn.PressedBackground = Color.WhiteSmoke;
-            passwordEditBtn.PressedForeColor = Color.FromArgb(32, 32, 32);
-            passwordEditBtn.PressedImageTint = Color.White;
-            passwordEditBtn.PressedOutline = Color.FromArgb(64, 128, 128, 128);
-            passwordEditBtn.Rounding = new Padding(8);
-            passwordEditBtn.Size = new Size(112, 40);
-            passwordEditBtn.TabIndex = 28;
-            passwordEditBtn.TextAlignment = StringAlignment.Center;
-            passwordEditBtn.TextOffset = new Point(0, 0);
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.FromArgb(0, 0, 64);
+            label4.ImageAlign = ContentAlignment.MiddleLeft;
+            label4.Location = new Point(67, 320);
+            label4.Margin = new Padding(5, 0, 3, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(87, 15);
+            label4.TabIndex = 29;
+            label4.Text = "Enter Password";
+            label4.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // passwordTextBox
+            // 
+            passwordTextBox.BackColor = Color.Transparent;
+            passwordTextBox.BackgroundColor = Color.WhiteSmoke;
+            passwordTextBox.BorderColor = Color.FromArgb(50, 81, 88);
+            passwordTextBox.Content = "";
+            passwordTextBox.FocusBackgroundColor = Color.White;
+            passwordTextBox.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            passwordTextBox.FocusImageTint = Color.White;
+            passwordTextBox.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            passwordTextBox.ForeColor = Color.Black;
+            passwordTextBox.Image = null;
+            passwordTextBox.ImageExpand = new Point(0, 0);
+            passwordTextBox.ImageOffset = new Point(0, 0);
+            passwordTextBox.Location = new Point(67, 339);
+            passwordTextBox.Margin = new Padding(4);
+            passwordTextBox.Multiline = false;
+            passwordTextBox.Name = "passwordTextBox";
+            passwordTextBox.NormalImageTint = Color.White;
+            passwordTextBox.Padding = new Padding(13, 9, 13, 0);
+            passwordTextBox.PasswordChar = false;
+            passwordTextBox.PlaceholderColor = SystemColors.ScrollBar;
+            passwordTextBox.PlaceholderText = "Please enter your password...";
+            passwordTextBox.Rounding = new Padding(6);
+            passwordTextBox.Size = new Size(294, 30);
+            passwordTextBox.TabIndex = 28;
+            passwordTextBox.TextOffset = new Size(0, 0);
+            passwordTextBox.UnderlinedStyle = false;
             // 
             // phoneEditBtn
             // 
@@ -147,7 +151,8 @@
             phoneEditBtn.ImageAutoCenter = true;
             phoneEditBtn.ImageExpand = new Point(0, 0);
             phoneEditBtn.ImageOffset = new Point(0, 0);
-            phoneEditBtn.Location = new Point(442, 330);
+            phoneEditBtn.Location = new Point(387, 248);
+            phoneEditBtn.Margin = new Padding(3, 2, 3, 2);
             phoneEditBtn.Name = "phoneEditBtn";
             phoneEditBtn.NormalBackground = Color.White;
             phoneEditBtn.NormalForeColor = Color.FromArgb(50, 81, 88);
@@ -159,10 +164,11 @@
             phoneEditBtn.PressedImageTint = Color.White;
             phoneEditBtn.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             phoneEditBtn.Rounding = new Padding(8);
-            phoneEditBtn.Size = new Size(112, 40);
+            phoneEditBtn.Size = new Size(98, 30);
             phoneEditBtn.TabIndex = 27;
             phoneEditBtn.TextAlignment = StringAlignment.Center;
             phoneEditBtn.TextOffset = new Point(0, 0);
+            phoneEditBtn.Click += phoneEditBtn_Click;
             // 
             // emailEditBtn
             // 
@@ -187,7 +193,8 @@
             emailEditBtn.ImageAutoCenter = true;
             emailEditBtn.ImageExpand = new Point(0, 0);
             emailEditBtn.ImageOffset = new Point(0, 0);
-            emailEditBtn.Location = new Point(442, 208);
+            emailEditBtn.Location = new Point(387, 156);
+            emailEditBtn.Margin = new Padding(3, 2, 3, 2);
             emailEditBtn.Name = "emailEditBtn";
             emailEditBtn.NormalBackground = Color.White;
             emailEditBtn.NormalForeColor = Color.FromArgb(50, 81, 88);
@@ -199,24 +206,11 @@
             emailEditBtn.PressedImageTint = Color.White;
             emailEditBtn.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             emailEditBtn.Rounding = new Padding(8);
-            emailEditBtn.Size = new Size(112, 40);
+            emailEditBtn.Size = new Size(98, 30);
             emailEditBtn.TabIndex = 26;
             emailEditBtn.TextAlignment = StringAlignment.Center;
             emailEditBtn.TextOffset = new Point(0, 0);
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.FromArgb(0, 0, 64);
-            label4.ImageAlign = ContentAlignment.MiddleLeft;
-            label4.Location = new Point(77, 428);
-            label4.Margin = new Padding(6, 0, 3, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(124, 20);
-            label4.TabIndex = 25;
-            label4.Text = "Change Password";
-            label4.TextAlign = ContentAlignment.MiddleLeft;
+            emailEditBtn.Click += emailEditBtn_Click;
             // 
             // label2
             // 
@@ -224,10 +218,10 @@
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(0, 0, 64);
             label2.ImageAlign = ContentAlignment.MiddleLeft;
-            label2.Location = new Point(77, 305);
-            label2.Margin = new Padding(6, 0, 3, 0);
+            label2.Location = new Point(67, 229);
+            label2.Margin = new Padding(5, 0, 3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(146, 20);
+            label2.Size = new Size(118, 15);
             label2.TabIndex = 24;
             label2.Text = "Enter Phone Number";
             label2.TextAlign = ContentAlignment.MiddleLeft;
@@ -246,17 +240,17 @@
             cuiTextBox2.Image = null;
             cuiTextBox2.ImageExpand = new Point(0, 0);
             cuiTextBox2.ImageOffset = new Point(0, 0);
-            cuiTextBox2.Location = new Point(77, 208);
-            cuiTextBox2.Margin = new Padding(5);
+            cuiTextBox2.Location = new Point(67, 156);
+            cuiTextBox2.Margin = new Padding(4);
             cuiTextBox2.Multiline = false;
             cuiTextBox2.Name = "cuiTextBox2";
             cuiTextBox2.NormalImageTint = Color.White;
-            cuiTextBox2.Padding = new Padding(16, 12, 16, 0);
-            cuiTextBox2.PasswordChar = true;
+            cuiTextBox2.Padding = new Padding(13, 9, 13, 0);
+            cuiTextBox2.PasswordChar = false;
             cuiTextBox2.PlaceholderColor = SystemColors.ScrollBar;
             cuiTextBox2.PlaceholderText = "Please enter your email...";
             cuiTextBox2.Rounding = new Padding(6);
-            cuiTextBox2.Size = new Size(336, 40);
+            cuiTextBox2.Size = new Size(294, 30);
             cuiTextBox2.TabIndex = 23;
             cuiTextBox2.TextOffset = new Size(0, 0);
             cuiTextBox2.UnderlinedStyle = false;
@@ -267,130 +261,140 @@
             label6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(0, 0, 64);
             label6.ImageAlign = ContentAlignment.MiddleLeft;
-            label6.Location = new Point(77, 183);
-            label6.Margin = new Padding(6, 0, 3, 0);
+            label6.Location = new Point(67, 137);
+            label6.Margin = new Padding(5, 0, 3, 0);
             label6.Name = "label6";
-            label6.Size = new Size(141, 20);
+            label6.Size = new Size(111, 15);
             label6.TabIndex = 22;
             label6.Text = "Enter Email Address";
             label6.TextAlign = ContentAlignment.MiddleLeft;
-          //label6.Click += label6_Click;
             // 
-            // loginBtn
+            // saveChangesBtn
             // 
-            loginBtn.BackColor = Color.Transparent;
-            loginBtn.Checked = false;
-            loginBtn.CheckedBackground = Color.FromArgb(50, 81, 88);
-            loginBtn.CheckedForeColor = Color.White;
-            loginBtn.CheckedImageTint = Color.White;
-            loginBtn.CheckedOutline = Color.FromArgb(50, 81, 88);
-            loginBtn.Content = "SAVE CHANGES";
-            loginBtn.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            loginBtn.ForeColor = Color.White;
-            loginBtn.Group = 0;
-            loginBtn.HoverBackground = Color.White;
-            loginBtn.HoveredImageTint = Color.White;
-            loginBtn.HoverForeColor = Color.Black;
-            loginBtn.HoverOutline = Color.FromArgb(22, 36, 39);
-            loginBtn.Image = null;
-            loginBtn.ImageAutoCenter = true;
-            loginBtn.ImageExpand = new Point(0, 0);
-            loginBtn.ImageOffset = new Point(0, 0);
-            loginBtn.Location = new Point(150, 564);
-            loginBtn.Margin = new Padding(3, 4, 3, 4);
-            loginBtn.Name = "loginBtn";
-            loginBtn.NormalBackground = Color.FromArgb(50, 81, 88);
-            loginBtn.NormalForeColor = Color.White;
-            loginBtn.NormalImageTint = Color.White;
-            loginBtn.NormalOutline = Color.FromArgb(50, 81, 88);
-            loginBtn.OutlineThickness = 1F;
-            loginBtn.PressedBackground = Color.FromArgb(22, 36, 39);
-            loginBtn.PressedForeColor = Color.White;
-            loginBtn.PressedImageTint = Color.White;
-            loginBtn.PressedOutline = Color.FromArgb(22, 36, 39);
-            loginBtn.Rounding = new Padding(6);
-            loginBtn.Size = new Size(336, 46);
-            loginBtn.TabIndex = 21;
-            loginBtn.TextAlignment = StringAlignment.Center;
-            loginBtn.TextOffset = new Point(0, 0);
-          //loginBtn.Click += loginBtn_Click;
+            saveChangesBtn.BackColor = Color.Transparent;
+            saveChangesBtn.Checked = false;
+            saveChangesBtn.CheckedBackground = Color.FromArgb(50, 81, 88);
+            saveChangesBtn.CheckedForeColor = Color.White;
+            saveChangesBtn.CheckedImageTint = Color.White;
+            saveChangesBtn.CheckedOutline = Color.FromArgb(50, 81, 88);
+            saveChangesBtn.Content = "SAVE CHANGES";
+            saveChangesBtn.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            saveChangesBtn.ForeColor = Color.White;
+            saveChangesBtn.Group = 0;
+            saveChangesBtn.HoverBackground = Color.White;
+            saveChangesBtn.HoveredImageTint = Color.White;
+            saveChangesBtn.HoverForeColor = Color.Black;
+            saveChangesBtn.HoverOutline = Color.FromArgb(22, 36, 39);
+            saveChangesBtn.Image = null;
+            saveChangesBtn.ImageAutoCenter = true;
+            saveChangesBtn.ImageExpand = new Point(0, 0);
+            saveChangesBtn.ImageOffset = new Point(0, 0);
+            saveChangesBtn.Location = new Point(131, 423);
+            saveChangesBtn.Name = "saveChangesBtn";
+            saveChangesBtn.NormalBackground = Color.FromArgb(50, 81, 88);
+            saveChangesBtn.NormalForeColor = Color.White;
+            saveChangesBtn.NormalImageTint = Color.White;
+            saveChangesBtn.NormalOutline = Color.FromArgb(50, 81, 88);
+            saveChangesBtn.OutlineThickness = 1F;
+            saveChangesBtn.PressedBackground = Color.FromArgb(22, 36, 39);
+            saveChangesBtn.PressedForeColor = Color.White;
+            saveChangesBtn.PressedImageTint = Color.White;
+            saveChangesBtn.PressedOutline = Color.FromArgb(22, 36, 39);
+            saveChangesBtn.Rounding = new Padding(6);
+            saveChangesBtn.Size = new Size(294, 34);
+            saveChangesBtn.TabIndex = 21;
+            saveChangesBtn.TextAlignment = StringAlignment.Center;
+            saveChangesBtn.TextOffset = new Point(0, 0);
+            saveChangesBtn.Click += saveChangesBtn_Click;
             // 
-            // cuiTextBox1
+            // phoneTextBox
             // 
-            cuiTextBox1.BackColor = Color.Transparent;
-            cuiTextBox1.BackgroundColor = Color.WhiteSmoke;
-            cuiTextBox1.BorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox1.Content = "";
-            cuiTextBox1.FocusBackgroundColor = Color.White;
-            cuiTextBox1.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox1.FocusImageTint = Color.White;
-            cuiTextBox1.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiTextBox1.ForeColor = Color.Black;
-            cuiTextBox1.Image = null;
-            cuiTextBox1.ImageExpand = new Point(0, 0);
-            cuiTextBox1.ImageOffset = new Point(0, 0);
-            cuiTextBox1.Location = new Point(77, 453);
-            cuiTextBox1.Margin = new Padding(5);
-            cuiTextBox1.Multiline = false;
-            cuiTextBox1.Name = "cuiTextBox1";
-            cuiTextBox1.NormalImageTint = Color.White;
-            cuiTextBox1.Padding = new Padding(16, 12, 16, 0);
-            cuiTextBox1.PasswordChar = true;
-            cuiTextBox1.PlaceholderColor = SystemColors.ScrollBar;
-            cuiTextBox1.PlaceholderText = "Please enter your password...";
-            cuiTextBox1.Rounding = new Padding(6);
-            cuiTextBox1.Size = new Size(336, 40);
-            cuiTextBox1.TabIndex = 19;
-            cuiTextBox1.TextOffset = new Size(0, 0);
-            cuiTextBox1.UnderlinedStyle = false;
-            // 
-            // passwordTxt
-            // 
-            passwordTxt.BackColor = Color.Transparent;
-            passwordTxt.BackgroundColor = Color.WhiteSmoke;
-            passwordTxt.BorderColor = Color.FromArgb(50, 81, 88);
-            passwordTxt.Content = "";
-            passwordTxt.FocusBackgroundColor = Color.White;
-            passwordTxt.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            passwordTxt.FocusImageTint = Color.White;
-            passwordTxt.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            passwordTxt.ForeColor = Color.Black;
-            passwordTxt.Image = null;
-            passwordTxt.ImageExpand = new Point(0, 0);
-            passwordTxt.ImageOffset = new Point(0, 0);
-            passwordTxt.Location = new Point(77, 330);
-            passwordTxt.Margin = new Padding(5);
-            passwordTxt.Multiline = false;
-            passwordTxt.Name = "passwordTxt";
-            passwordTxt.NormalImageTint = Color.White;
-            passwordTxt.Padding = new Padding(16, 12, 16, 0);
-            passwordTxt.PasswordChar = true;
-            passwordTxt.PlaceholderColor = SystemColors.ScrollBar;
-            passwordTxt.PlaceholderText = "Please enter your phone number...";
-            passwordTxt.Rounding = new Padding(6);
-            passwordTxt.Size = new Size(336, 40);
-            passwordTxt.TabIndex = 17;
-            passwordTxt.TextOffset = new Size(0, 0);
-            passwordTxt.UnderlinedStyle = false;
-          //passwordTxt.ContentChanged += passwordTxt_ContentChanged;
+            phoneTextBox.BackColor = Color.Transparent;
+            phoneTextBox.BackgroundColor = Color.WhiteSmoke;
+            phoneTextBox.BorderColor = Color.FromArgb(50, 81, 88);
+            phoneTextBox.Content = "";
+            phoneTextBox.FocusBackgroundColor = Color.White;
+            phoneTextBox.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            phoneTextBox.FocusImageTint = Color.White;
+            phoneTextBox.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            phoneTextBox.ForeColor = Color.Black;
+            phoneTextBox.Image = null;
+            phoneTextBox.ImageExpand = new Point(0, 0);
+            phoneTextBox.ImageOffset = new Point(0, 0);
+            phoneTextBox.Location = new Point(67, 248);
+            phoneTextBox.Margin = new Padding(4);
+            phoneTextBox.Multiline = false;
+            phoneTextBox.Name = "phoneTextBox";
+            phoneTextBox.NormalImageTint = Color.White;
+            phoneTextBox.Padding = new Padding(13, 9, 13, 0);
+            phoneTextBox.PasswordChar = false;
+            phoneTextBox.PlaceholderColor = SystemColors.ScrollBar;
+            phoneTextBox.PlaceholderText = "Please enter your phone number...";
+            phoneTextBox.Rounding = new Padding(6);
+            phoneTextBox.Size = new Size(294, 30);
+            phoneTextBox.TabIndex = 17;
+            phoneTextBox.TextOffset = new Size(0, 0);
+            phoneTextBox.UnderlinedStyle = false;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.ForeColor = Color.FromArgb(130, 130, 130);
-            label3.Location = new Point(77, 113);
-            label3.Margin = new Padding(11, 20, 3, 0);
+            label3.Location = new Point(67, 85);
+            label3.Margin = new Padding(10, 15, 3, 0);
             label3.Name = "label3";
-            label3.Size = new Size(337, 20);
+            label3.Size = new Size(273, 15);
             label3.TabIndex = 15;
             label3.Text = "\"Welcome admin. Make changes to your account\"";
             // 
+            // passwordEditBtn
+            // 
+            passwordEditBtn.BackColor = Color.Transparent;
+            passwordEditBtn.BackgroundImage = (Image)resources.GetObject("passwordEditBtn.BackgroundImage");
+            passwordEditBtn.BackgroundImageLayout = ImageLayout.Zoom;
+            passwordEditBtn.CheckButton = false;
+            passwordEditBtn.Checked = false;
+            passwordEditBtn.CheckedBackground = Color.FromArgb(255, 106, 0);
+            passwordEditBtn.CheckedForeColor = SystemColors.ButtonHighlight;
+            passwordEditBtn.CheckedImageTint = SystemColors.ButtonHighlight;
+            passwordEditBtn.CheckedOutline = Color.FromArgb(255, 106, 0);
+            passwordEditBtn.Content = "Edit";
+            passwordEditBtn.DialogResult = DialogResult.None;
+            passwordEditBtn.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            passwordEditBtn.ForeColor = Color.FromArgb(50, 81, 88);
+            passwordEditBtn.HoverBackground = Color.Transparent;
+            passwordEditBtn.HoveredImageTint = Color.Transparent;
+            passwordEditBtn.HoverForeColor = Color.Black;
+            passwordEditBtn.HoverOutline = Color.FromArgb(32, 128, 128, 128);
+            passwordEditBtn.Image = null;
+            passwordEditBtn.ImageAutoCenter = true;
+            passwordEditBtn.ImageExpand = new Point(0, 0);
+            passwordEditBtn.ImageOffset = new Point(0, 0);
+            passwordEditBtn.Location = new Point(387, 339);
+            passwordEditBtn.Margin = new Padding(3, 2, 3, 2);
+            passwordEditBtn.Name = "passwordEditBtn";
+            passwordEditBtn.NormalBackground = Color.White;
+            passwordEditBtn.NormalForeColor = Color.FromArgb(50, 81, 88);
+            passwordEditBtn.NormalImageTint = Color.White;
+            passwordEditBtn.NormalOutline = Color.FromArgb(64, 128, 128, 128);
+            passwordEditBtn.OutlineThickness = 1F;
+            passwordEditBtn.PressedBackground = Color.WhiteSmoke;
+            passwordEditBtn.PressedForeColor = Color.FromArgb(32, 32, 32);
+            passwordEditBtn.PressedImageTint = Color.White;
+            passwordEditBtn.PressedOutline = Color.FromArgb(64, 128, 128, 128);
+            passwordEditBtn.Rounding = new Padding(8);
+            passwordEditBtn.Size = new Size(98, 30);
+            passwordEditBtn.TabIndex = 30;
+            passwordEditBtn.TextAlignment = StringAlignment.Center;
+            passwordEditBtn.TextOffset = new Point(0, 0);
+            // 
             // Admin_Settings
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(736, 699);
+            ClientSize = new Size(644, 524);
             Controls.Add(cuiPanel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Admin_Settings";
             Text = "Admin_Settings";
             cuiPanel1.ResumeLayout(false);
@@ -402,16 +406,16 @@
 
         private Label label1;
         private CuoreUI.Controls.cuiPanel cuiPanel1;
-        private CuoreUI.Controls.cuiButtonGroup loginBtn;
-        private CuoreUI.Controls.cuiTextBox cuiTextBox1;
-        private CuoreUI.Controls.cuiTextBox passwordTxt;
+        private CuoreUI.Controls.cuiButtonGroup saveChangesBtn;
+        private CuoreUI.Controls.cuiTextBox phoneTextBox;
         private Label label3;
         private Label label6;
         private CuoreUI.Controls.cuiTextBox cuiTextBox2;
-        private Label label4;
         private Label label2;
         private CuoreUI.Controls.cuiButton emailEditBtn;
-        private CuoreUI.Controls.cuiButton passwordEditBtn;
         private CuoreUI.Controls.cuiButton phoneEditBtn;
+        private Label label4;
+        private CuoreUI.Controls.cuiTextBox passwordTextBox;
+        private CuoreUI.Controls.cuiButton passwordEditBtn;
     }
 }

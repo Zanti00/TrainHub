@@ -104,7 +104,7 @@
             passwordEyeButton.TabIndex = 22;
             passwordEyeButton.TextAlignment = StringAlignment.Center;
             passwordEyeButton.TextOffset = new Point(0, 0);
-            passwordEyeButton.Click += showPassBtn_Click;
+            passwordEyeButton.Click += passwordEyeButton_Click;
             // 
             // saveBtn
             // 

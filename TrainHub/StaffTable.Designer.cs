@@ -30,22 +30,33 @@ namespace TrainHub
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             label2 = new Label();
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
             label1 = new Label();
             cuiPanel4 = new CuoreUI.Controls.cuiPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             advancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
+            userBindingSource = new BindingSource(components);
+            panel1 = new Panel();
+            panel2 = new Panel();
+            panel3 = new Panel();
+            cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            cuiTextBox2 = new CuoreUI.Controls.cuiTextBox();
+            cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
+            searchTextBox = new CuoreUI.Controls.cuiTextBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            cuiPanel3 = new CuoreUI.Controls.cuiPanel();
+            addStaffBtn = new CuoreUI.Controls.cuiButton();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -55,28 +66,17 @@ namespace TrainHub
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             createdDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            userBindingSource = new BindingSource(components);
-            panel1 = new Panel();
-            searchTextBox = new CuoreUI.Controls.cuiTextBox();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            cuiPanel3 = new CuoreUI.Controls.cuiPanel();
-            addStaffBtn = new CuoreUI.Controls.cuiButton();
-            panel2 = new Panel();
-            cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
-            panel3 = new Panel();
-            cuiTextBox2 = new CuoreUI.Controls.cuiTextBox();
-            cuiPanel1 = new CuoreUI.Controls.cuiPanel();
             cuiPanel2.SuspendLayout();
             cuiPanel4.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)advancedDataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
             panel1.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
-            cuiPanel3.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             cuiPanel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            cuiPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // label2
@@ -123,14 +123,14 @@ namespace TrainHub
             // 
             cuiPanel4.Controls.Add(tableLayoutPanel2);
             cuiPanel4.Dock = DockStyle.Fill;
-            cuiPanel4.Location = new Point(3, 92);
+            cuiPanel4.Location = new Point(3, 120);
             cuiPanel4.Margin = new Padding(3, 2, 3, 2);
             cuiPanel4.Name = "cuiPanel4";
             cuiPanel4.OutlineThickness = 1F;
             cuiPanel4.PanelColor = Color.FromArgb(248, 250, 252);
             cuiPanel4.PanelOutlineColor = Color.FromArgb(248, 250, 252);
             cuiPanel4.Rounding = new Padding(8, 8, 0, 0);
-            cuiPanel4.Size = new Size(779, 361);
+            cuiPanel4.Size = new Size(1147, 474);
             cuiPanel4.TabIndex = 37;
             // 
             // tableLayoutPanel2
@@ -145,7 +145,7 @@ namespace TrainHub
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 88F));
-            tableLayoutPanel2.Size = new Size(779, 361);
+            tableLayoutPanel2.Size = new Size(1147, 474);
             tableLayoutPanel2.TabIndex = 38;
             // 
             // advancedDataGridView1
@@ -154,116 +154,24 @@ namespace TrainHub
             advancedDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, mobileNumberDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn });
             advancedDataGridView1.DataSource = userBindingSource;
-            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = SystemColors.Window;
-            dataGridViewCellStyle20.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle20.ForeColor = Color.White;
-            dataGridViewCellStyle20.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = DataGridViewTriState.False;
-            advancedDataGridView1.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = SystemColors.Window;
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle10.ForeColor = Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
+            advancedDataGridView1.DefaultCellStyle = dataGridViewCellStyle10;
             advancedDataGridView1.Dock = DockStyle.Fill;
             advancedDataGridView1.FilterAndSortEnabled = true;
             advancedDataGridView1.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
-            advancedDataGridView1.Location = new Point(3, 46);
+            advancedDataGridView1.Location = new Point(3, 59);
             advancedDataGridView1.MaxFilterButtonImageHeight = 23;
             advancedDataGridView1.Name = "advancedDataGridView1";
             advancedDataGridView1.RightToLeft = RightToLeft.No;
-            advancedDataGridView1.Size = new Size(773, 312);
+            advancedDataGridView1.Size = new Size(1141, 412);
             advancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = true;
             advancedDataGridView1.TabIndex = 37;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            dataGridViewCellStyle11.ForeColor = Color.Black;
-            dataGridViewCellStyle11.SelectionForeColor = Color.White;
-            idDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.MinimumWidth = 24;
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            dataGridViewCellStyle12.ForeColor = Color.Black;
-            firstNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
-            firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            firstNameDataGridViewTextBoxColumn.MinimumWidth = 24;
-            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            firstNameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            dataGridViewCellStyle13.ForeColor = Color.Black;
-            lastNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
-            lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            lastNameDataGridViewTextBoxColumn.MinimumWidth = 24;
-            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            lastNameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
-            dataGridViewCellStyle14.ForeColor = Color.Black;
-            dataGridViewCellStyle14.SelectionForeColor = Color.White;
-            usernameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
-            usernameDataGridViewTextBoxColumn.HeaderText = "Username";
-            usernameDataGridViewTextBoxColumn.MinimumWidth = 24;
-            usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            usernameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // mobileNumberDataGridViewTextBoxColumn
-            // 
-            mobileNumberDataGridViewTextBoxColumn.DataPropertyName = "MobileNumber";
-            dataGridViewCellStyle15.ForeColor = Color.Black;
-            mobileNumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
-            mobileNumberDataGridViewTextBoxColumn.HeaderText = "MobileNumber";
-            mobileNumberDataGridViewTextBoxColumn.MinimumWidth = 24;
-            mobileNumberDataGridViewTextBoxColumn.Name = "mobileNumberDataGridViewTextBoxColumn";
-            mobileNumberDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dateOfBirthDataGridViewTextBoxColumn
-            // 
-            dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
-            dataGridViewCellStyle16.ForeColor = Color.Black;
-            dateOfBirthDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle16;
-            dateOfBirthDataGridViewTextBoxColumn.HeaderText = "DateOfBirth";
-            dateOfBirthDataGridViewTextBoxColumn.MinimumWidth = 24;
-            dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
-            dateOfBirthDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            dataGridViewCellStyle17.ForeColor = Color.Black;
-            emailDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
-            emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            emailDataGridViewTextBoxColumn.MinimumWidth = 24;
-            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            emailDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            dataGridViewCellStyle18.ForeColor = Color.Black;
-            addressDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle18;
-            addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            addressDataGridViewTextBoxColumn.MinimumWidth = 24;
-            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            addressDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // createdDateDataGridViewTextBoxColumn
-            // 
-            createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
-            dataGridViewCellStyle19.ForeColor = Color.Black;
-            createdDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle19;
-            createdDateDataGridViewTextBoxColumn.HeaderText = "CreatedDate";
-            createdDateDataGridViewTextBoxColumn.MinimumWidth = 24;
-            createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
-            createdDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
             // userBindingSource
             // 
@@ -277,112 +185,8 @@ namespace TrainHub
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(773, 37);
+            panel1.Size = new Size(1141, 50);
             panel1.TabIndex = 37;
-            // 
-            // searchTextBox
-            // 
-            searchTextBox.AutoSize = true;
-            searchTextBox.BackColor = Color.Transparent;
-            searchTextBox.BackgroundColor = Color.White;
-            searchTextBox.BorderColor = Color.FromArgb(50, 81, 88);
-            searchTextBox.Content = "";
-            searchTextBox.FocusBackgroundColor = Color.White;
-            searchTextBox.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            searchTextBox.FocusImageTint = Color.White;
-            searchTextBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            searchTextBox.ForeColor = Color.Black;
-            searchTextBox.Image = null;
-            searchTextBox.ImageExpand = new Point(0, 0);
-            searchTextBox.ImageOffset = new Point(0, 0);
-            searchTextBox.Location = new Point(473, 1);
-            searchTextBox.Margin = new Padding(4);
-            searchTextBox.Multiline = false;
-            searchTextBox.Name = "searchTextBox";
-            searchTextBox.NormalImageTint = Color.White;
-            searchTextBox.Padding = new Padding(14, 9, 14, 0);
-            searchTextBox.PasswordChar = false;
-            searchTextBox.PlaceholderColor = Color.DimGray;
-            searchTextBox.PlaceholderText = "Search";
-            searchTextBox.Rounding = new Padding(10);
-            searchTextBox.Size = new Size(296, 32);
-            searchTextBox.TabIndex = 15;
-            searchTextBox.TextOffset = new Size(0, 0);
-            searchTextBox.UnderlinedStyle = false;
-            searchTextBox.ContentChanged += searchTextBox_TextChanged;
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.BackColor = Color.FromArgb(248, 250, 252);
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(cuiPanel4, 0, 2);
-            tableLayoutPanel1.Controls.Add(cuiPanel2, 0, 0);
-            tableLayoutPanel1.Controls.Add(cuiPanel3, 0, 1);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 187F));
-            tableLayoutPanel1.Size = new Size(785, 455);
-            tableLayoutPanel1.TabIndex = 10;
-            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
-            // 
-            // cuiPanel3
-            // 
-            cuiPanel3.BackColor = Color.White;
-            cuiPanel3.Controls.Add(addStaffBtn);
-            cuiPanel3.Dock = DockStyle.Right;
-            cuiPanel3.Location = new Point(448, 47);
-            cuiPanel3.Margin = new Padding(3, 2, 3, 2);
-            cuiPanel3.Name = "cuiPanel3";
-            cuiPanel3.OutlineThickness = 1F;
-            cuiPanel3.PanelColor = Color.FromArgb(248, 250, 252);
-            cuiPanel3.PanelOutlineColor = Color.FromArgb(248, 250, 252);
-            cuiPanel3.Rounding = new Padding(8, 8, 0, 0);
-            cuiPanel3.Size = new Size(334, 41);
-            cuiPanel3.TabIndex = 36;
-            // 
-            // addStaffBtn
-            // 
-            addStaffBtn.CheckButton = false;
-            addStaffBtn.Checked = false;
-            addStaffBtn.CheckedBackground = Color.FromArgb(255, 106, 0);
-            addStaffBtn.CheckedForeColor = Color.White;
-            addStaffBtn.CheckedImageTint = Color.White;
-            addStaffBtn.CheckedOutline = Color.FromArgb(255, 106, 0);
-            addStaffBtn.Content = "Your text here!";
-            addStaffBtn.DialogResult = DialogResult.None;
-            addStaffBtn.Font = new Font("Microsoft Sans Serif", 9.75F);
-            addStaffBtn.ForeColor = Color.White;
-            addStaffBtn.HoverBackground = Color.White;
-            addStaffBtn.HoveredImageTint = Color.White;
-            addStaffBtn.HoverForeColor = Color.Black;
-            addStaffBtn.HoverOutline = Color.FromArgb(32, 128, 128, 128);
-            addStaffBtn.Image = null;
-            addStaffBtn.ImageAutoCenter = true;
-            addStaffBtn.ImageExpand = new Point(0, 0);
-            addStaffBtn.ImageOffset = new Point(0, 0);
-            addStaffBtn.Location = new Point(221, 3);
-            addStaffBtn.Name = "addStaffBtn";
-            addStaffBtn.NormalBackground = Color.FromArgb(50, 81, 88);
-            addStaffBtn.NormalForeColor = Color.White;
-            addStaffBtn.NormalImageTint = Color.White;
-            addStaffBtn.NormalOutline = Color.FromArgb(50, 81, 88);
-            addStaffBtn.OutlineThickness = 1F;
-            addStaffBtn.PressedBackground = Color.WhiteSmoke;
-            addStaffBtn.PressedForeColor = Color.FromArgb(32, 32, 32);
-            addStaffBtn.PressedImageTint = Color.White;
-            addStaffBtn.PressedOutline = Color.FromArgb(64, 128, 128, 128);
-            addStaffBtn.Rounding = new Padding(8);
-            addStaffBtn.Size = new Size(106, 32);
-            addStaffBtn.TabIndex = 24;
-            addStaffBtn.TextAlignment = StringAlignment.Center;
-            addStaffBtn.TextOffset = new Point(0, 0);
-            addStaffBtn.Click += addStaffBtn_Click;
             // 
             // panel2
             // 
@@ -392,38 +196,8 @@ namespace TrainHub
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(773, 37);
+            panel2.Size = new Size(1141, 50);
             panel2.TabIndex = 38;
-            // 
-            // cuiTextBox1
-            // 
-            cuiTextBox1.AutoSize = true;
-            cuiTextBox1.BackColor = Color.Transparent;
-            cuiTextBox1.BackgroundColor = Color.White;
-            cuiTextBox1.BorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox1.Content = "";
-            cuiTextBox1.FocusBackgroundColor = Color.White;
-            cuiTextBox1.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            cuiTextBox1.FocusImageTint = Color.White;
-            cuiTextBox1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cuiTextBox1.ForeColor = Color.Black;
-            cuiTextBox1.Image = null;
-            cuiTextBox1.ImageExpand = new Point(0, 0);
-            cuiTextBox1.ImageOffset = new Point(0, 0);
-            cuiTextBox1.Location = new Point(473, 1);
-            cuiTextBox1.Margin = new Padding(4);
-            cuiTextBox1.Multiline = false;
-            cuiTextBox1.Name = "cuiTextBox1";
-            cuiTextBox1.NormalImageTint = Color.White;
-            cuiTextBox1.Padding = new Padding(14, 9, 14, 0);
-            cuiTextBox1.PasswordChar = false;
-            cuiTextBox1.PlaceholderColor = Color.DimGray;
-            cuiTextBox1.PlaceholderText = "Search";
-            cuiTextBox1.Rounding = new Padding(10);
-            cuiTextBox1.Size = new Size(296, 32);
-            cuiTextBox1.TabIndex = 15;
-            cuiTextBox1.TextOffset = new Size(0, 0);
-            cuiTextBox1.UnderlinedStyle = false;
             // 
             // panel3
             // 
@@ -432,8 +206,21 @@ namespace TrainHub
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(773, 37);
+            panel3.Size = new Size(1141, 50);
             panel3.TabIndex = 38;
+            // 
+            // cuiPanel1
+            // 
+            cuiPanel1.Controls.Add(cuiTextBox2);
+            cuiPanel1.Dock = DockStyle.Right;
+            cuiPanel1.Location = new Point(795, 0);
+            cuiPanel1.Name = "cuiPanel1";
+            cuiPanel1.OutlineThickness = 1F;
+            cuiPanel1.PanelColor = Color.FromArgb(248, 250, 252);
+            cuiPanel1.PanelOutlineColor = Color.FromArgb(248, 250, 252);
+            cuiPanel1.Rounding = new Padding(8);
+            cuiPanel1.Size = new Size(346, 50);
+            cuiPanel1.TabIndex = 16;
             // 
             // cuiTextBox2
             // 
@@ -465,24 +252,236 @@ namespace TrainHub
             cuiTextBox2.TextOffset = new Size(0, 0);
             cuiTextBox2.UnderlinedStyle = false;
             // 
-            // cuiPanel1
+            // cuiTextBox1
             // 
-            cuiPanel1.Controls.Add(cuiTextBox2);
-            cuiPanel1.Dock = DockStyle.Right;
-            cuiPanel1.Location = new Point(427, 0);
-            cuiPanel1.Name = "cuiPanel1";
-            cuiPanel1.OutlineThickness = 1F;
-            cuiPanel1.PanelColor = Color.FromArgb(248, 250, 252);
-            cuiPanel1.PanelOutlineColor = Color.FromArgb(248, 250, 252);
-            cuiPanel1.Rounding = new Padding(8);
-            cuiPanel1.Size = new Size(346, 37);
-            cuiPanel1.TabIndex = 16;
+            cuiTextBox1.AutoSize = true;
+            cuiTextBox1.BackColor = Color.Transparent;
+            cuiTextBox1.BackgroundColor = Color.White;
+            cuiTextBox1.BorderColor = Color.FromArgb(50, 81, 88);
+            cuiTextBox1.Content = "";
+            cuiTextBox1.FocusBackgroundColor = Color.White;
+            cuiTextBox1.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            cuiTextBox1.FocusImageTint = Color.White;
+            cuiTextBox1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cuiTextBox1.ForeColor = Color.Black;
+            cuiTextBox1.Image = null;
+            cuiTextBox1.ImageExpand = new Point(0, 0);
+            cuiTextBox1.ImageOffset = new Point(0, 0);
+            cuiTextBox1.Location = new Point(473, 1);
+            cuiTextBox1.Margin = new Padding(4);
+            cuiTextBox1.Multiline = false;
+            cuiTextBox1.Name = "cuiTextBox1";
+            cuiTextBox1.NormalImageTint = Color.White;
+            cuiTextBox1.Padding = new Padding(14, 9, 14, 0);
+            cuiTextBox1.PasswordChar = false;
+            cuiTextBox1.PlaceholderColor = Color.DimGray;
+            cuiTextBox1.PlaceholderText = "Search";
+            cuiTextBox1.Rounding = new Padding(10);
+            cuiTextBox1.Size = new Size(296, 32);
+            cuiTextBox1.TabIndex = 15;
+            cuiTextBox1.TextOffset = new Size(0, 0);
+            cuiTextBox1.UnderlinedStyle = false;
+            // 
+            // searchTextBox
+            // 
+            searchTextBox.AutoSize = true;
+            searchTextBox.BackColor = Color.Transparent;
+            searchTextBox.BackgroundColor = Color.White;
+            searchTextBox.BorderColor = Color.FromArgb(50, 81, 88);
+            searchTextBox.Content = "";
+            searchTextBox.FocusBackgroundColor = Color.White;
+            searchTextBox.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            searchTextBox.FocusImageTint = Color.White;
+            searchTextBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            searchTextBox.ForeColor = Color.Black;
+            searchTextBox.Image = null;
+            searchTextBox.ImageExpand = new Point(0, 0);
+            searchTextBox.ImageOffset = new Point(0, 0);
+            searchTextBox.Location = new Point(473, 1);
+            searchTextBox.Margin = new Padding(4);
+            searchTextBox.Multiline = false;
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.NormalImageTint = Color.White;
+            searchTextBox.Padding = new Padding(14, 9, 14, 0);
+            searchTextBox.PasswordChar = false;
+            searchTextBox.PlaceholderColor = Color.DimGray;
+            searchTextBox.PlaceholderText = "Search";
+            searchTextBox.Rounding = new Padding(10);
+            searchTextBox.Size = new Size(296, 32);
+            searchTextBox.TabIndex = 15;
+            searchTextBox.TextOffset = new Size(0, 0);
+            searchTextBox.UnderlinedStyle = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.BackColor = Color.FromArgb(248, 250, 252);
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(cuiPanel4, 0, 2);
+            tableLayoutPanel1.Controls.Add(cuiPanel2, 0, 0);
+            tableLayoutPanel1.Controls.Add(cuiPanel3, 0, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 187F));
+            tableLayoutPanel1.Size = new Size(1153, 596);
+            tableLayoutPanel1.TabIndex = 10;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
+            // 
+            // cuiPanel3
+            // 
+            cuiPanel3.BackColor = Color.White;
+            cuiPanel3.Controls.Add(addStaffBtn);
+            cuiPanel3.Dock = DockStyle.Right;
+            cuiPanel3.Location = new Point(816, 61);
+            cuiPanel3.Margin = new Padding(3, 2, 3, 2);
+            cuiPanel3.Name = "cuiPanel3";
+            cuiPanel3.OutlineThickness = 1F;
+            cuiPanel3.PanelColor = Color.FromArgb(248, 250, 252);
+            cuiPanel3.PanelOutlineColor = Color.FromArgb(248, 250, 252);
+            cuiPanel3.Rounding = new Padding(8, 8, 0, 0);
+            cuiPanel3.Size = new Size(334, 55);
+            cuiPanel3.TabIndex = 36;
+            // 
+            // addStaffBtn
+            // 
+            addStaffBtn.CheckButton = false;
+            addStaffBtn.Checked = false;
+            addStaffBtn.CheckedBackground = Color.FromArgb(255, 106, 0);
+            addStaffBtn.CheckedForeColor = Color.White;
+            addStaffBtn.CheckedImageTint = Color.White;
+            addStaffBtn.CheckedOutline = Color.FromArgb(255, 106, 0);
+            addStaffBtn.Content = "Add Staff";
+            addStaffBtn.DialogResult = DialogResult.None;
+            addStaffBtn.Font = new Font("Microsoft Sans Serif", 9.75F);
+            addStaffBtn.ForeColor = Color.White;
+            addStaffBtn.HoverBackground = Color.White;
+            addStaffBtn.HoveredImageTint = Color.White;
+            addStaffBtn.HoverForeColor = Color.Black;
+            addStaffBtn.HoverOutline = Color.FromArgb(32, 128, 128, 128);
+            addStaffBtn.Image = null;
+            addStaffBtn.ImageAutoCenter = true;
+            addStaffBtn.ImageExpand = new Point(0, 0);
+            addStaffBtn.ImageOffset = new Point(0, 0);
+            addStaffBtn.Location = new Point(221, 3);
+            addStaffBtn.Name = "addStaffBtn";
+            addStaffBtn.NormalBackground = Color.FromArgb(50, 81, 88);
+            addStaffBtn.NormalForeColor = Color.White;
+            addStaffBtn.NormalImageTint = Color.White;
+            addStaffBtn.NormalOutline = Color.FromArgb(50, 81, 88);
+            addStaffBtn.OutlineThickness = 1F;
+            addStaffBtn.PressedBackground = Color.WhiteSmoke;
+            addStaffBtn.PressedForeColor = Color.FromArgb(32, 32, 32);
+            addStaffBtn.PressedImageTint = Color.White;
+            addStaffBtn.PressedOutline = Color.FromArgb(64, 128, 128, 128);
+            addStaffBtn.Rounding = new Padding(8);
+            addStaffBtn.Size = new Size(106, 32);
+            addStaffBtn.TabIndex = 24;
+            addStaffBtn.TextAlignment = StringAlignment.Center;
+            addStaffBtn.TextOffset = new Point(0, 0);
+            addStaffBtn.Click += addStaffBtn_Click;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            idDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.MinimumWidth = 24;
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            firstNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            firstNameDataGridViewTextBoxColumn.MinimumWidth = 24;
+            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            firstNameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            lastNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            lastNameDataGridViewTextBoxColumn.MinimumWidth = 24;
+            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            lastNameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            usernameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+            usernameDataGridViewTextBoxColumn.MinimumWidth = 24;
+            usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            usernameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // mobileNumberDataGridViewTextBoxColumn
+            // 
+            mobileNumberDataGridViewTextBoxColumn.DataPropertyName = "MobileNumber";
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            mobileNumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            mobileNumberDataGridViewTextBoxColumn.HeaderText = "MobileNumber";
+            mobileNumberDataGridViewTextBoxColumn.MinimumWidth = 24;
+            mobileNumberDataGridViewTextBoxColumn.Name = "mobileNumberDataGridViewTextBoxColumn";
+            mobileNumberDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dateOfBirthDataGridViewTextBoxColumn
+            // 
+            dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dateOfBirthDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            dateOfBirthDataGridViewTextBoxColumn.HeaderText = "DateOfBirth";
+            dateOfBirthDataGridViewTextBoxColumn.MinimumWidth = 24;
+            dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
+            dateOfBirthDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            dataGridViewCellStyle7.ForeColor = Color.Black;
+            emailDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            emailDataGridViewTextBoxColumn.MinimumWidth = 24;
+            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            emailDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            addressDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            addressDataGridViewTextBoxColumn.MinimumWidth = 24;
+            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            addressDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // createdDateDataGridViewTextBoxColumn
+            // 
+            createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
+            dataGridViewCellStyle9.ForeColor = Color.Black;
+            createdDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            createdDateDataGridViewTextBoxColumn.HeaderText = "CreatedDate";
+            createdDateDataGridViewTextBoxColumn.MinimumWidth = 24;
+            createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
+            createdDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
             // StaffTable
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(785, 455);
+            ClientSize = new Size(1153, 596);
             Controls.Add(tableLayoutPanel1);
             ForeColor = Color.White;
             Margin = new Padding(3, 2, 3, 2);
@@ -497,13 +496,13 @@ namespace TrainHub
             ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            tableLayoutPanel1.ResumeLayout(false);
-            cuiPanel3.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
             cuiPanel1.ResumeLayout(false);
             cuiPanel1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            cuiPanel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -521,15 +520,6 @@ namespace TrainHub
         private CuoreUI.Controls.cuiTextBox searchTextBox;
         private BindingSource userBindingSource;
         private Zuby.ADGV.AdvancedDataGridView advancedDataGridView1;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn mobileNumberDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel1;
         private CuoreUI.Controls.cuiPanel cuiPanel3;
@@ -540,5 +530,14 @@ namespace TrainHub
         private CuoreUI.Controls.cuiPanel cuiPanel1;
         private CuoreUI.Controls.cuiTextBox cuiTextBox2;
         private CuoreUI.Controls.cuiTextBox cuiTextBox1;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn mobileNumberDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
     }
 }

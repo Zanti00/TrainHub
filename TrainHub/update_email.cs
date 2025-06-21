@@ -13,34 +13,37 @@ namespace TrainHub
 {
     public partial class update_email : Form
     {
-        private int userId; // Current user's ID
-
-        // In-memory user data storage (for demo purposes)
-        private static Dictionary<int, UserData> users = new Dictionary<int, UserData>
-        {
-            { 1, new UserData { UserId = 1, Email = "user1@example.com", Password = "password123" } },
-            { 2, new UserData { UserId = 2, Email = "user2@example.com", Password = "mypassword" } },
-            { 3, new UserData { UserId = 3, Email = "admin@trainhub.com", Password = "admin123" } }
-        };
+        private static Dictionary<int, UserData> users = new Dictionary<int, UserData>();
+        private int Id; // Current user's ID
 
         public class UserData
         {
-            public int UserId { get; set; }
+            public int Id { get; set; }
             public string Email { get; set; }
             public string Password { get; set; }
-            public DateTime UpdatedDate { get; set; } = DateTime.Now;
         }
 
         public update_email()
         {
             InitializeComponent();
-            this.userId = 1; // Default user for demo
+            this.Id = 1; // Default user for demo
+            InitializeTestData(); // Add test data
         }
 
         public update_email(int currentUserId)
         {
             InitializeComponent();
-            this.userId = currentUserId;
+            this.Id = currentUserId;
+            InitializeTestData(); // Add test data
+        }
+
+        // Initialize some test data for demonstration
+        private void InitializeTestData()
+        {
+            if (!users.ContainsKey(1))
+            {
+                AddUser(1, "user@example.com", "password123");
+            }
         }
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
@@ -123,14 +126,14 @@ namespace TrainHub
             try
             {
                 // Check if user exists
-                if (!users.ContainsKey(userId))
+                if (!users.ContainsKey(Id))
                 {
                     MessageBox.Show("User not found.", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
 
-                UserData currentUser = users[userId];
+                UserData currentUser = users[Id];
 
                 // Verify the current password
                 if (!VerifyPassword(password, currentUser.Password))
@@ -142,7 +145,7 @@ namespace TrainHub
                 }
 
                 // Check if email already exists for other users
-                if (users.Values.Any(u => u.UserId != userId && u.Email.Equals(newEmail, StringComparison.OrdinalIgnoreCase)))
+                if (users.Values.Any(u => u.Id != Id && u.Email.Equals(newEmail, StringComparison.OrdinalIgnoreCase)))
                 {
                     MessageBox.Show("This email is already in use. Please choose a different email.",
                         "Email Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -152,7 +155,6 @@ namespace TrainHub
 
                 // Update the email
                 currentUser.Email = newEmail;
-                currentUser.UpdatedDate = DateTime.Now;
 
                 return true;
             }
@@ -222,9 +224,9 @@ namespace TrainHub
         {
             try
             {
-                if (users.ContainsKey(userId))
+                if (users.ContainsKey(Id))
                 {
-                    string currentEmail = users[userId].Email;
+                    string currentEmail = users[Id].Email;
                     // You can display current email in a label if needed
                     // lblCurrentEmail.Text = $"Current Email: {currentEmail}";
                 }
@@ -239,7 +241,7 @@ namespace TrainHub
         // Helper method to get current user's email (for external access)
         public string GetCurrentUserEmail()
         {
-            return users.ContainsKey(userId) ? users[userId].Email : string.Empty;
+            return users.ContainsKey(Id) ? users[Id].Email : string.Empty;
         }
 
         // Helper method to add new users (for testing purposes)
@@ -247,21 +249,25 @@ namespace TrainHub
         {
             users[userId] = new UserData
             {
-                UserId = userId,
+                Id = userId,
                 Email = email,
                 Password = password,
-                UpdatedDate = DateTime.Now
             };
         }
-        private void showPassBtn_Click(object sender, EventArgs e)
+        private void passwordEyeButton_Click(object sender, EventArgs e)
         {
+            // Fixed: Correctly check the PasswordChar property of cuiTextBox
             if (txtPassword.PasswordChar)
             {
-                txtPassword.PasswordChar = false;
+                txtPassword.PasswordChar = false; // Show password
+                if (sender is Button btn)
+                    btn.Text = "Hide";
             }
             else
             {
-                txtPassword.PasswordChar = true;
+                txtPassword.PasswordChar = true; // Hide password
+                if (sender is Button btn)
+                    btn.Text = "Show";
             }
         }
     }
