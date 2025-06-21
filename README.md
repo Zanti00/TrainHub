@@ -21,9 +21,9 @@ git clone https://github.com/Zanti00/TrainHub.git
 ## What to do when the main branch is ahead of your branch
 
 ### Step 1: Switch to main branch and pull latest changes
-
+- If there are unstaged changes commit or stash them, then pop it later on
 ### Step 2: Switch back to your branch
-
+- Pop the stashed changes to your branch
 ### Step 3: Rebase your branch onto the updated main branch
 - If there are conflicts, resolve them first
 - Stage the resolved files

@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace TrainHub
 {
-    public partial class DashboardForm : Form
+    public partial class Dashboard : Form
     {
-        public DashboardForm()
+        public Dashboard()
         {
             InitializeComponent();
-        }
-
-        private void Dashboard_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

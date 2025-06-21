@@ -8,13 +8,14 @@ namespace TrainHub.Static_Classes
 {
     public static class CheckEmailExistence
     {
+
         public static bool IsMemberEmailExists(string email, int? excludeMemberId = null)
         {
             try
             {
                 using (var dataContext = new Data.TrainHubContext())
                 {
-                    var query = dataContext.Trainer.Where(m => m.Email.ToLower() == email.ToLower());
+                    var query = dataContext.Member.Where(m => m.Email.ToLower() == email.ToLower());
 
                     if (excludeMemberId.HasValue)
                     {
@@ -58,7 +59,7 @@ namespace TrainHub.Static_Classes
             {
                 using (var dataContext = new Data.TrainHubContext())
                 {
-                    var query = dataContext.Trainer.Where(u => u.Email.ToLower() == email.ToLower());
+                    var query = dataContext.User.Where(u => u.Email.ToLower() == email.ToLower());
 
                     if (excludeUserId.HasValue)
                     {
