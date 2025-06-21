@@ -301,6 +301,7 @@
             trainerBtn.TabIndex = 0;
             trainerBtn.TextAlignment = StringAlignment.Near;
             trainerBtn.TextOffset = new Point(28, 0);
+            trainerBtn.Click += trainerBtn_Click;
             // 
             // memberContainer
             // 

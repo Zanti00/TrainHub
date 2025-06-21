@@ -52,9 +52,9 @@
             label1.ForeColor = Color.FromArgb(50, 81, 88);
             label1.Location = new Point(27, 45);
             label1.Name = "label1";
-            label1.Size = new Size(197, 30);
+            label1.Size = new Size(239, 30);
             label1.TabIndex = 6;
-            label1.Text = "Add New Trainers";
+            label1.Text = "Register New Trainers";
             // 
             // cuiPanel2
             // 
@@ -367,6 +367,7 @@
             mobNumTxt.TabIndex = 12;
             mobNumTxt.TextOffset = new Size(0, 0);
             mobNumTxt.UnderlinedStyle = false;
+            mobNumTxt.KeyPress += mobNumTxt_KeyPress_1;
             // 
             // firstNameTxt
             // 

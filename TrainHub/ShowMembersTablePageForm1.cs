@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrainHub.Data;
 using TrainHub.Static_Classes;
+using TrainHub.User_Controls;
 using Zuby.ADGV;
 
 namespace TrainHub
@@ -27,23 +28,25 @@ namespace TrainHub
         }
         private void cuiButtonGroup2_Click(object sender, EventArgs e)
         {
-            RegisterNewMember registerNewMember = new RegisterNewMember(this);
-            registerNewMember.ShowDialog();
+            MemberForm addMemberForm = new MemberForm(this, FormMode.Add);
+            addMemberForm.ShowDialog();
         }
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 11 && e.RowIndex >= 0)
             {
                 int memberID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                ViewMember viewMember = new ViewMember(memberID, null);
-                viewMember.ShowDialog();
+                //ViewMember viewMember = new ViewMember(memberID, null);
+                //viewMember.ShowDialog();
+                MemberForm viewMemberForm = new MemberForm(this, FormMode.View, null, memberID);
+                viewMemberForm.ShowDialog();
             }
 
             if (e.ColumnIndex == 12 && e.RowIndex >= 0)
             {
                 int memberID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                EditMemberForm1 editForm = new EditMemberForm1(memberID, this);
-                editForm.ShowDialog();
+                MemberForm editMemberForm = new MemberForm(this, FormMode.View, null, memberID);
+                editMemberForm.ShowDialog();
             }
 
             if (e.ColumnIndex == 13 && e.RowIndex >= 0)

@@ -31,13 +31,6 @@ namespace TrainHub
             // Initialize the context
             _context = new TrainHubContext();
 
-            // Prevent resizing, but allow moving
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.ControlBox = true;
-            this.StartPosition = FormStartPosition.CenterScreen;
-
         }
 
         private async void addButton_Click(object sender, EventArgs e)
@@ -115,8 +108,8 @@ namespace TrainHub
             _context.SaveChanges(); // Ensure changes are saved to the database
 
             MessageBox.Show("Trainer registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
-             _showTrainerTable?.RefreshTrainerData();
+
+            _showTrainerTable?.RefreshTrainerData();
         }
 
 
@@ -126,11 +119,17 @@ namespace TrainHub
             _context?.Dispose();
             base.OnFormClosed(e);
         }
-       
-       
 
-       
-
-       
+        private void mobNumTxt_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (mobNumTxt.Content.Length >= 11 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Prevent further input if length exceeds 11 characters
+            }
+            else if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Prevent non-numeric input
+            }
+        }
     }
 }

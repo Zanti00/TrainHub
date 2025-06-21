@@ -10,6 +10,7 @@ namespace TrainHub
         bool isStaffContainerExpanded = false;
         Dashboar dashboar;
         ShowMembersTablePageForm1 memberPage;
+        table_trainer trainerPage;
         Login login;
         public MainForm()
         {
@@ -19,7 +20,19 @@ namespace TrainHub
 
         private void trainerBtn_Click(object sender, EventArgs e)
         {
-            
+            if (trainerPage == null) 
+            {
+                trainerPage = new table_trainer();
+                trainerPage.FormClosed += trainer_FormClosed;
+                trainerPage.MdiParent = this;
+                trainerPage.Dock = DockStyle.Fill;
+                trainerPage.Show();
+            }
+            else
+            {
+                trainerPage.Activate();
+            }
+            changeBtnNormalBackground("trainerBtn");
         }
 
         private void memberBtn_Click(object sender, EventArgs e)
@@ -68,6 +81,11 @@ namespace TrainHub
         private void member_FormClosed(object? sender, FormClosedEventArgs e)
         {
             memberPage = null;
+        }
+
+        private void trainer_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            trainerPage = null;
         }
 
         private void staffBtn_Click(object sender, EventArgs e)

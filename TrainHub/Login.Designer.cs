@@ -57,7 +57,6 @@
             welcomeLabel.Size = new Size(110, 20);
             welcomeLabel.TabIndex = 6;
             welcomeLabel.Text = "Welcome back";
-            welcomeLabel.Click += welcomeLabel_Click;
             // 
             // forgotPasswordLink
             // 
@@ -103,7 +102,6 @@
             cuiPanel1.Rounding = new Padding(20);
             cuiPanel1.Size = new Size(299, 489);
             cuiPanel1.TabIndex = 2;
-            cuiPanel1.Paint += cuiPanel1_Paint;
             // 
             // showPassBtn
             // 
@@ -212,7 +210,6 @@
             emailTxt.TabIndex = 10;
             emailTxt.TextOffset = new Size(0, 0);
             emailTxt.UnderlinedStyle = false;
-            emailTxt.ContentChanged += emailTxt_ContentChanged;
             // 
             // cuiPictureBox1
             // 

@@ -88,7 +88,6 @@ namespace TrainHub
             }
         }
 
-
         public void RefreshTrainerData()
         {
             try
@@ -104,14 +103,11 @@ namespace TrainHub
                 dataTable.Columns.Add("FirstName", typeof(string));
                 dataTable.Columns.Add("LastName", typeof(string));
                 dataTable.Columns.Add("Email", typeof(string));
-                dataTable.Columns.Add("MobileNumber", typeof(string));
                 dataTable.Columns.Add("Address", typeof(string));
                 dataTable.Columns.Add("YearsOfExperience", typeof(string));
-                dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
+                dataTable.Columns.Add("MobileNumber", typeof(string));
                 dataTable.Columns.Add("CreatedDate", typeof(DateTime));
-                dataTable.Columns.Add("SoftDeleteDate", typeof(DateTime));
-                dataTable.Columns.Add("IsDeleted", typeof(bool));
-
+                dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
 
                 foreach (var trainer in trainers)
                 {
@@ -123,10 +119,8 @@ namespace TrainHub
                         trainer.Address,
                         trainer.YearsOfExperience,
                         trainer.MobileNumber,
-                        trainer.DateOfBirth,
                         trainer.CreatedDate,
-                        trainer.SoftDeleteDate,
-                        trainer.IsDeleted
+                        trainer.DateOfBirth
 
                     );
                 }
