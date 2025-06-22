@@ -48,6 +48,17 @@ namespace TrainHub
             cuiPanel4 = new CuoreUI.Controls.cuiPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             advancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            mobileNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dateOfBirthDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            usernameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            createdDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            editDataGridViewButtonColumn = new DataGridViewButtonColumn();
+            deleteDataGridViewButtonColumn = new DataGridViewButtonColumn();
             userBindingSource = new BindingSource(components);
             panel1 = new Panel();
             panel2 = new Panel();
@@ -59,17 +70,6 @@ namespace TrainHub
             tableLayoutPanel1 = new TableLayoutPanel();
             cuiPanel3 = new CuoreUI.Controls.cuiPanel();
             addStaffBtn = new CuoreUI.Controls.cuiButton();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            usernameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            mobileNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dateOfBirthDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            createdDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            editDataGridViewButtonColumn = new DataGridViewButtonColumn();
-            deleteDataGridViewButtonColumn = new DataGridViewButtonColumn();
             cuiPanel2.SuspendLayout();
             cuiPanel4.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -155,7 +155,7 @@ namespace TrainHub
             // 
             advancedDataGridView1.AutoGenerateColumns = false;
             advancedDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, mobileNumberDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, editDataGridViewButtonColumn, deleteDataGridViewButtonColumn });
+            advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, mobileNumberDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, editDataGridViewButtonColumn, deleteDataGridViewButtonColumn });
             advancedDataGridView1.DataSource = userBindingSource;
             dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle12.BackColor = SystemColors.Window;
@@ -176,6 +176,125 @@ namespace TrainHub
             advancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = true;
             advancedDataGridView1.TabIndex = 37;
             advancedDataGridView1.CellContentClick += advancedDataGridView1_CellContentClick;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            idDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.MinimumWidth = 24;
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.Resizable = DataGridViewTriState.True;
+            idDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            firstNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            firstNameDataGridViewTextBoxColumn.MinimumWidth = 24;
+            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            firstNameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            lastNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            lastNameDataGridViewTextBoxColumn.MinimumWidth = 24;
+            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            lastNameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // mobileNumberDataGridViewTextBoxColumn
+            // 
+            mobileNumberDataGridViewTextBoxColumn.DataPropertyName = "MobileNumber";
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            mobileNumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            mobileNumberDataGridViewTextBoxColumn.HeaderText = "MobileNumber";
+            mobileNumberDataGridViewTextBoxColumn.MinimumWidth = 24;
+            mobileNumberDataGridViewTextBoxColumn.Name = "mobileNumberDataGridViewTextBoxColumn";
+            mobileNumberDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dateOfBirthDataGridViewTextBoxColumn
+            // 
+            dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dateOfBirthDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dateOfBirthDataGridViewTextBoxColumn.HeaderText = "DateOfBirth";
+            dateOfBirthDataGridViewTextBoxColumn.MinimumWidth = 24;
+            dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
+            dateOfBirthDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            addressDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            addressDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            addressDataGridViewTextBoxColumn.HeaderText = "Username";
+            addressDataGridViewTextBoxColumn.MinimumWidth = 24;
+            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            addressDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
+            dataGridViewCellStyle7.ForeColor = Color.Black;
+            dataGridViewCellStyle7.SelectionForeColor = Color.White;
+            usernameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            usernameDataGridViewTextBoxColumn.HeaderText = "Email";
+            usernameDataGridViewTextBoxColumn.MinimumWidth = 24;
+            usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            usernameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // createdDateDataGridViewTextBoxColumn
+            // 
+            createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            createdDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            createdDateDataGridViewTextBoxColumn.HeaderText = "CreatedDate";
+            createdDateDataGridViewTextBoxColumn.MinimumWidth = 24;
+            createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
+            createdDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            dataGridViewCellStyle9.ForeColor = Color.Black;
+            emailDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            emailDataGridViewTextBoxColumn.HeaderText = "Address";
+            emailDataGridViewTextBoxColumn.MinimumWidth = 24;
+            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            emailDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // editDataGridViewButtonColumn
+            // 
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            editDataGridViewButtonColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            editDataGridViewButtonColumn.HeaderText = "Edit";
+            editDataGridViewButtonColumn.MinimumWidth = 24;
+            editDataGridViewButtonColumn.Name = "editDataGridViewButtonColumn";
+            editDataGridViewButtonColumn.Resizable = DataGridViewTriState.True;
+            editDataGridViewButtonColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            editDataGridViewButtonColumn.Text = "Edit";
+            editDataGridViewButtonColumn.UseColumnTextForButtonValue = true;
+            // 
+            // deleteDataGridViewButtonColumn
+            // 
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle11.ForeColor = Color.Black;
+            deleteDataGridViewButtonColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            deleteDataGridViewButtonColumn.HeaderText = "Delete";
+            deleteDataGridViewButtonColumn.MinimumWidth = 24;
+            deleteDataGridViewButtonColumn.Name = "deleteDataGridViewButtonColumn";
+            deleteDataGridViewButtonColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            deleteDataGridViewButtonColumn.Text = "Delete";
+            deleteDataGridViewButtonColumn.UseColumnTextForButtonValue = true;
             // 
             // userBindingSource
             // 
@@ -388,125 +507,6 @@ namespace TrainHub
             addStaffBtn.TextOffset = new Point(0, 0);
             addStaffBtn.Click += addStaffBtn_Click;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            idDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.MinimumWidth = 24;
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.Resizable = DataGridViewTriState.True;
-            idDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            firstNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            firstNameDataGridViewTextBoxColumn.MinimumWidth = 24;
-            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            firstNameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            lastNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            lastNameDataGridViewTextBoxColumn.MinimumWidth = 24;
-            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            lastNameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
-            usernameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            usernameDataGridViewTextBoxColumn.HeaderText = "Username";
-            usernameDataGridViewTextBoxColumn.MinimumWidth = 24;
-            usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            usernameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // mobileNumberDataGridViewTextBoxColumn
-            // 
-            mobileNumberDataGridViewTextBoxColumn.DataPropertyName = "MobileNumber";
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            mobileNumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            mobileNumberDataGridViewTextBoxColumn.HeaderText = "MobileNumber";
-            mobileNumberDataGridViewTextBoxColumn.MinimumWidth = 24;
-            mobileNumberDataGridViewTextBoxColumn.Name = "mobileNumberDataGridViewTextBoxColumn";
-            mobileNumberDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dateOfBirthDataGridViewTextBoxColumn
-            // 
-            dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dateOfBirthDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
-            dateOfBirthDataGridViewTextBoxColumn.HeaderText = "DateOfBirth";
-            dateOfBirthDataGridViewTextBoxColumn.MinimumWidth = 24;
-            dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
-            dateOfBirthDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            dataGridViewCellStyle7.ForeColor = Color.Black;
-            emailDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
-            emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            emailDataGridViewTextBoxColumn.MinimumWidth = 24;
-            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            emailDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            addressDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
-            addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            addressDataGridViewTextBoxColumn.MinimumWidth = 24;
-            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            addressDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // createdDateDataGridViewTextBoxColumn
-            // 
-            createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
-            dataGridViewCellStyle9.ForeColor = Color.Black;
-            createdDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
-            createdDateDataGridViewTextBoxColumn.HeaderText = "CreatedDate";
-            createdDateDataGridViewTextBoxColumn.MinimumWidth = 24;
-            createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
-            createdDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // editDataGridViewButtonColumn
-            // 
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.ForeColor = Color.Black;
-            editDataGridViewButtonColumn.DefaultCellStyle = dataGridViewCellStyle10;
-            editDataGridViewButtonColumn.HeaderText = "Edit";
-            editDataGridViewButtonColumn.MinimumWidth = 24;
-            editDataGridViewButtonColumn.Name = "editDataGridViewButtonColumn";
-            editDataGridViewButtonColumn.Resizable = DataGridViewTriState.True;
-            editDataGridViewButtonColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            editDataGridViewButtonColumn.Text = "Edit";
-            editDataGridViewButtonColumn.UseColumnTextForButtonValue = true;
-            // 
-            // deleteDataGridViewButtonColumn
-            // 
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle11.ForeColor = Color.Black;
-            deleteDataGridViewButtonColumn.DefaultCellStyle = dataGridViewCellStyle11;
-            deleteDataGridViewButtonColumn.HeaderText = "Delete";
-            deleteDataGridViewButtonColumn.MinimumWidth = 24;
-            deleteDataGridViewButtonColumn.Name = "deleteDataGridViewButtonColumn";
-            deleteDataGridViewButtonColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            deleteDataGridViewButtonColumn.Text = "Delete";
-            deleteDataGridViewButtonColumn.UseColumnTextForButtonValue = true;
-            // 
             // StaffTable
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -516,7 +516,7 @@ namespace TrainHub
             ForeColor = Color.White;
             Margin = new Padding(3, 2, 3, 2);
             Name = "StaffTable";
-            Text = "Form2";
+            Text = "StaffTable";
             Load += StaffTable_Load;
             cuiPanel2.ResumeLayout(false);
             cuiPanel2.PerformLayout();
@@ -563,12 +563,12 @@ namespace TrainHub
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn mobileNumberDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn editDataGridViewButtonColumn;
         private DataGridViewButtonColumn deleteDataGridViewButtonColumn;
     }

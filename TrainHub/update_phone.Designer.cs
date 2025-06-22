@@ -31,7 +31,7 @@ namespace TrainHub
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(update_phone));
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
-            btnTogglePasswordVisibility = new CuoreUI.Controls.cuiButton();
+            showPassBtn = new CuoreUI.Controls.cuiButton();
             btnSave = new CuoreUI.Controls.cuiButtonGroup();
             txtPassword = new CuoreUI.Controls.cuiTextBox();
             label5 = new Label();
@@ -46,7 +46,7 @@ namespace TrainHub
             // cuiPanel1
             // 
             cuiPanel1.BackColor = SystemColors.ButtonHighlight;
-            cuiPanel1.Controls.Add(btnTogglePasswordVisibility);
+            cuiPanel1.Controls.Add(showPassBtn);
             cuiPanel1.Controls.Add(btnSave);
             cuiPanel1.Controls.Add(txtPassword);
             cuiPanel1.Controls.Add(label5);
@@ -65,47 +65,46 @@ namespace TrainHub
             cuiPanel1.Size = new Size(571, 464);
             cuiPanel1.TabIndex = 9;
             // 
-            // btnTogglePasswordVisibility
+            // showPassBtn
             // 
-            btnTogglePasswordVisibility.BackColor = Color.WhiteSmoke;
-            btnTogglePasswordVisibility.BackgroundImage = (Image)resources.GetObject("btnTogglePasswordVisibility.BackgroundImage");
-            btnTogglePasswordVisibility.BackgroundImageLayout = ImageLayout.Zoom;
-            btnTogglePasswordVisibility.CheckButton = false;
-            btnTogglePasswordVisibility.Checked = false;
-            btnTogglePasswordVisibility.CheckedBackground = Color.FromArgb(255, 106, 0);
-            btnTogglePasswordVisibility.CheckedForeColor = Color.Transparent;
-            btnTogglePasswordVisibility.CheckedImageTint = Color.Transparent;
-            btnTogglePasswordVisibility.CheckedOutline = Color.FromArgb(255, 106, 0);
-            btnTogglePasswordVisibility.Content = "";
-            btnTogglePasswordVisibility.DialogResult = DialogResult.None;
-            btnTogglePasswordVisibility.Font = new Font("Microsoft Sans Serif", 9.75F);
-            btnTogglePasswordVisibility.ForeColor = Color.Transparent;
-            btnTogglePasswordVisibility.HoverBackground = Color.Transparent;
-            btnTogglePasswordVisibility.HoveredImageTint = Color.Transparent;
-            btnTogglePasswordVisibility.HoverForeColor = Color.Transparent;
-            btnTogglePasswordVisibility.HoverOutline = Color.Transparent;
-            btnTogglePasswordVisibility.Image = null;
-            btnTogglePasswordVisibility.ImageAutoCenter = true;
-            btnTogglePasswordVisibility.ImageExpand = new Point(0, 0);
-            btnTogglePasswordVisibility.ImageOffset = new Point(0, 0);
-            btnTogglePasswordVisibility.Location = new Point(357, 298);
-            btnTogglePasswordVisibility.Margin = new Padding(3, 2, 3, 2);
-            btnTogglePasswordVisibility.Name = "btnTogglePasswordVisibility";
-            btnTogglePasswordVisibility.NormalBackground = Color.Transparent;
-            btnTogglePasswordVisibility.NormalForeColor = Color.Transparent;
-            btnTogglePasswordVisibility.NormalImageTint = Color.White;
-            btnTogglePasswordVisibility.NormalOutline = Color.FromArgb(64, 128, 128, 128);
-            btnTogglePasswordVisibility.OutlineThickness = 1F;
-            btnTogglePasswordVisibility.PressedBackground = Color.WhiteSmoke;
-            btnTogglePasswordVisibility.PressedForeColor = Color.FromArgb(32, 32, 32);
-            btnTogglePasswordVisibility.PressedImageTint = Color.White;
-            btnTogglePasswordVisibility.PressedOutline = Color.FromArgb(64, 128, 128, 128);
-            btnTogglePasswordVisibility.Rounding = new Padding(8);
-            btnTogglePasswordVisibility.Size = new Size(46, 15);
-            btnTogglePasswordVisibility.TabIndex = 28;
-            btnTogglePasswordVisibility.TextAlignment = StringAlignment.Center;
-            btnTogglePasswordVisibility.TextOffset = new Point(0, 0);
-            btnTogglePasswordVisibility.Click += showPassBtn_Click;
+            showPassBtn.BackColor = Color.WhiteSmoke;
+            showPassBtn.BackgroundImage = (Image)resources.GetObject("showPassBtn.BackgroundImage");
+            showPassBtn.BackgroundImageLayout = ImageLayout.Zoom;
+            showPassBtn.CheckButton = false;
+            showPassBtn.Checked = false;
+            showPassBtn.CheckedBackground = Color.FromArgb(255, 106, 0);
+            showPassBtn.CheckedForeColor = Color.Transparent;
+            showPassBtn.CheckedImageTint = Color.Transparent;
+            showPassBtn.CheckedOutline = Color.FromArgb(255, 106, 0);
+            showPassBtn.Content = "";
+            showPassBtn.DialogResult = DialogResult.None;
+            showPassBtn.Font = new Font("Microsoft Sans Serif", 9.75F);
+            showPassBtn.ForeColor = Color.Transparent;
+            showPassBtn.HoverBackground = Color.Transparent;
+            showPassBtn.HoveredImageTint = Color.Transparent;
+            showPassBtn.HoverForeColor = Color.Transparent;
+            showPassBtn.HoverOutline = Color.Transparent;
+            showPassBtn.Image = null;
+            showPassBtn.ImageAutoCenter = true;
+            showPassBtn.ImageExpand = new Point(0, 0);
+            showPassBtn.ImageOffset = new Point(0, 0);
+            showPassBtn.Location = new Point(357, 298);
+            showPassBtn.Margin = new Padding(3, 2, 3, 2);
+            showPassBtn.Name = "showPassBtn";
+            showPassBtn.NormalBackground = Color.Transparent;
+            showPassBtn.NormalForeColor = Color.Transparent;
+            showPassBtn.NormalImageTint = Color.White;
+            showPassBtn.NormalOutline = Color.FromArgb(64, 128, 128, 128);
+            showPassBtn.OutlineThickness = 1F;
+            showPassBtn.PressedBackground = Color.WhiteSmoke;
+            showPassBtn.PressedForeColor = Color.FromArgb(32, 32, 32);
+            showPassBtn.PressedImageTint = Color.White;
+            showPassBtn.PressedOutline = Color.FromArgb(64, 128, 128, 128);
+            showPassBtn.Rounding = new Padding(8);
+            showPassBtn.Size = new Size(46, 15);
+            showPassBtn.TabIndex = 28;
+            showPassBtn.TextAlignment = StringAlignment.Center;
+            showPassBtn.TextOffset = new Point(0, 0);
             // 
             // btnSave
             // 
@@ -143,7 +142,6 @@ namespace TrainHub
             btnSave.TabIndex = 21;
             btnSave.TextAlignment = StringAlignment.Center;
             btnSave.TextOffset = new Point(0, 0);
-            btnSave.Click += btnSave_Click;
             // 
             // txtPassword
             // 
@@ -301,6 +299,6 @@ namespace TrainHub
         private CuoreUI.Controls.cuiTextBox txtPassword;
         private Label label5;
         private CuoreUI.Controls.cuiButtonGroup btnSave;
-        private CuoreUI.Controls.cuiButton btnTogglePasswordVisibility;
+        private CuoreUI.Controls.cuiButton showPassBtn;
     }
 }

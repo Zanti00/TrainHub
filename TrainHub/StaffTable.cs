@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using TrainHub.Data;
+using TrainHub.Models;
 
 namespace TrainHub
 {
@@ -27,30 +28,53 @@ namespace TrainHub
             // Delete button column index = 10
             if (e.ColumnIndex == 10 && e.RowIndex >= 0)
             {
-                DialogResult deleteConfirmationResult = MessageBox.Show("Are you sure you want to delete this staff?", "Confirm Delete", MessageBoxButtons.YesNo);
-                if (deleteConfirmationResult == DialogResult.Yes)
+                // Make sure you're not deleting the new row
+                if (!advancedDataGridView1.Rows[e.RowIndex].IsNewRow)
                 {
-                    // Make sure you're not deleting the new row
-                    if (!advancedDataGridView1.Rows[e.RowIndex].IsNewRow)
+                    DialogResult deleteConfirmationResult = MessageBox.Show(
+                        "Are you sure you want to delete this staff member?",
+                        "Confirm Delete",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                    if (deleteConfirmationResult == DialogResult.Yes)
                     {
-                        // Get the ID from the hidden ID column
-                        int staffId = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells["Id"].Value);
-
-                        // Find the staff in the database and mark as deleted
-                        var staffToDelete = dataContext.User.FirstOrDefault(s => s.Id == staffId);
-                        if (staffToDelete != null)
+                        try
                         {
-                            staffToDelete.isDeleted = true;
-                            dataContext.SaveChanges();
+                            // Get the ID from the first column (index 0) which should be the Id column
+                            int staffId = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
 
-                            // Refresh the DataGridView
-                            RefreshUserData();
+                            // Find the staff in the database and mark as deleted
+                            var staffToDelete = dataContext.User.FirstOrDefault(s => s.Id == staffId);
+                            if (staffToDelete != null)
+                            {
+                                staffToDelete.isDeleted = true;
+                                staffToDelete.softDeleteDate = DateTime.Now; // Set the soft delete date
+                                dataContext.SaveChanges();
+
+                                // Refresh the DataGridView to remove the deleted item
+                                RefreshUserData();
+
+                                MessageBox.Show("Staff member deleted successfully.", "Success",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Staff member not found in database.", "Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Error deleting staff member: {ex.Message}", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
-                else if (deleteConfirmationResult == DialogResult.No)
+                else
                 {
-                    // Do nothing, just close the dialog
+                    MessageBox.Show("Cannot delete the new row entry.", "Invalid Operation",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -63,56 +87,53 @@ namespace TrainHub
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
-            string userName = searchTextBox.Content.Trim();
+            string searchText = searchTextBox.Content.Trim();
 
             try
             {
-                if (!string.IsNullOrEmpty(userName))
+                IQueryable<User> users;
+
+                if (!string.IsNullOrEmpty(searchText))
                 {
-                    var users = from user in dataContext.User
-                                where user.FirstName.ToLower().Contains(userName.ToLower()) ||
-                                      user.LastName.ToLower().Contains(userName.ToLower())
-                                select user;
-
-                    var dataTable = new DataTable();
-                    dataTable.Columns.Add("Id", typeof(int));
-                    dataTable.Columns.Add("FirstName", typeof(string));
-                    dataTable.Columns.Add("LastName", typeof(string));
-                    dataTable.Columns.Add("Username", typeof(string));
-                    dataTable.Columns.Add("MobileNumber", typeof(string));
-                    dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
-                    dataTable.Columns.Add("Email", typeof(string));
-                    dataTable.Columns.Add("Password", typeof(string));
-                    dataTable.Columns.Add("Address", typeof(string));
-                    dataTable.Columns.Add("CreatedDate", typeof(DateTime));
-                    dataTable.Columns.Add("softDeleteDate", typeof(DateTime));
-                    dataTable.Columns.Add("isDeleted", typeof(bool));
-
-                    foreach (var user in users)
-                    {
-                        dataTable.Rows.Add(
-                            user.Id,
-                            user.FirstName,
-                            user.LastName,
-                            user.Email,
-                            user.MobileNumber,
-                            user.DateOfBirth,
-                            user.Address,
-                            user.Username,
-                            user.Password,
-                            user.CreatedDate,
-                            user.softDeleteDate,
-                            user.isDeleted
-                        );
-                    }
-
-                    userBindingSource.DataSource = dataTable;
+                    // Search in FirstName, LastName, Username, and Email
+                    users = from user in dataContext.User
+                            where !user.isDeleted && // Only include non-deleted users
+                                  (user.FirstName.ToLower().Contains(searchText.ToLower()) ||
+                                   user.LastName.ToLower().Contains(searchText.ToLower()) ||
+                                   user.Username.ToLower().Contains(searchText.ToLower()) ||
+                                   user.Email.ToLower().Contains(searchText.ToLower()))
+                            select user;
                 }
                 else
                 {
-                    // If search is empty, show all users
-                    RefreshUserData();
+                    // If search is empty, show all non-deleted users
+                    users = from user in dataContext.User
+                            where !user.isDeleted
+                            select user;
                 }
+
+                // Convert to DataTable with consistent column order
+                var dataTable = CreateUserDataTable();
+
+                foreach (var user in users)
+                {
+                    dataTable.Rows.Add(
+                        user.Id,
+                        user.FirstName,
+                        user.LastName,
+                        user.Username,           // Fixed: Username in correct position
+                        user.MobileNumber,
+                        user.DateOfBirth,
+                        user.Email,              // Fixed: Email in correct position
+                        user.Password,
+                        user.Address,            // Fixed: Address in correct position
+                        user.CreatedDate,
+                        user.softDeleteDate,
+                        user.isDeleted
+                    );
+                }
+
+                userBindingSource.DataSource = dataTable;
                 advancedDataGridView1.DataSource = userBindingSource;
             }
             catch (Exception ex)
@@ -123,7 +144,29 @@ namespace TrainHub
         }
 
         /// <summary>
-        /// Refreshes the user data displayed in the StaffTable.
+        /// Creates a consistent DataTable structure for user data
+        /// </summary>
+        private DataTable CreateUserDataTable()
+        {
+            var dataTable = new DataTable();
+            dataTable.Columns.Add("Id", typeof(int));
+            dataTable.Columns.Add("FirstName", typeof(string));
+            dataTable.Columns.Add("LastName", typeof(string));
+            dataTable.Columns.Add("Username", typeof(string));
+            dataTable.Columns.Add("MobileNumber", typeof(string));
+            dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
+            dataTable.Columns.Add("Email", typeof(string));
+            dataTable.Columns.Add("Password", typeof(string));
+            dataTable.Columns.Add("Address", typeof(string));
+            dataTable.Columns.Add("CreatedDate", typeof(DateTime));
+            dataTable.Columns.Add("softDeleteDate", typeof(DateTime));
+            dataTable.Columns.Add("isDeleted", typeof(bool));
+
+            return dataTable;
+        }
+
+        /// <summary>
+        /// Refreshes the user data displayed in the StaffTable with consistent column order.
         /// </summary>
         public void RefreshUserData()
         {
@@ -134,20 +177,8 @@ namespace TrainHub
                             where !user.isDeleted // Only select non-deleted members
                             select user;
 
-                // Convert to DataTable for sorting/filtering support
-                var dataTable = new DataTable();
-                dataTable.Columns.Add("Id", typeof(int));
-                dataTable.Columns.Add("FirstName", typeof(string));
-                dataTable.Columns.Add("LastName", typeof(string));
-                dataTable.Columns.Add("Username", typeof(string));
-                dataTable.Columns.Add("MobileNumber", typeof(string));
-                dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
-                dataTable.Columns.Add("Email", typeof(string));
-                dataTable.Columns.Add("Password", typeof(string));
-                dataTable.Columns.Add("Address", typeof(string));
-                dataTable.Columns.Add("CreatedDate", typeof(DateTime));
-                dataTable.Columns.Add("softDeleteDate", typeof(DateTime));
-                dataTable.Columns.Add("isDeleted", typeof(bool));
+                // Use the same DataTable creation method for consistency
+                var dataTable = CreateUserDataTable();
 
                 foreach (var user in users)
                 {
@@ -155,12 +186,12 @@ namespace TrainHub
                         user.Id,
                         user.FirstName,
                         user.LastName,
-                        user.Email,
+                        user.Username,           // Fixed: Consistent column order
                         user.MobileNumber,
                         user.DateOfBirth,
-                        user.Address,
-                        user.Username,
+                        user.Email,              // Fixed: Consistent column order
                         user.Password,
+                        user.Address,            // Fixed: Consistent column order
                         user.CreatedDate,
                         user.softDeleteDate,
                         user.isDeleted
