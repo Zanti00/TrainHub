@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using TrainHub.Data;
@@ -12,24 +13,67 @@ namespace TrainHub
         private readonly TrainHubContext dataContext = new TrainHubContext();
         private readonly string pattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
         private readonly StaffTable? parentForm;
+        private readonly int userID;
+        private User? currentUser;
 
         public edit_staff(int userID, StaffTable? parentForm = null)
         {
             InitializeComponent();
             this.parentForm = parentForm;
+            this.userID = userID;
 
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            // Load existing user data
+            LoadUserData();
         }
 
         public edit_staff()
         {
+            InitializeComponent();
+        }
+
+        private void LoadUserData()
+        {
+            try
+            {
+                currentUser = dataContext.User.FirstOrDefault(u => u.Id == userID);
+                if (currentUser != null)
+                {
+                    // Populate form fields with existing data
+                    firstNameTxt.Content = currentUser.FirstName;
+                    lastNameTxt.Content = currentUser.LastName;
+                    emailTxt.Content = currentUser.Email;
+                    passwordTxt.Content = currentUser.Password;
+                    usernameTxt.Content = currentUser.Username;
+                    phoneNumTxt.Content = currentUser.MobileNumber;
+                    addressTxt.Content = currentUser.Address;
+                    birthDate.Value = currentUser.DateOfBirth;
+                }
+                else
+                {
+                    MessageBox.Show("User not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading user data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
         }
 
         private async void okBtn_Click(object sender, EventArgs e)
         {
+            if (currentUser == null)
+            {
+                MessageBox.Show("No user data to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(firstNameTxt.Content) ||
                 string.IsNullOrWhiteSpace(lastNameTxt.Content) ||
                 string.IsNullOrWhiteSpace(emailTxt.Content) ||
@@ -40,7 +84,8 @@ namespace TrainHub
                 return;
             }
 
-            if (addressTxt.Text.Length > 5)
+            // Fixed: Address validation should check if it's TOO SHORT (less than 5), not if length > 5
+            if (addressTxt.Content.Length < 5)
             {
                 MessageBox.Show("Address is too short. Please enter a complete address.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -64,7 +109,9 @@ namespace TrainHub
                 return;
             }
 
-            if (await CheckEmailExistence.IsUserEmailExistsAsync(emailTxt.Content))
+            // Check if email exists for OTHER users (exclude current user)
+            if (emailTxt.Content.Trim() != currentUser.Email &&
+                await CheckEmailExistence.IsUserEmailExistsAsync(emailTxt.Content))
             {
                 MessageBox.Show("Email already exists. Please use a different email.", "Duplicate Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 emailTxt.Focus();
@@ -73,31 +120,27 @@ namespace TrainHub
 
             try
             {
-                var newUser = new User
-                {
-                    FirstName = firstNameTxt.Content.Trim(),
-                    LastName = lastNameTxt.Content.Trim(),
-                    Email = emailTxt.Content.Trim(),
-                    Password = passwordTxt.Content.Trim(),
-                    Username = usernameTxt.Content.Trim(),
-                    MobileNumber = phoneNumTxt.Content.Trim(),
-                    Address = addressTxt.Content.Trim(),
-                    DateOfBirth = birthDate.Value.Date,
-                };
+                // Update existing user instead of creating new one
+                currentUser.FirstName = firstNameTxt.Content.Trim();
+                currentUser.LastName = lastNameTxt.Content.Trim();
+                currentUser.Email = emailTxt.Content.Trim();
+                currentUser.Password = passwordTxt.Content.Trim();
+                currentUser.Username = usernameTxt.Content.Trim();
+                currentUser.MobileNumber = phoneNumTxt.Content.Trim();
+                currentUser.Address = addressTxt.Content.Trim();
+                currentUser.DateOfBirth = birthDate.Value.Date;
 
-                dataContext.User.Add(newUser);
+                // Save changes to existing user
                 dataContext.SaveChanges();
 
-                MessageBox.Show("New staff edited successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Staff updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                //parentForm?.RefreshUserData();
                 this.Close();
-
                 parentForm?.RefreshUserData(); // Refresh the parent form's data
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error editing staff: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error updating staff: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -12,96 +12,46 @@ namespace TrainHub
             InitializeComponent();
 
             dataContext = new TrainHubContext();
-            SetupDataGridViewButtons();
         }
 
-        /// <summary>
-        /// Sets up the Edit and Delete button columns in the DataGridView
-        /// </summary>
-        private void SetupDataGridViewButtons()
+        private void advancedDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Clear existing button columns if they exist
-            if (advancedDataGridView1.Columns["EditButton"] != null)
-                advancedDataGridView1.Columns.Remove("EditButton");
-            if (advancedDataGridView1.Columns["DeleteButton"] != null)
-                advancedDataGridView1.Columns.Remove("DeleteButton");
-
-            // Add Edit button column
-            DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn();
-            editButtonColumn.Name = "EditButton";
-            editButtonColumn.HeaderText = "Edit";
-            editButtonColumn.Text = "Edit";
-            editButtonColumn.UseColumnTextForButtonValue = true;
-            editButtonColumn.Width = 60;
-            advancedDataGridView1.Columns.Add(editButtonColumn);
-
-            // Add Delete button column
-            DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn();
-            deleteButtonColumn.Name = "DeleteButton";
-            deleteButtonColumn.HeaderText = "Delete";
-            deleteButtonColumn.Text = "Delete";
-            deleteButtonColumn.UseColumnTextForButtonValue = true;
-            deleteButtonColumn.Width = 70;
-            advancedDataGridView1.Columns.Add(deleteButtonColumn);
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Make sure we're clicking on a valid row
-            if (e.RowIndex < 0) return;
-
-            // Get the column name to identify which button was clicked
-            string columnName = advancedDataGridView1.Columns[e.ColumnIndex].Name;
-
-            switch (columnName)
+            // Edit button column index = 9
+            if (e.ColumnIndex == 9 && e.RowIndex >= 0)
             {
-                case "EditButton":
-                    // Edit button clicked
-                    int userID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells["Id"].Value);
-                    edit_staff editForm = new edit_staff(userID, this);
-                    editForm.ShowDialog();
-                    break;
-
-                case "DeleteButton":
-                    // Delete button clicked
-                    DialogResult result = MessageBox.Show("Are you sure you want to delete this staff member?",
-                        "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (result == DialogResult.Yes)
-                    {
-                        int deleteUserID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells["Id"].Value);
-                        DeleteUser(deleteUserID, e.RowIndex);
-                    }
-                    break;
+                int userID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                edit_staff editForm = new edit_staff(userID, this);
+                editForm.ShowDialog();
             }
-        }
 
-        /// <summary>
-        /// Handles the actual deletion of a user (soft delete)
-        /// </summary>
-        private void DeleteUser(int userId, int rowIndex)
-        {
-            try
+            // Delete button column index = 10
+            if (e.ColumnIndex == 10 && e.RowIndex >= 0)
             {
-                var user = dataContext.User.FirstOrDefault(u => u.Id == userId);
-                if (user != null)
+                DialogResult deleteConfirmationResult = MessageBox.Show("Are you sure you want to delete this staff?", "Confirm Delete", MessageBoxButtons.YesNo);
+                if (deleteConfirmationResult == DialogResult.Yes)
                 {
-                    // Perform soft delete
-                    user.isDeleted = true;
-                    user.softDeleteDate = DateTime.Now;
-                    dataContext.SaveChanges();
+                    // Make sure you're not deleting the new row
+                    if (!advancedDataGridView1.Rows[e.RowIndex].IsNewRow)
+                    {
+                        // Get the ID from the hidden ID column
+                        int staffId = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells["Id"].Value);
 
-                    // Remove from display
-                    advancedDataGridView1.Rows[rowIndex].Visible = false;
+                        // Find the staff in the database and mark as deleted
+                        var staffToDelete = dataContext.User.FirstOrDefault(s => s.Id == staffId);
+                        if (staffToDelete != null)
+                        {
+                            staffToDelete.isDeleted = true;
+                            dataContext.SaveChanges();
 
-                    MessageBox.Show("Staff member deleted successfully.", "Success",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            // Refresh the DataGridView
+                            RefreshUserData();
+                        }
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error deleting user: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (deleteConfirmationResult == DialogResult.No)
+                {
+                    // Do nothing, just close the dialog
+                }
             }
         }
 
@@ -157,16 +107,13 @@ namespace TrainHub
                     }
 
                     userBindingSource.DataSource = dataTable;
-                    advancedDataGridView1.DataSource = userBindingSource;
-
-                    // Re-setup buttons after data binding
-                    SetupDataGridViewButtons();
                 }
                 else
                 {
                     // If search is empty, show all users
                     RefreshUserData();
                 }
+                advancedDataGridView1.DataSource = userBindingSource;
             }
             catch (Exception ex)
             {
@@ -223,9 +170,6 @@ namespace TrainHub
                 this.userBindingSource.DataSource = dataTable;
                 advancedDataGridView1.DataSource = userBindingSource;
 
-                // Setup buttons after data binding
-                SetupDataGridViewButtons();
-
             }
             catch (Exception ex)
             {
@@ -237,16 +181,6 @@ namespace TrainHub
         private void StaffTable_Load(object sender, EventArgs e)
         {
             RefreshUserData();
-        }
-
-        private void cuiPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

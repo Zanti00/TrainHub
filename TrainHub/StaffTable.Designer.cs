@@ -30,7 +30,7 @@ namespace TrainHub
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -40,6 +40,8 @@ namespace TrainHub
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
             label2 = new Label();
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
             label1 = new Label();
@@ -66,6 +68,8 @@ namespace TrainHub
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             createdDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            editDataGridViewButtonColumn = new DataGridViewButtonColumn();
+            deleteDataGridViewButtonColumn = new DataGridViewButtonColumn();
             cuiPanel2.SuspendLayout();
             cuiPanel4.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -104,7 +108,6 @@ namespace TrainHub
             cuiPanel2.Rounding = new Padding(8, 8, 0, 0);
             cuiPanel2.Size = new Size(319, 41);
             cuiPanel2.TabIndex = 16;
-            cuiPanel2.Paint += cuiPanel2_Paint;
             // 
             // label1
             // 
@@ -152,16 +155,16 @@ namespace TrainHub
             // 
             advancedDataGridView1.AutoGenerateColumns = false;
             advancedDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, mobileNumberDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn });
+            advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, mobileNumberDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, editDataGridViewButtonColumn, deleteDataGridViewButtonColumn });
             advancedDataGridView1.DataSource = userBindingSource;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = SystemColors.Window;
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle10.ForeColor = Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
-            advancedDataGridView1.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = SystemColors.Window;
+            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle12.ForeColor = Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.False;
+            advancedDataGridView1.DefaultCellStyle = dataGridViewCellStyle12;
             advancedDataGridView1.Dock = DockStyle.Fill;
             advancedDataGridView1.FilterAndSortEnabled = true;
             advancedDataGridView1.FilterStringChangedInvokeBeforeDatasourceUpdate = true;
@@ -172,6 +175,7 @@ namespace TrainHub
             advancedDataGridView1.Size = new Size(1141, 412);
             advancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = true;
             advancedDataGridView1.TabIndex = 37;
+            advancedDataGridView1.CellContentClick += advancedDataGridView1_CellContentClick;
             // 
             // userBindingSource
             // 
@@ -330,7 +334,6 @@ namespace TrainHub
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 187F));
             tableLayoutPanel1.Size = new Size(1153, 596);
             tableLayoutPanel1.TabIndex = 10;
-            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // cuiPanel3
             // 
@@ -394,6 +397,7 @@ namespace TrainHub
             idDataGridViewTextBoxColumn.HeaderText = "Id";
             idDataGridViewTextBoxColumn.MinimumWidth = 24;
             idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.Resizable = DataGridViewTriState.True;
             idDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
             // firstNameDataGridViewTextBoxColumn
@@ -477,6 +481,32 @@ namespace TrainHub
             createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
             createdDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
+            // editDataGridViewButtonColumn
+            // 
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            editDataGridViewButtonColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            editDataGridViewButtonColumn.HeaderText = "Edit";
+            editDataGridViewButtonColumn.MinimumWidth = 24;
+            editDataGridViewButtonColumn.Name = "editDataGridViewButtonColumn";
+            editDataGridViewButtonColumn.Resizable = DataGridViewTriState.True;
+            editDataGridViewButtonColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            editDataGridViewButtonColumn.Text = "Edit";
+            editDataGridViewButtonColumn.UseColumnTextForButtonValue = true;
+            // 
+            // deleteDataGridViewButtonColumn
+            // 
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle11.ForeColor = Color.Black;
+            deleteDataGridViewButtonColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            deleteDataGridViewButtonColumn.HeaderText = "Delete";
+            deleteDataGridViewButtonColumn.MinimumWidth = 24;
+            deleteDataGridViewButtonColumn.Name = "deleteDataGridViewButtonColumn";
+            deleteDataGridViewButtonColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            deleteDataGridViewButtonColumn.Text = "Delete";
+            deleteDataGridViewButtonColumn.UseColumnTextForButtonValue = true;
+            // 
             // StaffTable
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -539,5 +569,7 @@ namespace TrainHub
         private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
+        private DataGridViewButtonColumn editDataGridViewButtonColumn;
+        private DataGridViewButtonColumn deleteDataGridViewButtonColumn;
     }
 }
