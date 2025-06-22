@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrainHub.Data;
 
@@ -11,9 +12,11 @@ using TrainHub.Data;
 namespace TrainHub.Migrations
 {
     [DbContext(typeof(TrainHubContext))]
-    partial class TrainHubContextModelSnapshot : ModelSnapshot
+    [Migration("20250622085223_AddNewColumnsToTrainer")]
+    partial class AddNewColumnsToTrainer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -81,12 +84,7 @@ namespace TrainHub.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TrainerID")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("TrainerID");
 
                     b.ToTable("Member");
                 });
@@ -198,36 +196,6 @@ namespace TrainHub.Migrations
                     b.ToTable("Trainer");
                 });
 
-            modelBuilder.Entity("TrainHub.Models.TrainerAttendances", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("AttendanceDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<TimeSpan?>("CheckInTime")
-                        .HasColumnType("time");
-
-                    b.Property<TimeSpan?>("CheckOutTime")
-                        .HasColumnType("time");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("TrainerId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TrainerId");
-
-                    b.ToTable("TrainerAttendances");
-                });
-
             modelBuilder.Entity("TrainHub.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -265,16 +233,6 @@ namespace TrainHub.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("TrainHub.Models.Member", b =>
-                {
-                    b.HasOne("TrainHub.Models.Trainer", "Trainer")
-                        .WithMany("Members")
-                        .HasForeignKey("TrainerID")
-                        .OnDelete(DeleteBehavior.SetNull);
-
-                    b.Navigation("Trainer");
-                });
-
             modelBuilder.Entity("TrainHub.Models.MemberAttendances", b =>
                 {
                     b.HasOne("TrainHub.Models.Member", "Member")
@@ -284,22 +242,6 @@ namespace TrainHub.Migrations
                         .IsRequired();
 
                     b.Navigation("Member");
-                });
-
-            modelBuilder.Entity("TrainHub.Models.TrainerAttendances", b =>
-                {
-                    b.HasOne("TrainHub.Models.Trainer", "Trainer")
-                        .WithMany()
-                        .HasForeignKey("TrainerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Trainer");
-                });
-
-            modelBuilder.Entity("TrainHub.Models.Trainer", b =>
-                {
-                    b.Navigation("Members");
                 });
 #pragma warning restore 612, 618
         }

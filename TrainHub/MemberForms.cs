@@ -15,14 +15,14 @@ using TrainHub.Data;
 using TrainHub.Models;
 using TrainHub.Static_Classes;
 
-namespace TrainHub
+namespace TrainHub.User_Controls
 {
-    public enum FormMode
-    {
-        Add,
-        Edit,
-        View
-    }
+    //public enum FormMode
+    //{
+    //    Add,
+    //    Edit,
+    //    View
+    //}
     public partial class MemberForm : Form
     {
         private FormMode _mode;
@@ -34,7 +34,6 @@ namespace TrainHub
         private bool isImageCaptured = false;
         private readonly TrainHubContext _dataContext;
         string pattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
-        private Dictionary<string, int> trainerNameToId = new Dictionary<string, int>();
         private readonly ShowMembersTablePageForm1 _parentForm;
 
         public MemberForm(ShowMembersTablePageForm1 parentForm, FormMode mode, Member? member = null, int? memberID = null)
@@ -52,10 +51,6 @@ namespace TrainHub
             {
                 LoadMemberData();
             }
-            if (!(mode == FormMode.Edit))
-            {
-                generateQrBtn.Enabled = false;
-            }
         }
 
         private void InitializeWebcam()
@@ -72,33 +67,6 @@ namespace TrainHub
             else
             {
                 MessageBox.Show("No video devices found!");
-            }
-        }
-
-        private async void MemberForm_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                using (TrainHubContext _dataContext = new TrainHubContext())
-                {
-                    var trainers = await _dataContext.Trainer
-                        .Where(t => !t.IsDeleted && t.Status == "Active")
-                        .ToListAsync();
-
-                    trainerNameToId.Clear();
-
-                    foreach (var trainer in trainers)
-                    {
-                        string displayName = $"{trainer.FirstName} {trainer.LastName}";
-                        trainerCombo.AddItem(displayName);
-                        trainerNameToId[displayName] = trainer.Id;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error loading trainers: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -206,9 +174,7 @@ namespace TrainHub
             {
                 try
                 {
-                    var selectedMember = _dataContext.Member
-                        .Include(m => m.Trainer)
-                        .FirstOrDefault(m => m.Id == memberID);
+                    var selectedMember = _dataContext.Member.Find(memberID);
 
                     if (selectedMember == null)
                     {
@@ -227,12 +193,6 @@ namespace TrainHub
                         birthDate.Value = selectedMember.DateOfBirth;
                         startDate.Value = selectedMember.StartDate;
                         endDate.Value = selectedMember.EndDate;
-
-                        if (selectedMember.Trainer != null)
-                        {
-                            string trainerDisplayName = $"{selectedMember.Trainer.FirstName} {selectedMember.Trainer.LastName}";
-                            trainerCombo.SelectedItem = trainerDisplayName;
-                        }
 
                         LoadMemberImage(selectedMember.ProfileImagePath);
                     }
@@ -319,7 +279,6 @@ namespace TrainHub
                         UpdateMemberFromFields();
                         if (UpdateMember(_currentMember))
                         {
-                            _parentForm?.RefreshMemberData();
                             DialogResult = DialogResult.OK;
                             Close();
                         }
@@ -385,40 +344,8 @@ namespace TrainHub
             return true;
         }
 
-        private void phoneNumTxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (phoneNumTxt.Content.Length >= 11 && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true; // Prevent further input if length exceeds 11 characters
-            }
-            else if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true; // Prevent non-numeric input
-            }
-        }
-
-        private void generateQrBtn_Click(object sender, EventArgs e)
-        {
-            QrCode qrCodeGenerator = new QrCode(); // Create an instance of QrCode
-            string qrContent = $"MEMBER:{memberID}";
-            Bitmap picQRCode = QrCode.GetCode(qrContent);
-            qrCodeGenerator.GenerateQrCodeForMember(memberID, picQRCode); // Use the instance to call the non-static method
-        }
-
         private Member CreateMemberFromFields()
         {
-            int? selectedTrainerId = null;
-
-            // Get selected trainer ID
-            if (trainerCombo.SelectedItem != null)
-            {
-                string selectedTrainerName = trainerCombo.SelectedItem.ToString();
-                if (trainerNameToId.ContainsKey(selectedTrainerName))
-                {
-                    selectedTrainerId = trainerNameToId[selectedTrainerName];
-                }
-            }
-
             return new Member()
             {
                 FirstName = firstNameTxt.Content.Trim(),
@@ -430,7 +357,7 @@ namespace TrainHub
                 EndDate = endDate.Value.Date,
                 Status = statusCombo.SelectedItem.ToString(),
                 MembershipType = membershipTypeCombo.SelectedItem.ToString(),
-                TrainerID = selectedTrainerId
+                //TrainerID = 1 // Assuming a default trainer ID for now
             };
         }
 
@@ -451,19 +378,6 @@ namespace TrainHub
                 selectedMember.DateOfBirth = birthDate.Value;
                 selectedMember.StartDate = startDate.Value;
                 selectedMember.EndDate = endDate.Value;
-
-                if (trainerCombo.SelectedItem != null)
-                {
-                    string selectedTrainerName = trainerCombo.SelectedItem.ToString();
-                    if (trainerNameToId.ContainsKey(selectedTrainerName))
-                    {
-                        selectedMember.TrainerID = trainerNameToId[selectedTrainerName];
-                    }
-                }
-                else
-                {
-                    selectedMember.TrainerID = null;
-                }
             }
         }
 

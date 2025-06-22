@@ -6,9 +6,15 @@ using System.Windows.Forms;
 
 namespace TrainHub.Static_Classes
 {
+    public enum PersonType
+    {
+        Member,
+        Trainer
+    }
+
     public static class ImageFileManager
     {
-        private static readonly string BaseImageDirectory = Path.Combine(Application.StartupPath, "MemberImages");
+        private static readonly string BaseImageDirectory = Path.Combine(Application.StartupPath, "Images");
 
         static ImageFileManager()
         {
@@ -20,28 +26,36 @@ namespace TrainHub.Static_Classes
         }
 
         /// <summary>
-        /// Save captured image to file system
+        /// Save captured image to file system for either member or trainer
         /// </summary>
         /// <param name="image">The image to save</param>
-        /// <param name="memberId">Member ID for filename</param>
-        /// <param name="memberEmail">Member email for folder organization (optional)</param>
+        /// <param name="personId">Person ID for filename</param>
+        /// <param name="personType">Type of person (Member or Trainer)</param>
+        /// <param name="email">Person email for additional organization (optional)</param>
         /// <returns>The file path where image was saved</returns>
-        public static string SaveMemberImage(Bitmap image, int memberId, string memberEmail = null)
+        public static string SavePersonImage(Bitmap image, int personId, PersonType personType, string email = null)
         {
             if (image == null)
                 throw new ArgumentNullException(nameof(image));
 
             try
             {
-                // Create subfolder structure (optional - you can use just BaseImageDirectory)
-                string yearFolder = Path.Combine(BaseImageDirectory, DateTime.Now.Year.ToString());
+                // Create type-specific subfolder
+                string typeFolder = Path.Combine(BaseImageDirectory, personType.ToString() + "s"); // "Members" or "Trainers"
+                if (!Directory.Exists(typeFolder))
+                {
+                    Directory.CreateDirectory(typeFolder);
+                }
+
+                // Create year subfolder for organization
+                string yearFolder = Path.Combine(typeFolder, DateTime.Now.Year.ToString());
                 if (!Directory.Exists(yearFolder))
                 {
                     Directory.CreateDirectory(yearFolder);
                 }
 
                 // Generate unique filename
-                string fileName = $"member_{memberId}_{DateTime.Now:yyyyMMdd_HHmmss}.jpg";
+                string fileName = $"{personType.ToString().ToLower()}_{personId}_{DateTime.Now:yyyyMMdd_HHmmss}.jpg";
                 string fullPath = Path.Combine(yearFolder, fileName);
 
                 // Resize image if too large (optional - for storage optimization)
@@ -60,16 +74,32 @@ namespace TrainHub.Static_Classes
             }
             catch (Exception ex)
             {
-                throw new Exception($"Failed to save member image: {ex.Message}", ex);
+                throw new Exception($"Failed to save {personType.ToString().ToLower()} image: {ex.Message}", ex);
             }
         }
 
         /// <summary>
-        /// Load member image from file path
+        /// Save member image (wrapper for backward compatibility)
+        /// </summary>
+        public static string SaveMemberImage(Bitmap image, int memberId, string memberEmail = null)
+        {
+            return SavePersonImage(image, memberId, PersonType.Member, memberEmail);
+        }
+
+        /// <summary>
+        /// Save trainer image
+        /// </summary>
+        public static string SaveTrainerImage(Bitmap image, int trainerId, string trainerEmail = null)
+        {
+            return SavePersonImage(image, trainerId, PersonType.Trainer, trainerEmail);
+        }
+
+        /// <summary>
+        /// Load person image from file path
         /// </summary>
         /// <param name="filePath">Path to the image file</param>
         /// <returns>Bitmap image or null if not found</returns>
-        public static Bitmap LoadMemberImage(string filePath)
+        public static Bitmap LoadPersonImage(string filePath)
         {
             if (string.IsNullOrEmpty(filePath) || !File.Exists(filePath))
                 return null;
@@ -89,11 +119,27 @@ namespace TrainHub.Static_Classes
         }
 
         /// <summary>
-        /// Delete member image file
+        /// Load member image (wrapper for backward compatibility)
+        /// </summary>
+        public static Bitmap LoadMemberImage(string filePath)
+        {
+            return LoadPersonImage(filePath);
+        }
+
+        /// <summary>
+        /// Load trainer image
+        /// </summary>
+        public static Bitmap LoadTrainerImage(string filePath)
+        {
+            return LoadPersonImage(filePath);
+        }
+
+        /// <summary>
+        /// Delete person image file
         /// </summary>
         /// <param name="filePath">Path to the image file</param>
         /// <returns>True if deleted successfully</returns>
-        public static bool DeleteMemberImage(string filePath)
+        public static bool DeletePersonImage(string filePath)
         {
             if (string.IsNullOrEmpty(filePath) || !File.Exists(filePath))
                 return false;
@@ -107,6 +153,22 @@ namespace TrainHub.Static_Classes
             {
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Delete member image (wrapper for backward compatibility)
+        /// </summary>
+        public static bool DeleteMemberImage(string filePath)
+        {
+            return DeletePersonImage(filePath);
+        }
+
+        /// <summary>
+        /// Delete trainer image
+        /// </summary>
+        public static bool DeleteTrainerImage(string filePath)
+        {
+            return DeletePersonImage(filePath);
         }
 
         /// <summary>
@@ -183,19 +245,30 @@ namespace TrainHub.Static_Classes
         /// Clean up old image files (optional maintenance method)
         /// </summary>
         /// <param name="daysOldToDelete">Delete files older than this many days</param>
-        public static void CleanupOldImages(int daysOldToDelete = 365)
+        /// <param name="personType">Type of person to clean up (null for all types)</param>
+        public static void CleanupOldImages(int daysOldToDelete = 365, PersonType? personType = null)
         {
             try
             {
                 DateTime cutoffDate = DateTime.Now.AddDays(-daysOldToDelete);
-                string[] imageFiles = Directory.GetFiles(BaseImageDirectory, "*.jpg", SearchOption.AllDirectories);
 
-                foreach (string file in imageFiles)
+                string searchPath = BaseImageDirectory;
+                if (personType.HasValue)
                 {
-                    FileInfo fileInfo = new FileInfo(file);
-                    if (fileInfo.CreationTime < cutoffDate)
+                    searchPath = Path.Combine(BaseImageDirectory, personType.Value.ToString() + "s");
+                }
+
+                if (Directory.Exists(searchPath))
+                {
+                    string[] imageFiles = Directory.GetFiles(searchPath, "*.jpg", SearchOption.AllDirectories);
+
+                    foreach (string file in imageFiles)
                     {
-                        File.Delete(file);
+                        FileInfo fileInfo = new FileInfo(file);
+                        if (fileInfo.CreationTime < cutoffDate)
+                        {
+                            File.Delete(file);
+                        }
                     }
                 }
             }
@@ -203,6 +276,28 @@ namespace TrainHub.Static_Classes
             {
                 // Log error but don't throw - this is maintenance
                 System.Diagnostics.Debug.WriteLine($"Error cleaning up old images: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Get all image files for a specific person type
+        /// </summary>
+        /// <param name="personType">Type of person</param>
+        /// <returns>Array of image file paths</returns>
+        public static string[] GetAllImagesForType(PersonType personType)
+        {
+            try
+            {
+                string typeFolder = Path.Combine(BaseImageDirectory, personType.ToString() + "s");
+                if (Directory.Exists(typeFolder))
+                {
+                    return Directory.GetFiles(typeFolder, "*.jpg", SearchOption.AllDirectories);
+                }
+                return new string[0];
+            }
+            catch (Exception)
+            {
+                return new string[0];
             }
         }
     }

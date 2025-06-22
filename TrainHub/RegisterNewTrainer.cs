@@ -40,7 +40,7 @@ namespace TrainHub
                 string.IsNullOrWhiteSpace(emailTxt.Content) ||
                 string.IsNullOrWhiteSpace(lastNameTxt.Content) ||
                 string.IsNullOrWhiteSpace(addressTxt.Content) ||
-                string.IsNullOrWhiteSpace(yearsOfExperienceTxt.Content) ||
+                //string.IsNullOrWhiteSpace(yearsOfExperienceTxt.Content) ||
                 birthDate.Value == null)
 
             {
@@ -100,9 +100,9 @@ namespace TrainHub
                 LastName = lastNameTxt.Content,
                 Email = emailTxt.Content,
                 Address = addressTxt.Content,
-                MobileNumber = mobNumTxt.Content,
+                PhoneNumber = mobNumTxt.Content,
                 DateOfBirth = birthDate.Value.Date,
-                YearsOfExperience = yearsOfExperienceTxt.Content,
+                //YearsOfExperience = yearsOfExperienceTxt.Content,
             };
             _context.Add(trainer);
             _context.SaveChanges(); // Ensure changes are saved to the database

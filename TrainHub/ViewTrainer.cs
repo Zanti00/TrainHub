@@ -13,47 +13,45 @@ using TrainHub.Static_Classes;
 
 namespace TrainHub
 {
-
-    public partial class ViewMember : Form
+    public partial class ViewTrainer : Form
     {
-        private int memberID;
+        private int trainerID;
         TrainHubContext dataContext = new TrainHubContext();
         private ReadQRForm _readQRForm;
-        public ViewMember(int memberID, ReadQRForm? _readQRForm)
+
+        public ViewTrainer(int trainerID, ReadQRForm? _readQRForm)
         {
+            this.trainerID = trainerID;
+            this._readQRForm = _readQRForm;
             InitializeComponent();
 
-            this.memberID = memberID;
-            this._readQRForm = _readQRForm;
-
-            LoadMemberData();
+            LoadTrainerData();
         }
 
-        private void LoadMemberData()
+        private void LoadTrainerData()
         {
             try
             {
-                var selectedMember = dataContext.Member.Find(memberID);
+                var selectedTrainer = dataContext.Trainer.Find(trainerID);
 
-                if (selectedMember == null)
+                if (selectedTrainer == null)
                 {
-                    MessageBox.Show("Member not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Trainer not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                     return;
                 }
                 else
                 {
-                    firstName.Text = selectedMember.FirstName;
-                    lastName.Text = selectedMember.LastName;
-                    emailAdd.Text = selectedMember.Email;
-                    phoneNum.Text = selectedMember.PhoneNumber;
-                    status.Text = selectedMember.Status;
-                    membershipType.Text = selectedMember.MembershipType;
-                    birthDate.Value = selectedMember.DateOfBirth;
-                    startDate.Value = selectedMember.StartDate;
-                    endDate.Value = selectedMember.EndDate;
+                    firstName.Text = selectedTrainer.FirstName;
+                    lastName.Text = selectedTrainer.LastName;
+                    emailAdd.Text = selectedTrainer.Email;
+                    phoneNum.Text = selectedTrainer.PhoneNumber;
+                    status.Text = selectedTrainer.Status;
+                    availability.Text = selectedTrainer.Availability;
+                    birthDate.Value = selectedTrainer.DateOfBirth;
+                    hireDate.Value = (DateTime)selectedTrainer.CreatedDate;
 
-                    LoadMemberImage(selectedMember.ProfileImagePath);
+                    LoadTrainerImage(selectedTrainer.ProfileImagePath);
                 }
             }
             catch (Exception ex)
@@ -63,7 +61,8 @@ namespace TrainHub
                 this.Close();
             }
         }
-        private void LoadMemberImage(string imagePath)
+
+        private void LoadTrainerImage(string imagePath)
         {
             try
             {
@@ -88,7 +87,7 @@ namespace TrainHub
                 }
 
                 // Load the image using ImageFileManager
-                Bitmap loadedImage = ImageFileManager.LoadMemberImage(fullPath);
+                Bitmap loadedImage = ImageFileManager.LoadTrainerImage(fullPath);
 
                 if (loadedImage != null)
                 {
@@ -111,6 +110,7 @@ namespace TrainHub
                 // MessageBox.Show($"Could not load member image: {ex.Message}", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
         private void ShowImagePopup(string imagePath)
         {
             Form imageForm = new Form();
@@ -133,15 +133,15 @@ namespace TrainHub
         }
         private void doneBtn_Click(object sender, EventArgs e)
         {
-            _readQRForm?.AddMemberAttendnace(memberID);
+            _readQRForm?.RecordTrainerAttendance(trainerID);
             this.Close();
         }
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
-            var selectedMember = dataContext.Member.Find(memberID);
+            var selectedTrainer = dataContext.Trainer.Find(trainerID);
 
-            string fullPath = ImageFileManager.GetFullPath(selectedMember.ProfileImagePath);
+            string fullPath = ImageFileManager.GetFullPath(selectedTrainer.ProfileImagePath);
             ShowImagePopup(fullPath);
         }
     }

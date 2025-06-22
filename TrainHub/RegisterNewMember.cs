@@ -187,7 +187,7 @@ namespace TrainHub
 
                 QrCode qrCodeGenerator = new QrCode();
                 Bitmap picQRCode = QrCode.GetCode(member.Id.ToString());
-                qrCodeGenerator.GenerateQrCode(member.Id, picQRCode);
+                qrCodeGenerator.GenerateQrCodeForTrainer(member.Id, picQRCode);
 
                 MessageBox.Show("Member registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 _showMembersTablePageForm1?.RefreshMemberData();

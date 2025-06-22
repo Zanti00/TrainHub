@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrainHub;
 using TrainHub.Data;
+using TrainHub.Models;
 using TrainHub.Static_Classes;
 using TrainHub.User_Controls;
 using Zuby.ADGV;
@@ -33,23 +36,21 @@ namespace TrainHub
         }
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 11 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 12 && e.RowIndex >= 0)
             {
                 int memberID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                //ViewMember viewMember = new ViewMember(memberID, null);
-                //viewMember.ShowDialog();
                 MemberForm viewMemberForm = new MemberForm(this, FormMode.View, null, memberID);
                 viewMemberForm.ShowDialog();
             }
 
-            if (e.ColumnIndex == 12 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 13 && e.RowIndex >= 0)
             {
                 int memberID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                MemberForm editMemberForm = new MemberForm(this, FormMode.View, null, memberID);
+                MemberForm editMemberForm = new MemberForm(this, FormMode.Edit, null, memberID);
                 editMemberForm.ShowDialog();
             }
 
-            if (e.ColumnIndex == 13 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 14 && e.RowIndex >= 0)
             {
                 // Confirm deletion
                 var result = MessageBox.Show($"Are you sure you want to delete member {advancedDataGridView1.Rows[e.RowIndex].Cells[1].Value} {advancedDataGridView1.Rows[e.RowIndex].Cells[2].Value}?", "Confirm Deletion",
@@ -79,8 +80,17 @@ namespace TrainHub
         }
         private void advancedDataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            // Check if this is column 11 (Status column) and has a value
             if (e.ColumnIndex == 11 && e.Value != null)
+            {
+                if (e.Value is Trainer trainer)
+                {
+                    e.Value = $"{trainer.FirstName} {trainer.LastName}";
+                    e.FormattingApplied = true;
+                }
+            }
+
+            // Check if this is column 11 (Status column) and has a value
+            if (e.ColumnIndex == 9 && e.Value != null)
             {
                 string status = e.Value.ToString();
 
@@ -158,6 +168,7 @@ namespace TrainHub
             {
                 dataContext.ChangeTracker.Clear();
                 var members = from member in dataContext.Member
+                     .Include(m => m.Trainer)
                               where !member.IsDeleted // Only select non-deleted members
                               select member;
 
@@ -176,12 +187,16 @@ namespace TrainHub
                 dataTable.Columns.Add("IsDeleted", typeof(bool));
                 dataTable.Columns.Add("Status", typeof(string));
                 dataTable.Columns.Add("MembershipType", typeof(string));
+                dataTable.Columns.Add("TrainerName", typeof(object));
                 dataTable.Columns.Add("ProfileImagePath", typeof(Image));
 
                 foreach (var member in members)
                 {
-
                     Image profileImage = LoadMemberImage(member.ProfileImagePath);
+
+                    string trainerName = member.Trainer != null
+                        ? $"{member.Trainer.FirstName} {member.Trainer.LastName}"
+                        : "No Trainer Assigned";
 
                     dataTable.Rows.Add(
                         member.Id,
@@ -197,6 +212,7 @@ namespace TrainHub
                         member.IsDeleted,
                         member.Status,
                         member.MembershipType,
+                        trainerName,
                         profileImage
                     );
                 }
@@ -211,9 +227,7 @@ namespace TrainHub
                     {
                         advancedDataGridView1.SetFilterAndSortEnabled(col, false);
                     }
-
                 }
-
             }
             catch (Exception ex)
             {
@@ -343,6 +357,5 @@ namespace TrainHub
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }

@@ -55,7 +55,7 @@ namespace TrainHub
                     firstNameTxt.Content = selectedTrainer.FirstName;
                     lastNameTxt.Content = selectedTrainer.LastName;
                     emailTxt.Content = selectedTrainer.Email;
-                    mobNumTxt.Content = selectedTrainer.MobileNumber;
+                    mobNumTxt.Content = selectedTrainer.PhoneNumber;
                     addressTxt.Content = selectedTrainer.Address;
                     birthDate.Value = (DateTime)selectedTrainer.DateOfBirth;
 
@@ -136,7 +136,7 @@ namespace TrainHub
                     selectedMember.FirstName = firstNameTxt.Content.Trim();
                     selectedMember.LastName = lastNameTxt.Content.Trim();
                     selectedMember.Email = emailTxt.Content.Trim();
-                    selectedMember.MobileNumber = mobNumTxt.Content.Trim();
+                    selectedMember.PhoneNumber = mobNumTxt.Content.Trim();
 
                   
                     // Update date values

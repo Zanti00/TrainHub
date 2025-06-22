@@ -26,7 +26,7 @@ namespace TrainHub.Models
         public string? ImageFileName { get; set; }
         public DateTime? ImageCapturedDate { get; set; }
 
-        //public int TrainerID { get; set; }
-        //public Trainer TrainerName { get; set; }
+        public int? TrainerID { get; set; }
+        public virtual Trainer? Trainer { get; set; }
     }
 }

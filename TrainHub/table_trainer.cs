@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrainHub.Data;
+using TrainHub.Models;
 
 namespace TrainHub
 {
@@ -24,20 +25,26 @@ namespace TrainHub
 
         private void addTrainerButton_Click(object sender, EventArgs e)
         {
-            RegisterNewTrainer registerNewTrainer = new RegisterNewTrainer(this);
-            registerNewTrainer.ShowDialog();
+            TrainerForm addTrainer = new TrainerForm(this, FormMode.Add);
+            addTrainer.ShowDialog();
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 11 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 14 && e.RowIndex >= 0)
             {
                 int trainerID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                edit_trainer editForm = new edit_trainer(trainerID, this);
-                editForm.ShowDialog();
+                TrainerForm viewTrainer = new TrainerForm(this, FormMode.View, null, trainerID);
+                viewTrainer.ShowDialog();
+            }
+            if (e.ColumnIndex == 15 && e.RowIndex >= 0)
+            {
+                int trainerID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                TrainerForm editTrianer = new TrainerForm(this, FormMode.Edit, null, trainerID);
+                editTrianer.ShowDialog();
             }
 
-            if (e.ColumnIndex == 12 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 16 && e.RowIndex >= 0)
             {
                 // Confirm deletion
                 var result = MessageBox.Show($"Are you sure you want to delete trainer {advancedDataGridView1.Rows[e.RowIndex].Cells[1].Value} {advancedDataGridView1.Rows[e.RowIndex].Cells[2].Value}?", "Confirm Deletion",
@@ -69,7 +76,7 @@ namespace TrainHub
         private void advancedDataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             // Check if this is column 11 (Status column) and has a value
-            if (e.ColumnIndex == 11 && e.Value != null)
+            if (e.ColumnIndex == 7 && e.Value != null)
             {
                 string status = e.Value.ToString();
 
@@ -102,10 +109,15 @@ namespace TrainHub
                 dataTable.Columns.Add("Id", typeof(int));
                 dataTable.Columns.Add("FirstName", typeof(string));
                 dataTable.Columns.Add("LastName", typeof(string));
+                dataTable.Columns.Add("Gender", typeof(string));
                 dataTable.Columns.Add("Email", typeof(string));
+                dataTable.Columns.Add("PhoneNumber", typeof(string));
                 dataTable.Columns.Add("Address", typeof(string));
+                dataTable.Columns.Add("Status", typeof(string));
+                dataTable.Columns.Add("Availability", typeof(string));
                 dataTable.Columns.Add("YearsOfExperience", typeof(string));
-                dataTable.Columns.Add("MobileNumber", typeof(string));
+                dataTable.Columns.Add("Specialization", typeof(string));
+                dataTable.Columns.Add("HourlyRate", typeof(string));
                 dataTable.Columns.Add("CreatedDate", typeof(DateTime));
                 dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
 
@@ -115,13 +127,17 @@ namespace TrainHub
                         trainer.Id,
                         trainer.FirstName,
                         trainer.LastName,
+                        trainer.Gender,
                         trainer.Email,
+                        trainer.PhoneNumber,
                         trainer.Address,
+                        trainer.Status,
+                        trainer.Availability,
                         trainer.YearsOfExperience,
-                        trainer.MobileNumber,
+                        trainer.Specialization,
+                        trainer.HourlyRate,
                         trainer.CreatedDate,
                         trainer.DateOfBirth
-
                     );
                 }
 
@@ -169,12 +185,17 @@ namespace TrainHub
                     dataTable.Columns.Add("Id", typeof(int));
                     dataTable.Columns.Add("FirstName", typeof(string));
                     dataTable.Columns.Add("LastName", typeof(string));
-                    dataTable.Columns.Add("Email Address", typeof(string));
+                    dataTable.Columns.Add("Gender", typeof(string));
+                    dataTable.Columns.Add("Email", typeof(string));
                     dataTable.Columns.Add("PhoneNumber", typeof(string));
-                    dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
+                    dataTable.Columns.Add("Address", typeof(string));
+                    dataTable.Columns.Add("Status", typeof(string));
+                    dataTable.Columns.Add("Availability", typeof(string));
+                    dataTable.Columns.Add("YearsOfExperience", typeof(string));
+                    dataTable.Columns.Add("Specialization", typeof(string));
+                    dataTable.Columns.Add("HourlyRate", typeof(string));
                     dataTable.Columns.Add("CreatedDate", typeof(DateTime));
-                    dataTable.Columns.Add("SoftDeleteDate", typeof(DateTime));
-                    dataTable.Columns.Add("IsDeleted", typeof(bool));
+                    dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
 
 
                     foreach (var trainer in trainers)
@@ -183,12 +204,17 @@ namespace TrainHub
                             trainer.Id,
                             trainer.FirstName,
                             trainer.LastName,
+                            trainer.Gender,
                             trainer.Email,
-                            trainer.MobileNumber,
-                            trainer.DateOfBirth,
+                            trainer.PhoneNumber,
+                            trainer.Address,
+                            trainer.Status,
+                            trainer.Availability,
+                            trainer.YearsOfExperience,
+                            trainer.Specialization,
+                            trainer.HourlyRate,
                             trainer.CreatedDate,
-                            trainer.SoftDeleteDate,
-                            trainer.IsDeleted
+                            trainer.DateOfBirth
 
                         );
                     }

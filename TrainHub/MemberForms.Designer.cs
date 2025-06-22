@@ -1,4 +1,4 @@
-﻿namespace TrainHub
+﻿namespace TrainHub.User_Controls
 {
     partial class MemberForm
     {
@@ -28,11 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemberForm));
-            formLabel = new Label();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
-            generateQrBtn = new CuoreUI.Controls.cuiButtonGroup();
             pictureBox1 = new PictureBox();
             openCameraBtn = new CuoreUI.Controls.cuiButtonGroup();
             captureBtn = new CuoreUI.Controls.cuiButtonGroup();
@@ -40,7 +37,6 @@
             label2 = new Label();
             label4 = new Label();
             trainerCombo = new CuoreUI.Controls.cuiComboBox();
-            trainerBindingSource = new BindingSource(components);
             endDate = new CuoreUI.Controls.cuiCalendarDatePicker();
             label3 = new Label();
             statusCombo = new CuoreUI.Controls.cuiComboBox();
@@ -52,25 +48,13 @@
             emailAddTxt = new CuoreUI.Controls.cuiTextBox();
             lastNameTxt = new CuoreUI.Controls.cuiTextBox();
             firstNameTxt = new CuoreUI.Controls.cuiTextBox();
+            formLabel = new Label();
             cuiPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)trainerBindingSource).BeginInit();
             SuspendLayout();
-            // 
-            // formLabel
-            // 
-            formLabel.AutoSize = true;
-            formLabel.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold);
-            formLabel.ForeColor = Color.FromArgb(50, 81, 88);
-            formLabel.Location = new Point(26, 25);
-            formLabel.Name = "formLabel";
-            formLabel.Size = new Size(218, 24);
-            formLabel.TabIndex = 11;
-            formLabel.Text = "Register New Member";
             // 
             // cuiPanel1
             // 
-            cuiPanel1.Controls.Add(generateQrBtn);
             cuiPanel1.Controls.Add(pictureBox1);
             cuiPanel1.Controls.Add(openCameraBtn);
             cuiPanel1.Controls.Add(captureBtn);
@@ -89,7 +73,7 @@
             cuiPanel1.Controls.Add(emailAddTxt);
             cuiPanel1.Controls.Add(lastNameTxt);
             cuiPanel1.Controls.Add(firstNameTxt);
-            cuiPanel1.Location = new Point(26, 67);
+            cuiPanel1.Location = new Point(27, 70);
             cuiPanel1.Margin = new Padding(3, 2, 3, 2);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
@@ -97,44 +81,7 @@
             cuiPanel1.PanelOutlineColor = Color.Black;
             cuiPanel1.Rounding = new Padding(10);
             cuiPanel1.Size = new Size(677, 354);
-            cuiPanel1.TabIndex = 10;
-            // 
-            // generateQrBtn
-            // 
-            generateQrBtn.Checked = false;
-            generateQrBtn.CheckedBackground = Color.FromArgb(50, 81, 88);
-            generateQrBtn.CheckedForeColor = Color.White;
-            generateQrBtn.CheckedImageTint = Color.White;
-            generateQrBtn.CheckedOutline = Color.FromArgb(50, 81, 88);
-            generateQrBtn.Content = "Generate QR";
-            generateQrBtn.Font = new Font("Microsoft Sans Serif", 6F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            generateQrBtn.ForeColor = Color.Black;
-            generateQrBtn.Group = 0;
-            generateQrBtn.HoverBackground = Color.FromArgb(50, 81, 88);
-            generateQrBtn.HoveredImageTint = Color.White;
-            generateQrBtn.HoverForeColor = Color.White;
-            generateQrBtn.HoverOutline = Color.FromArgb(50, 81, 88);
-            generateQrBtn.Image = null;
-            generateQrBtn.ImageAutoCenter = true;
-            generateQrBtn.ImageExpand = new Point(0, 0);
-            generateQrBtn.ImageOffset = new Point(0, 0);
-            generateQrBtn.Location = new Point(257, 86);
-            generateQrBtn.Name = "generateQrBtn";
-            generateQrBtn.NormalBackground = Color.White;
-            generateQrBtn.NormalForeColor = Color.Black;
-            generateQrBtn.NormalImageTint = Color.White;
-            generateQrBtn.NormalOutline = Color.FromArgb(50, 81, 88);
-            generateQrBtn.OutlineThickness = 1F;
-            generateQrBtn.PressedBackground = Color.FromArgb(22, 36, 39);
-            generateQrBtn.PressedForeColor = Color.White;
-            generateQrBtn.PressedImageTint = Color.White;
-            generateQrBtn.PressedOutline = Color.FromArgb(22, 36, 39);
-            generateQrBtn.Rounding = new Padding(8);
-            generateQrBtn.Size = new Size(80, 28);
-            generateQrBtn.TabIndex = 45;
-            generateQrBtn.TextAlignment = StringAlignment.Center;
-            generateQrBtn.TextOffset = new Point(0, 0);
-            generateQrBtn.Click += generateQrBtn_Click;
+            cuiPanel1.TabIndex = 8;
             // 
             // pictureBox1
             // 
@@ -281,11 +228,17 @@
             trainerCombo.ButtonNormalOutline = Color.FromArgb(50, 81, 88);
             trainerCombo.ButtonPressedBackground = Color.FromArgb(22, 36, 39);
             trainerCombo.ButtonPressedOutline = Color.FromArgb(22, 36, 39);
-            trainerCombo.DataBindings.Add(new Binding("DataContext", trainerBindingSource, "FirstName", true));
             trainerCombo.DropDownBackgroundColor = Color.FromArgb(50, 81, 88);
             trainerCombo.DropDownOutlineColor = Color.FromArgb(50, 81, 88);
             trainerCombo.ExpandArrowColor = Color.FromArgb(50, 81, 88);
             trainerCombo.ForeColor = Color.Gray;
+            trainerCombo.Items = new string[]
+    {
+    "None",
+    "Trainer 1",
+    "Trainer 2",
+    "Trainer 3"
+    };
             trainerCombo.Location = new Point(349, 256);
             trainerCombo.Margin = new Padding(4, 3, 4, 3);
             trainerCombo.Name = "trainerCombo";
@@ -296,10 +249,6 @@
             trainerCombo.Rounding = 8;
             trainerCombo.Size = new Size(300, 27);
             trainerCombo.TabIndex = 35;
-            // 
-            // trainerBindingSource
-            // 
-            trainerBindingSource.DataSource = typeof(Models.Trainer);
             // 
             // endDate
             // 
@@ -528,7 +477,6 @@
             phoneNumTxt.TabIndex = 15;
             phoneNumTxt.TextOffset = new Size(0, 0);
             phoneNumTxt.UnderlinedStyle = false;
-            phoneNumTxt.KeyPress += phoneNumTxt_KeyPress;
             // 
             // emailAddTxt
             // 
@@ -617,6 +565,17 @@
             firstNameTxt.TextOffset = new Size(0, 0);
             firstNameTxt.UnderlinedStyle = false;
             // 
+            // formLabel
+            // 
+            formLabel.AutoSize = true;
+            formLabel.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold);
+            formLabel.ForeColor = Color.FromArgb(50, 81, 88);
+            formLabel.Location = new Point(27, 28);
+            formLabel.Name = "formLabel";
+            formLabel.Size = new Size(218, 24);
+            formLabel.TabIndex = 9;
+            formLabel.Text = "Register New Member";
+            // 
             // MemberForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -624,23 +583,21 @@
             ClientSize = new Size(728, 446);
             Controls.Add(formLabel);
             Controls.Add(cuiPanel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "MemberForm";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "MemberForm";
-            Load += MemberForm_Load;
+            FormClosing += MemberForm_FormClosing;
             cuiPanel1.ResumeLayout(false);
             cuiPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)trainerBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label formLabel;
         private CuoreUI.Controls.cuiPanel cuiPanel1;
         private PictureBox pictureBox1;
         private CuoreUI.Controls.cuiButtonGroup openCameraBtn;
@@ -660,7 +617,6 @@
         private CuoreUI.Controls.cuiTextBox emailAddTxt;
         private CuoreUI.Controls.cuiTextBox lastNameTxt;
         private CuoreUI.Controls.cuiTextBox firstNameTxt;
-        private CuoreUI.Controls.cuiButtonGroup generateQrBtn;
-        private BindingSource trainerBindingSource;
+        private Label formLabel;
     }
 }

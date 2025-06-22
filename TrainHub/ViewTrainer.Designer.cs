@@ -1,6 +1,6 @@
 ﻿namespace TrainHub
 {
-    partial class ViewMember
+    partial class ViewTrainer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewMember));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewTrainer));
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            address = new Label();
+            label8 = new Label();
             emailAdd = new Label();
             phoneNum = new Label();
-            membershipType = new Label();
+            availability = new Label();
             status = new Label();
             lastName = new Label();
             firstName = new Label();
@@ -42,10 +44,8 @@
             pictureBox1 = new PictureBox();
             birthDate = new CuoreUI.Controls.cuiCalendarDatePicker();
             label2 = new Label();
-            label4 = new Label();
-            endDate = new CuoreUI.Controls.cuiCalendarDatePicker();
             label3 = new Label();
-            startDate = new CuoreUI.Controls.cuiCalendarDatePicker();
+            hireDate = new CuoreUI.Controls.cuiCalendarDatePicker();
             doneBtn = new CuoreUI.Controls.cuiButtonGroup();
             cuiPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -54,9 +54,11 @@
             // cuiPanel1
             // 
             cuiPanel1.BackColor = Color.Transparent;
+            cuiPanel1.Controls.Add(address);
+            cuiPanel1.Controls.Add(label8);
             cuiPanel1.Controls.Add(emailAdd);
             cuiPanel1.Controls.Add(phoneNum);
-            cuiPanel1.Controls.Add(membershipType);
+            cuiPanel1.Controls.Add(availability);
             cuiPanel1.Controls.Add(status);
             cuiPanel1.Controls.Add(lastName);
             cuiPanel1.Controls.Add(firstName);
@@ -66,10 +68,8 @@
             cuiPanel1.Controls.Add(pictureBox1);
             cuiPanel1.Controls.Add(birthDate);
             cuiPanel1.Controls.Add(label2);
-            cuiPanel1.Controls.Add(label4);
-            cuiPanel1.Controls.Add(endDate);
             cuiPanel1.Controls.Add(label3);
-            cuiPanel1.Controls.Add(startDate);
+            cuiPanel1.Controls.Add(hireDate);
             cuiPanel1.Controls.Add(doneBtn);
             cuiPanel1.Location = new Point(26, 46);
             cuiPanel1.Margin = new Padding(3, 2, 3, 2);
@@ -79,14 +79,36 @@
             cuiPanel1.PanelOutlineColor = Color.White;
             cuiPanel1.Rounding = new Padding(10);
             cuiPanel1.Size = new Size(677, 354);
-            cuiPanel1.TabIndex = 9;
+            cuiPanel1.TabIndex = 10;
+            // 
+            // address
+            // 
+            address.AutoSize = true;
+            address.Font = new Font("Gadugi", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            address.ForeColor = Color.WhiteSmoke;
+            address.Location = new Point(290, 154);
+            address.Name = "address";
+            address.Size = new Size(58, 16);
+            address.TabIndex = 59;
+            address.Text = "St. Adress";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Gadugi", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.WhiteSmoke;
+            label8.Location = new Point(290, 129);
+            label8.Name = "label8";
+            label8.Size = new Size(51, 16);
+            label8.TabIndex = 58;
+            label8.Text = "Address";
             // 
             // emailAdd
             // 
             emailAdd.AutoSize = true;
             emailAdd.Font = new Font("Gadugi", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             emailAdd.ForeColor = Color.WhiteSmoke;
-            emailAdd.Location = new Point(405, 113);
+            emailAdd.Location = new Point(406, 106);
             emailAdd.Name = "emailAdd";
             emailAdd.Size = new Size(108, 16);
             emailAdd.TabIndex = 57;
@@ -97,22 +119,22 @@
             phoneNum.AutoSize = true;
             phoneNum.Font = new Font("Gadugi", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             phoneNum.ForeColor = Color.WhiteSmoke;
-            phoneNum.Location = new Point(290, 113);
+            phoneNum.Location = new Point(291, 106);
             phoneNum.Name = "phoneNum";
             phoneNum.Size = new Size(73, 16);
             phoneNum.TabIndex = 56;
             phoneNum.Text = "09123456789";
             // 
-            // membershipType
+            // availability
             // 
-            membershipType.AutoSize = true;
-            membershipType.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            membershipType.ForeColor = Color.Gainsboro;
-            membershipType.Location = new Point(360, 52);
-            membershipType.Name = "membershipType";
-            membershipType.Size = new Size(127, 20);
-            membershipType.TabIndex = 55;
-            membershipType.Text = "Membership Type";
+            availability.AutoSize = true;
+            availability.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            availability.ForeColor = Color.Gainsboro;
+            availability.Location = new Point(360, 52);
+            availability.Name = "availability";
+            availability.Size = new Size(83, 20);
+            availability.TabIndex = 55;
+            availability.Text = "Availability";
             // 
             // status
             // 
@@ -152,7 +174,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Gadugi", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.WhiteSmoke;
-            label7.Location = new Point(405, 88);
+            label7.Location = new Point(406, 81);
             label7.Name = "label7";
             label7.Size = new Size(36, 16);
             label7.TabIndex = 51;
@@ -163,7 +185,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Gadugi", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.WhiteSmoke;
-            label1.Location = new Point(290, 88);
+            label1.Location = new Point(291, 81);
             label1.Name = "label1";
             label1.Size = new Size(42, 16);
             label1.TabIndex = 49;
@@ -202,7 +224,7 @@
             birthDate.HoverOutline = Color.FromArgb(180, 128, 128, 128);
             birthDate.Icon = (Image)resources.GetObject("birthDate.Icon");
             birthDate.IconTint = Color.Gray;
-            birthDate.Location = new Point(107, 187);
+            birthDate.Location = new Point(100, 200);
             birthDate.Margin = new Padding(5);
             birthDate.Name = "birthDate";
             birthDate.NormalBackground = Color.Transparent;
@@ -222,83 +244,47 @@
             label2.AutoSize = true;
             label2.Font = new Font("Inter", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Silver;
-            label2.Location = new Point(24, 191);
+            label2.Location = new Point(17, 204);
             label2.Name = "label2";
             label2.Size = new Size(75, 22);
             label2.TabIndex = 36;
             label2.Text = "Birthdate";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Inter", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.Silver;
-            label4.Location = new Point(24, 276);
-            label4.Name = "label4";
-            label4.Size = new Size(72, 22);
-            label4.TabIndex = 38;
-            label4.Text = "End date";
-            // 
-            // endDate
-            // 
-            endDate.Enabled = false;
-            endDate.EnableThemeChangeButton = true;
-            endDate.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            endDate.ForeColor = Color.WhiteSmoke;
-            endDate.HoverBackground = Color.FromArgb(50, 128, 128, 128);
-            endDate.HoverOutline = Color.FromArgb(180, 128, 128, 128);
-            endDate.Icon = (Image)resources.GetObject("endDate.Icon");
-            endDate.IconTint = Color.Gray;
-            endDate.Location = new Point(107, 271);
-            endDate.Margin = new Padding(5);
-            endDate.Name = "endDate";
-            endDate.NormalBackground = Color.Transparent;
-            endDate.NormalOutline = Color.FromArgb(51, 81, 88);
-            endDate.OutlineThickness = 1.5F;
-            endDate.PressedBackground = Color.FromArgb(80, 128, 128, 128);
-            endDate.PressedOutline = Color.FromArgb(210, 128, 128, 128);
-            endDate.Rounding = 10;
-            endDate.ShowIcon = true;
-            endDate.Size = new Size(241, 32);
-            endDate.TabIndex = 27;
-            endDate.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
-            endDate.Value = new DateTime(2025, 6, 4, 0, 0, 0, 0);
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Inter", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Silver;
-            label3.Location = new Point(24, 233);
+            label3.Location = new Point(17, 246);
             label3.Name = "label3";
-            label3.Size = new Size(79, 22);
+            label3.Size = new Size(75, 22);
             label3.TabIndex = 37;
-            label3.Text = "Start date";
+            label3.Text = "Hire date";
             // 
-            // startDate
+            // hireDate
             // 
-            startDate.Enabled = false;
-            startDate.EnableThemeChangeButton = true;
-            startDate.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            startDate.ForeColor = Color.WhiteSmoke;
-            startDate.HoverBackground = Color.FromArgb(50, 128, 128, 128);
-            startDate.HoverOutline = Color.FromArgb(180, 128, 128, 128);
-            startDate.Icon = (Image)resources.GetObject("startDate.Icon");
-            startDate.IconTint = Color.Gray;
-            startDate.Location = new Point(107, 229);
-            startDate.Margin = new Padding(5);
-            startDate.Name = "startDate";
-            startDate.NormalBackground = Color.Transparent;
-            startDate.NormalOutline = Color.FromArgb(51, 81, 88);
-            startDate.OutlineThickness = 1.5F;
-            startDate.PressedBackground = Color.FromArgb(80, 128, 128, 128);
-            startDate.PressedOutline = Color.FromArgb(210, 128, 128, 128);
-            startDate.Rounding = 10;
-            startDate.ShowIcon = true;
-            startDate.Size = new Size(241, 32);
-            startDate.TabIndex = 26;
-            startDate.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
-            startDate.Value = new DateTime(2025, 6, 4, 0, 0, 0, 0);
+            hireDate.Enabled = false;
+            hireDate.EnableThemeChangeButton = true;
+            hireDate.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            hireDate.ForeColor = Color.WhiteSmoke;
+            hireDate.HoverBackground = Color.FromArgb(50, 128, 128, 128);
+            hireDate.HoverOutline = Color.FromArgb(180, 128, 128, 128);
+            hireDate.Icon = (Image)resources.GetObject("hireDate.Icon");
+            hireDate.IconTint = Color.Gray;
+            hireDate.Location = new Point(100, 242);
+            hireDate.Margin = new Padding(5);
+            hireDate.Name = "hireDate";
+            hireDate.NormalBackground = Color.Transparent;
+            hireDate.NormalOutline = Color.FromArgb(51, 81, 88);
+            hireDate.OutlineThickness = 1.5F;
+            hireDate.PressedBackground = Color.FromArgb(80, 128, 128, 128);
+            hireDate.PressedOutline = Color.FromArgb(210, 128, 128, 128);
+            hireDate.Rounding = 10;
+            hireDate.ShowIcon = true;
+            hireDate.Size = new Size(241, 32);
+            hireDate.TabIndex = 26;
+            hireDate.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
+            hireDate.Value = new DateTime(2025, 6, 4, 0, 0, 0, 0);
             // 
             // doneBtn
             // 
@@ -338,20 +324,15 @@
             doneBtn.TextOffset = new Point(0, 0);
             doneBtn.Click += doneBtn_Click;
             // 
-            // ViewMember
+            // ViewTrainer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(728, 446);
             Controls.Add(cuiPanel1);
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "ViewMember";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "TrainHub";
+            Name = "ViewTrainer";
+            Text = "ViewTrainer";
             cuiPanel1.ResumeLayout(false);
             cuiPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -361,30 +342,24 @@
         #endregion
 
         private CuoreUI.Controls.cuiPanel cuiPanel1;
+        private Label emailAdd;
+        private Label phoneNum;
+        private Label availability;
+        private Label status;
+        private Label lastName;
+        private Label firstName;
+        private Label label7;
+        private Label label1;
+        private Label label5;
         private PictureBox pictureBox1;
         private CuoreUI.Controls.cuiCalendarDatePicker birthDate;
         private Label label2;
         private Label label4;
-        private CuoreUI.Controls.cuiComboBox trainerCombo;
         private CuoreUI.Controls.cuiCalendarDatePicker endDate;
         private Label label3;
-        private CuoreUI.Controls.cuiComboBox statusTxt;
-        private CuoreUI.Controls.cuiCalendarDatePicker startDate;
-        private CuoreUI.Controls.cuiComboBox membershipTypeCombo;
-        private CuoreUI.Controls.cuiTextBox phoneNumTxt;
-        private CuoreUI.Controls.cuiTextBox emailAddTxt;
-        private CuoreUI.Controls.cuiTextBox lastNameTxt;
-        private CuoreUI.Controls.cuiTextBox firstNameTxt;
+        private CuoreUI.Controls.cuiCalendarDatePicker hireDate;
         private CuoreUI.Controls.cuiButtonGroup doneBtn;
-        private Label statusCombo;
-        private Label label1;
-        private Label label5;
-        private Label emailAdd;
-        private Label label7;
-        private Label membershipType;
-        private Label status;
-        private Label lastName;
-        private Label phoneNum;
-        private Label firstName;
+        private Label address;
+        private Label label8;
     }
 }

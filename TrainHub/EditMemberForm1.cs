@@ -337,7 +337,7 @@ namespace TrainHub
         {
             QrCode qrCodeGenerator = new QrCode(); // Create an instance of QrCode
             Bitmap picQRCode = QrCode.GetCode(memberID.ToString());
-            qrCodeGenerator.GenerateQrCode(memberID, picQRCode); // Use the instance to call the non-static method
+            qrCodeGenerator.GenerateQrCodeForMember(memberID, picQRCode); // Use the instance to call the non-static method
         }
 
         private void EditMemberForm1_FormClosing(object sender, FormClosingEventArgs e)

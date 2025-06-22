@@ -25,6 +25,7 @@ namespace TrainHub
         private VideoCaptureDevice videoSource;
         private Dashboar _dashboardForm;
         TrainHubContext dataContext = new TrainHubContext();
+
         public ReadQRForm(Dashboar dashboardForm)
         {
             InitializeComponent();
@@ -67,7 +68,8 @@ namespace TrainHub
         private void ReadQRForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             StopCamera();
-            _dashboardForm.RefreshAttendanceGrid();
+            _dashboardForm.RefreshMemberAttendanceGrid();
+            _dashboardForm.RefreshTrainerAttendanceGrid();
         }
 
         private void readBtn_Click(object sender, EventArgs e)
@@ -85,70 +87,268 @@ namespace TrainHub
 
                 if (result != null && !string.IsNullOrEmpty(result.Text))
                 {
-                    // Parse the member ID from QR code
-                    if (int.TryParse(result.Text.Trim(), out int memberId))
-                    {
-                        // Find the member first
-                        var member = dataContext.Member
-                            .FirstOrDefault(m => m.Id == memberId && !m.IsDeleted);
-
-                        if (member != null)
-                        {
-                            // Check if member has valid membership
-                            if (DateTime.Today >= member.StartDate && DateTime.Today <= member.EndDate)
-                            {
-                                ViewMember viewMember = new ViewMember(member.Id, this);
-                                viewMember.ShowDialog();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"Member {member.FirstName} {member.LastName}'s membership has expired or not yet active.\nMembership period: {member.StartDate:MM/dd/yyyy} - {member.EndDate:MM/dd/yyyy}",
-                                    "Membership Invalid",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Warning);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Member not found or has been deleted.",
-                                "Member Not Found",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid QR Code format. Expected a member ID.",
-                            "Invalid QR Code",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
-                    }
+                    ProcessQRCode(result.Text.Trim());
                 }
                 else
                 {
-                    MessageBox.Show("No QR Code detected.", 
-                        "QR Code Reader", 
-                        MessageBoxButtons.OK, 
+                    MessageBox.Show("No QR Code detected.",
+                        "QR Code Reader",
+                        MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error reading QR Code: " 
-                    + ex.Message, "QR Code Reader", 
-                    MessageBoxButtons.OK, 
+                MessageBox.Show("Error reading QR Code: "
+                    + ex.Message, "QR Code Reader",
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
         }
+
+        private void ProcessQRCode(string qrContent)
+        {
+            try
+            {
+                // Try to determine if this is a member or trainer QR code
+                // First, try to parse as a simple ID (existing format)
+                if (int.TryParse(qrContent, out int simpleId))
+                {
+                    // Check if it's a member first
+                    var member = dataContext.Member
+                        .FirstOrDefault(m => m.Id == simpleId && !m.IsDeleted);
+
+                    if (member != null)
+                    {
+                        HandleMemberQRCode(member);
+                        return;
+                    }
+
+                    // If not a member, check if it's a trainer
+                    var trainer = dataContext.Trainer
+                        .FirstOrDefault(t => t.Id == simpleId && !t.IsDeleted);
+
+                    if (trainer != null)
+                    {
+                        HandleTrainerQRCode(trainer);
+                        return;
+                    }
+
+                    MessageBox.Show("No member or trainer found with this ID.",
+                        "Not Found",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Try to parse as formatted QR code (e.g., "MEMBER:123" or "TRAINER:456")
+                string[] parts = qrContent.Split(':');
+                if (parts.Length == 2)
+                {
+                    string type = parts[0].ToUpper();
+                    if (int.TryParse(parts[1], out int id))
+                    {
+                        switch (type)
+                        {
+                            case "MEMBER":
+                                var member = dataContext.Member
+                                    .FirstOrDefault(m => m.Id == id && !m.IsDeleted);
+                                if (member != null)
+                                {
+                                    HandleMemberQRCode(member);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Member not found or has been deleted.",
+                                        "Member Not Found",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                                }
+                                break;
+
+                            case "TRAINER":
+                                var trainer = dataContext.Trainer
+                                    .FirstOrDefault(t => t.Id == id && !t.IsDeleted);
+                                if (trainer != null)
+                                {
+                                    HandleTrainerQRCode(trainer);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Trainer not found or has been deleted.",
+                                        "Trainer Not Found",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                                }
+                                break;
+
+                            default:
+                                MessageBox.Show("Invalid QR Code format. Expected format: MEMBER:ID or TRAINER:ID",
+                                    "Invalid QR Code",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                                break;
+                        }
+                        return;
+                    }
+                }
+
+                // If we reach here, the QR code format is not recognized
+                MessageBox.Show("Invalid QR Code format. Expected a member ID, trainer ID, or formatted code (MEMBER:ID or TRAINER:ID).",
+                    "Invalid QR Code",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error processing QR Code: {ex.Message}",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void HandleMemberQRCode(Member member)
+        {
+            try
+            {
+                // Check if member has valid membership
+                if (DateTime.Today >= member.StartDate && DateTime.Today <= member.EndDate)
+                {
+                    ViewMember viewMember = new ViewMember(member.Id, this);
+                    viewMember.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show($"Member {member.FirstName} {member.LastName}'s membership has expired or not yet active.\nMembership period: {member.StartDate:MM/dd/yyyy} - {member.EndDate:MM/dd/yyyy}",
+                        "Membership Invalid",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error handling member QR code: {ex.Message}",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void HandleTrainerQRCode(Trainer trainer)
+        {
+            try
+            {
+                // Check trainer status
+                if (trainer.Status.ToLower() == "active")
+                {
+                    ViewTrainer viewTrainer = new ViewTrainer(trainer.Id, this);
+                    viewTrainer.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show($"Trainer {trainer.FirstName} {trainer.LastName} is currently {trainer.Status}.",
+                        "Trainer Status",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error handling trainer QR code: {ex.Message}",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void ShowTrainerInfo(Trainer trainer)
+        {
+            string trainerInfo = $"Trainer Information:\n\n" +
+                               $"Name: {trainer.FirstName} {trainer.LastName}\n" +
+                               $"Email: {trainer.Email}\n" +
+                               $"Phone: {trainer.PhoneNumber}\n" +
+                               $"Specialization: {trainer.Specialization}\n" +
+                               $"Experience: {trainer.YearsOfExperience} years\n" +
+                               $"Availability: {trainer.Availability}\n" +
+                               $"Hourly Rate: ${trainer.HourlyRate:F2}\n" +
+                               $"Status: {trainer.Status}";
+
+            MessageBox.Show(trainerInfo,
+                "Trainer Details",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+
+        public void RecordTrainerAttendance(int trainerId)
+        {
+            try
+            {
+                // Check if trainer already checked in today
+                var existingAttendance = dataContext.TrainerAttendances
+                    .FirstOrDefault(a => a.TrainerId == trainerId &&
+                                  a.AttendanceDate.Date == DateTime.Today.Date &&
+                                  !a.IsDeleted);
+
+                if (existingAttendance == null)
+                {
+                    // Create new trainer attendance record
+                    var attendance = new TrainerAttendances
+                    {
+                        TrainerId = trainerId,
+                        CheckInTime = DateTime.Now.TimeOfDay,
+                        AttendanceDate = DateTime.Today,
+                        IsDeleted = false,
+                    };
+
+                    dataContext.TrainerAttendances.Add(attendance);
+                    dataContext.SaveChanges();
+
+                    var trainer = dataContext.Trainer.Find(trainerId);
+                    MessageBox.Show($"Welcome {trainer.FirstName} {trainer.LastName}!\nTrainer check-in successful.",
+                        "Attendance Recorded",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+                else
+                {
+                    var trainer = dataContext.Trainer.Find(trainerId);
+                    MessageBox.Show($"{trainer.FirstName} {trainer.LastName} has already checked in today.",
+                        "Already Checked In",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error recording trainer attendance: {ex.Message}",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
         public void AddMemberAttendnace(int memberID)
         {
             var member = dataContext.Member
                             .FirstOrDefault(m => m.Id == memberID && !m.IsDeleted);
+
+            if (member == null)
+            {
+                MessageBox.Show("Member not found.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
             // Create new attendance record
             var attendance = new MemberAttendances
             {
                 MemberId = member.Id,
                 CheckInTime = DateTime.Now.TimeOfDay,
+                AttendanceDate = DateTime.Today,
+                IsDeleted = false,
             };
 
             // Check if already checked in today
@@ -159,7 +359,6 @@ namespace TrainHub
 
             if (existingAttendance == null)
             {
-
                 // Add new attendance
                 dataContext.MemberAttendances.Add(attendance);
                 dataContext.SaveChanges();
@@ -170,7 +369,8 @@ namespace TrainHub
                     MessageBoxIcon.Information);
 
                 // Refresh the dashboard if needed
-                _dashboardForm.RefreshAttendanceGrid();
+                _dashboardForm.RefreshMemberAttendanceGrid();
+                _dashboardForm.RefreshTrainerAttendanceGrid();
             }
             else
             {
