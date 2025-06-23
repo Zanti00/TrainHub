@@ -58,7 +58,7 @@
             createdDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             membershipTypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            Trainer = new DataGridViewTextBoxColumn();
+            TrainerFullName = new DataGridViewTextBoxColumn();
             View = new DataGridViewImageColumn();
             Edit = new DataGridViewImageColumn();
             Delete = new DataGridViewImageColumn();
@@ -106,7 +106,7 @@
             advancedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             advancedDataGridView1.ColumnHeadersHeight = 40;
             advancedDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, startDateDataGridViewTextBoxColumn, endDateDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, membershipTypeDataGridViewTextBoxColumn, Trainer, View, Edit, Delete });
+            advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, startDateDataGridViewTextBoxColumn, endDateDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, membershipTypeDataGridViewTextBoxColumn, TrainerFullName, View, Edit, Delete });
             advancedDataGridView1.DataSource = memberBindingSource;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
@@ -438,14 +438,14 @@
             membershipTypeDataGridViewTextBoxColumn.ReadOnly = true;
             membershipTypeDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
-            // Trainer
+            // TrainerFullName
             // 
-            Trainer.DataPropertyName = "Trainer";
-            Trainer.HeaderText = "Trainer";
-            Trainer.MinimumWidth = 24;
-            Trainer.Name = "Trainer";
-            Trainer.ReadOnly = true;
-            Trainer.SortMode = DataGridViewColumnSortMode.Programmatic;
+            TrainerFullName.DataPropertyName = "TrainerFullName";
+            TrainerFullName.HeaderText = "TrainerFullName";
+            TrainerFullName.MinimumWidth = 24;
+            TrainerFullName.Name = "TrainerFullName";
+            TrainerFullName.ReadOnly = true;
+            TrainerFullName.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
             // View
             // 
@@ -547,7 +547,7 @@
         private DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn membershipTypeDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn Trainer;
+        private DataGridViewTextBoxColumn TrainerFullName;
         private DataGridViewImageColumn View;
         private DataGridViewImageColumn Edit;
         private DataGridViewImageColumn Delete;

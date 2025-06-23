@@ -23,6 +23,9 @@ namespace TrainHub
             InitializeComponent();
             dataContext = new TrainHubContext();
             attendanceBindingSource = new BindingSource();
+
+            memberAttendanceLabel.Text = DateTime.Today.ToString("MMMM dd, yyyy");
+            trainerAttendanceLabel.Text = DateTime.Today.ToString("MMMM dd, yyyy");
         }
 
         private void cuiButtonGroup2_Click(object sender, EventArgs e)

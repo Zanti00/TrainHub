@@ -168,7 +168,7 @@ namespace TrainHub
             {
                 dataContext.ChangeTracker.Clear();
                 var members = from member in dataContext.Member
-                     .Include(m => m.Trainer)
+                              .Include(m => m.Trainer)
                               where !member.IsDeleted // Only select non-deleted members
                               select member;
 
@@ -187,16 +187,12 @@ namespace TrainHub
                 dataTable.Columns.Add("IsDeleted", typeof(bool));
                 dataTable.Columns.Add("Status", typeof(string));
                 dataTable.Columns.Add("MembershipType", typeof(string));
-                dataTable.Columns.Add("TrainerName", typeof(object));
+                dataTable.Columns.Add("TrainerFullName", typeof(string));
                 dataTable.Columns.Add("ProfileImagePath", typeof(Image));
 
                 foreach (var member in members)
                 {
-                    Image profileImage = LoadMemberImage(member.ProfileImagePath);
-
-                    string trainerName = member.Trainer != null
-                        ? $"{member.Trainer.FirstName} {member.Trainer.LastName}"
-                        : "No Trainer Assigned";
+                    //Image profileImage = LoadMemberImage(member.ProfileImagePath);
 
                     dataTable.Rows.Add(
                         member.Id,
@@ -212,8 +208,8 @@ namespace TrainHub
                         member.IsDeleted,
                         member.Status,
                         member.MembershipType,
-                        trainerName,
-                        profileImage
+                        member.TrainerFullName
+                        //profileImage
                     );
                 }
 
@@ -302,6 +298,7 @@ namespace TrainHub
                                   where member.FirstName.ToLower().Contains(memberName.ToLower()) ||
                                         member.LastName.ToLower().Contains(memberName.ToLower())
                                   select member;
+
                     // Convert to DataTable for sorting/filtering support
                     var dataTable = new DataTable();
                     dataTable.Columns.Add("Id", typeof(int));
@@ -317,6 +314,7 @@ namespace TrainHub
                     dataTable.Columns.Add("IsDeleted", typeof(bool));
                     dataTable.Columns.Add("Status", typeof(string));
                     dataTable.Columns.Add("MembershipType", typeof(string));
+                    dataTable.Columns.Add("TrainerFullName", typeof(string));
                     dataTable.Columns.Add("ProfileImagePath", typeof(Image));
 
                     foreach (var member in members)
@@ -338,6 +336,7 @@ namespace TrainHub
                             member.IsDeleted,
                             member.Status,
                             member.MembershipType,
+                            member.TrainerFullName,
                             profileImage
                         );
                     }

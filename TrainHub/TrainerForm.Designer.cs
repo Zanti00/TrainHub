@@ -53,6 +53,7 @@
             yearsOfExperienceTxt = new CuoreUI.Controls.cuiTextBox();
             specializationTxt = new CuoreUI.Controls.cuiTextBox();
             formLabel = new Label();
+            label2 = new Label();
             cuiTabControl1.SuspendLayout();
             tabPage3.SuspendLayout();
             cuiPanel2.SuspendLayout();
@@ -106,6 +107,7 @@
             // 
             cuiPanel2.BackColor = Color.Transparent;
             cuiPanel2.BackgroundImageLayout = ImageLayout.None;
+            cuiPanel2.Controls.Add(label2);
             cuiPanel2.Controls.Add(genderCombo);
             cuiPanel2.Controls.Add(birthDate);
             cuiPanel2.Controls.Add(addressTxt);
@@ -145,7 +147,7 @@
     "Female",
     "Others"
     };
-            genderCombo.Location = new Point(486, 93);
+            genderCombo.Location = new Point(420, 139);
             genderCombo.Margin = new Padding(4, 3, 4, 3);
             genderCombo.Name = "genderCombo";
             genderCombo.NoSelectionDropdownText = "Empty";
@@ -153,7 +155,7 @@
             genderCombo.OutlineColor = Color.FromArgb(50, 81, 88);
             genderCombo.OutlineThickness = 1F;
             genderCombo.Rounding = 8;
-            genderCombo.Size = new Size(137, 38);
+            genderCombo.Size = new Size(203, 38);
             genderCombo.TabIndex = 36;
             // 
             // birthDate
@@ -166,7 +168,7 @@
             birthDate.HoverOutline = Color.FromArgb(180, 128, 128, 128);
             birthDate.Icon = (Image)resources.GetObject("birthDate.Icon");
             birthDate.IconTint = Color.Gray;
-            birthDate.Location = new Point(338, 92);
+            birthDate.Location = new Point(420, 93);
             birthDate.Margin = new Padding(4, 3, 4, 3);
             birthDate.Name = "birthDate";
             birthDate.NormalBackground = Color.FromArgb(32, 128, 128, 128);
@@ -176,7 +178,7 @@
             birthDate.PressedOutline = Color.FromArgb(210, 128, 128, 128);
             birthDate.Rounding = 8;
             birthDate.ShowIcon = true;
-            birthDate.Size = new Size(140, 38);
+            birthDate.Size = new Size(203, 38);
             birthDate.TabIndex = 33;
             birthDate.Theme = CuoreUI.Controls.Forms.DatePicker.Themes.Light;
             birthDate.Value = new DateTime(2025, 6, 6, 0, 0, 0, 0);
@@ -724,6 +726,18 @@
             formLabel.TabIndex = 29;
             formLabel.Text = "Register New Trainers";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Inter", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Silver;
+            label2.Location = new Point(338, 102);
+            label2.Name = "label2";
+            label2.Size = new Size(75, 22);
+            label2.TabIndex = 37;
+            label2.Text = "Birthdate";
+            // 
             // TrainerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -740,6 +754,7 @@
             cuiTabControl1.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
             cuiPanel2.ResumeLayout(false);
+            cuiPanel2.PerformLayout();
             tabPage4.ResumeLayout(false);
             cuiPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -773,5 +788,6 @@
         private CuoreUI.Controls.cuiTextBox firstNameTxt;
         private CuoreUI.Controls.cuiComboBox genderCombo;
         private CuoreUI.Controls.cuiButtonGroup generateQrBtn;
+        private Label label2;
     }
 }

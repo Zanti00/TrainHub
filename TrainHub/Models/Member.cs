@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,5 +29,8 @@ namespace TrainHub.Models
 
         public int? TrainerID { get; set; }
         public virtual Trainer? Trainer { get; set; }
+
+        [NotMapped]
+        public string TrainerFullName => Trainer != null ? $"{Trainer.FirstName} {Trainer.LastName}" : "No Trainer Assigned";
     }
 }

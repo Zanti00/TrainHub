@@ -14,6 +14,8 @@ using System.Windows.Forms;
 using TrainHub.Data;
 using TrainHub.Models;
 using TrainHub.Static_Classes;
+using ZXing.QrCode.Internal;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TrainHub
 {
@@ -48,10 +50,7 @@ namespace TrainHub
             _dataContext = new TrainHubContext();
 
             ConfigureFormForMode();
-            if (!(mode == FormMode.Add))
-            {
-                LoadMemberData();
-            }
+            
             if (!(mode == FormMode.Edit))
             {
                 generateQrBtn.Enabled = false;
@@ -93,6 +92,11 @@ namespace TrainHub
                         trainerCombo.AddItem(displayName);
                         trainerNameToId[displayName] = trainer.Id;
                     }
+                }
+
+                if (!(_mode == FormMode.Add))
+                {
+                    LoadMemberData();
                 }
             }
             catch (Exception ex)
@@ -224,6 +228,10 @@ namespace TrainHub
                         phoneNumTxt.Content = selectedMember.PhoneNumber;
                         statusCombo.SelectedItem = selectedMember.Status;
                         membershipTypeCombo.SelectedItem = selectedMember.MembershipType;
+                        //trainerCombo.SelectedItem = selectedMember.Trainer != null
+                        //            ? $"{selectedMember.Trainer.FirstName} {selectedMember.Trainer.LastName}"
+                        //            : "No Trainer Assigned";
+                        
                         birthDate.Value = selectedMember.DateOfBirth;
                         startDate.Value = selectedMember.StartDate;
                         endDate.Value = selectedMember.EndDate;
@@ -231,8 +239,22 @@ namespace TrainHub
                         if (selectedMember.Trainer != null)
                         {
                             string trainerDisplayName = $"{selectedMember.Trainer.FirstName} {selectedMember.Trainer.LastName}";
-                            trainerCombo.SelectedItem = trainerDisplayName;
+
+                            for (int i = 0; i < trainerCombo.Items.Length; i++)
+                            {
+                                System.Diagnostics.Debug.WriteLine($"Item {i}: {trainerCombo.Items[i]}");
+                                if (trainerCombo.Items[i].ToString() == trainerDisplayName)
+                                {
+                                    trainerCombo.SelectedItem = trainerCombo.Items[i];
+                                    break;
+                                }
+                            }
                         }
+                        else
+                        {
+                            trainerCombo.SelectedItem = null; // No trainer selected
+                        }
+
 
                         LoadMemberImage(selectedMember.ProfileImagePath);
                     }

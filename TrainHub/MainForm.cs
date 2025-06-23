@@ -32,6 +32,7 @@ namespace TrainHub
             {
                 trainerPage.Activate();
             }
+            trainerPage.RefreshTrainerData();
             changeBtnNormalBackground("trainerBtn");
         }
 
@@ -51,6 +52,7 @@ namespace TrainHub
             {
                 memberPage.Activate();
             }
+            memberPage.RefreshMemberData();
             changeBtnNormalBackground("memberBtn");
 
         }
