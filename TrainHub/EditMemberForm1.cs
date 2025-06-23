@@ -1,9 +1,14 @@
-﻿using System;
+﻿using AForge.Video;
+using AForge.Video.DirectShow;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -19,22 +24,21 @@ namespace TrainHub
         private TrainHubContext dataContext = new TrainHubContext();
         private int memberID;
         private ShowMembersTablePageForm1 showMembersTablePageForm1;
+        private VideoCaptureDevice videoSource;
+        private Bitmap currentFrame;
+        private Bitmap capturedImage;
+        private bool isImageCaptured = false;
         string pattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
         public EditMemberForm1(int memberID, ShowMembersTablePageForm1 showMembersTablePageForm1 = null)
         {
             InitializeComponent();
+            InitializeWebcam();
 
-            // to prevent resizing
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.ControlBox = true;
-            this.StartPosition = FormStartPosition.CenterScreen;
             this.memberID = memberID;
             this.showMembersTablePageForm1 = showMembersTablePageForm1;
 
             LoadMemberData();
-            
+
         }
 
         private void LoadMemberData()
@@ -42,7 +46,7 @@ namespace TrainHub
             try
             {
                 var selectedMember = dataContext.Member.Find(memberID);
-                
+
                 if (selectedMember == null)
                 {
                     MessageBox.Show("Member not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -60,6 +64,8 @@ namespace TrainHub
                     birthDate.Value = selectedMember.DateOfBirth;
                     startDate.Value = selectedMember.StartDate;
                     endDate.Value = selectedMember.EndDate;
+
+                    LoadMemberImage(selectedMember.ProfileImagePath);
                 }
             }
             catch (Exception ex)
@@ -70,7 +76,94 @@ namespace TrainHub
             }
         }
 
+        private void LoadMemberImage(string imagePath)
+        {
+            try
+            {
+                // Check if image path exists and is not null/empty
+                if (string.IsNullOrWhiteSpace(imagePath))
+                {
+                    return;
+                }
 
+                // Use ImageFileManager to get the full path and load the image
+                string fullPath;
+
+                // If it's already a full path, use it as is
+                if (System.IO.Path.IsPathRooted(imagePath))
+                {
+                    fullPath = imagePath;
+                }
+                else
+                {
+                    // Convert relative path to full path using ImageFileManager
+                    fullPath = ImageFileManager.GetFullPath(imagePath);
+                }
+
+                // Load the image using ImageFileManager
+                Bitmap loadedImage = ImageFileManager.LoadMemberImage(fullPath);
+
+                if (loadedImage != null)
+                {
+                    // Dispose previous image to free memory
+                    if (pictureBox1.Image != null)
+                    {
+                        pictureBox1.Image.Dispose();
+                    }
+
+                    pictureBox1.Image = loadedImage;
+                    capturedImage = (Bitmap)loadedImage.Clone();
+                    isImageCaptured = true;
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine($"Image file not found: {fullPath}");
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error loading image: {ex.Message}");
+                // MessageBox.Show($"Could not load member image: {ex.Message}", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void InitializeWebcam()
+        {
+            // Get list of video devices
+            FilterInfoCollection videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+
+            if (videoDevices.Count > 0)
+            {
+                // Use first available camera
+                videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
+                videoSource.NewFrame += VideoSource_NewFrame;
+            }
+            else
+            {
+                MessageBox.Show("No video devices found!");
+            }
+        }
+
+        private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            // Get the current frame
+            currentFrame = (Bitmap)eventArgs.Frame.Clone();
+
+            // Display in PictureBox (invoke required for cross-thread operation)
+            if (pictureBox1.InvokeRequired)
+            {
+                pictureBox1.Invoke(new Action(() =>
+                {
+                    pictureBox1.Image?.Dispose();
+                    pictureBox1.Image = (Bitmap)currentFrame.Clone();
+                }));
+            }
+            else
+            {
+                pictureBox1.Image?.Dispose();
+                pictureBox1.Image = (Bitmap)currentFrame.Clone();
+            }
+        }
 
         private void phoneNumTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -97,7 +190,8 @@ namespace TrainHub
                 if (string.IsNullOrWhiteSpace(firstNameTxt.Content) ||
                     string.IsNullOrWhiteSpace(lastNameTxt.Content) ||
                     string.IsNullOrWhiteSpace(emailAddTxt.Content) ||
-                    string.IsNullOrWhiteSpace(phoneNumTxt.Content))
+                    string.IsNullOrWhiteSpace(phoneNumTxt.Content) ||
+                    pictureBox1.Image == null)
                 {
                     MessageBox.Show("Please fill in all required fields.", "Validation Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -126,6 +220,13 @@ namespace TrainHub
                     return;
                 }
 
+                if (videoSource.IsRunning == true)
+                {
+                    MessageBox.Show("Please stop the camera before saving changes.", "Camera Running",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 var selectedMember = dataContext.Member.Find(memberID);
 
                 if (selectedMember != null)
@@ -141,15 +242,36 @@ namespace TrainHub
                     selectedMember.MembershipType = membershipTypeCombo.SelectedItem?.ToString() ?? selectedMember.MembershipType;
 
                     // Update date values
-                    selectedMember.DateOfBirth = birthDate.Value.Date;
-                    selectedMember.StartDate = startDate.Value.Date;
-                    selectedMember.EndDate = endDate.Value.Date;
+                    selectedMember.DateOfBirth = birthDate.Value;
+                    selectedMember.StartDate = startDate.Value;
+                    selectedMember.EndDate = endDate.Value;
 
-                    // IMPORTANT: Save changes to database
-                    dataContext.SaveChanges();
+                    if (isImageCaptured && capturedImage != null)
+                    {
+                        try
+                        {
+                            string imagePath = ImageFileManager.SaveMemberImage(capturedImage, selectedMember.Id, selectedMember.Email);
 
-                    MessageBox.Show("Member updated successfully!", "Success",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            string relativePath = ImageFileManager.GetRelativePath(imagePath);
+
+                            selectedMember.ProfileImagePath = relativePath;
+                            selectedMember.ImageFileName = System.IO.Path.GetFileName(imagePath);
+                            selectedMember.ImageCapturedDate = DateTime.Now;
+
+                            dataContext.SaveChanges(); // Save image path
+                            MessageBox.Show("Member updated successfully!", 
+                                "Success", 
+                                MessageBoxButtons.OK, 
+                                MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Member registered successfully, but failed to save image: {ex.Message}",
+                                "Warning", 
+                                MessageBoxButtons.OK, 
+                                MessageBoxIcon.Warning);
+                        }
+                    }
 
                     // Refresh the parent form's data grid
                     showMembersTablePageForm1?.RefreshMemberData();
@@ -169,11 +291,66 @@ namespace TrainHub
             }
         }
 
-        // Clean up resources
-        protected override void OnFormClosed(FormClosedEventArgs e)
+        private void captureBtn_Click(object sender, EventArgs e)
         {
-            dataContext?.Dispose();
-            base.OnFormClosed(e);
+            if (currentFrame != null)
+            {
+                // Capture the current frame
+                capturedImage?.Dispose(); // Dispose previous captured image
+                capturedImage = (Bitmap)currentFrame.Clone();
+                isImageCaptured = true;
+
+                // Stop the camera after capture
+                if (videoSource != null && videoSource.IsRunning)
+                {
+                    videoSource.SignalToStop();
+                    videoSource.WaitForStop();
+                }
+
+                // Optional: Show the captured image in the same PictureBox or another one
+                pictureBox1.Image?.Dispose();
+                pictureBox1.Image = (Bitmap)capturedImage.Clone();
+
+                MessageBox.Show("Image captured successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No frame to capture!");
+            }
+        }
+
+        private void openCameraBtn_Click(object sender, EventArgs e)
+        {
+            if (videoSource != null && !videoSource.IsRunning)
+            {
+                videoSource.Start();
+                isImageCaptured = false;
+            }
+            else
+            {
+                videoSource.SignalToStop();
+                videoSource.WaitForStop();
+            }
+        }
+
+        private void generateQrBtn_Click(object sender, EventArgs e)
+        {
+            QrCode qrCodeGenerator = new QrCode(); // Create an instance of QrCode
+            Bitmap picQRCode = QrCode.GetCode(memberID.ToString());
+            qrCodeGenerator.GenerateQrCodeForMember(memberID, picQRCode); // Use the instance to call the non-static method
+        }
+
+        private void EditMemberForm1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (videoSource != null && videoSource.IsRunning)
+            {
+                videoSource.SignalToStop();
+                videoSource.WaitForStop();
+            }
+
+            // Clean up resources
+            currentFrame?.Dispose();
+            capturedImage?.Dispose();
         }
     }
 }

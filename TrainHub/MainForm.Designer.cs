@@ -43,15 +43,12 @@
             panel6 = new Panel();
             dashboardBtn = new CuoreUI.Controls.cuiButton();
             trainerContainer = new Panel();
-            addTrainerBtn = new CuoreUI.Controls.cuiButton();
             panel11 = new Panel();
             trainerBtn = new CuoreUI.Controls.cuiButton();
             memberContainer = new Panel();
             memberBtn = new CuoreUI.Controls.cuiButton();
-            addMemberBtn = new CuoreUI.Controls.cuiButton();
             staffContainer = new Panel();
             staffBtn = new CuoreUI.Controls.cuiButton();
-            addStaffBtn = new CuoreUI.Controls.cuiButton();
             panel10 = new Panel();
             label4 = new Label();
             panel12 = new Panel();
@@ -217,7 +214,6 @@
             dashboardBtn.CheckedOutline = Color.FromArgb(45, 47, 57);
             dashboardBtn.Content = "Dashboard";
             dashboardBtn.DialogResult = DialogResult.None;
-            dashboardBtn.Dock = DockStyle.Fill;
             dashboardBtn.Font = new Font("Inter", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dashboardBtn.ForeColor = Color.White;
             dashboardBtn.HoverBackground = Color.FromArgb(45, 47, 57);
@@ -251,7 +247,6 @@
             // 
             // trainerContainer
             // 
-            trainerContainer.Controls.Add(addTrainerBtn);
             trainerContainer.Controls.Add(panel11);
             trainerContainer.Dock = DockStyle.Top;
             trainerContainer.Location = new Point(0, 306);
@@ -259,45 +254,6 @@
             trainerContainer.Name = "trainerContainer";
             trainerContainer.Size = new Size(200, 30);
             trainerContainer.TabIndex = 5;
-            // 
-            // addTrainerBtn
-            // 
-            addTrainerBtn.BackColor = Color.FromArgb(50, 81, 88);
-            addTrainerBtn.CheckButton = false;
-            addTrainerBtn.Checked = false;
-            addTrainerBtn.CheckedBackground = Color.FromArgb(45, 47, 57);
-            addTrainerBtn.CheckedForeColor = Color.White;
-            addTrainerBtn.CheckedImageTint = Color.White;
-            addTrainerBtn.CheckedOutline = Color.FromArgb(45, 47, 57);
-            addTrainerBtn.Content = "Add Trainer";
-            addTrainerBtn.DialogResult = DialogResult.None;
-            addTrainerBtn.Dock = DockStyle.Fill;
-            addTrainerBtn.Font = new Font("Inter", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            addTrainerBtn.ForeColor = Color.White;
-            addTrainerBtn.HoverBackground = Color.FromArgb(45, 47, 57);
-            addTrainerBtn.HoveredImageTint = Color.White;
-            addTrainerBtn.HoverForeColor = Color.White;
-            addTrainerBtn.HoverOutline = Color.FromArgb(45, 47, 57);
-            addTrainerBtn.Image = (Image)resources.GetObject("addTrainerBtn.Image");
-            addTrainerBtn.ImageAutoCenter = false;
-            addTrainerBtn.ImageExpand = new Point(0, 0);
-            addTrainerBtn.ImageOffset = new Point(50, 0);
-            addTrainerBtn.Location = new Point(0, 30);
-            addTrainerBtn.Name = "addTrainerBtn";
-            addTrainerBtn.NormalBackground = Color.FromArgb(57, 92, 100);
-            addTrainerBtn.NormalForeColor = Color.White;
-            addTrainerBtn.NormalImageTint = Color.White;
-            addTrainerBtn.NormalOutline = Color.FromArgb(50, 81, 88);
-            addTrainerBtn.OutlineThickness = 1F;
-            addTrainerBtn.PressedBackground = Color.WhiteSmoke;
-            addTrainerBtn.PressedForeColor = Color.FromArgb(32, 32, 32);
-            addTrainerBtn.PressedImageTint = Color.White;
-            addTrainerBtn.PressedOutline = Color.FromArgb(64, 128, 128, 128);
-            addTrainerBtn.Rounding = new Padding(0);
-            addTrainerBtn.Size = new Size(200, 0);
-            addTrainerBtn.TabIndex = 1;
-            addTrainerBtn.TextAlignment = StringAlignment.Near;
-            addTrainerBtn.TextOffset = new Point(58, 0);
             // 
             // panel11
             // 
@@ -345,11 +301,11 @@
             trainerBtn.TabIndex = 0;
             trainerBtn.TextAlignment = StringAlignment.Near;
             trainerBtn.TextOffset = new Point(28, 0);
+            trainerBtn.Click += trainerBtn_Click;
             // 
             // memberContainer
             // 
             memberContainer.Controls.Add(memberBtn);
-            memberContainer.Controls.Add(addMemberBtn);
             memberContainer.Dock = DockStyle.Top;
             memberContainer.Location = new Point(0, 342);
             memberContainer.Margin = new Padding(0, 6, 0, 0);
@@ -399,48 +355,9 @@
             memberBtn.TextOffset = new Point(28, 0);
             memberBtn.Click += memberBtn_Click;
             // 
-            // addMemberBtn
-            // 
-            addMemberBtn.CheckButton = false;
-            addMemberBtn.Checked = false;
-            addMemberBtn.CheckedBackground = Color.FromArgb(45, 47, 57);
-            addMemberBtn.CheckedForeColor = Color.White;
-            addMemberBtn.CheckedImageTint = Color.White;
-            addMemberBtn.CheckedOutline = Color.FromArgb(45, 47, 57);
-            addMemberBtn.Content = "Add Member";
-            addMemberBtn.DialogResult = DialogResult.None;
-            addMemberBtn.Dock = DockStyle.Bottom;
-            addMemberBtn.Font = new Font("Inter", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            addMemberBtn.ForeColor = Color.White;
-            addMemberBtn.HoverBackground = Color.FromArgb(45, 47, 57);
-            addMemberBtn.HoveredImageTint = Color.White;
-            addMemberBtn.HoverForeColor = Color.White;
-            addMemberBtn.HoverOutline = Color.FromArgb(45, 47, 57);
-            addMemberBtn.Image = (Image)resources.GetObject("addMemberBtn.Image");
-            addMemberBtn.ImageAutoCenter = false;
-            addMemberBtn.ImageExpand = new Point(0, 0);
-            addMemberBtn.ImageOffset = new Point(50, 0);
-            addMemberBtn.Location = new Point(0, 0);
-            addMemberBtn.Name = "addMemberBtn";
-            addMemberBtn.NormalBackground = Color.FromArgb(57, 92, 100);
-            addMemberBtn.NormalForeColor = Color.White;
-            addMemberBtn.NormalImageTint = Color.White;
-            addMemberBtn.NormalOutline = Color.FromArgb(50, 81, 88);
-            addMemberBtn.OutlineThickness = 1F;
-            addMemberBtn.PressedBackground = Color.WhiteSmoke;
-            addMemberBtn.PressedForeColor = Color.FromArgb(32, 32, 32);
-            addMemberBtn.PressedImageTint = Color.White;
-            addMemberBtn.PressedOutline = Color.FromArgb(64, 128, 128, 128);
-            addMemberBtn.Rounding = new Padding(0);
-            addMemberBtn.Size = new Size(200, 30);
-            addMemberBtn.TabIndex = 2;
-            addMemberBtn.TextAlignment = StringAlignment.Near;
-            addMemberBtn.TextOffset = new Point(58, 0);
-            // 
             // staffContainer
             // 
             staffContainer.Controls.Add(staffBtn);
-            staffContainer.Controls.Add(addStaffBtn);
             staffContainer.Dock = DockStyle.Top;
             staffContainer.Location = new Point(0, 378);
             staffContainer.Margin = new Padding(0, 6, 0, 0);
@@ -488,44 +405,6 @@
             staffBtn.TabIndex = 0;
             staffBtn.TextAlignment = StringAlignment.Near;
             staffBtn.TextOffset = new Point(28, 0);
-            // 
-            // addStaffBtn
-            // 
-            addStaffBtn.CheckButton = false;
-            addStaffBtn.Checked = false;
-            addStaffBtn.CheckedBackground = Color.FromArgb(45, 47, 57);
-            addStaffBtn.CheckedForeColor = Color.White;
-            addStaffBtn.CheckedImageTint = Color.White;
-            addStaffBtn.CheckedOutline = Color.FromArgb(45, 47, 57);
-            addStaffBtn.Content = "Add Staff";
-            addStaffBtn.DialogResult = DialogResult.None;
-            addStaffBtn.Dock = DockStyle.Bottom;
-            addStaffBtn.Font = new Font("Inter", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            addStaffBtn.ForeColor = Color.White;
-            addStaffBtn.HoverBackground = Color.FromArgb(45, 47, 57);
-            addStaffBtn.HoveredImageTint = Color.White;
-            addStaffBtn.HoverForeColor = Color.White;
-            addStaffBtn.HoverOutline = Color.FromArgb(45, 47, 57);
-            addStaffBtn.Image = (Image)resources.GetObject("addStaffBtn.Image");
-            addStaffBtn.ImageAutoCenter = false;
-            addStaffBtn.ImageExpand = new Point(0, 0);
-            addStaffBtn.ImageOffset = new Point(50, 0);
-            addStaffBtn.Location = new Point(0, 0);
-            addStaffBtn.Name = "addStaffBtn";
-            addStaffBtn.NormalBackground = Color.FromArgb(57, 92, 100);
-            addStaffBtn.NormalForeColor = Color.White;
-            addStaffBtn.NormalImageTint = Color.White;
-            addStaffBtn.NormalOutline = Color.FromArgb(50, 81, 88);
-            addStaffBtn.OutlineThickness = 1F;
-            addStaffBtn.PressedBackground = Color.WhiteSmoke;
-            addStaffBtn.PressedForeColor = Color.FromArgb(32, 32, 32);
-            addStaffBtn.PressedImageTint = Color.White;
-            addStaffBtn.PressedOutline = Color.FromArgb(64, 128, 128, 128);
-            addStaffBtn.Rounding = new Padding(0);
-            addStaffBtn.Size = new Size(200, 30);
-            addStaffBtn.TabIndex = 3;
-            addStaffBtn.TextAlignment = StringAlignment.Near;
-            addStaffBtn.TextOffset = new Point(58, 0);
             // 
             // panel10
             // 
@@ -700,15 +579,12 @@
         private Panel panel6;
         private CuoreUI.Controls.cuiButton dashboardBtn;
         private Panel trainerContainer;
-        private CuoreUI.Controls.cuiButton addTrainerBtn;
         private Panel panel11;
         private CuoreUI.Controls.cuiButton trainerBtn;
         private Panel memberContainer;
         private CuoreUI.Controls.cuiButton memberBtn;
-        private CuoreUI.Controls.cuiButton addMemberBtn;
         private Panel staffContainer;
         private CuoreUI.Controls.cuiButton staffBtn;
-        private CuoreUI.Controls.cuiButton addStaffBtn;
         private Panel panel10;
         private Label label4;
         private Panel panel12;

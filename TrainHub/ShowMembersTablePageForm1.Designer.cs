@@ -45,10 +45,10 @@
             startDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             endDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             createdDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            softDeleteDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            isDeletedDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
             statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             membershipTypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            TrainerFullName = new DataGridViewTextBoxColumn();
+            View = new DataGridViewImageColumn();
             Edit = new DataGridViewImageColumn();
             Delete = new DataGridViewImageColumn();
             memberBindingSource = new BindingSource(components);
@@ -106,7 +106,7 @@
             advancedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             advancedDataGridView1.ColumnHeadersHeight = 40;
             advancedDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, startDateDataGridViewTextBoxColumn, endDateDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, softDeleteDateDataGridViewTextBoxColumn, isDeletedDataGridViewCheckBoxColumn, statusDataGridViewTextBoxColumn, membershipTypeDataGridViewTextBoxColumn, Edit, Delete });
+            advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, startDateDataGridViewTextBoxColumn, endDateDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, membershipTypeDataGridViewTextBoxColumn, TrainerFullName, View, Edit, Delete });
             advancedDataGridView1.DataSource = memberBindingSource;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
@@ -151,7 +151,7 @@
             // idDataGridViewTextBoxColumn
             // 
             idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Member ID";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
             idDataGridViewTextBoxColumn.MinimumWidth = 24;
             idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             idDataGridViewTextBoxColumn.ReadOnly = true;
@@ -160,7 +160,7 @@
             // firstNameDataGridViewTextBoxColumn
             // 
             firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            firstNameDataGridViewTextBoxColumn.HeaderText = "First Name";
+            firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
             firstNameDataGridViewTextBoxColumn.MinimumWidth = 24;
             firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
             firstNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -169,7 +169,7 @@
             // lastNameDataGridViewTextBoxColumn
             // 
             lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            lastNameDataGridViewTextBoxColumn.HeaderText = "Last Name";
+            lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
             lastNameDataGridViewTextBoxColumn.MinimumWidth = 24;
             lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
             lastNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -187,7 +187,7 @@
             // phoneNumberDataGridViewTextBoxColumn
             // 
             phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
-            phoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone Number";
+            phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
             phoneNumberDataGridViewTextBoxColumn.MinimumWidth = 24;
             phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
             phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
@@ -196,7 +196,7 @@
             // dateOfBirthDataGridViewTextBoxColumn
             // 
             dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
-            dateOfBirthDataGridViewTextBoxColumn.HeaderText = "Date of Birth";
+            dateOfBirthDataGridViewTextBoxColumn.HeaderText = "DateOfBirth";
             dateOfBirthDataGridViewTextBoxColumn.MinimumWidth = 24;
             dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
             dateOfBirthDataGridViewTextBoxColumn.ReadOnly = true;
@@ -205,7 +205,7 @@
             // startDateDataGridViewTextBoxColumn
             // 
             startDateDataGridViewTextBoxColumn.DataPropertyName = "StartDate";
-            startDateDataGridViewTextBoxColumn.HeaderText = "Start Date";
+            startDateDataGridViewTextBoxColumn.HeaderText = "StartDate";
             startDateDataGridViewTextBoxColumn.MinimumWidth = 24;
             startDateDataGridViewTextBoxColumn.Name = "startDateDataGridViewTextBoxColumn";
             startDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -214,7 +214,7 @@
             // endDateDataGridViewTextBoxColumn
             // 
             endDateDataGridViewTextBoxColumn.DataPropertyName = "EndDate";
-            endDateDataGridViewTextBoxColumn.HeaderText = "End Date";
+            endDateDataGridViewTextBoxColumn.HeaderText = "EndDate";
             endDateDataGridViewTextBoxColumn.MinimumWidth = 24;
             endDateDataGridViewTextBoxColumn.Name = "endDateDataGridViewTextBoxColumn";
             endDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -223,31 +223,11 @@
             // createdDateDataGridViewTextBoxColumn
             // 
             createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
-            createdDateDataGridViewTextBoxColumn.HeaderText = "Created Date";
+            createdDateDataGridViewTextBoxColumn.HeaderText = "CreatedDate";
             createdDateDataGridViewTextBoxColumn.MinimumWidth = 24;
             createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
             createdDateDataGridViewTextBoxColumn.ReadOnly = true;
             createdDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // softDeleteDateDataGridViewTextBoxColumn
-            // 
-            softDeleteDateDataGridViewTextBoxColumn.DataPropertyName = "SoftDeleteDate";
-            softDeleteDateDataGridViewTextBoxColumn.HeaderText = "SoftDeleteDate";
-            softDeleteDateDataGridViewTextBoxColumn.MinimumWidth = 24;
-            softDeleteDateDataGridViewTextBoxColumn.Name = "softDeleteDateDataGridViewTextBoxColumn";
-            softDeleteDateDataGridViewTextBoxColumn.ReadOnly = true;
-            softDeleteDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            softDeleteDateDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // isDeletedDataGridViewCheckBoxColumn
-            // 
-            isDeletedDataGridViewCheckBoxColumn.DataPropertyName = "IsDeleted";
-            isDeletedDataGridViewCheckBoxColumn.HeaderText = "IsDeleted";
-            isDeletedDataGridViewCheckBoxColumn.MinimumWidth = 24;
-            isDeletedDataGridViewCheckBoxColumn.Name = "isDeletedDataGridViewCheckBoxColumn";
-            isDeletedDataGridViewCheckBoxColumn.ReadOnly = true;
-            isDeletedDataGridViewCheckBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            isDeletedDataGridViewCheckBoxColumn.Visible = false;
             // 
             // statusDataGridViewTextBoxColumn
             // 
@@ -261,11 +241,30 @@
             // membershipTypeDataGridViewTextBoxColumn
             // 
             membershipTypeDataGridViewTextBoxColumn.DataPropertyName = "MembershipType";
-            membershipTypeDataGridViewTextBoxColumn.HeaderText = "Membership Type";
+            membershipTypeDataGridViewTextBoxColumn.HeaderText = "MembershipType";
             membershipTypeDataGridViewTextBoxColumn.MinimumWidth = 24;
             membershipTypeDataGridViewTextBoxColumn.Name = "membershipTypeDataGridViewTextBoxColumn";
             membershipTypeDataGridViewTextBoxColumn.ReadOnly = true;
             membershipTypeDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // TrainerFullName
+            // 
+            TrainerFullName.DataPropertyName = "TrainerFullName";
+            TrainerFullName.HeaderText = "TrainerFullName";
+            TrainerFullName.MinimumWidth = 24;
+            TrainerFullName.Name = "TrainerFullName";
+            TrainerFullName.ReadOnly = true;
+            TrainerFullName.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // View
+            // 
+            View.HeaderText = "View";
+            View.Image = (Image)resources.GetObject("View.Image");
+            View.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            View.MinimumWidth = 24;
+            View.Name = "View";
+            View.ReadOnly = true;
+            View.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
             // Edit
             // 
@@ -546,10 +545,10 @@
         private DataGridViewTextBoxColumn startDateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn endDateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn softDeleteDateDataGridViewTextBoxColumn;
-        private DataGridViewCheckBoxColumn isDeletedDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn membershipTypeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn TrainerFullName;
+        private DataGridViewImageColumn View;
         private DataGridViewImageColumn Edit;
         private DataGridViewImageColumn Delete;
     }

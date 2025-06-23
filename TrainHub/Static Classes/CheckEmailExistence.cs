@@ -31,7 +31,28 @@ namespace TrainHub.Static_Classes
                 return false;
             }
         }
+        public static bool IsTrainerEmailExists(string email, int? excludeTrainerId = null)
+        {
+            try
+            {
+                using (var dataContext = new Data.TrainHubContext())
+                {
+                    var query = dataContext.Trainer.Where(t => t.Email.ToLower() == email.ToLower());
 
+                    if (excludeTrainerId.HasValue)
+                    {
+                        query = query.Where(t => t.Id != excludeTrainerId.Value);
+                    }
+
+                    return query.Any();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error checking email: {ex.Message}");
+                return false;
+            }
+        }
         public static bool IsUserEmailExists(string email, int? excludeUserId = null)
         {
             try
@@ -53,6 +74,11 @@ namespace TrainHub.Static_Classes
                 MessageBox.Show($"Error checking email: {ex.Message}");
                 return false;
             }
+        }
+
+        public static async Task<bool> IsTrainerEmailExistsAsync(string email, int? excludeTrainerId = null)
+        {
+            return await Task.Run(() => IsTrainerEmailExists(email, excludeTrainerId));
         }
 
         public static async Task<bool> IsMemberEmailExistsAsync(string email, int? excludeMemberId = null)

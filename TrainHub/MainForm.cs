@@ -5,11 +5,9 @@ namespace TrainHub
 {
     public partial class MainForm : Form
     {
-        bool isTrainerContainerExpanded = false;
-        bool isMemberContainerExpanded = false;
-        bool isStaffContainerExpanded = false;
         Dashboard dashboard;
         ShowMembersTablePageForm1 memberPage;
+        table_trainer trainerPage;
         Login login;
         public MainForm()
         {
@@ -17,80 +15,27 @@ namespace TrainHub
             usernameTxt.Text = CurrentUser.Username;
         }
 
-        private void trainerContainerExpand_Tick(object sender, EventArgs e)
-        {
-            if (isTrainerContainerExpanded == false)
-            {
-                trainerContainer.Height += 30;
-                if (trainerContainer.Height >= 60)
-                {
-                    trainerContainerExpand.Stop();
-                    isTrainerContainerExpanded = true;
-                }
-            }
-            else
-            {
-                trainerContainer.Height -= 30;
-                if (trainerContainer.Height <= 30)
-                {
-                    trainerContainerExpand.Stop();
-                    isTrainerContainerExpanded = false;
-                }
-            }
-        }
-
-        private void memberContainerExpand_Tick(object sender, EventArgs e)
-        {
-            if (isMemberContainerExpanded == false)
-            {
-                memberContainer.Height += 30;
-                if (memberContainer.Height >= 60)
-                {
-                    memberContainerExpand.Stop();
-                    isMemberContainerExpanded = true;
-                }
-            }
-            else
-            {
-                memberContainer.Height -= 30;
-                if (memberContainer.Height <= 30)
-                {
-                    memberContainerExpand.Stop();
-                    isMemberContainerExpanded = false;
-                }
-            }
-        }
-
-        private void staffContainerExpand_Tick(object sender, EventArgs e)
-        {
-            if (isStaffContainerExpanded == false)
-            {
-                staffContainer.Height += 30;
-                if (staffContainer.Height >= 60)
-                {
-                    staffContainerExpand.Stop();
-                    isStaffContainerExpanded = true;
-                }
-            }
-            else
-            {
-                staffContainer.Height -= 30;
-                if (staffContainer.Height <= 30)
-                {
-                    staffContainerExpand.Stop();
-                    isStaffContainerExpanded = false;
-                }
-            }
-        }
-
         private void trainerBtn_Click(object sender, EventArgs e)
         {
-            trainerContainerExpand.Start();
+            if (trainerPage == null) 
+            {
+                trainerPage = new table_trainer();
+                trainerPage.FormClosed += trainer_FormClosed;
+                trainerPage.MdiParent = this;
+                trainerPage.Dock = DockStyle.Fill;
+                trainerPage.Show();
+            }
+            else
+            {
+                trainerPage.Activate();
+            }
+            trainerPage.RefreshTrainerData();
+            changeBtnNormalBackground("trainerBtn");
         }
 
         private void memberBtn_Click(object sender, EventArgs e)
         {
-            memberContainerExpand.Start();
+            
 
             if (memberPage == null)
             {
@@ -104,6 +49,7 @@ namespace TrainHub
             {
                 memberPage.Activate();
             }
+            memberPage.RefreshMemberData();
             changeBtnNormalBackground("memberBtn");
 
         }
@@ -136,9 +82,13 @@ namespace TrainHub
             memberPage = null;
         }
 
+        private void trainer_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            trainerPage = null;
+        }
+
         private void staffBtn_Click(object sender, EventArgs e)
         {
-            staffContainerExpand.Start();
 
             changeBtnNormalBackground("staffBtn");
         }
@@ -163,7 +113,8 @@ namespace TrainHub
             {
                 dashboard.Activate();
             }
-
+            dashboard.RefreshNearlyExpiredMembers();
+            dashboard.LoadSubscriptionChartFromDatabase();
             changeBtnNormalBackground("dashboardBtn");
         }
 
