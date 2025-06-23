@@ -1,4 +1,5 @@
 ﻿using CuoreUI.Controls.Charts;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrainHub.Data;
+using TrainHub.Models;
 
 namespace TrainHub
 {
@@ -20,11 +22,14 @@ namespace TrainHub
             InitializeComponent();
             dataContext = new TrainHubContext();
 
-            advancedDataGridView1.CellFormatting += advancedDataGridView1_CellFormatting;
+            nearlyExpiredMembersAdvancedDataGridView1.CellFormatting += advancedDataGridView1_CellFormatting;
+            memberAttendanceLabel.Text = DateTime.Today.ToString("MMMM dd, yyyy");
+            trainerAttendanceLabel.Text = DateTime.Today.ToString("MMMM dd, yyyy");
+            welcomeLabel.Text = $"Welcome back, {dataContext.User.FirstOrDefault()?.FirstName ?? "User"}!";
         }
 
-       
-        private void LoadSubscriptionChartFromDatabase()
+
+        public void LoadSubscriptionChartFromDatabase()
         {
             try
             {
@@ -42,9 +47,9 @@ namespace TrainHub
                 cuiChartLine2.CustomXAxis = new string[] { "Monthly", "Quarterly", "Yearly" };
                 cuiChartLine2.DataPoints = new float[]
                 {
-            monthlyCount,
-            quarterlyCount,
-            yearlyCount
+                    monthlyCount,
+                    quarterlyCount,
+                    yearlyCount
                 };
 
                 // Refresh the chart (optional)
@@ -64,20 +69,16 @@ namespace TrainHub
             {
                 dataContext.ChangeTracker.Clear();
 
-
-
                 DateTime today = DateTime.Today;
-                DateTime sevenDaysFromNow = today.AddDays(7);
+                DateTime sevenDaysFromToday = today.AddDays(7);
 
-
-                var nearlyExpiredMembers = from member in dataContext.Member
-                                           where !member.IsDeleted &&
-                                                member.ExpiryDate.HasValue &&
-                                                member.ExpiryDate.Value >= today &&
-                                                member.ExpiryDate.Value <= sevenDaysFromNow &&
-                                                 member.Status == "Active"
-                                           orderby member.ExpiryDate ascending
-                                           select member;
+                var members = from member in dataContext.Member
+                              where !member.IsDeleted &&
+                                   member.EndDate.Date >= today &&
+                                   member.EndDate.Date <= sevenDaysFromToday &&
+                                   member.Status == "Active"
+                              orderby member.EndDate ascending
+                              select member;
 
                 var dataTable = new DataTable();
                 dataTable.Columns.Add("Id", typeof(int));
@@ -89,18 +90,11 @@ namespace TrainHub
                 dataTable.Columns.Add("StartDate", typeof(DateTime));
                 dataTable.Columns.Add("EndDate", typeof(DateTime));
                 dataTable.Columns.Add("CreatedDate", typeof(DateTime));
-                dataTable.Columns.Add("SoftDeleteDate", typeof(DateTime));
-                dataTable.Columns.Add("IsDeleted", typeof(bool));
                 dataTable.Columns.Add("Status", typeof(string));
                 dataTable.Columns.Add("MembershipType", typeof(string));
-                dataTable.Columns.Add("ExpiryDate", typeof(DateTime));
-                dataTable.Columns.Add("DaysToExpiry", typeof(int));
 
-
-                foreach (var member in nearlyExpiredMembers)
+                foreach (var member in members)
                 {
-                    int daysToExpiry = (member.ExpiryDate.Value - DateTime.Today).Days;
-
                     dataTable.Rows.Add(
                          member.Id,
                          member.FirstName,
@@ -111,19 +105,14 @@ namespace TrainHub
                          member.StartDate,
                          member.EndDate,
                          member.CreatedDate,
-                         member.SoftDeleteDate,
-                         member.IsDeleted,
                          member.Status,
-                         member.MembershipType,
-                         member.ExpiryDate.Value,
-                         daysToExpiry
+                         member.MembershipType
                      );
-
 
                 }
 
                 this.memberBindingSource.DataSource = dataTable;
-                advancedDataGridView1.DataSource = memberBindingSource;
+                nearlyExpiredMembersAdvancedDataGridView1.DataSource = memberBindingSource;
 
                 this.Text = $"Nearly Expired Members ({dataTable.Rows.Count})";
                 label6.Text = dataTable.Rows.Count.ToString();
@@ -135,33 +124,8 @@ namespace TrainHub
             }
         }
 
-
-
-
-
         private void advancedDataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            // Color-code the "DaysToExpiry" column based on urgency
-            if (e.ColumnIndex == 12 && e.Value != null)
-            {
-                int daysToExpiry = Convert.ToInt32(e.Value);
-
-                if (daysToExpiry <= 7)
-                {
-                    // Very urgent - expires in 3 days or less
-                    e.CellStyle.BackColor = Color.LightCoral;
-                    e.CellStyle.ForeColor = Color.DarkRed;
-
-                }
-
-                else if (daysToExpiry < 0)
-                {
-                    // Already expired (shouldn't appear in this view, but just in case)
-                    e.CellStyle.BackColor = Color.Red;
-                    e.CellStyle.ForeColor = Color.White;
-
-                }
-            }
             if (e.ColumnIndex == 14 && e.Value != null)
             {
                 string status = e.Value.ToString();
@@ -174,18 +138,6 @@ namespace TrainHub
                     e.CellStyle.ForeColor = Color.Red;
                 }
             }
-        }
-
-
-
-        private void cuiPanel8_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
         public void searchBar_ContentChanged(object sender, EventArgs e)
         {
@@ -201,16 +153,15 @@ namespace TrainHub
                     DateTime today = DateTime.Today;
                     DateTime sevenDaysFromToday = today.AddDays(7);
 
-                    var nearlyExpiredMembers = from member in dataContext.Member
-                                               where !member.IsDeleted &&
-                                                     member.ExpiryDate.HasValue &&
-                                                     member.ExpiryDate.Value >= today &&
-                                                     member.ExpiryDate.Value <= sevenDaysFromToday &&
-                                                     member.Status == "Active" &&
-                                                     (member.FirstName.ToLower().Contains(memberName.ToLower()) ||
-                                                      member.LastName.ToLower().Contains(memberName.ToLower()))
-                                               orderby member.ExpiryDate ascending
-                                               select member;
+                    var members = from member in dataContext.Member
+                                  where !member.IsDeleted &&
+                                       (member.FirstName.ToLower().Contains(memberName.ToLower()) ||
+                                       member.LastName.ToLower().Contains(memberName.ToLower())) &&
+                                       member.EndDate.Date >= today &&
+                                       member.EndDate.Date <= sevenDaysFromToday &&
+                                       member.Status == "Active"
+                                  orderby member.EndDate ascending
+                                  select member;
 
                     // Create DataTable with the same structure
                     var dataTable = new DataTable();
@@ -223,41 +174,29 @@ namespace TrainHub
                     dataTable.Columns.Add("StartDate", typeof(DateTime));
                     dataTable.Columns.Add("EndDate", typeof(DateTime));
                     dataTable.Columns.Add("CreatedDate", typeof(DateTime));
-                    dataTable.Columns.Add("SoftDeleteDate", typeof(DateTime));
-                    dataTable.Columns.Add("IsDeleted", typeof(bool));
                     dataTable.Columns.Add("Status", typeof(string));
                     dataTable.Columns.Add("MembershipType", typeof(string));
-                    dataTable.Columns.Add("ExpiryDate", typeof(DateTime));
-                    dataTable.Columns.Add("DaysToExpiry", typeof(int));
 
-
-                    // Add filtered members to the DataTable
-                    foreach (var member in nearlyExpiredMembers)
+                    foreach (var member in members)
                     {
-                        int daysToExpiry = (member.ExpiryDate.Value - today).Days;
-
                         dataTable.Rows.Add(
-                         member.Id,
-                         member.FirstName,
-                         member.LastName,
-                         member.Email,
-                         member.PhoneNumber,
-                         member.DateOfBirth,
-                         member.StartDate,
-                         member.EndDate,
-                         member.CreatedDate,
-                         member.SoftDeleteDate,
-                         member.IsDeleted,
-                         member.Status,
-                         member.MembershipType,
-                         member.ExpiryDate.Value,
-                         daysToExpiry
-                     );
+                             member.Id,
+                             member.FirstName,
+                             member.LastName,
+                             member.Email,
+                             member.PhoneNumber,
+                             member.DateOfBirth,
+                             member.StartDate,
+                             member.EndDate,
+                             member.CreatedDate,
+                             member.Status,
+                             member.MembershipType
+                         );
                     }
 
                     // Update the grid with filtered data
                     this.memberBindingSource.DataSource = dataTable;
-                    advancedDataGridView1.DataSource = memberBindingSource;
+                    nearlyExpiredMembersAdvancedDataGridView1.DataSource = memberBindingSource;
 
 
                     label6.Text = dataTable.Rows.Count.ToString();
@@ -279,26 +218,222 @@ namespace TrainHub
         {
             RefreshNearlyExpiredMembers();
             LoadSubscriptionChartFromDatabase();
+            RefreshMemberAttendanceGrid();
+            RefreshTrainerAttendanceGrid();
         }
 
-        private void cuiChartLine1_Load(object sender, EventArgs e)
+        private void scanQrBtn_Click(object sender, EventArgs e)
         {
-
+            ReadQRForm readQRForm = new ReadQRForm(this);
+            readQRForm.ShowDialog();
         }
 
-        private void cuiChartLine2_Load(object sender, EventArgs e)
+        public void RefreshMemberAttendanceGrid()
         {
+            using (var dataContext = new TrainHubContext())
+            {
+                var memberAttendanceData = dataContext.MemberAttendances
+                    .Include(a => a.Member)
+                    .Where(a => !a.IsDeleted && a.AttendanceDate == DateTime.Today)
+                    .OrderByDescending(a => a.AttendanceDate)
+                    .ThenByDescending(a => a.CheckInTime)
+                    .ToList();
 
+                memberAttendanceBindingSource.DataSource = ConvertToDataMemberTable(memberAttendanceData);
+                memberAttendanceDataGridView.DataSource = memberAttendanceBindingSource;
+            }
         }
 
-        private void customBackButton1_Load(object sender, EventArgs e)
+        public void RefreshTrainerAttendanceGrid()
         {
+            using (var dataContext = new TrainHubContext())
+            {
+                var trainerAttendanceData = dataContext.TrainerAttendances
+                    .Include(a => a.Trainer)
+                    .Where(a => !a.IsDeleted && a.AttendanceDate == DateTime.Today)
+                    .OrderByDescending(a => a.AttendanceDate)
+                    .ThenByDescending(a => a.CheckInTime)
+                    .ToList();
 
+                trainerAttendanceBindingSource.DataSource = ConvertToDataTrainerTable(trainerAttendanceData);
+                trainerAttendanceDataGridView.DataSource = trainerAttendanceBindingSource;
+            }
         }
 
-        private void cuiChartLine2_Load_1(object sender, EventArgs e)
+        private DataTable ConvertToDataMemberTable(IEnumerable<MemberAttendances> memberAttendanceData)
         {
-            
+            var dataTable = CreateMemberAttendanceDataTable();
+
+            foreach (var attendance in memberAttendanceData)
+            {
+                dataTable.Rows.Add(
+                    attendance.Id,
+                    attendance.Member?.Id ?? 0,
+                    attendance.Member?.FirstName ?? "",
+                    attendance.Member?.LastName ?? "",
+                    attendance.Member?.Email ?? "",
+                    attendance.Member?.PhoneNumber ?? "",
+                    attendance.Member?.Status ?? "",
+                    attendance.Member?.MembershipType ?? "",
+                    attendance.AttendanceDate,
+                    attendance.Member?.StartDate ?? DateTime.MinValue,
+                    attendance.Member?.EndDate ?? DateTime.MinValue,
+                    attendance.CheckInTime?.ToString(@"hh\:mm") ?? "",
+                    attendance.CheckOutTime?.ToString(@"hh\:mm") ?? ""
+                );
+            }
+
+            return dataTable;
+        }
+
+        private DataTable ConvertToDataTrainerTable(IEnumerable<TrainerAttendances> trainerAttendanceData)
+        {
+            var dataTable = CreateTrainerAttendanceDataTable();
+
+            foreach (var attendance in trainerAttendanceData)
+            {
+                dataTable.Rows.Add(
+                    attendance.Id,
+                    attendance.Trainer?.Id ?? 0,
+                    attendance.Trainer?.FirstName ?? "",
+                    attendance.Trainer?.LastName ?? "",
+                    attendance.Trainer?.Gender ?? "",
+                    attendance.Trainer?.Email ?? "",
+                    attendance.Trainer?.PhoneNumber ?? "",
+                    attendance.Trainer?.Address ?? "",
+                    attendance.Trainer?.Status ?? "",
+                    attendance.Trainer?.Availability ?? "",
+                    attendance.AttendanceDate,
+                    attendance.Trainer?.CreatedDate ?? DateTime.MinValue,
+                    attendance.CheckInTime?.ToString(@"hh\:mm") ?? "",
+                    attendance.CheckOutTime?.ToString(@"hh\:mm") ?? ""
+                );
+            }
+
+            return dataTable;
+        }
+
+        private DataTable CreateMemberAttendanceDataTable()
+        {
+            var dataTable = new DataTable();
+            dataTable.Columns.Add("Id", typeof(int));
+            dataTable.Columns.Add("MemberId", typeof(int));
+            dataTable.Columns.Add("FirstName", typeof(string));
+            dataTable.Columns.Add("LastName", typeof(string));
+            dataTable.Columns.Add("Email", typeof(string));
+            dataTable.Columns.Add("PhoneNumber", typeof(string));
+            dataTable.Columns.Add("Status", typeof(string));
+            dataTable.Columns.Add("MembershipType", typeof(string));
+            dataTable.Columns.Add("AttendanceDate", typeof(DateTime));
+            dataTable.Columns.Add("StartDate", typeof(DateTime));
+            dataTable.Columns.Add("EndDate", typeof(DateTime));
+            dataTable.Columns.Add("CheckInTime", typeof(string));
+            dataTable.Columns.Add("CheckOutTime", typeof(string));
+
+            return dataTable;
+        }
+
+        private DataTable CreateTrainerAttendanceDataTable()
+        {
+            var dataTable = new DataTable();
+            dataTable.Columns.Add("Id", typeof(int));
+            dataTable.Columns.Add("TrainerId", typeof(int));
+            dataTable.Columns.Add("FirstName", typeof(string));
+            dataTable.Columns.Add("LastName", typeof(string));
+            dataTable.Columns.Add("Gender", typeof(string));
+            dataTable.Columns.Add("Email", typeof(string));
+            dataTable.Columns.Add("PhoneNumber", typeof(string));
+            dataTable.Columns.Add("Address", typeof(string));
+            dataTable.Columns.Add("Status", typeof(string));
+            dataTable.Columns.Add("Availability", typeof(string));
+            dataTable.Columns.Add("AttendanceDate", typeof(DateTime));
+            dataTable.Columns.Add("HireDate", typeof(DateTime));
+            dataTable.Columns.Add("CheckInTime", typeof(string));
+            dataTable.Columns.Add("CheckOutTime", typeof(string));
+
+            return dataTable;
+        }
+
+        private void searchBarMemberAttendance_ContentChanged(object sender, EventArgs e)
+        {
+            string memberName = searchBarMemberAttendance.Content.Trim();
+
+            try
+            {
+                if (!string.IsNullOrEmpty(memberName))
+                {
+                    using (var searchContext = new TrainHubContext())
+                    {
+                        // Include the Member navigation property and filter by today's attendance
+                        var attendanceData = searchContext.MemberAttendances
+                            .Include(a => a.Member)
+                            .Where(a => !a.IsDeleted &&
+                                       a.AttendanceDate == DateTime.Today &&
+                                       (a.Member.FirstName.ToLower().Contains(memberName.ToLower()) ||
+                                        a.Member.LastName.ToLower().Contains(memberName.ToLower())))
+                            .OrderByDescending(a => a.AttendanceDate)
+                            .ThenByDescending(a => a.CheckInTime)
+                            .ToList();
+
+                        // Convert to DataTable for sorting/filtering support
+
+                        memberAttendanceBindingSource.DataSource = ConvertToDataMemberTable(attendanceData); ;
+                        memberAttendanceDataGridView.DataSource = memberAttendanceBindingSource;
+
+                    }
+                }
+                else
+                {
+                    // If search is empty, show all members
+                    RefreshMemberAttendanceGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error searching member data: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void searchBarTrainerAttendance_ContentChanged(object sender, EventArgs e)
+        {
+            string trainerName = searchBarTrainerAttendance.Content.Trim();
+
+            try
+            {
+                if (!string.IsNullOrEmpty(trainerName))
+                {
+                    using (var searchContext = new TrainHubContext())
+                    {
+                        // Include the Member navigation property and filter by today's attendance
+                        var attendanceData = searchContext.TrainerAttendances
+                            .Include(a => a.Trainer)
+                            .Where(a => !a.IsDeleted &&
+                                       a.AttendanceDate == DateTime.Today &&
+                                       (a.Trainer.FirstName.ToLower().Contains(trainerName.ToLower()) ||
+                                        a.Trainer.LastName.ToLower().Contains(trainerName.ToLower())))
+                            .OrderByDescending(a => a.AttendanceDate)
+                            .ThenByDescending(a => a.CheckInTime)
+                            .ToList();
+
+                        // Convert to DataTable for sorting/filtering support
+
+                        trainerAttendanceBindingSource.DataSource = ConvertToDataTrainerTable(attendanceData); ;
+                        trainerAttendanceDataGridView.DataSource = trainerAttendanceBindingSource;
+
+                    }
+                }
+                else
+                {
+                    // If search is empty, show all members
+                    RefreshTrainerAttendanceGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error searching member data: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -20,11 +20,10 @@ namespace TrainHub.Models
         public DateTime CreatedDate { get; set; } = DateTime.Today;
         public DateTime? SoftDeleteDate { get; set; }
         public int DaysToExpiry { get; set; }
-
-      
         public bool IsDeleted { get; set; } = false;
         public string Status { get; set; }
         public string MembershipType { get; set; }
+        public DateTime? ExpiryDate { get; set; }
 
         public string? ProfileImagePath { get; set; }
         public string? ImageFileName { get; set; }

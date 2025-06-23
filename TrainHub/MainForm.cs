@@ -5,10 +5,7 @@ namespace TrainHub
 {
     public partial class MainForm : Form
     {
-        bool isTrainerContainerExpanded = false;
-        bool isMemberContainerExpanded = false;
-        bool isStaffContainerExpanded = false;
-        Dashboar dashboar;
+        Dashboard dashboard;
         ShowMembersTablePageForm1 memberPage;
         table_trainer trainerPage;
         Login login;
@@ -103,26 +100,27 @@ namespace TrainHub
 
         private void dashboardBtn_Click(object sender, EventArgs e)
         {
-            if (dashboar == null)
+            if (dashboard == null)
             {
-                dashboar = new Dashboar();
+                dashboard = new Dashboard();
 
-                dashboar.FormClosed += Dashboard_FormClosed;
-                dashboar.MdiParent = this;
-                dashboar.Dock = DockStyle.Fill;
-                dashboar.Show();
+                dashboard.FormClosed += Dashboard_FormClosed;
+                dashboard.MdiParent = this;
+                dashboard.Dock = DockStyle.Fill;
+                dashboard.Show();
             }
             else
             {
-                dashboar.Activate();
+                dashboard.Activate();
             }
-
+            dashboard.RefreshNearlyExpiredMembers();
+            dashboard.LoadSubscriptionChartFromDatabase();
             changeBtnNormalBackground("dashboardBtn");
         }
 
         private void Dashboard_FormClosed(object? sender, FormClosedEventArgs e)
         {
-            dashboar = null;
+            dashboard = null;
         }
 
         private void logOutBtn_Click(object sender, EventArgs e)

@@ -44,7 +44,7 @@ namespace TrainHub
             InitializeComponent();
             InitializeWebcam();
             _mode = mode;
-            _currentMember = member ?? new Member();
+            //_currentMember = member ?? new Member();
             _parentForm = parentForm;
             this.memberID = memberID ?? 0;
             _dataContext = new TrainHubContext();
@@ -206,65 +206,63 @@ namespace TrainHub
 
         private void LoadMemberData()
         {
-            if (_currentMember != null)
+            try
             {
-                try
+                var selectedMember = _dataContext.Member
+                    .Include(m => m.Trainer)
+                    .FirstOrDefault(m => m.Id == memberID);
+
+                if (selectedMember == null)
                 {
-                    var selectedMember = _dataContext.Member
-                        .Include(m => m.Trainer)
-                        .FirstOrDefault(m => m.Id == memberID);
-
-                    if (selectedMember == null)
-                    {
-                        MessageBox.Show("Member not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        this.Close();
-                        return;
-                    }
-                    else
-                    {
-                        firstNameTxt.Content = selectedMember.FirstName;
-                        lastNameTxt.Content = selectedMember.LastName;
-                        emailAddTxt.Content = selectedMember.Email;
-                        phoneNumTxt.Content = selectedMember.PhoneNumber;
-                        statusCombo.SelectedItem = selectedMember.Status;
-                        membershipTypeCombo.SelectedItem = selectedMember.MembershipType;
-                        //trainerCombo.SelectedItem = selectedMember.Trainer != null
-                        //            ? $"{selectedMember.Trainer.FirstName} {selectedMember.Trainer.LastName}"
-                        //            : "No Trainer Assigned";
-                        
-                        birthDate.Value = selectedMember.DateOfBirth;
-                        startDate.Value = selectedMember.StartDate;
-                        endDate.Value = selectedMember.EndDate;
-
-                        if (selectedMember.Trainer != null)
-                        {
-                            string trainerDisplayName = $"{selectedMember.Trainer.FirstName} {selectedMember.Trainer.LastName}";
-
-                            for (int i = 0; i < trainerCombo.Items.Length; i++)
-                            {
-                                System.Diagnostics.Debug.WriteLine($"Item {i}: {trainerCombo.Items[i]}");
-                                if (trainerCombo.Items[i].ToString() == trainerDisplayName)
-                                {
-                                    trainerCombo.SelectedItem = trainerCombo.Items[i];
-                                    break;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            trainerCombo.SelectedItem = null; // No trainer selected
-                        }
-
-
-                        LoadMemberImage(selectedMember.ProfileImagePath);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error loading member data: {ex.Message}", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Member not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
+                    return;
                 }
+
+                // Update the _currentMember reference
+                _currentMember = selectedMember;
+
+                firstNameTxt.Content = selectedMember.FirstName;
+                lastNameTxt.Content = selectedMember.LastName;
+                emailAddTxt.Content = selectedMember.Email;
+                phoneNumTxt.Content = selectedMember.PhoneNumber;
+                statusCombo.SelectedItem = selectedMember.Status;
+                membershipTypeCombo.SelectedItem = selectedMember.MembershipType;
+
+                birthDate.Value = selectedMember.DateOfBirth;
+                startDate.Value = selectedMember.StartDate;
+                endDate.Value = selectedMember.EndDate;
+
+                // Handle trainer assignment safely
+                if (selectedMember.Trainer != null)
+                {
+                    string trainerDisplayName = $"{selectedMember.Trainer.FirstName} {selectedMember.Trainer.LastName}";
+
+                    for (int i = 0; i < trainerCombo.Items.Length; i++)
+                    {
+                        if (trainerCombo.Items[i].ToString() == trainerDisplayName)
+                        {
+                            trainerCombo.SelectedItem = trainerCombo.Items[i];
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    trainerCombo.SelectedItem = ""; // No trainer selected
+                }
+
+                // Load member image if available
+                if (!string.IsNullOrWhiteSpace(selectedMember.ProfileImagePath))
+                {
+                    LoadMemberImage(selectedMember.ProfileImagePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading member data: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
         }
 
@@ -474,6 +472,7 @@ namespace TrainHub
                 selectedMember.StartDate = startDate.Value;
                 selectedMember.EndDate = endDate.Value;
 
+                // Handle trainer assignment safely
                 if (trainerCombo.SelectedItem != null)
                 {
                     string selectedTrainerName = trainerCombo.SelectedItem.ToString();
@@ -484,8 +483,15 @@ namespace TrainHub
                 }
                 else
                 {
-                    selectedMember.TrainerID = null;
+                    selectedMember.TrainerID = null; // No trainer assigned
                 }
+
+                // Update the _currentMember reference
+                _currentMember = selectedMember;
+            }
+            else
+            {
+                throw new InvalidOperationException($"Member with ID {memberID} not found.");
             }
         }
 

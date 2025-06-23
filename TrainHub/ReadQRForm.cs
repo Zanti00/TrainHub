@@ -23,10 +23,10 @@ namespace TrainHub
     {
         private FilterInfoCollection captureDevice;
         private VideoCaptureDevice videoSource;
-        private Dashboar _dashboardForm;
+        private Dashboard _dashboardForm;
         TrainHubContext dataContext = new TrainHubContext();
 
-        public ReadQRForm(Dashboar dashboardForm)
+        public ReadQRForm(Dashboard dashboardForm)
         {
             InitializeComponent();
             _dashboardForm = dashboardForm;

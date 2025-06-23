@@ -30,8 +30,8 @@ namespace TrainHub
 
         private void cuiButtonGroup2_Click(object sender, EventArgs e)
         {
-            ReadQRForm readQRForm = new ReadQRForm(this);
-            readQRForm.ShowDialog();
+            //ReadQRForm readQRForm = new ReadQRForm(this);
+            //readQRForm.ShowDialog();
         }
 
         public void RefreshMemberAttendanceGrid()
@@ -48,8 +48,6 @@ namespace TrainHub
                 memberAttendanceBindingSource.DataSource = ConvertToDataMemberTable(memberAttendanceData);
                 memberAttendanceDataGridView.DataSource = memberAttendanceBindingSource;
             }
-
-            
         }
 
         public void RefreshTrainerAttendanceGrid()

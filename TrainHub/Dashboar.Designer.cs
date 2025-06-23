@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboar));
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             tableLayoutPanel4 = new TableLayoutPanel();
@@ -46,6 +46,17 @@
             trainerAttendanceLabel = new Label();
             cuiPanel3 = new CuoreUI.Controls.cuiPanel();
             trainerAttendanceDataGridView = new Zuby.ADGV.AdvancedDataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            TrainerId = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
+            Availability = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn13 = new DataGridViewTextBoxColumn();
             trainerAttendanceBindingSource = new BindingSource(components);
             cuiPanel4 = new CuoreUI.Controls.cuiPanel();
             panel4 = new Panel();
@@ -79,17 +90,6 @@
             cuiPanel7 = new CuoreUI.Controls.cuiPanel();
             cuiPictureBox1 = new CuoreUI.Controls.cuiPictureBox();
             searchBarMemberAttendance = new CuoreUI.Controls.cuiTextBox();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            TrainerId = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
-            Availability = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn13 = new DataGridViewTextBoxColumn();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -122,7 +122,7 @@
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
-            tableLayoutPanel1.Size = new Size(799, 413);
+            tableLayoutPanel1.Size = new Size(801, 428);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -133,11 +133,11 @@
             tableLayoutPanel3.Controls.Add(tableLayoutPanel4, 1, 0);
             tableLayoutPanel3.Controls.Add(tableLayoutPanel2, 0, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(13, 83);
+            tableLayoutPanel3.Location = new Point(13, 86);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Size = new Size(773, 317);
+            tableLayoutPanel3.Size = new Size(775, 329);
             tableLayoutPanel3.TabIndex = 10;
             // 
             // tableLayoutPanel4
@@ -149,12 +149,12 @@
             tableLayoutPanel4.Controls.Add(panel3, 0, 0);
             tableLayoutPanel4.Controls.Add(cuiPanel3, 0, 1);
             tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(389, 3);
+            tableLayoutPanel4.Location = new Point(390, 3);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 2;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
-            tableLayoutPanel4.Size = new Size(381, 311);
+            tableLayoutPanel4.Size = new Size(382, 323);
             tableLayoutPanel4.TabIndex = 10;
             // 
             // panel3
@@ -164,7 +164,7 @@
             panel3.Dock = DockStyle.Left;
             panel3.Location = new Point(4, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(204, 55);
+            panel3.Size = new Size(204, 58);
             panel3.TabIndex = 10;
             // 
             // label3
@@ -196,13 +196,13 @@
             cuiPanel3.Controls.Add(trainerAttendanceDataGridView);
             cuiPanel3.Controls.Add(cuiPanel4);
             cuiPanel3.Dock = DockStyle.Fill;
-            cuiPanel3.Location = new Point(4, 66);
+            cuiPanel3.Location = new Point(4, 69);
             cuiPanel3.Name = "cuiPanel3";
             cuiPanel3.OutlineThickness = 1F;
             cuiPanel3.PanelColor = Color.Transparent;
             cuiPanel3.PanelOutlineColor = Color.Transparent;
             cuiPanel3.Rounding = new Padding(8);
-            cuiPanel3.Size = new Size(373, 241);
+            cuiPanel3.Size = new Size(374, 250);
             cuiPanel3.TabIndex = 8;
             // 
             // trainerAttendanceDataGridView
@@ -213,26 +213,26 @@
             trainerAttendanceDataGridView.AutoGenerateColumns = false;
             trainerAttendanceDataGridView.BackgroundColor = Color.White;
             trainerAttendanceDataGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(50, 81, 88);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            trainerAttendanceDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(50, 81, 88);
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            trainerAttendanceDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             trainerAttendanceDataGridView.ColumnHeadersHeight = 40;
             trainerAttendanceDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             trainerAttendanceDataGridView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, TrainerId, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, Availability, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn13 });
             trainerAttendanceDataGridView.DataSource = trainerAttendanceBindingSource;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(50, 81, 88);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            trainerAttendanceDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = SystemColors.Window;
+            dataGridViewCellStyle10.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle10.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(50, 81, 88);
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
+            trainerAttendanceDataGridView.DefaultCellStyle = dataGridViewCellStyle10;
             trainerAttendanceDataGridView.Dock = DockStyle.Fill;
             trainerAttendanceDataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
             trainerAttendanceDataGridView.FilterAndSortEnabled = true;
@@ -243,26 +243,126 @@
             trainerAttendanceDataGridView.Name = "trainerAttendanceDataGridView";
             trainerAttendanceDataGridView.ReadOnly = true;
             trainerAttendanceDataGridView.RightToLeft = RightToLeft.No;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(50, 81, 88);
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            trainerAttendanceDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle11.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(50, 81, 88);
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
+            trainerAttendanceDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             trainerAttendanceDataGridView.RowHeadersVisible = false;
             trainerAttendanceDataGridView.RowHeadersWidth = 120;
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.Padding = new Padding(0, 5, 0, 5);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(50, 81, 88);
-            trainerAttendanceDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle12.ForeColor = Color.Black;
+            dataGridViewCellStyle12.Padding = new Padding(0, 5, 0, 5);
+            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(50, 81, 88);
+            trainerAttendanceDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
             trainerAttendanceDataGridView.RowTemplate.Height = 40;
             trainerAttendanceDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            trainerAttendanceDataGridView.Size = new Size(373, 194);
+            trainerAttendanceDataGridView.Size = new Size(374, 203);
             trainerAttendanceDataGridView.SortStringChangedInvokeBeforeDatasourceUpdate = false;
             trainerAttendanceDataGridView.TabIndex = 17;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            dataGridViewTextBoxColumn1.HeaderText = "Id";
+            dataGridViewTextBoxColumn1.MinimumWidth = 24;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            dataGridViewTextBoxColumn1.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // TrainerId
+            // 
+            TrainerId.DataPropertyName = "TrainerId";
+            TrainerId.HeaderText = "TrainerId";
+            TrainerId.MinimumWidth = 24;
+            TrainerId.Name = "TrainerId";
+            TrainerId.ReadOnly = true;
+            TrainerId.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.DataPropertyName = "FirstName";
+            dataGridViewTextBoxColumn3.HeaderText = "FirstName";
+            dataGridViewTextBoxColumn3.MinimumWidth = 24;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
+            dataGridViewTextBoxColumn3.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewTextBoxColumn4.DataPropertyName = "LastName";
+            dataGridViewTextBoxColumn4.HeaderText = "LastName";
+            dataGridViewTextBoxColumn4.MinimumWidth = 24;
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.ReadOnly = true;
+            dataGridViewTextBoxColumn4.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewTextBoxColumn5.DataPropertyName = "Email";
+            dataGridViewTextBoxColumn5.HeaderText = "Email";
+            dataGridViewTextBoxColumn5.MinimumWidth = 24;
+            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewTextBoxColumn5.ReadOnly = true;
+            dataGridViewTextBoxColumn5.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            dataGridViewTextBoxColumn6.DataPropertyName = "PhoneNumber";
+            dataGridViewTextBoxColumn6.HeaderText = "PhoneNumber";
+            dataGridViewTextBoxColumn6.MinimumWidth = 24;
+            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            dataGridViewTextBoxColumn6.ReadOnly = true;
+            dataGridViewTextBoxColumn6.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewTextBoxColumn7.DataPropertyName = "Status";
+            dataGridViewTextBoxColumn7.HeaderText = "Status";
+            dataGridViewTextBoxColumn7.MinimumWidth = 24;
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            dataGridViewTextBoxColumn7.ReadOnly = true;
+            dataGridViewTextBoxColumn7.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Availability
+            // 
+            Availability.DataPropertyName = "Availability";
+            Availability.HeaderText = "Availability";
+            Availability.MinimumWidth = 24;
+            Availability.Name = "Availability";
+            Availability.ReadOnly = true;
+            Availability.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            dataGridViewTextBoxColumn9.DataPropertyName = "AttendanceDate";
+            dataGridViewTextBoxColumn9.HeaderText = "AttendanceDate";
+            dataGridViewTextBoxColumn9.MinimumWidth = 24;
+            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            dataGridViewTextBoxColumn9.ReadOnly = true;
+            dataGridViewTextBoxColumn9.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            dataGridViewTextBoxColumn10.DataPropertyName = "CheckInTime";
+            dataGridViewTextBoxColumn10.HeaderText = "CheckInTime";
+            dataGridViewTextBoxColumn10.MinimumWidth = 24;
+            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            dataGridViewTextBoxColumn10.ReadOnly = true;
+            dataGridViewTextBoxColumn10.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            dataGridViewTextBoxColumn13.DataPropertyName = "CheckOutTime";
+            dataGridViewTextBoxColumn13.HeaderText = "CheckOutTime";
+            dataGridViewTextBoxColumn13.MinimumWidth = 24;
+            dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            dataGridViewTextBoxColumn13.ReadOnly = true;
+            dataGridViewTextBoxColumn13.SortMode = DataGridViewColumnSortMode.Programmatic;
+            dataGridViewTextBoxColumn13.Visible = false;
             // 
             // trainerAttendanceBindingSource
             // 
@@ -281,14 +381,14 @@
             cuiPanel4.PanelColor = Color.FromArgb(248, 250, 252);
             cuiPanel4.PanelOutlineColor = Color.Black;
             cuiPanel4.Rounding = new Padding(8, 8, 0, 0);
-            cuiPanel4.Size = new Size(373, 47);
+            cuiPanel4.Size = new Size(374, 47);
             cuiPanel4.TabIndex = 16;
             // 
             // panel4
             // 
             panel4.Controls.Add(cuiButtonGroup1);
             panel4.Dock = DockStyle.Right;
-            panel4.Location = new Point(41, 5);
+            panel4.Location = new Point(42, 5);
             panel4.Name = "panel4";
             panel4.Size = new Size(92, 37);
             panel4.TabIndex = 18;
@@ -338,7 +438,7 @@
             cuiPanel5.Controls.Add(cuiPictureBox2);
             cuiPanel5.Controls.Add(searchBarTrainerAttendance);
             cuiPanel5.Dock = DockStyle.Right;
-            cuiPanel5.Location = new Point(133, 5);
+            cuiPanel5.Location = new Point(134, 5);
             cuiPanel5.Margin = new Padding(3, 2, 3, 2);
             cuiPanel5.Name = "cuiPanel5";
             cuiPanel5.OutlineThickness = 0F;
@@ -411,7 +511,7 @@
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
-            tableLayoutPanel2.Size = new Size(380, 311);
+            tableLayoutPanel2.Size = new Size(381, 323);
             tableLayoutPanel2.TabIndex = 9;
             // 
             // panel2
@@ -421,7 +521,7 @@
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(4, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(217, 55);
+            panel2.Size = new Size(217, 58);
             panel2.TabIndex = 10;
             // 
             // label1
@@ -453,13 +553,13 @@
             cuiPanel1.Controls.Add(memberAttendanceDataGridView);
             cuiPanel1.Controls.Add(cuiPanel2);
             cuiPanel1.Dock = DockStyle.Fill;
-            cuiPanel1.Location = new Point(4, 66);
+            cuiPanel1.Location = new Point(4, 69);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
             cuiPanel1.PanelColor = Color.Transparent;
             cuiPanel1.PanelOutlineColor = Color.Transparent;
             cuiPanel1.Rounding = new Padding(8);
-            cuiPanel1.Size = new Size(372, 241);
+            cuiPanel1.Size = new Size(373, 250);
             cuiPanel1.TabIndex = 8;
             // 
             // memberAttendanceDataGridView
@@ -470,26 +570,26 @@
             memberAttendanceDataGridView.AutoGenerateColumns = false;
             memberAttendanceDataGridView.BackgroundColor = Color.White;
             memberAttendanceDataGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(50, 81, 88);
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            memberAttendanceDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle13.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle13.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = Color.FromArgb(50, 81, 88);
+            dataGridViewCellStyle13.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
+            memberAttendanceDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             memberAttendanceDataGridView.ColumnHeadersHeight = 40;
             memberAttendanceDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             memberAttendanceDataGridView.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, memberIdDataGridViewTextBoxColumn, FirstName, LastName, Email, PhoneNumber, Status, MembershipType, AttendanceDate, checkInTimeDataGridViewTextBoxColumn, StartDate, EndDate, checkOutTimeDataGridViewTextBoxColumn });
             memberAttendanceDataGridView.DataSource = memberAttendanceBindingSource;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Window;
-            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(50, 81, 88);
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            memberAttendanceDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = SystemColors.Window;
+            dataGridViewCellStyle14.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle14.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(50, 81, 88);
+            dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.False;
+            memberAttendanceDataGridView.DefaultCellStyle = dataGridViewCellStyle14;
             memberAttendanceDataGridView.Dock = DockStyle.Fill;
             memberAttendanceDataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
             memberAttendanceDataGridView.FilterAndSortEnabled = true;
@@ -500,24 +600,24 @@
             memberAttendanceDataGridView.Name = "memberAttendanceDataGridView";
             memberAttendanceDataGridView.ReadOnly = true;
             memberAttendanceDataGridView.RightToLeft = RightToLeft.No;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(50, 81, 88);
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            memberAttendanceDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle15.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle15.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = Color.FromArgb(50, 81, 88);
+            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
+            memberAttendanceDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             memberAttendanceDataGridView.RowHeadersVisible = false;
             memberAttendanceDataGridView.RowHeadersWidth = 120;
-            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            dataGridViewCellStyle8.Padding = new Padding(0, 5, 0, 5);
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(50, 81, 88);
-            memberAttendanceDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle16.ForeColor = Color.Black;
+            dataGridViewCellStyle16.Padding = new Padding(0, 5, 0, 5);
+            dataGridViewCellStyle16.SelectionBackColor = Color.FromArgb(50, 81, 88);
+            memberAttendanceDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle16;
             memberAttendanceDataGridView.RowTemplate.Height = 40;
             memberAttendanceDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            memberAttendanceDataGridView.Size = new Size(372, 194);
+            memberAttendanceDataGridView.Size = new Size(373, 203);
             memberAttendanceDataGridView.SortStringChangedInvokeBeforeDatasourceUpdate = false;
             memberAttendanceDataGridView.TabIndex = 17;
             // 
@@ -656,14 +756,14 @@
             cuiPanel2.PanelColor = Color.FromArgb(248, 250, 252);
             cuiPanel2.PanelOutlineColor = Color.Black;
             cuiPanel2.Rounding = new Padding(8, 8, 0, 0);
-            cuiPanel2.Size = new Size(372, 47);
+            cuiPanel2.Size = new Size(373, 47);
             cuiPanel2.TabIndex = 16;
             // 
             // panel1
             // 
             panel1.Controls.Add(cuiButtonGroup2);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(40, 5);
+            panel1.Location = new Point(41, 5);
             panel1.Name = "panel1";
             panel1.Size = new Size(92, 37);
             panel1.TabIndex = 17;
@@ -713,7 +813,7 @@
             cuiPanel7.Controls.Add(cuiPictureBox1);
             cuiPanel7.Controls.Add(searchBarMemberAttendance);
             cuiPanel7.Dock = DockStyle.Right;
-            cuiPanel7.Location = new Point(132, 5);
+            cuiPanel7.Location = new Point(133, 5);
             cuiPanel7.Margin = new Padding(3, 2, 3, 2);
             cuiPanel7.Name = "cuiPanel7";
             cuiPanel7.OutlineThickness = 0F;
@@ -772,111 +872,11 @@
             searchBarMemberAttendance.UnderlinedStyle = false;
             searchBarMemberAttendance.ContentChanged += searchBarMemberAttendance_ContentChanged;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            dataGridViewTextBoxColumn1.HeaderText = "Id";
-            dataGridViewTextBoxColumn1.MinimumWidth = 24;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            dataGridViewTextBoxColumn1.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // TrainerId
-            // 
-            TrainerId.DataPropertyName = "TrainerId";
-            TrainerId.HeaderText = "TrainerId";
-            TrainerId.MinimumWidth = 24;
-            TrainerId.Name = "TrainerId";
-            TrainerId.ReadOnly = true;
-            TrainerId.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.DataPropertyName = "FirstName";
-            dataGridViewTextBoxColumn3.HeaderText = "FirstName";
-            dataGridViewTextBoxColumn3.MinimumWidth = 24;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
-            dataGridViewTextBoxColumn3.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewTextBoxColumn4.DataPropertyName = "LastName";
-            dataGridViewTextBoxColumn4.HeaderText = "LastName";
-            dataGridViewTextBoxColumn4.MinimumWidth = 24;
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            dataGridViewTextBoxColumn4.ReadOnly = true;
-            dataGridViewTextBoxColumn4.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            dataGridViewTextBoxColumn5.DataPropertyName = "Email";
-            dataGridViewTextBoxColumn5.HeaderText = "Email";
-            dataGridViewTextBoxColumn5.MinimumWidth = 24;
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            dataGridViewTextBoxColumn5.ReadOnly = true;
-            dataGridViewTextBoxColumn5.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            dataGridViewTextBoxColumn6.DataPropertyName = "PhoneNumber";
-            dataGridViewTextBoxColumn6.HeaderText = "PhoneNumber";
-            dataGridViewTextBoxColumn6.MinimumWidth = 24;
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            dataGridViewTextBoxColumn6.ReadOnly = true;
-            dataGridViewTextBoxColumn6.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            dataGridViewTextBoxColumn7.DataPropertyName = "Status";
-            dataGridViewTextBoxColumn7.HeaderText = "Status";
-            dataGridViewTextBoxColumn7.MinimumWidth = 24;
-            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            dataGridViewTextBoxColumn7.ReadOnly = true;
-            dataGridViewTextBoxColumn7.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // Availability
-            // 
-            Availability.DataPropertyName = "Availability";
-            Availability.HeaderText = "Availability";
-            Availability.MinimumWidth = 24;
-            Availability.Name = "Availability";
-            Availability.ReadOnly = true;
-            Availability.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            dataGridViewTextBoxColumn9.DataPropertyName = "AttendanceDate";
-            dataGridViewTextBoxColumn9.HeaderText = "AttendanceDate";
-            dataGridViewTextBoxColumn9.MinimumWidth = 24;
-            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            dataGridViewTextBoxColumn9.ReadOnly = true;
-            dataGridViewTextBoxColumn9.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            dataGridViewTextBoxColumn10.DataPropertyName = "CheckInTime";
-            dataGridViewTextBoxColumn10.HeaderText = "CheckInTime";
-            dataGridViewTextBoxColumn10.MinimumWidth = 24;
-            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            dataGridViewTextBoxColumn10.ReadOnly = true;
-            dataGridViewTextBoxColumn10.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            dataGridViewTextBoxColumn13.DataPropertyName = "CheckOutTime";
-            dataGridViewTextBoxColumn13.HeaderText = "CheckOutTime";
-            dataGridViewTextBoxColumn13.MinimumWidth = 24;
-            dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            dataGridViewTextBoxColumn13.ReadOnly = true;
-            dataGridViewTextBoxColumn13.SortMode = DataGridViewColumnSortMode.Programmatic;
-            dataGridViewTextBoxColumn13.Visible = false;
-            // 
             // Dashboar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(799, 413);
+            ClientSize = new Size(801, 428);
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Dashboar";
