@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+// Removed System.Data.Entity to avoid ambiguity
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
