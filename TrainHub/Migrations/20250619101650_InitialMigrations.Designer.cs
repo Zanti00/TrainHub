@@ -12,8 +12,13 @@ using TrainHub.Data;
 namespace TrainHub.Migrations
 {
     [DbContext(typeof(TrainHubContext))]
+<<<<<<<< HEAD:TrainHub/Migrations/20250619101650_InitialMigrations.Designer.cs
     [Migration("20250619101650_InitialMigrations")]
     partial class InitialMigrations
+========
+    [Migration("20250620053733_RemoveExpiryDateColumn")]
+    partial class RemoveExpiryDateColumn
+>>>>>>>> feature-dashboard-backend:TrainHub/Migrations/20250620053733_RemoveExpiryDateColumn.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,6 +44,9 @@ namespace TrainHub.Migrations
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("DaysToExpiry")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -46,16 +54,22 @@ namespace TrainHub.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("ExpiryDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+<<<<<<<< HEAD:TrainHub/Migrations/20250619101650_InitialMigrations.Designer.cs
                     b.Property<DateTime?>("ImageCapturedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ImageFileName")
                         .HasColumnType("nvarchar(max)");
 
+========
+>>>>>>>> feature-dashboard-backend:TrainHub/Migrations/20250620053733_RemoveExpiryDateColumn.Designer.cs
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 

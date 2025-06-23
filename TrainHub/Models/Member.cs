@@ -19,6 +19,9 @@ namespace TrainHub.Models
         public DateTime EndDate { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Today;
         public DateTime? SoftDeleteDate { get; set; }
+        public int DaysToExpiry { get; set; }
+
+      
         public bool IsDeleted { get; set; } = false;
         public string Status { get; set; }
         public string MembershipType { get; set; }

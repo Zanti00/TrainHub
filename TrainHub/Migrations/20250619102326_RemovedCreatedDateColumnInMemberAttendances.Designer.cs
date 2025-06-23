@@ -12,8 +12,13 @@ using TrainHub.Data;
 namespace TrainHub.Migrations
 {
     [DbContext(typeof(TrainHubContext))]
+<<<<<<<< HEAD:TrainHub/Migrations/20250619102326_RemovedCreatedDateColumnInMemberAttendances.Designer.cs
     [Migration("20250619102326_RemovedCreatedDateColumnInMemberAttendances")]
     partial class RemovedCreatedDateColumnInMemberAttendances
+========
+    [Migration("20250619173821_InitialCreate")]
+    partial class InitialCreate
+>>>>>>>> feature-dashboard-backend:TrainHub/Migrations/20250619173821_InitialCreate.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,11 +44,17 @@ namespace TrainHub.Migrations
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("DaysToExpiry")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ExpiryDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FirstName")

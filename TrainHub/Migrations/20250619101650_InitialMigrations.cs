@@ -6,7 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TrainHub.Migrations
 {
     /// <inheritdoc />
+<<<<<<<< HEAD:TrainHub/Migrations/20250619101650_InitialMigrations.cs
     public partial class InitialMigrations : Migration
+========
+    public partial class InitialCreate : Migration
+>>>>>>>> feature-dashboard-backend:TrainHub/Migrations/20250619173821_InitialCreate.cs
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -26,12 +30,20 @@ namespace TrainHub.Migrations
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     SoftDeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+<<<<<<<< HEAD:TrainHub/Migrations/20250619101650_InitialMigrations.cs
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MembershipType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProfileImagePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageFileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageCapturedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+========
+                    DaysToExpiry = table.Column<int>(type: "int", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MembershipType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ExpiryDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+>>>>>>>> feature-dashboard-backend:TrainHub/Migrations/20250619173821_InitialCreate.cs
                 },
                 constraints: table =>
                 {
@@ -69,6 +81,7 @@ namespace TrainHub.Migrations
                 {
                     table.PrimaryKey("PK_User", x => x.Id);
                 });
+<<<<<<<< HEAD:TrainHub/Migrations/20250619101650_InitialMigrations.cs
 
             migrationBuilder.CreateTable(
                 name: "MemberAttendances",
@@ -98,6 +111,8 @@ namespace TrainHub.Migrations
                 name: "IX_MemberAttendances_MemberId",
                 table: "MemberAttendances",
                 column: "MemberId");
+========
+>>>>>>>> feature-dashboard-backend:TrainHub/Migrations/20250619173821_InitialCreate.cs
         }
 
         /// <inheritdoc />
@@ -110,10 +125,17 @@ namespace TrainHub.Migrations
                 name: "Trainer");
 
             migrationBuilder.DropTable(
+<<<<<<<< HEAD:TrainHub/Migrations/20250619101650_InitialMigrations.cs
                 name: "User");
 
             migrationBuilder.DropTable(
                 name: "Member");
+========
+                name: "Trainer");
+
+            migrationBuilder.DropTable(
+                name: "User");
+>>>>>>>> feature-dashboard-backend:TrainHub/Migrations/20250619173821_InitialCreate.cs
         }
     }
 }
