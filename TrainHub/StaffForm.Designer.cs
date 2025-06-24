@@ -45,15 +45,14 @@
             cancelBtn = new CuoreUI.Controls.cuiButton();
             tabPage4 = new TabPage();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            isDeletedCheck = new CuoreUI.Controls.cuiCheckbox();
             showPassBtn = new PictureBox();
             usernameTxt = new CuoreUI.Controls.cuiTextBox();
-            generateQrBtn = new CuoreUI.Controls.cuiButtonGroup();
             doneBtn = new CuoreUI.Controls.cuiButton();
             pictureBox1 = new PictureBox();
             openCameraBtn = new CuoreUI.Controls.cuiButtonGroup();
             captureBtn = new CuoreUI.Controls.cuiButtonGroup();
             passwordTxt = new CuoreUI.Controls.cuiTextBox();
-            isDeletedCheck = new CuoreUI.Controls.cuiCheckbox();
             cuiTabControl1.SuspendLayout();
             tabPage3.SuspendLayout();
             cuiPanel2.SuspendLayout();
@@ -443,7 +442,6 @@
             cuiPanel1.Controls.Add(isDeletedCheck);
             cuiPanel1.Controls.Add(showPassBtn);
             cuiPanel1.Controls.Add(usernameTxt);
-            cuiPanel1.Controls.Add(generateQrBtn);
             cuiPanel1.Controls.Add(doneBtn);
             cuiPanel1.Controls.Add(pictureBox1);
             cuiPanel1.Controls.Add(openCameraBtn);
@@ -458,6 +456,27 @@
             cuiPanel1.Rounding = new Padding(8);
             cuiPanel1.Size = new Size(660, 296);
             cuiPanel1.TabIndex = 0;
+            // 
+            // isDeletedCheck
+            // 
+            isDeletedCheck.Checked = false;
+            isDeletedCheck.CheckedForeground = Color.FromArgb(50, 81, 88);
+            isDeletedCheck.CheckedOutlineColor = Color.FromArgb(50, 81, 88);
+            isDeletedCheck.CheckedSymbolColor = Color.White;
+            isDeletedCheck.Content = "Deleted";
+            isDeletedCheck.Location = new Point(257, 98);
+            isDeletedCheck.MinimumSize = new Size(16, 16);
+            isDeletedCheck.Name = "isDeletedCheck";
+            isDeletedCheck.OutlineStyle = true;
+            isDeletedCheck.OutlineThickness = 1F;
+            isDeletedCheck.Rounding = 5;
+            isDeletedCheck.ShowSymbols = true;
+            isDeletedCheck.Size = new Size(80, 16);
+            isDeletedCheck.TabIndex = 52;
+            isDeletedCheck.Text = "cuiCheckbox1";
+            isDeletedCheck.UncheckedForeground = Color.Empty;
+            isDeletedCheck.UncheckedOutlineColor = Color.Gray;
+            isDeletedCheck.UncheckedSymbolColor = Color.Empty;
             // 
             // showPassBtn
             // 
@@ -500,42 +519,6 @@
             usernameTxt.TabIndex = 50;
             usernameTxt.TextOffset = new Size(0, 0);
             usernameTxt.UnderlinedStyle = false;
-            // 
-            // generateQrBtn
-            // 
-            generateQrBtn.Checked = false;
-            generateQrBtn.CheckedBackground = Color.FromArgb(50, 81, 88);
-            generateQrBtn.CheckedForeColor = Color.White;
-            generateQrBtn.CheckedImageTint = Color.White;
-            generateQrBtn.CheckedOutline = Color.FromArgb(50, 81, 88);
-            generateQrBtn.Content = "Generate QR";
-            generateQrBtn.Font = new Font("Microsoft Sans Serif", 6F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            generateQrBtn.ForeColor = Color.Black;
-            generateQrBtn.Group = 0;
-            generateQrBtn.HoverBackground = Color.FromArgb(50, 81, 88);
-            generateQrBtn.HoveredImageTint = Color.White;
-            generateQrBtn.HoverForeColor = Color.White;
-            generateQrBtn.HoverOutline = Color.FromArgb(50, 81, 88);
-            generateQrBtn.Image = null;
-            generateQrBtn.ImageAutoCenter = true;
-            generateQrBtn.ImageExpand = new Point(0, 0);
-            generateQrBtn.ImageOffset = new Point(0, 0);
-            generateQrBtn.Location = new Point(257, 95);
-            generateQrBtn.Name = "generateQrBtn";
-            generateQrBtn.NormalBackground = Color.White;
-            generateQrBtn.NormalForeColor = Color.Black;
-            generateQrBtn.NormalImageTint = Color.White;
-            generateQrBtn.NormalOutline = Color.FromArgb(50, 81, 88);
-            generateQrBtn.OutlineThickness = 1F;
-            generateQrBtn.PressedBackground = Color.FromArgb(22, 36, 39);
-            generateQrBtn.PressedForeColor = Color.White;
-            generateQrBtn.PressedImageTint = Color.White;
-            generateQrBtn.PressedOutline = Color.FromArgb(22, 36, 39);
-            generateQrBtn.Rounding = new Padding(8);
-            generateQrBtn.Size = new Size(80, 28);
-            generateQrBtn.TabIndex = 49;
-            generateQrBtn.TextAlignment = StringAlignment.Center;
-            generateQrBtn.TextOffset = new Point(0, 0);
             // 
             // doneBtn
             // 
@@ -691,27 +674,6 @@
             passwordTxt.TextOffset = new Size(0, 0);
             passwordTxt.UnderlinedStyle = false;
             // 
-            // isDeletedCheck
-            // 
-            isDeletedCheck.Checked = false;
-            isDeletedCheck.CheckedForeground = Color.FromArgb(50, 81, 88);
-            isDeletedCheck.CheckedOutlineColor = Color.FromArgb(50, 81, 88);
-            isDeletedCheck.CheckedSymbolColor = Color.White;
-            isDeletedCheck.Content = "Deleted";
-            isDeletedCheck.Location = new Point(257, 136);
-            isDeletedCheck.MinimumSize = new Size(16, 16);
-            isDeletedCheck.Name = "isDeletedCheck";
-            isDeletedCheck.OutlineStyle = true;
-            isDeletedCheck.OutlineThickness = 1F;
-            isDeletedCheck.Rounding = 5;
-            isDeletedCheck.ShowSymbols = true;
-            isDeletedCheck.Size = new Size(80, 16);
-            isDeletedCheck.TabIndex = 52;
-            isDeletedCheck.Text = "cuiCheckbox1";
-            isDeletedCheck.UncheckedForeground = Color.Empty;
-            isDeletedCheck.UncheckedOutlineColor = Color.Gray;
-            isDeletedCheck.UncheckedSymbolColor = Color.Empty;
-            // 
             // StaffForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -753,7 +715,6 @@
         private CuoreUI.Controls.cuiButton cancelBtn;
         private TabPage tabPage4;
         private CuoreUI.Controls.cuiPanel cuiPanel1;
-        private CuoreUI.Controls.cuiButtonGroup generateQrBtn;
         private CuoreUI.Controls.cuiButton doneBtn;
         private PictureBox pictureBox1;
         private CuoreUI.Controls.cuiButtonGroup openCameraBtn;

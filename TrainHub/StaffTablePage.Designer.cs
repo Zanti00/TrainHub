@@ -1,7 +1,7 @@
 ﻿
 namespace TrainHub
 {
-    partial class StaffTable
+    partial class StaffTablePage
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,7 @@ namespace TrainHub
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffTable));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffTablePage));
             label2 = new Label();
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
             label1 = new Label();

@@ -13,10 +13,10 @@ using TrainHub.Models;
 
 namespace TrainHub
 {
-    public partial class table_trainer : Form
+    public partial class TrainerTablePage : Form
     {
         public TrainHubContext dataContext;
-        public table_trainer()
+        public TrainerTablePage()
         {
             InitializeComponent();
             dataContext = new TrainHubContext();

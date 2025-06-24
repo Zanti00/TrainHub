@@ -19,10 +19,10 @@ using Zuby.ADGV;
 
 namespace TrainHub
 {
-    public partial class ShowMembersTablePageForm1 : Form
+    public partial class MemberTablePage : Form
     {
         private TrainHubContext dataContext;
-        public ShowMembersTablePageForm1()
+        public MemberTablePage()
         {
             InitializeComponent();
             dataContext = new TrainHubContext();

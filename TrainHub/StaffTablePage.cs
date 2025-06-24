@@ -6,11 +6,11 @@ using TrainHub.Models;
 
 namespace TrainHub
 {
-    public partial class StaffTable : Form
+    public partial class StaffTablePage : Form
     {
         private TrainHubContext dataContext;
 
-        public StaffTable()
+        public StaffTablePage()
         {
             InitializeComponent();
 

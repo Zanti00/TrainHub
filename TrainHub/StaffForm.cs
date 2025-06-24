@@ -28,8 +28,8 @@ namespace TrainHub
         private bool isImageCaptured = false;
         private readonly TrainHubContext _dataContext;
         string pattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
-        private readonly StaffTable _parentForm;
-        public StaffForm(StaffTable parentForm, FormMode mode, User? user = null, int? staffID = null)
+        private readonly StaffTablePage _parentForm;
+        public StaffForm(StaffTablePage parentForm, FormMode mode, User? user = null, int? staffID = null)
         {
             InitializeComponent();
             InitializeWebcam();
@@ -40,10 +40,6 @@ namespace TrainHub
 
             ConfigureFormForMode();
 
-            if (!(mode == FormMode.Edit))
-            {
-                generateQrBtn.Enabled = false;
-            }
             if (!(_mode == FormMode.Add))
             {
                 LoadStaffData();
@@ -385,13 +381,6 @@ namespace TrainHub
             }
         }
 
-        private void generateQrBtn_Click(object sender, EventArgs e)
-        {
-            QrCode qrCodeGenerator = new QrCode(); // Create an instance of QrCode
-            string qrContent = $"STAFF:{staffID}";
-            Bitmap picQRCode = QrCode.GetCode(qrContent);
-            qrCodeGenerator.GenerateQrCodeForMember(staffID, picQRCode); // Use the instance to call the non-static method
-        }
 
         private User CreateStaffFromFields()
         {
@@ -450,10 +439,6 @@ namespace TrainHub
                 _dataContext.Add(staff);
                 _dataContext.SaveChanges();
                 SaveStaffPhoto(staff);
-
-                QrCode qrCodeGenerator = new QrCode();
-                Bitmap picQRCode = QrCode.GetCode(staff.Id.ToString());
-                qrCodeGenerator.GenerateQrCodeForStaff(staff.Id, picQRCode);
 
                 MessageBox.Show("Staff registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 _parentForm?.RefreshUserData();

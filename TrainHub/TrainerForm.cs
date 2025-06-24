@@ -27,8 +27,8 @@ namespace TrainHub
         private bool isImageCaptured = false;
         private readonly TrainHubContext _dataContext;
         string pattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
-        private readonly table_trainer _parentForm;
-        public TrainerForm(table_trainer parentForm, FormMode mode, int? trainerID = null)
+        private readonly TrainerTablePage _parentForm;
+        public TrainerForm(TrainerTablePage parentForm, FormMode mode, int? trainerID = null)
         {
             InitializeComponent();
             InitializeWebcam();

@@ -37,9 +37,9 @@ namespace TrainHub
         private readonly TrainHubContext _dataContext;
         string pattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
         private Dictionary<string, int> trainerNameToId = new Dictionary<string, int>();
-        private readonly ShowMembersTablePageForm1 _parentForm;
+        private readonly MemberTablePage _parentForm;
 
-        public MemberForm(ShowMembersTablePageForm1 parentForm, FormMode mode, int? memberID = null)
+        public MemberForm(MemberTablePage parentForm, FormMode mode, int? memberID = null)
         {
             InitializeComponent();
             InitializeWebcam();

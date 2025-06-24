@@ -6,9 +6,9 @@ namespace TrainHub
     public partial class MainForm : Form
     {
         Dashboard dashboard;
-        ShowMembersTablePageForm1 memberPage;
-        table_trainer trainerPage;
-        StaffTable staffPage;
+        MemberTablePage memberPage;
+        TrainerTablePage trainerPage;
+        StaffTablePage staffPage;
         Settings settingsPage;
         Login login;
         public MainForm()
@@ -21,7 +21,7 @@ namespace TrainHub
         {
             if (trainerPage == null) 
             {
-                trainerPage = new table_trainer();
+                trainerPage = new TrainerTablePage();
                 trainerPage.FormClosed += trainer_FormClosed;
                 trainerPage.MdiParent = this;
                 trainerPage.Dock = DockStyle.Fill;
@@ -41,7 +41,7 @@ namespace TrainHub
 
             if (memberPage == null)
             {
-                memberPage = new ShowMembersTablePageForm1();
+                memberPage = new MemberTablePage();
                 memberPage.FormClosed += member_FormClosed;
                 memberPage.MdiParent = this;
                 memberPage.Dock = DockStyle.Fill;
@@ -60,7 +60,7 @@ namespace TrainHub
         {
             if (staffPage == null)
             {
-                staffPage = new StaffTable();
+                staffPage = new StaffTablePage();
                 staffPage.FormClosed += staff_FormClosed;
                 staffPage.MdiParent = this;
                 staffPage.Dock = DockStyle.Fill;

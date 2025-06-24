@@ -1,6 +1,6 @@
 ﻿namespace TrainHub
 {
-    partial class table_trainer
+    partial class TrainerTablePage
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(table_trainer));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrainerTablePage));
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
             label2 = new Label();
