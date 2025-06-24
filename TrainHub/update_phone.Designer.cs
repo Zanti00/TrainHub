@@ -31,6 +31,8 @@ namespace TrainHub
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(update_phone));
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            cuiButton2 = new CuoreUI.Controls.cuiButton();
+            emailEyeButton = new CuoreUI.Controls.cuiButton();
             loginBtn = new CuoreUI.Controls.cuiButtonGroup();
             cuiTextBox1 = new CuoreUI.Controls.cuiTextBox();
             label5 = new Label();
@@ -39,8 +41,6 @@ namespace TrainHub
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            emailEyeButton = new CuoreUI.Controls.cuiButton();
-            cuiButton2 = new CuoreUI.Controls.cuiButton();
             cuiPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -66,6 +66,86 @@ namespace TrainHub
             cuiPanel1.Size = new Size(653, 619);
             cuiPanel1.TabIndex = 9;
             cuiPanel1.Paint += cuiPanel1_Paint_1;
+            // 
+            // cuiButton2
+            // 
+            cuiButton2.BackColor = Color.WhiteSmoke;
+            cuiButton2.BackgroundImage = (Image)resources.GetObject("cuiButton2.BackgroundImage");
+            cuiButton2.BackgroundImageLayout = ImageLayout.Zoom;
+            cuiButton2.CheckButton = false;
+            cuiButton2.Checked = false;
+            cuiButton2.CheckedBackground = Color.FromArgb(255, 106, 0);
+            cuiButton2.CheckedForeColor = Color.Transparent;
+            cuiButton2.CheckedImageTint = Color.Transparent;
+            cuiButton2.CheckedOutline = Color.FromArgb(255, 106, 0);
+            cuiButton2.Content = "";
+            cuiButton2.DialogResult = DialogResult.None;
+            cuiButton2.Font = new Font("Microsoft Sans Serif", 9.75F);
+            cuiButton2.ForeColor = Color.Transparent;
+            cuiButton2.HoverBackground = Color.Transparent;
+            cuiButton2.HoveredImageTint = Color.Transparent;
+            cuiButton2.HoverForeColor = Color.Transparent;
+            cuiButton2.HoverOutline = Color.Transparent;
+            cuiButton2.Image = null;
+            cuiButton2.ImageAutoCenter = true;
+            cuiButton2.ImageExpand = new Point(0, 0);
+            cuiButton2.ImageOffset = new Point(0, 0);
+            cuiButton2.Location = new Point(408, 398);
+            cuiButton2.Name = "cuiButton2";
+            cuiButton2.NormalBackground = Color.Transparent;
+            cuiButton2.NormalForeColor = Color.Transparent;
+            cuiButton2.NormalImageTint = Color.White;
+            cuiButton2.NormalOutline = Color.FromArgb(64, 128, 128, 128);
+            cuiButton2.OutlineThickness = 1F;
+            cuiButton2.PressedBackground = Color.WhiteSmoke;
+            cuiButton2.PressedForeColor = Color.FromArgb(32, 32, 32);
+            cuiButton2.PressedImageTint = Color.White;
+            cuiButton2.PressedOutline = Color.FromArgb(64, 128, 128, 128);
+            cuiButton2.Rounding = new Padding(8);
+            cuiButton2.Size = new Size(52, 20);
+            cuiButton2.TabIndex = 28;
+            cuiButton2.TextAlignment = StringAlignment.Center;
+            cuiButton2.TextOffset = new Point(0, 0);
+            // 
+            // emailEyeButton
+            // 
+            emailEyeButton.BackColor = Color.WhiteSmoke;
+            emailEyeButton.BackgroundImage = (Image)resources.GetObject("emailEyeButton.BackgroundImage");
+            emailEyeButton.BackgroundImageLayout = ImageLayout.Zoom;
+            emailEyeButton.CheckButton = false;
+            emailEyeButton.Checked = false;
+            emailEyeButton.CheckedBackground = Color.FromArgb(255, 106, 0);
+            emailEyeButton.CheckedForeColor = Color.Transparent;
+            emailEyeButton.CheckedImageTint = Color.Transparent;
+            emailEyeButton.CheckedOutline = Color.FromArgb(255, 106, 0);
+            emailEyeButton.Content = "";
+            emailEyeButton.DialogResult = DialogResult.None;
+            emailEyeButton.Font = new Font("Microsoft Sans Serif", 9.75F);
+            emailEyeButton.ForeColor = Color.Transparent;
+            emailEyeButton.HoverBackground = Color.Transparent;
+            emailEyeButton.HoveredImageTint = Color.Transparent;
+            emailEyeButton.HoverForeColor = Color.Transparent;
+            emailEyeButton.HoverOutline = Color.Transparent;
+            emailEyeButton.Image = null;
+            emailEyeButton.ImageAutoCenter = true;
+            emailEyeButton.ImageExpand = new Point(0, 0);
+            emailEyeButton.ImageOffset = new Point(0, 0);
+            emailEyeButton.Location = new Point(408, 306);
+            emailEyeButton.Name = "emailEyeButton";
+            emailEyeButton.NormalBackground = Color.Transparent;
+            emailEyeButton.NormalForeColor = Color.Transparent;
+            emailEyeButton.NormalImageTint = Color.White;
+            emailEyeButton.NormalOutline = Color.FromArgb(64, 128, 128, 128);
+            emailEyeButton.OutlineThickness = 1F;
+            emailEyeButton.PressedBackground = Color.WhiteSmoke;
+            emailEyeButton.PressedForeColor = Color.FromArgb(32, 32, 32);
+            emailEyeButton.PressedImageTint = Color.White;
+            emailEyeButton.PressedOutline = Color.FromArgb(64, 128, 128, 128);
+            emailEyeButton.Rounding = new Padding(8);
+            emailEyeButton.Size = new Size(52, 20);
+            emailEyeButton.TabIndex = 26;
+            emailEyeButton.TextAlignment = StringAlignment.Center;
+            emailEyeButton.TextOffset = new Point(0, 0);
             // 
             // loginBtn
             // 
@@ -241,86 +321,6 @@ namespace TrainHub
             label1.Text = "TrainHub";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             label1.Click += label1_Click;
-            // 
-            // emailEyeButton
-            // 
-            emailEyeButton.BackColor = Color.WhiteSmoke;
-            emailEyeButton.BackgroundImage = (Image)resources.GetObject("emailEyeButton.BackgroundImage");
-            emailEyeButton.BackgroundImageLayout = ImageLayout.Zoom;
-            emailEyeButton.CheckButton = false;
-            emailEyeButton.Checked = false;
-            emailEyeButton.CheckedBackground = Color.FromArgb(255, 106, 0);
-            emailEyeButton.CheckedForeColor = Color.Transparent;
-            emailEyeButton.CheckedImageTint = Color.Transparent;
-            emailEyeButton.CheckedOutline = Color.FromArgb(255, 106, 0);
-            emailEyeButton.Content = "";
-            emailEyeButton.DialogResult = DialogResult.None;
-            emailEyeButton.Font = new Font("Microsoft Sans Serif", 9.75F);
-            emailEyeButton.ForeColor = Color.Transparent;
-            emailEyeButton.HoverBackground = Color.Transparent;
-            emailEyeButton.HoveredImageTint = Color.Transparent;
-            emailEyeButton.HoverForeColor = Color.Transparent;
-            emailEyeButton.HoverOutline = Color.Transparent;
-            emailEyeButton.Image = null;
-            emailEyeButton.ImageAutoCenter = true;
-            emailEyeButton.ImageExpand = new Point(0, 0);
-            emailEyeButton.ImageOffset = new Point(0, 0);
-            emailEyeButton.Location = new Point(408, 306);
-            emailEyeButton.Name = "emailEyeButton";
-            emailEyeButton.NormalBackground = Color.Transparent;
-            emailEyeButton.NormalForeColor = Color.Transparent;
-            emailEyeButton.NormalImageTint = Color.White;
-            emailEyeButton.NormalOutline = Color.FromArgb(64, 128, 128, 128);
-            emailEyeButton.OutlineThickness = 1F;
-            emailEyeButton.PressedBackground = Color.WhiteSmoke;
-            emailEyeButton.PressedForeColor = Color.FromArgb(32, 32, 32);
-            emailEyeButton.PressedImageTint = Color.White;
-            emailEyeButton.PressedOutline = Color.FromArgb(64, 128, 128, 128);
-            emailEyeButton.Rounding = new Padding(8);
-            emailEyeButton.Size = new Size(52, 20);
-            emailEyeButton.TabIndex = 26;
-            emailEyeButton.TextAlignment = StringAlignment.Center;
-            emailEyeButton.TextOffset = new Point(0, 0);
-            // 
-            // cuiButton2
-            // 
-            cuiButton2.BackColor = Color.WhiteSmoke;
-            cuiButton2.BackgroundImage = (Image)resources.GetObject("cuiButton2.BackgroundImage");
-            cuiButton2.BackgroundImageLayout = ImageLayout.Zoom;
-            cuiButton2.CheckButton = false;
-            cuiButton2.Checked = false;
-            cuiButton2.CheckedBackground = Color.FromArgb(255, 106, 0);
-            cuiButton2.CheckedForeColor = Color.Transparent;
-            cuiButton2.CheckedImageTint = Color.Transparent;
-            cuiButton2.CheckedOutline = Color.FromArgb(255, 106, 0);
-            cuiButton2.Content = "";
-            cuiButton2.DialogResult = DialogResult.None;
-            cuiButton2.Font = new Font("Microsoft Sans Serif", 9.75F);
-            cuiButton2.ForeColor = Color.Transparent;
-            cuiButton2.HoverBackground = Color.Transparent;
-            cuiButton2.HoveredImageTint = Color.Transparent;
-            cuiButton2.HoverForeColor = Color.Transparent;
-            cuiButton2.HoverOutline = Color.Transparent;
-            cuiButton2.Image = null;
-            cuiButton2.ImageAutoCenter = true;
-            cuiButton2.ImageExpand = new Point(0, 0);
-            cuiButton2.ImageOffset = new Point(0, 0);
-            cuiButton2.Location = new Point(408, 398);
-            cuiButton2.Name = "cuiButton2";
-            cuiButton2.NormalBackground = Color.Transparent;
-            cuiButton2.NormalForeColor = Color.Transparent;
-            cuiButton2.NormalImageTint = Color.White;
-            cuiButton2.NormalOutline = Color.FromArgb(64, 128, 128, 128);
-            cuiButton2.OutlineThickness = 1F;
-            cuiButton2.PressedBackground = Color.WhiteSmoke;
-            cuiButton2.PressedForeColor = Color.FromArgb(32, 32, 32);
-            cuiButton2.PressedImageTint = Color.White;
-            cuiButton2.PressedOutline = Color.FromArgb(64, 128, 128, 128);
-            cuiButton2.Rounding = new Padding(8);
-            cuiButton2.Size = new Size(52, 20);
-            cuiButton2.TabIndex = 28;
-            cuiButton2.TextAlignment = StringAlignment.Center;
-            cuiButton2.TextOffset = new Point(0, 0);
             // 
             // update_phone
             // 
