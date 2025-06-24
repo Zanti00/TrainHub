@@ -32,6 +32,8 @@
             label2 = new Label();
             logOutBtn = new CuoreUI.Controls.cuiButton();
             cancelLogOutBtn = new CuoreUI.Controls.cuiButton();
+            cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            cuiPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -39,7 +41,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Open Sans", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(50, 81, 88);
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(20, 18);
             label1.Name = "label1";
             label1.Size = new Size(242, 42);
             label1.TabIndex = 0;
@@ -50,7 +52,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Inter Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(50, 81, 88);
-            label2.Location = new Point(18, 51);
+            label2.Location = new Point(26, 60);
             label2.Name = "label2";
             label2.Size = new Size(265, 23);
             label2.TabIndex = 1;
@@ -77,7 +79,7 @@
             logOutBtn.ImageAutoCenter = true;
             logOutBtn.ImageExpand = new Point(0, 0);
             logOutBtn.ImageOffset = new Point(0, 0);
-            logOutBtn.Location = new Point(224, 90);
+            logOutBtn.Location = new Point(232, 99);
             logOutBtn.Name = "logOutBtn";
             logOutBtn.NormalBackground = Color.FromArgb(50, 81, 88);
             logOutBtn.NormalForeColor = Color.White;
@@ -116,7 +118,7 @@
             cancelLogOutBtn.ImageAutoCenter = true;
             cancelLogOutBtn.ImageExpand = new Point(0, 0);
             cancelLogOutBtn.ImageOffset = new Point(0, 0);
-            cancelLogOutBtn.Location = new Point(127, 90);
+            cancelLogOutBtn.Location = new Point(135, 99);
             cancelLogOutBtn.Name = "cancelLogOutBtn";
             cancelLogOutBtn.NormalBackground = Color.White;
             cancelLogOutBtn.NormalForeColor = Color.Black;
@@ -134,22 +136,36 @@
             cancelLogOutBtn.TextOffset = new Point(0, 0);
             cancelLogOutBtn.Click += cancelLogOutBtn_Click;
             // 
+            // cuiPanel1
+            // 
+            cuiPanel1.Controls.Add(label1);
+            cuiPanel1.Controls.Add(cancelLogOutBtn);
+            cuiPanel1.Controls.Add(label2);
+            cuiPanel1.Controls.Add(logOutBtn);
+            cuiPanel1.Dock = DockStyle.Fill;
+            cuiPanel1.Location = new Point(0, 0);
+            cuiPanel1.Name = "cuiPanel1";
+            cuiPanel1.OutlineThickness = 3F;
+            cuiPanel1.PanelColor = Color.White;
+            cuiPanel1.PanelOutlineColor = Color.FromArgb(50, 81, 88);
+            cuiPanel1.Rounding = new Padding(0);
+            cuiPanel1.Size = new Size(329, 152);
+            cuiPanel1.TabIndex = 4;
+            // 
             // logoutConfirm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(329, 152);
-            Controls.Add(cancelLogOutBtn);
-            Controls.Add(logOutBtn);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(cuiPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "logoutConfirm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "logoutConfirm";
+            cuiPanel1.ResumeLayout(false);
+            cuiPanel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -158,5 +174,6 @@
         private Label label2;
         private CuoreUI.Controls.cuiButton logOutBtn;
         private CuoreUI.Controls.cuiButton cancelLogOutBtn;
+        private CuoreUI.Controls.cuiPanel cuiPanel1;
     }
 }

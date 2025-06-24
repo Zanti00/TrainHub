@@ -49,7 +49,7 @@ namespace TrainHub
                     emailTxt.Content = currentUser.Email;
                     passwordTxt.Content = currentUser.Password;
                     usernameTxt.Content = currentUser.Username;
-                    phoneNumTxt.Content = currentUser.MobileNumber;
+                    phoneNumTxt.Content = currentUser.PhoneNumber;
                     addressTxt.Content = currentUser.Address;
                     birthDate.Value = currentUser.DateOfBirth;
                 }
@@ -126,7 +126,7 @@ namespace TrainHub
                 currentUser.Email = emailTxt.Content.Trim();
                 currentUser.Password = passwordTxt.Content.Trim();
                 currentUser.Username = usernameTxt.Content.Trim();
-                currentUser.MobileNumber = phoneNumTxt.Content.Trim();
+                currentUser.PhoneNumber = phoneNumTxt.Content.Trim();
                 currentUser.Address = addressTxt.Content.Trim();
                 currentUser.DateOfBirth = birthDate.Value.Date;
 

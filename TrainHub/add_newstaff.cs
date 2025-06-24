@@ -78,7 +78,7 @@ namespace TrainHub
                     Email = emailTxt.Content.Trim(),
                     Password = passwordTxt.Content.Trim(),
                     Username = usernameTxt.Content.Trim(),
-                    MobileNumber = phoneNumTxt.Content.Trim(),
+                    PhoneNumber = phoneNumTxt.Content.Trim(),
                     Address = addressTxt.Content.Trim(),
                     DateOfBirth = birthDate.Value.Date,
                 };

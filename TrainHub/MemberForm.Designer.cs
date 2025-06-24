@@ -622,6 +622,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(728, 446);
+            ControlBox = false;
             Controls.Add(formLabel);
             Controls.Add(cuiPanel1);
             MaximizeBox = false;
@@ -646,7 +647,6 @@
         private CuoreUI.Controls.cuiButtonGroup openCameraBtn;
         private CuoreUI.Controls.cuiButtonGroup captureBtn;
         private CuoreUI.Controls.cuiCalendarDatePicker birthDate;
-        private Label label2;
         private Label label4;
         private CuoreUI.Controls.cuiComboBox trainerCombo;
         private CuoreUI.Controls.cuiCalendarDatePicker endDate;
@@ -662,5 +662,6 @@
         private CuoreUI.Controls.cuiTextBox firstNameTxt;
         private CuoreUI.Controls.cuiButtonGroup generateQrBtn;
         private BindingSource trainerBindingSource;
+        private Label label2;
     }
 }

@@ -9,7 +9,8 @@ namespace TrainHub.Static_Classes
     public enum PersonType
     {
         Member,
-        Trainer
+        Trainer,
+        Staff
     }
 
     public static class ImageFileManager
@@ -26,11 +27,11 @@ namespace TrainHub.Static_Classes
         }
 
         /// <summary>
-        /// Save captured image to file system for either member or trainer
+        /// Save captured image to file system for member, trainer, or staff
         /// </summary>
         /// <param name="image">The image to save</param>
         /// <param name="personId">Person ID for filename</param>
-        /// <param name="personType">Type of person (Member or Trainer)</param>
+        /// <param name="personType">Type of person (Member, Trainer, or Staff)</param>
         /// <param name="email">Person email for additional organization (optional)</param>
         /// <returns>The file path where image was saved</returns>
         public static string SavePersonImage(Bitmap image, int personId, PersonType personType, string email = null)
@@ -41,7 +42,7 @@ namespace TrainHub.Static_Classes
             try
             {
                 // Create type-specific subfolder
-                string typeFolder = Path.Combine(BaseImageDirectory, personType.ToString() + "s"); // "Members" or "Trainers"
+                string typeFolder = Path.Combine(BaseImageDirectory, personType.ToString() + "s"); // "Members", "Trainers", or "Staffs"
                 if (!Directory.Exists(typeFolder))
                 {
                     Directory.CreateDirectory(typeFolder);
@@ -95,6 +96,14 @@ namespace TrainHub.Static_Classes
         }
 
         /// <summary>
+        /// Save staff image
+        /// </summary>
+        public static string SaveStaffImage(Bitmap image, int staffId, string staffEmail = null)
+        {
+            return SavePersonImage(image, staffId, PersonType.Staff, staffEmail);
+        }
+
+        /// <summary>
         /// Load person image from file path
         /// </summary>
         /// <param name="filePath">Path to the image file</param>
@@ -135,6 +144,14 @@ namespace TrainHub.Static_Classes
         }
 
         /// <summary>
+        /// Load staff image
+        /// </summary>
+        public static Bitmap LoadStaffImage(string filePath)
+        {
+            return LoadPersonImage(filePath);
+        }
+
+        /// <summary>
         /// Delete person image file
         /// </summary>
         /// <param name="filePath">Path to the image file</param>
@@ -167,6 +184,14 @@ namespace TrainHub.Static_Classes
         /// Delete trainer image
         /// </summary>
         public static bool DeleteTrainerImage(string filePath)
+        {
+            return DeletePersonImage(filePath);
+        }
+
+        /// <summary>
+        /// Delete staff image
+        /// </summary>
+        public static bool DeleteStaffImage(string filePath)
         {
             return DeletePersonImage(filePath);
         }

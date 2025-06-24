@@ -295,7 +295,8 @@ namespace TrainHub
                 {
                     // Select complete member objects, not just names
                     var members = from member in dataContext.Member
-                                  where member.FirstName.ToLower().Contains(memberName.ToLower()) ||
+                                  where !member.IsDeleted &&
+                                        member.FirstName.ToLower().Contains(memberName.ToLower()) ||
                                         member.LastName.ToLower().Contains(memberName.ToLower())
                                   select member;
 

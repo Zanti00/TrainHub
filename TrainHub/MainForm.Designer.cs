@@ -405,6 +405,7 @@
             staffBtn.TabIndex = 0;
             staffBtn.TextAlignment = StringAlignment.Near;
             staffBtn.TextOffset = new Point(28, 0);
+            staffBtn.Click += staffBtn_Click;
             // 
             // panel10
             // 

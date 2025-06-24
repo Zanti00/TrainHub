@@ -35,7 +35,10 @@ namespace TrainHub
                     CurrentUser.Username = user.Username;
                     CurrentUser.FirstName = user.FirstName;
                     CurrentUser.LastName = user.LastName;
+                    CurrentUser.PhoneNumber = user.PhoneNumber;
                     CurrentUser.Email = user.Email;
+                    CurrentUser.IsAdmin = user.isAdmin.ToString();
+                    CurrentUser.Password = user.Password;
 
                     MainForm mainForm = new MainForm();
                     mainForm.Show();
@@ -44,9 +47,6 @@ namespace TrainHub
                 else
                 {
                     MessageBox.Show("Invalid email or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    emailTxt.ResetText();
-                    passwordTxt.ResetText();
-                    emailTxt.Focus();
                 }
             }
         }

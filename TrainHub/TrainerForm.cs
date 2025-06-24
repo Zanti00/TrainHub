@@ -296,6 +296,26 @@ namespace TrainHub
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(firstNameTxt.Content) ||
+                    !string.IsNullOrWhiteSpace(lastNameTxt.Content) ||
+                    !string.IsNullOrWhiteSpace(emailAddTxt.Content) ||
+                    !string.IsNullOrWhiteSpace(phoneNumTxt.Content) ||
+                    !string.IsNullOrWhiteSpace(addressTxt.Content) ||
+                    !string.IsNullOrWhiteSpace(specializationTxt.Content) ||
+                    !string.IsNullOrWhiteSpace(yearsOfExperienceTxt.Content) ||
+                    !string.IsNullOrWhiteSpace(availabilityTxt.Content) ||
+                    !string.IsNullOrWhiteSpace(hourlyRateTxt.Content) ||
+                    genderCombo.SelectedIndex >= 0 ||
+                    statusCombo.SelectedIndex >= 0 ||
+                    pictureBox1.Image != null)
+            {
+                var result = MessageBox.Show("You have unsaved changes. Are you sure you want to cancel?", "Confirm Cancel",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.No)
+                {
+                    return; // User chose not to cancel
+                }
+            }
             DialogResult = DialogResult.Cancel;
             Close();
         }

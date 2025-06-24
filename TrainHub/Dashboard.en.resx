@@ -722,7 +722,7 @@
 </value>
   </data>
   <data name="cuiPictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>171, 8</value>
+    <value>171, 10</value>
   </data>
   <data name="cuiPictureBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>27, 21</value>

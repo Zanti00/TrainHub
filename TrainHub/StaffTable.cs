@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System.Data;
 using TrainHub.Data;
 using TrainHub.Models;
 
@@ -15,137 +16,56 @@ namespace TrainHub
             dataContext = new TrainHubContext();
         }
 
-        private void advancedDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void advancedDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Edit button column index = 9
-            if (e.ColumnIndex == 9 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 11 && e.RowIndex >= 0)
             {
-                int userID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                edit_staff editForm = new edit_staff(userID, this);
-                editForm.ShowDialog();
+                int staffID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                StaffForm viewStaffForm = new StaffForm(this, FormMode.Edit, null, staffID);
+                viewStaffForm.ShowDialog();
+            }
+
+            if (e.ColumnIndex == 12 && e.RowIndex >= 0)
+            {
+                int staffID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                StaffForm editStaffForm = new StaffForm(this, FormMode.Edit, null, staffID);
+                editStaffForm.ShowDialog();
             }
 
             // Delete button column index = 10
-            if (e.ColumnIndex == 10 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 13 && e.RowIndex >= 0)
             {
-                // Make sure you're not deleting the new row
-                if (!advancedDataGridView1.Rows[e.RowIndex].IsNewRow)
+                // Confirm deletion
+                var result = MessageBox.Show($"Are you sure you want to delete staff {advancedDataGridView1.Rows[e.RowIndex].Cells[1].Value} {advancedDataGridView1.Rows[e.RowIndex].Cells[2].Value}?", "Confirm Deletion",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
                 {
-                    DialogResult deleteConfirmationResult = MessageBox.Show(
-                        "Are you sure you want to delete this staff member?",
-                        "Confirm Delete",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question);
-
-                    if (deleteConfirmationResult == DialogResult.Yes)
+                    try
                     {
-                        try
+                        int staffId = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                        var staffToDelete = dataContext.User.Find(staffId);
+                        if (staffToDelete != null)
                         {
-                            // Get the ID from the first column (index 0) which should be the Id column
-                            int staffId = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
-
-                            // Find the staff in the database and mark as deleted
-                            var staffToDelete = dataContext.User.FirstOrDefault(s => s.Id == staffId);
-                            if (staffToDelete != null)
-                            {
-                                staffToDelete.isDeleted = true;
-                                staffToDelete.softDeleteDate = DateTime.Now; // Set the soft delete date
-                                dataContext.SaveChanges();
-
-                                // Refresh the DataGridView to remove the deleted item
-                                RefreshUserData();
-
-                                MessageBox.Show("Staff member deleted successfully.", "Success",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Staff member not found in database.", "Error",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show($"Error deleting staff member: {ex.Message}", "Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            staffToDelete.isDeleted = true;
+                            staffToDelete.softDeleteDate = DateTime.Today;
+                            dataContext.SaveChanges();
+                            RefreshUserData(); // Refresh the DataGridView after deletion
                         }
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Cannot delete the new row entry.", "Invalid Operation",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error deleting member: {ex.Message}", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
 
         private void addStaffBtn_Click(object sender, EventArgs e)
         {
-            add_newstaff f1 = new add_newstaff(this);
-            f1.ShowDialog();
+            StaffForm addStaffForm = new StaffForm(this, FormMode.Add);
+            addStaffForm.ShowDialog();
         }
-
-        private void searchTextBox_TextChanged(object sender, EventArgs e)
-        {
-            string searchText = searchTextBox.Content.Trim();
-
-            try
-            {
-                IQueryable<User> users;
-
-                if (!string.IsNullOrEmpty(searchText))
-                {
-                    // Search in FirstName, LastName, Username, and Email
-                    users = from user in dataContext.User
-                            where !user.isDeleted && // Only include non-deleted users
-                                  (user.FirstName.ToLower().Contains(searchText.ToLower()) ||
-                                   user.LastName.ToLower().Contains(searchText.ToLower()) ||
-                                   user.Username.ToLower().Contains(searchText.ToLower()) ||
-                                   user.Email.ToLower().Contains(searchText.ToLower()))
-                            select user;
-                }
-                else
-                {
-                    // If search is empty, show all non-deleted users
-                    users = from user in dataContext.User
-                            where !user.isDeleted
-                            select user;
-                }
-
-                // Convert to DataTable with consistent column order
-                var dataTable = CreateUserDataTable();
-
-                foreach (var user in users)
-                {
-                    dataTable.Rows.Add(
-                        user.Id,
-                        user.FirstName,
-                        user.LastName,
-                        user.Username,           // Fixed: Username in correct position
-                        user.MobileNumber,
-                        user.DateOfBirth,
-                        user.Email,              // Fixed: Email in correct position
-                        user.Password,
-                        user.Address,            // Fixed: Address in correct position
-                        user.CreatedDate,
-                        user.softDeleteDate,
-                        user.isDeleted
-                    );
-                }
-
-                userBindingSource.DataSource = dataTable;
-                advancedDataGridView1.DataSource = userBindingSource;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error searching user data: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
-        /// Creates a consistent DataTable structure for user data
-        /// </summary>
         private DataTable CreateUserDataTable()
         {
             var dataTable = new DataTable();
@@ -153,48 +73,42 @@ namespace TrainHub
             dataTable.Columns.Add("FirstName", typeof(string));
             dataTable.Columns.Add("LastName", typeof(string));
             dataTable.Columns.Add("Username", typeof(string));
-            dataTable.Columns.Add("MobileNumber", typeof(string));
-            dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
+            dataTable.Columns.Add("Gender", typeof(string));
+            dataTable.Columns.Add("PhoneNumber", typeof(string));
             dataTable.Columns.Add("Email", typeof(string));
-            dataTable.Columns.Add("Password", typeof(string));
+            dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
             dataTable.Columns.Add("Address", typeof(string));
             dataTable.Columns.Add("CreatedDate", typeof(DateTime));
-            dataTable.Columns.Add("softDeleteDate", typeof(DateTime));
-            dataTable.Columns.Add("isDeleted", typeof(bool));
+            dataTable.Columns.Add("Status", typeof(string));
 
             return dataTable;
         }
 
-        /// <summary>
-        /// Refreshes the user data displayed in the StaffTable with consistent column order.
-        /// </summary>
         public void RefreshUserData()
         {
             try
             {
                 dataContext.ChangeTracker.Clear();
-                var users = from user in dataContext.User
-                            where !user.isDeleted // Only select non-deleted members
-                            select user;
+                var staffs = from user in dataContext.User
+                             where !user.isDeleted // Only select non-deleted members
+                             select user;
 
-                // Use the same DataTable creation method for consistency
                 var dataTable = CreateUserDataTable();
 
-                foreach (var user in users)
+                foreach (var staff in staffs)
                 {
                     dataTable.Rows.Add(
-                        user.Id,
-                        user.FirstName,
-                        user.LastName,
-                        user.Username,           // Fixed: Consistent column order
-                        user.MobileNumber,
-                        user.DateOfBirth,
-                        user.Email,              // Fixed: Consistent column order
-                        user.Password,
-                        user.Address,            // Fixed: Consistent column order
-                        user.CreatedDate,
-                        user.softDeleteDate,
-                        user.isDeleted
+                        staff.Id,
+                        staff.FirstName,
+                        staff.LastName,
+                        staff.Username,
+                        staff.Gender,
+                        staff.PhoneNumber,
+                        staff.Email,
+                        staff.DateOfBirth,
+                        staff.Address,
+                        staff.CreatedDate,
+                        staff.Status
                     );
                 }
 
@@ -212,6 +126,58 @@ namespace TrainHub
         private void StaffTable_Load(object sender, EventArgs e)
         {
             RefreshUserData();
+        }
+
+        private void searchBar_ContentChanged(object sender, EventArgs e)
+        {
+            string searchStaff = searchBar.Content.Trim();
+
+            try
+            {
+
+                if (!string.IsNullOrEmpty(searchStaff))
+                {
+                    var staffs = from user in dataContext.User
+                                 where !user.isDeleted &&
+                                       user.FirstName.ToLower().Contains(searchStaff.ToLower()) ||
+                                       user.LastName.ToLower().Contains(searchStaff.ToLower())
+                                 select user;
+
+
+                    // Convert to DataTable with consistent column order
+                    var dataTable = CreateUserDataTable();
+
+                    foreach (var staff in staffs)
+                    {
+                        dataTable.Rows.Add(
+                            staff.Id,
+                            staff.FirstName,
+                            staff.LastName,
+                            staff.Username,
+                            staff.Gender,
+                            staff.PhoneNumber,
+                            staff.Email,
+                            staff.DateOfBirth,
+                            staff.Address,
+                            staff.CreatedDate,
+                            staff.Status
+                        );
+                    }
+
+                    this.userBindingSource.DataSource = dataTable;
+                }
+                else
+                {
+                    // If search is empty, show all members
+                    RefreshUserData();
+                }
+                advancedDataGridView1.DataSource = userBindingSource;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error searching user data: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

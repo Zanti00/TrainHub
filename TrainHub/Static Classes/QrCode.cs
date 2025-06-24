@@ -15,7 +15,8 @@ namespace TrainHub
     public enum EntityType
     {
         Member,
-        Trainer
+        Trainer,
+        Staff
     }
 
     public class QrCode
@@ -94,6 +95,18 @@ namespace TrainHub
                         subjectPrefix = "TrainHub Trainer Access";
                         break;
 
+                    case EntityType.Staff:
+                        var selectedStaff = dataContext.User.Find(targetID);
+                        if (selectedStaff == null)
+                        {
+                            MessageBox.Show("Staff not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        recipientEmail = selectedStaff.Email;
+                        recipientName = $"{selectedStaff.FirstName} {selectedStaff.LastName}";
+                        subjectPrefix = "TrainHub Staff Access";
+                        break;
+
                     default:
                         MessageBox.Show("Invalid entity type.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -164,7 +177,11 @@ namespace TrainHub
             GenerateQrCode(trainerID, picQRCode, EntityType.Trainer);
         }
 
-        // Static convenience methods
+        public void GenerateQrCodeForStaff(int staffID, Bitmap picQRCode)
+        {
+            GenerateQrCode(staffID, picQRCode, EntityType.Staff);
+        }
+
         public static void GenerateMemberQrCode(int memberID, Bitmap picQRCode)
         {
             var qrCodeGenerator = new QrCode();
@@ -175,6 +192,12 @@ namespace TrainHub
         {
             var qrCodeGenerator = new QrCode();
             qrCodeGenerator.GenerateQrCodeForTrainer(trainerID, picQRCode);
+        }
+
+        public static void GenerateStaffQrCode(int staffID, Bitmap picQRCode)
+        {
+            var qrCodeGenerator = new QrCode();
+            qrCodeGenerator.GenerateQrCodeForStaff(staffID, picQRCode);
         }
 
         // Dispose method to properly clean up resources

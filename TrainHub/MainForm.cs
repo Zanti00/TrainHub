@@ -8,6 +8,8 @@ namespace TrainHub
         Dashboard dashboard;
         ShowMembersTablePageForm1 memberPage;
         table_trainer trainerPage;
+        StaffTable staffPage;
+        Settings settingsPage;
         Login login;
         public MainForm()
         {
@@ -54,6 +56,62 @@ namespace TrainHub
 
         }
 
+        private void staffBtn_Click(object sender, EventArgs e)
+        {
+            if (staffPage == null)
+            {
+                staffPage = new StaffTable();
+                staffPage.FormClosed += staff_FormClosed;
+                staffPage.MdiParent = this;
+                staffPage.Dock = DockStyle.Fill;
+                staffPage.Show();
+            }
+            else
+            {
+                staffPage.Activate();
+            }
+            staffPage.RefreshUserData();
+            changeBtnNormalBackground("staffBtn");
+        }
+
+        private void settingBtn_Click(object sender, EventArgs e)
+        {
+            if (settingsPage == null)
+            {
+                settingsPage = new Settings();
+                settingsPage.FormClosed += settings_FormClosed;
+                settingsPage.MdiParent = this;
+                settingsPage.Dock = DockStyle.Fill;
+                settingsPage.Show();
+            }
+            else
+            {
+                settingsPage.Activate();
+            }
+            changeBtnNormalBackground("settingBtn");
+        }
+
+        private void dashboardBtn_Click(object sender, EventArgs e)
+        {
+            if (dashboard == null)
+            {
+                dashboard = new Dashboard();
+
+                dashboard.FormClosed += Dashboard_FormClosed;
+                dashboard.MdiParent = this;
+                dashboard.Dock = DockStyle.Fill;
+                dashboard.Show();
+            }
+            else
+            {
+                dashboard.Activate();
+            }
+            dashboard.LoadLabels();
+            dashboard.RefreshNearlyExpiredMembers();
+            dashboard.LoadSubscriptionChartFromDatabase();
+            changeBtnNormalBackground("dashboardBtn");
+        }
+
         private void changeBtnNormalBackground(string btnName)
         {
             dashboardBtn.NormalBackground = Color.FromArgb(50, 81, 88);
@@ -87,35 +145,14 @@ namespace TrainHub
             trainerPage = null;
         }
 
-        private void staffBtn_Click(object sender, EventArgs e)
+        private void staff_FormClosed(object? sender, FormClosedEventArgs e)
         {
-
-            changeBtnNormalBackground("staffBtn");
+            staffPage = null;
         }
 
-        private void settingBtn_Click(object sender, EventArgs e)
+        private void settings_FormClosed(object? sender, FormClosedEventArgs e)
         {
-            changeBtnNormalBackground("settingBtn");
-        }
-
-        private void dashboardBtn_Click(object sender, EventArgs e)
-        {
-            if (dashboard == null)
-            {
-                dashboard = new Dashboard();
-
-                dashboard.FormClosed += Dashboard_FormClosed;
-                dashboard.MdiParent = this;
-                dashboard.Dock = DockStyle.Fill;
-                dashboard.Show();
-            }
-            else
-            {
-                dashboard.Activate();
-            }
-            dashboard.RefreshNearlyExpiredMembers();
-            dashboard.LoadSubscriptionChartFromDatabase();
-            changeBtnNormalBackground("dashboardBtn");
+            settingsPage = null;
         }
 
         private void Dashboard_FormClosed(object? sender, FormClosedEventArgs e)

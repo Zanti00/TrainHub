@@ -23,12 +23,15 @@ namespace TrainHub
             dataContext = new TrainHubContext();
 
             nearlyExpiredMembersAdvancedDataGridView1.CellFormatting += advancedDataGridView1_CellFormatting;
-            memberAttendanceLabel.Text = DateTime.Today.ToString("MMMM dd, yyyy");
-            trainerAttendanceLabel.Text = DateTime.Today.ToString("MMMM dd, yyyy");
-            welcomeLabel.Text = $"Welcome back, {dataContext.User.FirstOrDefault()?.FirstName ?? "User"}!";
+            LoadLabels();
         }
 
-
+        public void LoadLabels()
+        {
+            memberAttendanceLabel.Text = DateTime.Today.ToString("MMMM dd, yyyy");
+            trainerAttendanceLabel.Text = DateTime.Today.ToString("MMMM dd, yyyy");
+            welcomeLabel.Text = $"Welcome back, {CurrentUser.Username ?? "User"}!";
+        }
         public void LoadSubscriptionChartFromDatabase()
         {
             try
@@ -216,6 +219,7 @@ namespace TrainHub
 
         private void Dashboard_Load_1(object sender, EventArgs e)
         {
+            LoadLabels();
             RefreshNearlyExpiredMembers();
             LoadSubscriptionChartFromDatabase();
             RefreshMemberAttendanceGrid();

@@ -14,78 +14,39 @@ using System.Windows.Forms;
 using TrainHub.Data;
 using TrainHub.Models;
 using TrainHub.Static_Classes;
-using ZXing.QrCode.Internal;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace TrainHub
 {
-    public enum FormMode
-    {
-        Add,
-        Edit,
-        View
-    }
-    public partial class MemberForm : Form
+    public partial class StaffForm : Form
     {
         private FormMode _mode;
-        private Member _currentMember;
-        private int memberID;
+        private User _currentStaff;
+        private int staffID;
         private VideoCaptureDevice videoSource;
         private Bitmap currentFrame;
         private Bitmap capturedImage;
         private bool isImageCaptured = false;
         private readonly TrainHubContext _dataContext;
         string pattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
-        private Dictionary<string, int> trainerNameToId = new Dictionary<string, int>();
-        private readonly ShowMembersTablePageForm1 _parentForm;
-
-        public MemberForm(ShowMembersTablePageForm1 parentForm, FormMode mode, Member? member = null, int? memberID = null)
+        private readonly StaffTable _parentForm;
+        public StaffForm(StaffTable parentForm, FormMode mode, User? user = null, int? staffID = null)
         {
             InitializeComponent();
             InitializeWebcam();
             _mode = mode;
-            //_currentMember = member ?? new Member();
             _parentForm = parentForm;
-            this.memberID = memberID ?? 0;
+            this.staffID = staffID ?? 0;
             _dataContext = new TrainHubContext();
 
             ConfigureFormForMode();
-            
+
             if (!(mode == FormMode.Edit))
             {
                 generateQrBtn.Enabled = false;
             }
-        }
-
-        private async void MemberForm_Load(object sender, EventArgs e)
-        {
-            try
+            if (!(_mode == FormMode.Add))
             {
-                using (TrainHubContext _dataContext = new TrainHubContext())
-                {
-                    var trainers = await _dataContext.Trainer
-                        .Where(t => !t.IsDeleted && t.Status == "Active")
-                        .ToListAsync();
-
-                    trainerNameToId.Clear();
-
-                    foreach (var trainer in trainers)
-                    {
-                        string displayName = $"{trainer.FirstName} {trainer.LastName}";
-                        trainerCombo.AddItem(displayName);
-                        trainerNameToId[displayName] = trainer.Id;
-                    }
-                }
-
-                if (!(_mode == FormMode.Add))
-                {
-                    LoadMemberData();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error loading trainers: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoadStaffData();
             }
         }
 
@@ -174,15 +135,15 @@ namespace TrainHub
             switch (_mode)
             {
                 case FormMode.Add:
-                    formLabel.Text = "Add New Member";
+                    formLabel.Text = "Add New Staff";
                     EnableFields(true);
                     break;
                 case FormMode.Edit:
-                    formLabel.Text = "Edit Member Details";
+                    formLabel.Text = "Edit Staff Details";
                     EnableFields(true);
                     break;
                 case FormMode.View:
-                    formLabel.Text = "View Member Details";
+                    formLabel.Text = "View Staff Details";
                     EnableFields(false);
                     break;
             }
@@ -193,69 +154,50 @@ namespace TrainHub
             firstNameTxt.Enabled = enabled;
             lastNameTxt.Enabled = enabled;
             emailAddTxt.Enabled = enabled;
+            addressTxt.Enabled = enabled;
             phoneNumTxt.Enabled = enabled;
             statusCombo.Enabled = enabled;
-            membershipTypeCombo.Enabled = enabled;
-            trainerCombo.Enabled = enabled;
+            genderCombo.Enabled = enabled;
+            usernameTxt.Enabled = enabled;
+            passwordTxt.Enabled = enabled;
             birthDate.Enabled = enabled;
-            startDate.Enabled = enabled;
-            endDate.Enabled = enabled;
             captureBtn.Enabled = enabled;
             openCameraBtn.Enabled = enabled;
         }
 
-        private void LoadMemberData()
+        private void LoadStaffData()
         {
             try
             {
-                var selectedMember = _dataContext.Member
-                    .Include(m => m.Trainer)
-                    .FirstOrDefault(m => m.Id == memberID);
+                var selectedStaff = _dataContext.User
+                    .FirstOrDefault(m => m.Id == staffID);
 
-                if (selectedMember == null)
+                if (selectedStaff == null)
                 {
-                    MessageBox.Show("Member not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Staff not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                     return;
                 }
 
                 // Update the _currentMember reference
-                _currentMember = selectedMember;
+                _currentStaff = selectedStaff;
 
-                firstNameTxt.Content = selectedMember.FirstName;
-                lastNameTxt.Content = selectedMember.LastName;
-                emailAddTxt.Content = selectedMember.Email;
-                phoneNumTxt.Content = selectedMember.PhoneNumber;
-                statusCombo.SelectedItem = selectedMember.Status;
-                membershipTypeCombo.SelectedItem = selectedMember.MembershipType;
+                firstNameTxt.Content = selectedStaff.FirstName;
+                lastNameTxt.Content = selectedStaff.LastName;
+                emailAddTxt.Content = selectedStaff.Email;
+                addressTxt.Content = selectedStaff.Address;
+                phoneNumTxt.Content = selectedStaff.PhoneNumber;
+                statusCombo.SelectedItem = selectedStaff.Status;
+                genderCombo.SelectedItem = selectedStaff.Gender;
+                usernameTxt.Content = selectedStaff.Username;
+                passwordTxt.Content = selectedStaff.Password;
 
-                birthDate.Value = selectedMember.DateOfBirth;
-                startDate.Value = selectedMember.StartDate;
-                endDate.Value = selectedMember.EndDate;
-
-                // Handle trainer assignment safely
-                if (selectedMember.Trainer != null)
-                {
-                    string trainerDisplayName = $"{selectedMember.Trainer.FirstName} {selectedMember.Trainer.LastName}";
-
-                    for (int i = 0; i < trainerCombo.Items.Length; i++)
-                    {
-                        if (trainerCombo.Items[i].ToString() == trainerDisplayName)
-                        {
-                            trainerCombo.SelectedItem = trainerCombo.Items[i];
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    trainerCombo.SelectedItem = ""; // No trainer selected
-                }
+                birthDate.Value = selectedStaff.DateOfBirth;
 
                 // Load member image if available
-                if (!string.IsNullOrWhiteSpace(selectedMember.ProfileImagePath))
+                if (!string.IsNullOrWhiteSpace(selectedStaff.ProfileImagePath))
                 {
-                    LoadMemberImage(selectedMember.ProfileImagePath);
+                    LoadStaffImage(selectedStaff.ProfileImagePath);
                 }
             }
             catch (Exception ex)
@@ -266,7 +208,7 @@ namespace TrainHub
             }
         }
 
-        private void LoadMemberImage(string imagePath)
+        private void LoadStaffImage(string imagePath)
         {
             try
             {
@@ -291,7 +233,7 @@ namespace TrainHub
                 }
 
                 // Load the image using ImageFileManager
-                Bitmap loadedImage = ImageFileManager.LoadMemberImage(fullPath);
+                Bitmap loadedImage = ImageFileManager.LoadStaffImage(fullPath);
 
                 if (loadedImage != null)
                 {
@@ -324,8 +266,8 @@ namespace TrainHub
                 case FormMode.Add:
                     if (await ValidateInput())
                     {
-                        var newMember = CreateMemberFromFields();
-                        if (SaveMember(newMember))
+                        var newStaff = CreateStaffFromFields();
+                        if (SaveStaff(newStaff))
                         {
                             DialogResult = DialogResult.OK;
                             Close();
@@ -336,10 +278,10 @@ namespace TrainHub
                 case FormMode.Edit:
                     if (await ValidateInput())
                     {
-                        UpdateMemberFromFields();
-                        if (UpdateMember(_currentMember))
+                        UpdateStaffFromFields();
+                        if (UpdateStaff(_currentStaff))
                         {
-                            _parentForm?.RefreshMemberData();
+                            _parentForm?.RefreshUserData();
                             DialogResult = DialogResult.OK;
                             Close();
                         }
@@ -355,12 +297,15 @@ namespace TrainHub
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
-           if (!string.IsNullOrWhiteSpace(firstNameTxt.Content) ||
+            if (!string.IsNullOrWhiteSpace(firstNameTxt.Content) ||
                     !string.IsNullOrWhiteSpace(lastNameTxt.Content) ||
                     !string.IsNullOrWhiteSpace(emailAddTxt.Content) ||
                     !string.IsNullOrWhiteSpace(phoneNumTxt.Content) ||
+                    !string.IsNullOrWhiteSpace(addressTxt.Content) ||
+                    !string.IsNullOrWhiteSpace(usernameTxt.Content) ||
+                    !string.IsNullOrWhiteSpace(passwordTxt.Content) ||
                     statusCombo.SelectedIndex >= 0 ||
-                    membershipTypeCombo.SelectedIndex >= 0 ||
+                    genderCombo.SelectedIndex >= 0 ||
                     pictureBox1.Image != null)
             {
                 var result = MessageBox.Show("You have unsaved changes. Are you sure you want to cancel?", "Confirm Cancel",
@@ -380,8 +325,11 @@ namespace TrainHub
                     string.IsNullOrWhiteSpace(lastNameTxt.Content) ||
                     string.IsNullOrWhiteSpace(emailAddTxt.Content) ||
                     string.IsNullOrWhiteSpace(phoneNumTxt.Content) ||
+                    string.IsNullOrWhiteSpace(addressTxt.Content) ||
+                    string.IsNullOrWhiteSpace(usernameTxt.Content) ||
+                    string.IsNullOrWhiteSpace(passwordTxt.Content) ||
                     statusCombo.SelectedIndex == -1 ||
-                    membershipTypeCombo.SelectedIndex == -1 ||
+                    genderCombo.SelectedIndex == -1 ||
                     pictureBox1.Image == null)
             {
                 MessageBox.Show("Please fill in all required fields.", "Validation Error",
@@ -403,7 +351,7 @@ namespace TrainHub
                 MessageBox.Show("Date of Birth cannot be today or in the future.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (await CheckEmailExistence.IsMemberEmailExistsAsync(emailAddTxt.Content, memberID))
+            if (await CheckEmailExistence.IsUserEmailExistsAsync(emailAddTxt.Content, staffID))
             {
                 MessageBox.Show("Email already exists. Please use a different email.",
                     "Duplicate Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -435,114 +383,91 @@ namespace TrainHub
         private void generateQrBtn_Click(object sender, EventArgs e)
         {
             QrCode qrCodeGenerator = new QrCode(); // Create an instance of QrCode
-            string qrContent = $"MEMBER:{memberID}";
+            string qrContent = $"STAFF:{staffID}";
             Bitmap picQRCode = QrCode.GetCode(qrContent);
-            qrCodeGenerator.GenerateQrCodeForMember(memberID, picQRCode); // Use the instance to call the non-static method
+            qrCodeGenerator.GenerateQrCodeForMember(staffID, picQRCode); // Use the instance to call the non-static method
         }
 
-        private Member CreateMemberFromFields()
+        private User CreateStaffFromFields()
         {
-            int? selectedTrainerId = null;
-
-            // Get selected trainer ID
-            if (trainerCombo.SelectedItem != null)
-            {
-                string selectedTrainerName = trainerCombo.SelectedItem.ToString();
-                if (trainerNameToId.ContainsKey(selectedTrainerName))
-                {
-                    selectedTrainerId = trainerNameToId[selectedTrainerName];
-                }
-            }
-
-            return new Member()
+            return new User()
             {
                 FirstName = firstNameTxt.Content.Trim(),
                 LastName = lastNameTxt.Content.Trim(),
                 Email = emailAddTxt.Content.Trim(),
                 PhoneNumber = phoneNumTxt.Content.Trim(),
+                Address = addressTxt.Content.Trim(),
                 DateOfBirth = birthDate.Value.Date,
-                StartDate = startDate.Value.Date,
-                EndDate = endDate.Value.Date,
                 Status = statusCombo.SelectedItem.ToString(),
-                MembershipType = membershipTypeCombo.SelectedItem.ToString(),
-                TrainerID = selectedTrainerId
+                Gender = genderCombo.SelectedItem.ToString(),
+                Username = usernameTxt.Content.Trim(),
+                Password = passwordTxt.Content.Trim(),
             };
         }
 
-        private void UpdateMemberFromFields()
+        private void UpdateStaffFromFields()
         {
-            var selectedMember = _dataContext.Member.Find(memberID);
+            var selectedStaff = _dataContext.User.Find(staffID);
 
-            if (selectedMember != null)
+            if (selectedStaff != null)
             {
-                selectedMember.FirstName = firstNameTxt.Content.Trim();
-                selectedMember.LastName = lastNameTxt.Content.Trim();
-                selectedMember.Email = emailAddTxt.Content.Trim();
-                selectedMember.PhoneNumber = phoneNumTxt.Content.Trim();
+                selectedStaff.FirstName = firstNameTxt.Content.Trim();
+                selectedStaff.LastName = lastNameTxt.Content.Trim();
+                selectedStaff.Email = emailAddTxt.Content.Trim();
+                selectedStaff.PhoneNumber = phoneNumTxt.Content.Trim();
+                selectedStaff.Address = addressTxt.Content.Trim();
 
-                selectedMember.Status = statusCombo.SelectedItem?.ToString() ?? selectedMember.Status;
-                selectedMember.MembershipType = membershipTypeCombo.SelectedItem?.ToString() ?? selectedMember.MembershipType;
+                selectedStaff.Status = statusCombo.SelectedItem?.ToString() ?? selectedStaff.Status;
+                selectedStaff.Gender = genderCombo.SelectedItem?.ToString() ?? selectedStaff.Gender;
 
-                selectedMember.DateOfBirth = birthDate.Value;
-                selectedMember.StartDate = startDate.Value;
-                selectedMember.EndDate = endDate.Value;
+                selectedStaff.DateOfBirth = birthDate.Value;
 
-                // Handle trainer assignment safely
-                if (trainerCombo.SelectedItem != null)
-                {
-                    string selectedTrainerName = trainerCombo.SelectedItem.ToString();
-                    if (trainerNameToId.ContainsKey(selectedTrainerName))
-                    {
-                        selectedMember.TrainerID = trainerNameToId[selectedTrainerName];
-                    }
-                }
-                else
-                {
-                    selectedMember.TrainerID = null; // No trainer assigned
-                }
+                selectedStaff.Username = usernameTxt.Content.Trim();
 
-                // Update the _currentMember reference
-                _currentMember = selectedMember;
+                // Hash this password before saving
+                selectedStaff.Password = passwordTxt.Content.Trim();
+
+                _currentStaff = selectedStaff;
             }
             else
             {
-                throw new InvalidOperationException($"Member with ID {memberID} not found.");
+                throw new InvalidOperationException($"Staff with ID {staffID} not found.");
             }
         }
 
-        private bool SaveMember(Member member)
+        private bool SaveStaff(User staff)
         {
             try
             {
-                _dataContext.Add(member);
+                _dataContext.Add(staff);
                 _dataContext.SaveChanges();
-                SaveMemberPhoto(member);
+                SaveStaffPhoto(staff);
 
                 QrCode qrCodeGenerator = new QrCode();
-                Bitmap picQRCode = QrCode.GetCode(member.Id.ToString());
-                qrCodeGenerator.GenerateQrCodeForMember(member.Id, picQRCode);
+                Bitmap picQRCode = QrCode.GetCode(staff.Id.ToString());
+                qrCodeGenerator.GenerateQrCodeForStaff(staff.Id, picQRCode);
 
-                MessageBox.Show("Member registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _parentForm?.RefreshMemberData();
+                MessageBox.Show("Staff registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _parentForm?.RefreshUserData();
                 return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error registering member: {ex.Message}",
+                MessageBox.Show($"Error registering staff: {ex.Message}",
                     "Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return false;
             }
         }
 
-        private bool UpdateMember(Member member)
+        private bool UpdateStaff(User staff)
         {
             try
             {
                 _dataContext.SaveChanges();
-                SaveMemberPhoto(member);
+                SaveStaffPhoto(staff);
 
-                MessageBox.Show("Member updated successfully!",
+                MessageBox.Show("Staff updated successfully!",
                                 "Success",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
@@ -550,7 +475,7 @@ namespace TrainHub
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Member registered successfully, but failed to save image: {ex.Message}",
+                MessageBox.Show($"Staff registered successfully, but failed to save image: {ex.Message}",
                     "Warning",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -558,25 +483,25 @@ namespace TrainHub
             }
         }
 
-        private void SaveMemberPhoto(Member member)
+        private void SaveStaffPhoto(User staff)
         {
             if (isImageCaptured && capturedImage != null)
             {
                 try
                 {
-                    string imagePath = ImageFileManager.SaveMemberImage(capturedImage, member.Id, member.Email);
+                    string imagePath = ImageFileManager.SaveStaffImage(capturedImage, staff.Id, staff.Email);
 
                     string relativePath = ImageFileManager.GetRelativePath(imagePath);
 
-                    member.ProfileImagePath = relativePath;
-                    member.ImageFileName = System.IO.Path.GetFileName(imagePath);
-                    member.ImageCapturedDate = DateTime.Now;
+                    staff.ProfileImagePath = relativePath;
+                    staff.ImageFileName = System.IO.Path.GetFileName(imagePath);
+                    staff.ImageCapturedDate = DateTime.Now;
 
                     _dataContext.SaveChanges(); // Save image path
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Member registered successfully, but failed to save image: {ex.Message}",
+                    MessageBox.Show($"Staff registered successfully, but failed to save image: {ex.Message}",
                         "Warning",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
@@ -584,17 +509,28 @@ namespace TrainHub
             }
         }
 
-        private void MemberForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void StaffForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (videoSource != null && videoSource.IsRunning)
             {
                 videoSource.SignalToStop();
                 videoSource.WaitForStop();
             }
-
             _dataContext?.Dispose();
             currentFrame?.Dispose();
             capturedImage?.Dispose();
+        }
+
+        private void showPassBtn_Click(object sender, EventArgs e)
+        {
+            if (passwordTxt.PasswordChar)
+            {
+                passwordTxt.PasswordChar = false;
+            }
+            else
+            {
+                passwordTxt.PasswordChar = true;
+            }
         }
     }
 }
