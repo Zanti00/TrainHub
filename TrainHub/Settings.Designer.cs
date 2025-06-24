@@ -30,6 +30,9 @@
         {
             label1 = new Label();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            usernameLabel = new Label();
+            cuiPanel4 = new CuoreUI.Controls.cuiPanel();
+            label4 = new Label();
             phoneNumberLabel = new Label();
             cuiPanel3 = new CuoreUI.Controls.cuiPanel();
             label5 = new Label();
@@ -38,9 +41,6 @@
             label6 = new Label();
             editBtn = new CuoreUI.Controls.cuiButtonGroup();
             label3 = new Label();
-            usernameLabel = new Label();
-            cuiPanel4 = new CuoreUI.Controls.cuiPanel();
-            label4 = new Label();
             cuiPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,7 +48,7 @@
             // 
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
-            label1.BackColor = Color.White;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Microsoft YaHei", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(50, 81, 88);
             label1.ImageAlign = ContentAlignment.MiddleLeft;
@@ -61,7 +61,7 @@
             // 
             // cuiPanel1
             // 
-            cuiPanel1.BackColor = SystemColors.ButtonHighlight;
+            cuiPanel1.BackColor = Color.Transparent;
             cuiPanel1.Controls.Add(usernameLabel);
             cuiPanel1.Controls.Add(cuiPanel4);
             cuiPanel1.Controls.Add(label4);
@@ -79,11 +79,50 @@
             cuiPanel1.Margin = new Padding(3, 2, 3, 2);
             cuiPanel1.Name = "cuiPanel1";
             cuiPanel1.OutlineThickness = 1F;
-            cuiPanel1.PanelColor = Color.White;
-            cuiPanel1.PanelOutlineColor = Color.Black;
+            cuiPanel1.PanelColor = Color.Transparent;
+            cuiPanel1.PanelOutlineColor = Color.Transparent;
             cuiPanel1.Rounding = new Padding(8);
             cuiPanel1.Size = new Size(646, 514);
             cuiPanel1.TabIndex = 10;
+            // 
+            // usernameLabel
+            // 
+            usernameLabel.Anchor = AnchorStyles.None;
+            usernameLabel.AutoSize = true;
+            usernameLabel.ForeColor = Color.FromArgb(130, 130, 130);
+            usernameLabel.Location = new Point(154, 363);
+            usernameLabel.Margin = new Padding(10, 15, 3, 0);
+            usernameLabel.Name = "usernameLabel";
+            usernameLabel.Size = new Size(59, 15);
+            usernameLabel.TabIndex = 35;
+            usernameLabel.Text = "username";
+            // 
+            // cuiPanel4
+            // 
+            cuiPanel4.Anchor = AnchorStyles.None;
+            cuiPanel4.Location = new Point(157, 384);
+            cuiPanel4.Name = "cuiPanel4";
+            cuiPanel4.OutlineThickness = 1F;
+            cuiPanel4.PanelColor = Color.FromArgb(50, 81, 88);
+            cuiPanel4.PanelOutlineColor = Color.Transparent;
+            cuiPanel4.Rounding = new Padding(0);
+            cuiPanel4.Size = new Size(314, 2);
+            cuiPanel4.TabIndex = 34;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.None;
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.FromArgb(0, 0, 64);
+            label4.ImageAlign = ContentAlignment.MiddleLeft;
+            label4.Location = new Point(154, 340);
+            label4.Margin = new Padding(5, 0, 3, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(60, 15);
+            label4.TabIndex = 33;
+            label4.Text = "Username";
+            label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // phoneNumberLabel
             // 
@@ -105,7 +144,7 @@
             cuiPanel3.OutlineThickness = 1F;
             cuiPanel3.PanelColor = Color.FromArgb(50, 81, 88);
             cuiPanel3.PanelOutlineColor = Color.Transparent;
-            cuiPanel3.Rounding = new Padding(8);
+            cuiPanel3.Rounding = new Padding(0);
             cuiPanel3.Size = new Size(314, 2);
             cuiPanel3.TabIndex = 31;
             // 
@@ -144,7 +183,7 @@
             cuiPanel2.OutlineThickness = 1F;
             cuiPanel2.PanelColor = Color.FromArgb(50, 81, 88);
             cuiPanel2.PanelOutlineColor = Color.Transparent;
-            cuiPanel2.Rounding = new Padding(8);
+            cuiPanel2.Rounding = new Padding(0);
             cuiPanel2.Size = new Size(314, 2);
             cuiPanel2.TabIndex = 28;
             // 
@@ -213,45 +252,6 @@
             label3.Size = new Size(170, 15);
             label3.TabIndex = 15;
             label3.Text = "Make changes to your account";
-            // 
-            // usernameLabel
-            // 
-            usernameLabel.Anchor = AnchorStyles.None;
-            usernameLabel.AutoSize = true;
-            usernameLabel.ForeColor = Color.FromArgb(130, 130, 130);
-            usernameLabel.Location = new Point(154, 363);
-            usernameLabel.Margin = new Padding(10, 15, 3, 0);
-            usernameLabel.Name = "usernameLabel";
-            usernameLabel.Size = new Size(59, 15);
-            usernameLabel.TabIndex = 35;
-            usernameLabel.Text = "username";
-            // 
-            // cuiPanel4
-            // 
-            cuiPanel4.Anchor = AnchorStyles.None;
-            cuiPanel4.Location = new Point(157, 384);
-            cuiPanel4.Name = "cuiPanel4";
-            cuiPanel4.OutlineThickness = 1F;
-            cuiPanel4.PanelColor = Color.FromArgb(50, 81, 88);
-            cuiPanel4.PanelOutlineColor = Color.Transparent;
-            cuiPanel4.Rounding = new Padding(8);
-            cuiPanel4.Size = new Size(314, 2);
-            cuiPanel4.TabIndex = 34;
-            // 
-            // label4
-            // 
-            label4.Anchor = AnchorStyles.None;
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.FromArgb(0, 0, 64);
-            label4.ImageAlign = ContentAlignment.MiddleLeft;
-            label4.Location = new Point(154, 340);
-            label4.Margin = new Padding(5, 0, 3, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(60, 15);
-            label4.TabIndex = 33;
-            label4.Text = "Username";
-            label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // Settings
             // 

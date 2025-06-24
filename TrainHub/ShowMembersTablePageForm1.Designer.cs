@@ -46,6 +46,7 @@
             endDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             createdDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            IsDeleted = new DataGridViewCheckBoxColumn();
             membershipTypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             TrainerFullName = new DataGridViewTextBoxColumn();
             View = new DataGridViewImageColumn();
@@ -54,6 +55,7 @@
             memberBindingSource = new BindingSource(components);
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
             cuiPanel7 = new CuoreUI.Controls.cuiPanel();
+            deletedMemberCheck = new CuoreUI.Controls.cuiCheckbox();
             cuiPictureBox1 = new CuoreUI.Controls.cuiPictureBox();
             searchBar = new CuoreUI.Controls.cuiTextBox();
             label2 = new Label();
@@ -106,7 +108,7 @@
             advancedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             advancedDataGridView1.ColumnHeadersHeight = 40;
             advancedDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, startDateDataGridViewTextBoxColumn, endDateDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, membershipTypeDataGridViewTextBoxColumn, TrainerFullName, View, Edit, Delete });
+            advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, startDateDataGridViewTextBoxColumn, endDateDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, IsDeleted, membershipTypeDataGridViewTextBoxColumn, TrainerFullName, View, Edit, Delete });
             advancedDataGridView1.DataSource = memberBindingSource;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
@@ -238,6 +240,15 @@
             statusDataGridViewTextBoxColumn.ReadOnly = true;
             statusDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
+            // IsDeleted
+            // 
+            IsDeleted.DataPropertyName = "IsDeleted";
+            IsDeleted.HeaderText = "IsDeleted";
+            IsDeleted.MinimumWidth = 24;
+            IsDeleted.Name = "IsDeleted";
+            IsDeleted.ReadOnly = true;
+            IsDeleted.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
             // membershipTypeDataGridViewTextBoxColumn
             // 
             membershipTypeDataGridViewTextBoxColumn.DataPropertyName = "MembershipType";
@@ -310,18 +321,43 @@
             // 
             // cuiPanel7
             // 
+            cuiPanel7.Controls.Add(deletedMemberCheck);
             cuiPanel7.Controls.Add(cuiPictureBox1);
             cuiPanel7.Controls.Add(searchBar);
             cuiPanel7.Dock = DockStyle.Right;
-            cuiPanel7.Location = new Point(328, 5);
+            cuiPanel7.Location = new Point(275, 5);
             cuiPanel7.Margin = new Padding(3, 2, 3, 2);
             cuiPanel7.Name = "cuiPanel7";
             cuiPanel7.OutlineThickness = 0F;
             cuiPanel7.PanelColor = Color.FromArgb(248, 250, 252);
             cuiPanel7.PanelOutlineColor = Color.FromArgb(248, 250, 252);
             cuiPanel7.Rounding = new Padding(8, 8, 0, 0);
-            cuiPanel7.Size = new Size(445, 37);
+            cuiPanel7.Size = new Size(498, 37);
             cuiPanel7.TabIndex = 34;
+            // 
+            // deletedMemberCheck
+            // 
+            deletedMemberCheck.BackColor = Color.FromArgb(248, 250, 252);
+            deletedMemberCheck.Checked = false;
+            deletedMemberCheck.CheckedForeground = Color.FromArgb(50, 81, 88);
+            deletedMemberCheck.CheckedOutlineColor = Color.FromArgb(50, 81, 88);
+            deletedMemberCheck.CheckedSymbolColor = Color.White;
+            deletedMemberCheck.Content = "Include deleted members";
+            deletedMemberCheck.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            deletedMemberCheck.Location = new Point(38, 17);
+            deletedMemberCheck.MinimumSize = new Size(16, 16);
+            deletedMemberCheck.Name = "deletedMemberCheck";
+            deletedMemberCheck.OutlineStyle = true;
+            deletedMemberCheck.OutlineThickness = 1F;
+            deletedMemberCheck.Rounding = 5;
+            deletedMemberCheck.ShowSymbols = true;
+            deletedMemberCheck.Size = new Size(149, 16);
+            deletedMemberCheck.TabIndex = 17;
+            deletedMemberCheck.Text = "Include deleted members";
+            deletedMemberCheck.UncheckedForeground = Color.Empty;
+            deletedMemberCheck.UncheckedOutlineColor = Color.Gray;
+            deletedMemberCheck.UncheckedSymbolColor = Color.Empty;
+            deletedMemberCheck.CheckedChanged += deletedMemberCheck_Click;
             // 
             // cuiPictureBox1
             // 
@@ -330,7 +366,7 @@
             cuiPictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
             cuiPictureBox1.Content = null;
             cuiPictureBox1.ImageTint = Color.White;
-            cuiPictureBox1.Location = new Point(152, 8);
+            cuiPictureBox1.Location = new Point(201, 8);
             cuiPictureBox1.Margin = new Padding(4, 3, 4, 3);
             cuiPictureBox1.Name = "cuiPictureBox1";
             cuiPictureBox1.OutlineThickness = 1F;
@@ -355,7 +391,7 @@
             searchBar.Image = null;
             searchBar.ImageExpand = new Point(10, 10);
             searchBar.ImageOffset = new Point(250, 0);
-            searchBar.Location = new Point(141, 0);
+            searchBar.Location = new Point(190, 0);
             searchBar.Margin = new Padding(0);
             searchBar.Multiline = false;
             searchBar.Name = "searchBar";
@@ -536,6 +572,7 @@
         private DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private CuoreUI.Controls.cuiCheckbox deletedMemberCheck;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
@@ -546,6 +583,7 @@
         private DataGridViewTextBoxColumn endDateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn IsDeleted;
         private DataGridViewTextBoxColumn membershipTypeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn TrainerFullName;
         private DataGridViewImageColumn View;

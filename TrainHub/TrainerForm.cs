@@ -47,6 +47,10 @@ namespace TrainHub
             {
                 generateQrBtn.Enabled = false;
             }
+            if ((mode == FormMode.Add))
+            {
+                isDeletedCheck.Visible = false;
+            }
         }
 
         private void InitializeWebcam()
@@ -164,6 +168,7 @@ namespace TrainHub
             statusCombo.Enabled = enabled;
             captureBtn.Enabled = enabled;
             openCameraBtn.Enabled = enabled;
+            isDeletedCheck.Enabled = enabled;
         }
 
         private void LoadTrainerData()
@@ -194,6 +199,7 @@ namespace TrainHub
                         hourlyRateTxt.Content = selectedTrainer.HourlyRate.ToString("F2");
                         birthDate.Value = selectedTrainer.DateOfBirth;
                         statusCombo.SelectedItem = selectedTrainer.Status;
+                        isDeletedCheck.Checked = selectedTrainer.IsDeleted;
 
                         LoadTrainerImage(selectedTrainer.ProfileImagePath);
                     }
@@ -431,7 +437,7 @@ namespace TrainHub
                 DateOfBirth = birthDate.Value.Date,
                 Status = statusCombo.SelectedItem.ToString(),
                 Gender = genderCombo.SelectedItem.ToString(),
-                //TrainerID = 1 // Assuming a default trainer ID for now
+                IsDeleted = isDeletedCheck.Checked,
             };
         }
 
@@ -455,6 +461,8 @@ namespace TrainHub
                 selectedTrainer.Gender = genderCombo.SelectedItem?.ToString() ?? selectedTrainer.Gender;
 
                 selectedTrainer.DateOfBirth = birthDate.Value;
+
+                selectedTrainer.IsDeleted = isDeletedCheck.Checked;
             }
         }
 

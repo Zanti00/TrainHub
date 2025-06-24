@@ -40,6 +40,15 @@ namespace TrainHub
             label1 = new Label();
             cuiPanel4 = new CuoreUI.Controls.cuiPanel();
             advancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
+            userBindingSource = new BindingSource(components);
+            cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            cuiPanel7 = new CuoreUI.Controls.cuiPanel();
+            deletedStaffCheck = new CuoreUI.Controls.cuiCheckbox();
+            cuiPictureBox1 = new CuoreUI.Controls.cuiPictureBox();
+            searchBar = new CuoreUI.Controls.cuiTextBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            cuiPanel3 = new CuoreUI.Controls.cuiPanel();
+            addStaffBtn = new CuoreUI.Controls.cuiButton();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -50,18 +59,11 @@ namespace TrainHub
             phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            isDeleted = new DataGridViewCheckBoxColumn();
             createdDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             View = new DataGridViewImageColumn();
             Edit = new DataGridViewImageColumn();
             Delete = new DataGridViewImageColumn();
-            userBindingSource = new BindingSource(components);
-            cuiPanel1 = new CuoreUI.Controls.cuiPanel();
-            cuiPanel7 = new CuoreUI.Controls.cuiPanel();
-            cuiPictureBox1 = new CuoreUI.Controls.cuiPictureBox();
-            searchBar = new CuoreUI.Controls.cuiTextBox();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            cuiPanel3 = new CuoreUI.Controls.cuiPanel();
-            addStaffBtn = new CuoreUI.Controls.cuiButton();
             cuiPanel2.SuspendLayout();
             cuiPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)advancedDataGridView1).BeginInit();
@@ -146,7 +148,7 @@ namespace TrainHub
             advancedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             advancedDataGridView1.ColumnHeadersHeight = 40;
             advancedDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, View, Edit, Delete });
+            advancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, isDeleted, createdDateDataGridViewTextBoxColumn, View, Edit, Delete });
             advancedDataGridView1.DataSource = userBindingSource;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
@@ -187,6 +189,187 @@ namespace TrainHub
             advancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = false;
             advancedDataGridView1.TabIndex = 39;
             advancedDataGridView1.CellClick += advancedDataGridView1_CellClick;
+            // 
+            // userBindingSource
+            // 
+            userBindingSource.DataSource = typeof(Models.User);
+            // 
+            // cuiPanel1
+            // 
+            cuiPanel1.Controls.Add(cuiPanel7);
+            cuiPanel1.Dock = DockStyle.Top;
+            cuiPanel1.Location = new Point(0, 0);
+            cuiPanel1.Margin = new Padding(3, 2, 3, 2);
+            cuiPanel1.Name = "cuiPanel1";
+            cuiPanel1.OutlineThickness = 1F;
+            cuiPanel1.Padding = new Padding(0, 5, 5, 5);
+            cuiPanel1.PanelColor = Color.FromArgb(248, 250, 252);
+            cuiPanel1.PanelOutlineColor = Color.Black;
+            cuiPanel1.Rounding = new Padding(8, 8, 0, 0);
+            cuiPanel1.Size = new Size(763, 48);
+            cuiPanel1.TabIndex = 38;
+            // 
+            // cuiPanel7
+            // 
+            cuiPanel7.Controls.Add(deletedStaffCheck);
+            cuiPanel7.Controls.Add(cuiPictureBox1);
+            cuiPanel7.Controls.Add(searchBar);
+            cuiPanel7.Dock = DockStyle.Right;
+            cuiPanel7.Location = new Point(274, 5);
+            cuiPanel7.Margin = new Padding(3, 2, 3, 2);
+            cuiPanel7.Name = "cuiPanel7";
+            cuiPanel7.OutlineThickness = 0F;
+            cuiPanel7.PanelColor = Color.FromArgb(248, 250, 252);
+            cuiPanel7.PanelOutlineColor = Color.FromArgb(248, 250, 252);
+            cuiPanel7.Rounding = new Padding(8, 8, 0, 0);
+            cuiPanel7.Size = new Size(484, 38);
+            cuiPanel7.TabIndex = 34;
+            // 
+            // deletedStaffCheck
+            // 
+            deletedStaffCheck.BackColor = Color.FromArgb(248, 250, 252);
+            deletedStaffCheck.Checked = false;
+            deletedStaffCheck.CheckedForeground = Color.FromArgb(50, 81, 88);
+            deletedStaffCheck.CheckedOutlineColor = Color.FromArgb(50, 81, 88);
+            deletedStaffCheck.CheckedSymbolColor = Color.White;
+            deletedStaffCheck.Content = "Include deleted staffs";
+            deletedStaffCheck.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            deletedStaffCheck.ForeColor = Color.Black;
+            deletedStaffCheck.Location = new Point(35, 19);
+            deletedStaffCheck.MinimumSize = new Size(16, 16);
+            deletedStaffCheck.Name = "deletedStaffCheck";
+            deletedStaffCheck.OutlineStyle = true;
+            deletedStaffCheck.OutlineThickness = 1F;
+            deletedStaffCheck.Rounding = 5;
+            deletedStaffCheck.ShowSymbols = true;
+            deletedStaffCheck.Size = new Size(135, 16);
+            deletedStaffCheck.TabIndex = 18;
+            deletedStaffCheck.Text = "Include deleted staffs";
+            deletedStaffCheck.UncheckedForeground = Color.Empty;
+            deletedStaffCheck.UncheckedOutlineColor = Color.Gray;
+            deletedStaffCheck.UncheckedSymbolColor = Color.Empty;
+            deletedStaffCheck.CheckedChanged += deletedStaffCheck_CheckedChanged;
+            // 
+            // cuiPictureBox1
+            // 
+            cuiPictureBox1.BackColor = Color.White;
+            cuiPictureBox1.BackgroundImage = (Image)resources.GetObject("cuiPictureBox1.BackgroundImage");
+            cuiPictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            cuiPictureBox1.Content = null;
+            cuiPictureBox1.ImageTint = Color.White;
+            cuiPictureBox1.Location = new Point(184, 8);
+            cuiPictureBox1.Margin = new Padding(4, 3, 4, 3);
+            cuiPictureBox1.Name = "cuiPictureBox1";
+            cuiPictureBox1.OutlineThickness = 1F;
+            cuiPictureBox1.PanelOutlineColor = Color.Empty;
+            cuiPictureBox1.Rotation = 0;
+            cuiPictureBox1.Rounding = new Padding(8);
+            cuiPictureBox1.Size = new Size(27, 21);
+            cuiPictureBox1.TabIndex = 16;
+            // 
+            // searchBar
+            // 
+            searchBar.AutoSize = true;
+            searchBar.BackColor = Color.Transparent;
+            searchBar.BackgroundColor = Color.White;
+            searchBar.BorderColor = Color.FromArgb(50, 81, 88);
+            searchBar.Content = "";
+            searchBar.FocusBackgroundColor = Color.White;
+            searchBar.FocusBorderColor = Color.FromArgb(50, 81, 88);
+            searchBar.FocusImageTint = Color.White;
+            searchBar.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            searchBar.ForeColor = Color.Black;
+            searchBar.Image = null;
+            searchBar.ImageExpand = new Point(10, 10);
+            searchBar.ImageOffset = new Point(250, 0);
+            searchBar.Location = new Point(173, 0);
+            searchBar.Margin = new Padding(0);
+            searchBar.Multiline = false;
+            searchBar.Name = "searchBar";
+            searchBar.NormalImageTint = Color.White;
+            searchBar.Padding = new Padding(44, 10, 44, 0);
+            searchBar.PasswordChar = false;
+            searchBar.PlaceholderColor = Color.DimGray;
+            searchBar.PlaceholderText = "Search...";
+            searchBar.Rounding = new Padding(10);
+            searchBar.Size = new Size(296, 35);
+            searchBar.TabIndex = 15;
+            searchBar.TabStop = false;
+            searchBar.TextOffset = new Size(30, 0);
+            searchBar.UnderlinedStyle = false;
+            searchBar.ContentChanged += searchBar_ContentChanged;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.BackColor = SystemColors.Control;
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(cuiPanel4, 0, 2);
+            tableLayoutPanel1.Controls.Add(cuiPanel2, 0, 0);
+            tableLayoutPanel1.Controls.Add(cuiPanel3, 0, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.Padding = new Padding(10, 0, 10, 0);
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
+            tableLayoutPanel1.Size = new Size(789, 461);
+            tableLayoutPanel1.TabIndex = 10;
+            // 
+            // cuiPanel3
+            // 
+            cuiPanel3.BackColor = Color.Transparent;
+            cuiPanel3.Controls.Add(addStaffBtn);
+            cuiPanel3.Dock = DockStyle.Right;
+            cuiPanel3.Location = new Point(643, 48);
+            cuiPanel3.Margin = new Padding(3, 2, 3, 2);
+            cuiPanel3.Name = "cuiPanel3";
+            cuiPanel3.OutlineThickness = 1F;
+            cuiPanel3.PanelColor = Color.Transparent;
+            cuiPanel3.PanelOutlineColor = Color.Transparent;
+            cuiPanel3.Rounding = new Padding(8, 8, 0, 0);
+            cuiPanel3.Size = new Size(133, 42);
+            cuiPanel3.TabIndex = 36;
+            // 
+            // addStaffBtn
+            // 
+            addStaffBtn.CheckButton = false;
+            addStaffBtn.Checked = false;
+            addStaffBtn.CheckedBackground = Color.FromArgb(255, 106, 0);
+            addStaffBtn.CheckedForeColor = Color.White;
+            addStaffBtn.CheckedImageTint = Color.White;
+            addStaffBtn.CheckedOutline = Color.FromArgb(255, 106, 0);
+            addStaffBtn.Content = "Add Staff";
+            addStaffBtn.DialogResult = DialogResult.None;
+            addStaffBtn.Font = new Font("Microsoft Sans Serif", 9.75F);
+            addStaffBtn.ForeColor = Color.White;
+            addStaffBtn.HoverBackground = Color.White;
+            addStaffBtn.HoveredImageTint = Color.White;
+            addStaffBtn.HoverForeColor = Color.Black;
+            addStaffBtn.HoverOutline = Color.FromArgb(32, 128, 128, 128);
+            addStaffBtn.Image = null;
+            addStaffBtn.ImageAutoCenter = true;
+            addStaffBtn.ImageExpand = new Point(0, 0);
+            addStaffBtn.ImageOffset = new Point(0, 0);
+            addStaffBtn.Location = new Point(24, 5);
+            addStaffBtn.Name = "addStaffBtn";
+            addStaffBtn.NormalBackground = Color.FromArgb(50, 81, 88);
+            addStaffBtn.NormalForeColor = Color.White;
+            addStaffBtn.NormalImageTint = Color.White;
+            addStaffBtn.NormalOutline = Color.FromArgb(50, 81, 88);
+            addStaffBtn.OutlineThickness = 1F;
+            addStaffBtn.PressedBackground = Color.WhiteSmoke;
+            addStaffBtn.PressedForeColor = Color.FromArgb(32, 32, 32);
+            addStaffBtn.PressedImageTint = Color.White;
+            addStaffBtn.PressedOutline = Color.FromArgb(64, 128, 128, 128);
+            addStaffBtn.Rounding = new Padding(8);
+            addStaffBtn.Size = new Size(106, 32);
+            addStaffBtn.TabIndex = 24;
+            addStaffBtn.TextAlignment = StringAlignment.Center;
+            addStaffBtn.TextOffset = new Point(0, 0);
+            addStaffBtn.Click += addStaffBtn_Click;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -278,6 +461,15 @@ namespace TrainHub
             statusDataGridViewTextBoxColumn.ReadOnly = true;
             statusDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
+            // isDeleted
+            // 
+            isDeleted.DataPropertyName = "isDeleted";
+            isDeleted.HeaderText = "isDeleted";
+            isDeleted.MinimumWidth = 24;
+            isDeleted.Name = "isDeleted";
+            isDeleted.ReadOnly = true;
+            isDeleted.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
             // createdDateDataGridViewTextBoxColumn
             // 
             createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
@@ -318,161 +510,6 @@ namespace TrainHub
             Delete.ReadOnly = true;
             Delete.Resizable = DataGridViewTriState.False;
             Delete.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // userBindingSource
-            // 
-            userBindingSource.DataSource = typeof(Models.User);
-            // 
-            // cuiPanel1
-            // 
-            cuiPanel1.Controls.Add(cuiPanel7);
-            cuiPanel1.Dock = DockStyle.Top;
-            cuiPanel1.Location = new Point(0, 0);
-            cuiPanel1.Margin = new Padding(3, 2, 3, 2);
-            cuiPanel1.Name = "cuiPanel1";
-            cuiPanel1.OutlineThickness = 1F;
-            cuiPanel1.Padding = new Padding(0, 5, 5, 5);
-            cuiPanel1.PanelColor = Color.FromArgb(248, 250, 252);
-            cuiPanel1.PanelOutlineColor = Color.Black;
-            cuiPanel1.Rounding = new Padding(8, 8, 0, 0);
-            cuiPanel1.Size = new Size(763, 48);
-            cuiPanel1.TabIndex = 38;
-            // 
-            // cuiPanel7
-            // 
-            cuiPanel7.Controls.Add(cuiPictureBox1);
-            cuiPanel7.Controls.Add(searchBar);
-            cuiPanel7.Dock = DockStyle.Right;
-            cuiPanel7.Location = new Point(313, 5);
-            cuiPanel7.Margin = new Padding(3, 2, 3, 2);
-            cuiPanel7.Name = "cuiPanel7";
-            cuiPanel7.OutlineThickness = 0F;
-            cuiPanel7.PanelColor = Color.FromArgb(248, 250, 252);
-            cuiPanel7.PanelOutlineColor = Color.FromArgb(248, 250, 252);
-            cuiPanel7.Rounding = new Padding(8, 8, 0, 0);
-            cuiPanel7.Size = new Size(445, 38);
-            cuiPanel7.TabIndex = 34;
-            // 
-            // cuiPictureBox1
-            // 
-            cuiPictureBox1.BackColor = Color.White;
-            cuiPictureBox1.BackgroundImage = (Image)resources.GetObject("cuiPictureBox1.BackgroundImage");
-            cuiPictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            cuiPictureBox1.Content = null;
-            cuiPictureBox1.ImageTint = Color.White;
-            cuiPictureBox1.Location = new Point(152, 8);
-            cuiPictureBox1.Margin = new Padding(4, 3, 4, 3);
-            cuiPictureBox1.Name = "cuiPictureBox1";
-            cuiPictureBox1.OutlineThickness = 1F;
-            cuiPictureBox1.PanelOutlineColor = Color.Empty;
-            cuiPictureBox1.Rotation = 0;
-            cuiPictureBox1.Rounding = new Padding(8);
-            cuiPictureBox1.Size = new Size(27, 21);
-            cuiPictureBox1.TabIndex = 16;
-            // 
-            // searchBar
-            // 
-            searchBar.AutoSize = true;
-            searchBar.BackColor = Color.Transparent;
-            searchBar.BackgroundColor = Color.White;
-            searchBar.BorderColor = Color.FromArgb(50, 81, 88);
-            searchBar.Content = "";
-            searchBar.FocusBackgroundColor = Color.White;
-            searchBar.FocusBorderColor = Color.FromArgb(50, 81, 88);
-            searchBar.FocusImageTint = Color.White;
-            searchBar.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            searchBar.ForeColor = Color.Black;
-            searchBar.Image = null;
-            searchBar.ImageExpand = new Point(10, 10);
-            searchBar.ImageOffset = new Point(250, 0);
-            searchBar.Location = new Point(141, 0);
-            searchBar.Margin = new Padding(0);
-            searchBar.Multiline = false;
-            searchBar.Name = "searchBar";
-            searchBar.NormalImageTint = Color.White;
-            searchBar.Padding = new Padding(44, 10, 44, 0);
-            searchBar.PasswordChar = false;
-            searchBar.PlaceholderColor = Color.DimGray;
-            searchBar.PlaceholderText = "Search...";
-            searchBar.Rounding = new Padding(10);
-            searchBar.Size = new Size(296, 35);
-            searchBar.TabIndex = 15;
-            searchBar.TabStop = false;
-            searchBar.TextOffset = new Size(30, 0);
-            searchBar.UnderlinedStyle = false;
-            searchBar.ContentChanged += searchBar_ContentChanged;
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.BackColor = SystemColors.Control;
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(cuiPanel4, 0, 2);
-            tableLayoutPanel1.Controls.Add(cuiPanel2, 0, 0);
-            tableLayoutPanel1.Controls.Add(cuiPanel3, 0, 1);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.Padding = new Padding(10, 0, 10, 0);
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
-            tableLayoutPanel1.Size = new Size(789, 461);
-            tableLayoutPanel1.TabIndex = 10;
-            // 
-            // cuiPanel3
-            // 
-            cuiPanel3.BackColor = Color.Transparent;
-            cuiPanel3.Controls.Add(addStaffBtn);
-            cuiPanel3.Dock = DockStyle.Right;
-            cuiPanel3.Location = new Point(643, 48);
-            cuiPanel3.Margin = new Padding(3, 2, 3, 2);
-            cuiPanel3.Name = "cuiPanel3";
-            cuiPanel3.OutlineThickness = 1F;
-            cuiPanel3.PanelColor = Color.Transparent;
-            cuiPanel3.PanelOutlineColor = Color.Transparent;
-            cuiPanel3.Rounding = new Padding(8, 8, 0, 0);
-            cuiPanel3.Size = new Size(133, 42);
-            cuiPanel3.TabIndex = 36;
-            // 
-            // addStaffBtn
-            // 
-            addStaffBtn.CheckButton = false;
-            addStaffBtn.Checked = false;
-            addStaffBtn.CheckedBackground = Color.FromArgb(255, 106, 0);
-            addStaffBtn.CheckedForeColor = Color.White;
-            addStaffBtn.CheckedImageTint = Color.White;
-            addStaffBtn.CheckedOutline = Color.FromArgb(255, 106, 0);
-            addStaffBtn.Content = "Add Staff";
-            addStaffBtn.DialogResult = DialogResult.None;
-            addStaffBtn.Font = new Font("Microsoft Sans Serif", 9.75F);
-            addStaffBtn.ForeColor = Color.White;
-            addStaffBtn.HoverBackground = Color.White;
-            addStaffBtn.HoveredImageTint = Color.White;
-            addStaffBtn.HoverForeColor = Color.Black;
-            addStaffBtn.HoverOutline = Color.FromArgb(32, 128, 128, 128);
-            addStaffBtn.Image = null;
-            addStaffBtn.ImageAutoCenter = true;
-            addStaffBtn.ImageExpand = new Point(0, 0);
-            addStaffBtn.ImageOffset = new Point(0, 0);
-            addStaffBtn.Location = new Point(24, 5);
-            addStaffBtn.Name = "addStaffBtn";
-            addStaffBtn.NormalBackground = Color.FromArgb(50, 81, 88);
-            addStaffBtn.NormalForeColor = Color.White;
-            addStaffBtn.NormalImageTint = Color.White;
-            addStaffBtn.NormalOutline = Color.FromArgb(50, 81, 88);
-            addStaffBtn.OutlineThickness = 1F;
-            addStaffBtn.PressedBackground = Color.WhiteSmoke;
-            addStaffBtn.PressedForeColor = Color.FromArgb(32, 32, 32);
-            addStaffBtn.PressedImageTint = Color.White;
-            addStaffBtn.PressedOutline = Color.FromArgb(64, 128, 128, 128);
-            addStaffBtn.Rounding = new Padding(8);
-            addStaffBtn.Size = new Size(106, 32);
-            addStaffBtn.TabIndex = 24;
-            addStaffBtn.TextAlignment = StringAlignment.Center;
-            addStaffBtn.TextOffset = new Point(0, 0);
-            addStaffBtn.Click += addStaffBtn_Click;
             // 
             // StaffTable
             // 
@@ -520,6 +557,7 @@ namespace TrainHub
         private CuoreUI.Controls.cuiPictureBox cuiPictureBox1;
         private CuoreUI.Controls.cuiTextBox searchBar;
         private Zuby.ADGV.AdvancedDataGridView advancedDataGridView1;
+        private CuoreUI.Controls.cuiCheckbox deletedStaffCheck;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
@@ -530,6 +568,7 @@ namespace TrainHub
         private DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn isDeleted;
         private DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
         private DataGridViewImageColumn View;
         private DataGridViewImageColumn Edit;

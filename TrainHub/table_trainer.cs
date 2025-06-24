@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,20 +32,20 @@ namespace TrainHub
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 14 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 15 && e.RowIndex >= 0)
             {
                 int trainerID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
                 TrainerForm viewTrainer = new TrainerForm(this, FormMode.View, null, trainerID);
                 viewTrainer.ShowDialog();
             }
-            if (e.ColumnIndex == 15 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 16 && e.RowIndex >= 0)
             {
                 int trainerID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
                 TrainerForm editTrianer = new TrainerForm(this, FormMode.Edit, null, trainerID);
                 editTrianer.ShowDialog();
             }
 
-            if (e.ColumnIndex == 16 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 17 && e.RowIndex >= 0)
             {
                 // Confirm deletion
                 var result = MessageBox.Show($"Are you sure you want to delete trainer {advancedDataGridView1.Rows[e.RowIndex].Cells[1].Value} {advancedDataGridView1.Rows[e.RowIndex].Cells[2].Value}?", "Confirm Deletion",
@@ -95,31 +96,49 @@ namespace TrainHub
             }
         }
 
+        private DataTable CreateTrainerDataTable()
+        {
+            var dataTable = new DataTable();
+            dataTable.Columns.Add("Id", typeof(int));
+            dataTable.Columns.Add("FirstName", typeof(string));
+            dataTable.Columns.Add("LastName", typeof(string));
+            dataTable.Columns.Add("Gender", typeof(string));
+            dataTable.Columns.Add("Email", typeof(string));
+            dataTable.Columns.Add("PhoneNumber", typeof(string));
+            dataTable.Columns.Add("Address", typeof(string));
+            dataTable.Columns.Add("Status", typeof(string));
+            dataTable.Columns.Add("IsDeleted", typeof(bool));
+            dataTable.Columns.Add("Availability", typeof(string));
+            dataTable.Columns.Add("YearsOfExperience", typeof(string));
+            dataTable.Columns.Add("Specialization", typeof(string));
+            dataTable.Columns.Add("HourlyRate", typeof(string));
+            dataTable.Columns.Add("CreatedDate", typeof(DateTime));
+            dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
+
+            return dataTable;
+        }
+
         public void RefreshTrainerData()
         {
             try
             {
                 dataContext.ChangeTracker.Clear();
-                var trainers = from trainer in dataContext.Trainer
+                IQueryable<Trainer> trainers;
+                if (deletedTrainerCheck.Checked)
+                {
+                    trainers = from trainer in dataContext.Trainer
+                               select trainer;
+                }
+                else
+                {
+                    trainers = from trainer in dataContext.Trainer
                                where !trainer.IsDeleted // Only select non-deleted members
                                select trainer;
+                }
 
                 // Convert to DataTable for sorting/filtering support
-                var dataTable = new DataTable();
-                dataTable.Columns.Add("Id", typeof(int));
-                dataTable.Columns.Add("FirstName", typeof(string));
-                dataTable.Columns.Add("LastName", typeof(string));
-                dataTable.Columns.Add("Gender", typeof(string));
-                dataTable.Columns.Add("Email", typeof(string));
-                dataTable.Columns.Add("PhoneNumber", typeof(string));
-                dataTable.Columns.Add("Address", typeof(string));
-                dataTable.Columns.Add("Status", typeof(string));
-                dataTable.Columns.Add("Availability", typeof(string));
-                dataTable.Columns.Add("YearsOfExperience", typeof(string));
-                dataTable.Columns.Add("Specialization", typeof(string));
-                dataTable.Columns.Add("HourlyRate", typeof(string));
-                dataTable.Columns.Add("CreatedDate", typeof(DateTime));
-                dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
+                
+                var dataTable = CreateTrainerDataTable();
 
                 foreach (var trainer in trainers)
                 {
@@ -132,6 +151,7 @@ namespace TrainHub
                         trainer.PhoneNumber,
                         trainer.Address,
                         trainer.Status,
+                        trainer.IsDeleted,
                         trainer.Availability,
                         trainer.YearsOfExperience,
                         trainer.Specialization,
@@ -175,28 +195,25 @@ namespace TrainHub
             {
                 if (!string.IsNullOrEmpty(trainerName))
                 {
-                    var trainers = from trainer in dataContext.Trainer
+                    IQueryable<Trainer> trainers;
+                    if (deletedTrainerCheck.Checked)
+                    {
+                        trainers = from trainer in dataContext.Trainer
                                    where trainer.FirstName.ToLower().Contains(trainerName.ToLower()) ||
                                          trainer.LastName.ToLower().Contains(trainerName.ToLower())
                                    select trainer;
+                    }
+                    else
+                    {
+                        trainers = from trainer in dataContext.Trainer
+                                   where !trainer.IsDeleted &&
+                                         (trainer.FirstName.ToLower().Contains(trainerName.ToLower()) ||
+                                         trainer.LastName.ToLower().Contains(trainerName.ToLower()))
+                                   select trainer;
+                    }
 
                     // Convert to DataTable for sorting/filtering support
-                    var dataTable = new DataTable();
-                    dataTable.Columns.Add("Id", typeof(int));
-                    dataTable.Columns.Add("FirstName", typeof(string));
-                    dataTable.Columns.Add("LastName", typeof(string));
-                    dataTable.Columns.Add("Gender", typeof(string));
-                    dataTable.Columns.Add("Email", typeof(string));
-                    dataTable.Columns.Add("PhoneNumber", typeof(string));
-                    dataTable.Columns.Add("Address", typeof(string));
-                    dataTable.Columns.Add("Status", typeof(string));
-                    dataTable.Columns.Add("Availability", typeof(string));
-                    dataTable.Columns.Add("YearsOfExperience", typeof(string));
-                    dataTable.Columns.Add("Specialization", typeof(string));
-                    dataTable.Columns.Add("HourlyRate", typeof(string));
-                    dataTable.Columns.Add("CreatedDate", typeof(DateTime));
-                    dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
-
+                    var dataTable = CreateTrainerDataTable();
 
                     foreach (var trainer in trainers)
                     {
@@ -209,6 +226,7 @@ namespace TrainHub
                             trainer.PhoneNumber,
                             trainer.Address,
                             trainer.Status,
+                            trainer.IsDeleted,
                             trainer.Availability,
                             trainer.YearsOfExperience,
                             trainer.Specialization,
@@ -236,23 +254,12 @@ namespace TrainHub
             }
         }
 
-
-
-
-
-
-        private void cuiPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void table_trainer_Load(object sender, EventArgs e)
+        {
+            RefreshTrainerData();
+        }
+
+        private void deletedMemberCheck_CheckedChanged(object sender, EventArgs e)
         {
             RefreshTrainerData();
         }

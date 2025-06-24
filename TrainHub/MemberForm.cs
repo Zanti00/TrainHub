@@ -55,6 +55,10 @@ namespace TrainHub
             {
                 generateQrBtn.Enabled = false;
             }
+            if ((mode == FormMode.Add))
+            {
+                isDeletedCheck.Visible = false;
+            }
         }
 
         private async void MemberForm_Load(object sender, EventArgs e)
@@ -202,6 +206,7 @@ namespace TrainHub
             endDate.Enabled = enabled;
             captureBtn.Enabled = enabled;
             openCameraBtn.Enabled = enabled;
+            isDeletedCheck.Enabled = enabled;
         }
 
         private void LoadMemberData()
@@ -232,6 +237,8 @@ namespace TrainHub
                 birthDate.Value = selectedMember.DateOfBirth;
                 startDate.Value = selectedMember.StartDate;
                 endDate.Value = selectedMember.EndDate;
+
+                isDeletedCheck.Checked = selectedMember.IsDeleted;
 
                 // Handle trainer assignment safely
                 if (selectedMember.Trainer != null)
@@ -464,6 +471,7 @@ namespace TrainHub
                 StartDate = startDate.Value.Date,
                 EndDate = endDate.Value.Date,
                 Status = statusCombo.SelectedItem.ToString(),
+                IsDeleted = isDeletedCheck.Checked,
                 MembershipType = membershipTypeCombo.SelectedItem.ToString(),
                 TrainerID = selectedTrainerId
             };
@@ -486,6 +494,8 @@ namespace TrainHub
                 selectedMember.DateOfBirth = birthDate.Value;
                 selectedMember.StartDate = startDate.Value;
                 selectedMember.EndDate = endDate.Value;
+
+                selectedMember.IsDeleted = isDeletedCheck.Checked;
 
                 // Handle trainer assignment safely
                 if (trainerCombo.SelectedItem != null)

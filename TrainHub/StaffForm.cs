@@ -48,6 +48,10 @@ namespace TrainHub
             {
                 LoadStaffData();
             }
+            if ((mode == FormMode.Add))
+            {
+                isDeletedCheck.Visible = false;
+            }
         }
 
         private void InitializeWebcam()
@@ -163,6 +167,7 @@ namespace TrainHub
             birthDate.Enabled = enabled;
             captureBtn.Enabled = enabled;
             openCameraBtn.Enabled = enabled;
+            isDeletedCheck.Enabled = enabled;
         }
 
         private void LoadStaffData()
@@ -191,6 +196,7 @@ namespace TrainHub
                 genderCombo.SelectedItem = selectedStaff.Gender;
                 usernameTxt.Content = selectedStaff.Username;
                 passwordTxt.Content = selectedStaff.Password;
+                isDeletedCheck.Checked = selectedStaff.isDeleted;
 
                 birthDate.Value = selectedStaff.DateOfBirth;
 
@@ -399,9 +405,10 @@ namespace TrainHub
                 Address = addressTxt.Content.Trim(),
                 DateOfBirth = birthDate.Value.Date,
                 Status = statusCombo.SelectedItem.ToString(),
+                isDeleted = isDeletedCheck.Checked,
                 Gender = genderCombo.SelectedItem.ToString(),
                 Username = usernameTxt.Content.Trim(),
-                Password = passwordTxt.Content.Trim(),
+                Password = PasswordHelper.HashPassword(passwordTxt.Content.Trim()),
             };
         }
 
@@ -426,6 +433,8 @@ namespace TrainHub
 
                 // Hash this password before saving
                 selectedStaff.Password = passwordTxt.Content.Trim();
+
+                selectedStaff.isDeleted = isDeletedCheck.Checked;
 
                 _currentStaff = selectedStaff;
             }

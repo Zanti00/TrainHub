@@ -27,8 +27,9 @@ namespace TrainHub
 
             using(TrainHubContext dataContext = new TrainHubContext())
             {
-                var user = dataContext.User.FirstOrDefault(u => u.Email == emailTxt.Content && u.Password == passwordTxt.Content);
-                if (user != null)
+                var user = dataContext.User.FirstOrDefault(u => u.Email == emailTxt.Content);
+
+                if (user != null && PasswordHelper.VerifyPassword(passwordTxt.Content, user.Password))
                 {
                     // Load current user info
                     CurrentUser.UserId = user.Id;
@@ -38,7 +39,6 @@ namespace TrainHub
                     CurrentUser.PhoneNumber = user.PhoneNumber;
                     CurrentUser.Email = user.Email;
                     CurrentUser.IsAdmin = user.isAdmin.ToString();
-                    CurrentUser.Password = user.Password;
 
                     MainForm mainForm = new MainForm();
                     mainForm.Show();

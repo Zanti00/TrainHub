@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.ApplicationServices;
 using System.Data;
 using TrainHub.Data;
 using TrainHub.Models;
@@ -18,22 +19,21 @@ namespace TrainHub
 
         private void advancedDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 11 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 12 && e.RowIndex >= 0)
             {
                 int staffID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                StaffForm viewStaffForm = new StaffForm(this, FormMode.Edit, null, staffID);
+                StaffForm viewStaffForm = new StaffForm(this, FormMode.View, null, staffID);
                 viewStaffForm.ShowDialog();
             }
 
-            if (e.ColumnIndex == 12 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 13 && e.RowIndex >= 0)
             {
                 int staffID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
                 StaffForm editStaffForm = new StaffForm(this, FormMode.Edit, null, staffID);
                 editStaffForm.ShowDialog();
             }
 
-            // Delete button column index = 10
-            if (e.ColumnIndex == 13 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 14 && e.RowIndex >= 0)
             {
                 // Confirm deletion
                 var result = MessageBox.Show($"Are you sure you want to delete staff {advancedDataGridView1.Rows[e.RowIndex].Cells[1].Value} {advancedDataGridView1.Rows[e.RowIndex].Cells[2].Value}?", "Confirm Deletion",
@@ -80,6 +80,7 @@ namespace TrainHub
             dataTable.Columns.Add("Address", typeof(string));
             dataTable.Columns.Add("CreatedDate", typeof(DateTime));
             dataTable.Columns.Add("Status", typeof(string));
+            dataTable.Columns.Add("IsDeleted", typeof(bool));
 
             return dataTable;
         }
@@ -89,9 +90,19 @@ namespace TrainHub
             try
             {
                 dataContext.ChangeTracker.Clear();
-                var staffs = from user in dataContext.User
+
+                IQueryable<Models.User> staffs;
+                if (deletedStaffCheck.Checked)
+                {
+                    staffs = from staff in dataContext.User
+                             select staff;
+                }
+                else
+                {
+                    staffs = from user in dataContext.User
                              where !user.isDeleted // Only select non-deleted members
                              select user;
+                }
 
                 var dataTable = CreateUserDataTable();
 
@@ -108,12 +119,22 @@ namespace TrainHub
                         staff.DateOfBirth,
                         staff.Address,
                         staff.CreatedDate,
-                        staff.Status
+                        staff.Status,
+                        staff.isDeleted
                     );
                 }
 
                 this.userBindingSource.DataSource = dataTable;
                 advancedDataGridView1.DataSource = userBindingSource;
+
+                // to disable sort and filter for unbounded columns
+                foreach (DataGridViewColumn col in advancedDataGridView1.Columns)
+                {
+                    if (string.IsNullOrEmpty(col.DataPropertyName))
+                    {
+                        advancedDataGridView1.SetFilterAndSortEnabled(col, false);
+                    }
+                }
 
             }
             catch (Exception ex)
@@ -137,11 +158,22 @@ namespace TrainHub
 
                 if (!string.IsNullOrEmpty(searchStaff))
                 {
-                    var staffs = from user in dataContext.User
-                                 where !user.isDeleted &&
-                                       user.FirstName.ToLower().Contains(searchStaff.ToLower()) ||
+                    IQueryable<Models.User> staffs;
+                    if (deletedStaffCheck.Checked)
+                    {
+                        staffs = from user in dataContext.User
+                                 where user.FirstName.ToLower().Contains(searchStaff.ToLower()) ||
                                        user.LastName.ToLower().Contains(searchStaff.ToLower())
                                  select user;
+                    }
+                    else
+                    {
+                        staffs = from user in dataContext.User
+                                 where !user.isDeleted &&
+                                       (user.FirstName.ToLower().Contains(searchStaff.ToLower()) ||
+                                       user.LastName.ToLower().Contains(searchStaff.ToLower()))
+                                 select user;
+                    }
 
 
                     // Convert to DataTable with consistent column order
@@ -160,7 +192,8 @@ namespace TrainHub
                             staff.DateOfBirth,
                             staff.Address,
                             staff.CreatedDate,
-                            staff.Status
+                            staff.Status,
+                            staff.isDeleted
                         );
                     }
 
@@ -178,6 +211,11 @@ namespace TrainHub
                 MessageBox.Show($"Error searching user data: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void deletedStaffCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshUserData();
         }
     }
 }

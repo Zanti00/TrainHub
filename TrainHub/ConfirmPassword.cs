@@ -33,9 +33,10 @@ namespace TrainHub
                     MessageBox.Show("Please enter your password.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                // Verify password against the database
-                //var user = dataContext.User.FirstOrDefault(u => u.Password == password);
-                if (CurrentUser.Password != password)
+                var user = dataContext.User.FirstOrDefault(u => u.Email == CurrentUser.Email);
+
+                // Then verify the password in memory (not in the database query)
+                if (user == null || !PasswordHelper.VerifyPassword(password, user.Password))
                 {
                     MessageBox.Show("Incorrect password. Please try again.", "Authentication Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;

@@ -36,21 +36,21 @@ namespace TrainHub
         }
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 12 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 13 && e.RowIndex >= 0)
             {
                 int memberID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
                 MemberForm viewMemberForm = new MemberForm(this, FormMode.View, null, memberID);
                 viewMemberForm.ShowDialog();
             }
 
-            if (e.ColumnIndex == 13 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 14 && e.RowIndex >= 0)
             {
                 int memberID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
                 MemberForm editMemberForm = new MemberForm(this, FormMode.Edit, null, memberID);
                 editMemberForm.ShowDialog();
             }
 
-            if (e.ColumnIndex == 14 && e.RowIndex >= 0)
+            if (e.ColumnIndex == 15 && e.RowIndex >= 0)
             {
                 // Confirm deletion
                 var result = MessageBox.Show($"Are you sure you want to delete member {advancedDataGridView1.Rows[e.RowIndex].Cells[1].Value} {advancedDataGridView1.Rows[e.RowIndex].Cells[2].Value}?", "Confirm Deletion",
@@ -162,38 +162,54 @@ namespace TrainHub
         {
             RefreshMemberData();
         }
+        
+        private DataTable CreateMemberDataTable()
+        {
+            var dataTable = new DataTable();
+            dataTable.Columns.Add("Id", typeof(int));
+            dataTable.Columns.Add("FirstName", typeof(string));
+            dataTable.Columns.Add("LastName", typeof(string));
+            dataTable.Columns.Add("Email", typeof(string));
+            dataTable.Columns.Add("PhoneNumber", typeof(string));
+            dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
+            dataTable.Columns.Add("StartDate", typeof(DateTime));
+            dataTable.Columns.Add("EndDate", typeof(DateTime));
+            dataTable.Columns.Add("CreatedDate", typeof(DateTime));
+            dataTable.Columns.Add("SoftDeleteDate", typeof(DateTime));
+            dataTable.Columns.Add("IsDeleted", typeof(bool));
+            dataTable.Columns.Add("Status", typeof(string));
+            dataTable.Columns.Add("MembershipType", typeof(string));
+            dataTable.Columns.Add("TrainerFullName", typeof(string));
+
+            return dataTable;
+        }
+        
         public void RefreshMemberData()
         {
+
             try
             {
                 dataContext.ChangeTracker.Clear();
-                var members = from member in dataContext.Member
+                IQueryable<Member> members;
+                if (deletedMemberCheck.Checked)
+                {
+                    members = from member in dataContext.Member
+                              .Include(m => m.Trainer)
+                              select member;
+                }
+                else
+                {
+                    members = from member in dataContext.Member
                               .Include(m => m.Trainer)
                               where !member.IsDeleted // Only select non-deleted members
                               select member;
+                }
 
                 // Convert to DataTable for sorting/filtering support
-                var dataTable = new DataTable();
-                dataTable.Columns.Add("Id", typeof(int));
-                dataTable.Columns.Add("FirstName", typeof(string));
-                dataTable.Columns.Add("LastName", typeof(string));
-                dataTable.Columns.Add("Email", typeof(string));
-                dataTable.Columns.Add("PhoneNumber", typeof(string));
-                dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
-                dataTable.Columns.Add("StartDate", typeof(DateTime));
-                dataTable.Columns.Add("EndDate", typeof(DateTime));
-                dataTable.Columns.Add("CreatedDate", typeof(DateTime));
-                dataTable.Columns.Add("SoftDeleteDate", typeof(DateTime));
-                dataTable.Columns.Add("IsDeleted", typeof(bool));
-                dataTable.Columns.Add("Status", typeof(string));
-                dataTable.Columns.Add("MembershipType", typeof(string));
-                dataTable.Columns.Add("TrainerFullName", typeof(string));
-                dataTable.Columns.Add("ProfileImagePath", typeof(Image));
+                var dataTable = CreateMemberDataTable();
 
                 foreach (var member in members)
                 {
-                    //Image profileImage = LoadMemberImage(member.ProfileImagePath);
-
                     dataTable.Rows.Add(
                         member.Id,
                         member.FirstName,
@@ -209,7 +225,6 @@ namespace TrainHub
                         member.Status,
                         member.MembershipType,
                         member.TrainerFullName
-                        //profileImage
                     );
                 }
 
@@ -293,35 +308,30 @@ namespace TrainHub
             {
                 if (!string.IsNullOrEmpty(memberName))
                 {
-                    // Select complete member objects, not just names
-                    var members = from member in dataContext.Member
-                                  where !member.IsDeleted &&
-                                        member.FirstName.ToLower().Contains(memberName.ToLower()) ||
+                    IQueryable<Member> members;
+                    if (deletedMemberCheck.Checked)
+                    {
+                        members = from member in dataContext.Member
+                                    .Include(m => m.Trainer)
+                                    where member.FirstName.ToLower().Contains(memberName.ToLower()) ||
                                         member.LastName.ToLower().Contains(memberName.ToLower())
-                                  select member;
+                                    select member;
+                    }
+                    else
+                    {
+                        members = from member in dataContext.Member
+                                    .Include(m => m.Trainer)
+                                    where !member.IsDeleted &&
+                                        (member.FirstName.ToLower().Contains(memberName.ToLower()) ||
+                                         member.LastName.ToLower().Contains(memberName.ToLower()))
+                                    select member;
+                    }
 
                     // Convert to DataTable for sorting/filtering support
-                    var dataTable = new DataTable();
-                    dataTable.Columns.Add("Id", typeof(int));
-                    dataTable.Columns.Add("FirstName", typeof(string));
-                    dataTable.Columns.Add("LastName", typeof(string));
-                    dataTable.Columns.Add("Email", typeof(string));
-                    dataTable.Columns.Add("PhoneNumber", typeof(string));
-                    dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
-                    dataTable.Columns.Add("StartDate", typeof(DateTime));
-                    dataTable.Columns.Add("EndDate", typeof(DateTime));
-                    dataTable.Columns.Add("CreatedDate", typeof(DateTime));
-                    dataTable.Columns.Add("SoftDeleteDate", typeof(DateTime));
-                    dataTable.Columns.Add("IsDeleted", typeof(bool));
-                    dataTable.Columns.Add("Status", typeof(string));
-                    dataTable.Columns.Add("MembershipType", typeof(string));
-                    dataTable.Columns.Add("TrainerFullName", typeof(string));
-                    dataTable.Columns.Add("ProfileImagePath", typeof(Image));
+                    var dataTable = CreateMemberDataTable();
 
                     foreach (var member in members)
                     {
-
-                        Image profileImage = LoadMemberImage(member.ProfileImagePath);
 
                         dataTable.Rows.Add(
                             member.Id,
@@ -337,8 +347,7 @@ namespace TrainHub
                             member.IsDeleted,
                             member.Status,
                             member.MembershipType,
-                            member.TrainerFullName,
-                            profileImage
+                            member.TrainerFullName
                         );
                     }
 
@@ -356,6 +365,11 @@ namespace TrainHub
                 MessageBox.Show($"Error searching member data: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void deletedMemberCheck_Click(object sender, EventArgs e)
+        {
+            RefreshMemberData();
         }
     }
 }

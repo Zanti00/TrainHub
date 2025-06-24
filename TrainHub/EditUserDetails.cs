@@ -33,6 +33,7 @@ namespace TrainHub
                 emailAddTxt.Content = user.Email;
             }
         }
+        
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -76,7 +77,7 @@ namespace TrainHub
                     MessageBox.Show("Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                user.Password = newPasswordTxt.Content;
+                user.Password = PasswordHelper.HashPassword(newPasswordTxt.Content.Trim());
             }
             UpdateCurrentUserInfo();
             _dataContext.SaveChanges();
@@ -90,8 +91,8 @@ namespace TrainHub
             CurrentUser.Username = usernameTxt.Content.Trim();
             CurrentUser.Email = emailAddTxt.Content.Trim();
             CurrentUser.PhoneNumber = phoneNumTxt.Content.Trim();
-            if (!(string.IsNullOrWhiteSpace(newPasswordTxt.Content) && string.IsNullOrWhiteSpace(confirmPasswordTxt.Content)))
-                CurrentUser.Password = newPasswordTxt.Content ?? confirmPasswordTxt.Content;
+            //if (!(string.IsNullOrWhiteSpace(newPasswordTxt.Content) && string.IsNullOrWhiteSpace(confirmPasswordTxt.Content)))
+            //    CurrentUser.Password = newPasswordTxt.Content ?? confirmPasswordTxt.Content;
 
         }
 

@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemberForm));
             formLabel = new Label();
             cuiPanel1 = new CuoreUI.Controls.cuiPanel();
+            isDeletedCheck = new CuoreUI.Controls.cuiCheckbox();
             generateQrBtn = new CuoreUI.Controls.cuiButtonGroup();
             pictureBox1 = new PictureBox();
             openCameraBtn = new CuoreUI.Controls.cuiButtonGroup();
@@ -70,6 +71,7 @@
             // 
             // cuiPanel1
             // 
+            cuiPanel1.Controls.Add(isDeletedCheck);
             cuiPanel1.Controls.Add(generateQrBtn);
             cuiPanel1.Controls.Add(pictureBox1);
             cuiPanel1.Controls.Add(openCameraBtn);
@@ -98,6 +100,27 @@
             cuiPanel1.Rounding = new Padding(10);
             cuiPanel1.Size = new Size(677, 354);
             cuiPanel1.TabIndex = 10;
+            // 
+            // isDeletedCheck
+            // 
+            isDeletedCheck.Checked = false;
+            isDeletedCheck.CheckedForeground = Color.FromArgb(50, 81, 88);
+            isDeletedCheck.CheckedOutlineColor = Color.FromArgb(50, 81, 88);
+            isDeletedCheck.CheckedSymbolColor = Color.White;
+            isDeletedCheck.Content = "Deleted";
+            isDeletedCheck.Location = new Point(257, 127);
+            isDeletedCheck.MinimumSize = new Size(16, 16);
+            isDeletedCheck.Name = "isDeletedCheck";
+            isDeletedCheck.OutlineStyle = true;
+            isDeletedCheck.OutlineThickness = 1F;
+            isDeletedCheck.Rounding = 5;
+            isDeletedCheck.ShowSymbols = true;
+            isDeletedCheck.Size = new Size(80, 16);
+            isDeletedCheck.TabIndex = 46;
+            isDeletedCheck.Text = "cuiCheckbox1";
+            isDeletedCheck.UncheckedForeground = Color.Empty;
+            isDeletedCheck.UncheckedOutlineColor = Color.Gray;
+            isDeletedCheck.UncheckedSymbolColor = Color.Empty;
             // 
             // generateQrBtn
             // 
@@ -663,5 +686,6 @@
         private CuoreUI.Controls.cuiButtonGroup generateQrBtn;
         private BindingSource trainerBindingSource;
         private Label label2;
+        private CuoreUI.Controls.cuiCheckbox isDeletedCheck;
     }
 }

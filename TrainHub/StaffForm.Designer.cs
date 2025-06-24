@@ -53,6 +53,7 @@
             openCameraBtn = new CuoreUI.Controls.cuiButtonGroup();
             captureBtn = new CuoreUI.Controls.cuiButtonGroup();
             passwordTxt = new CuoreUI.Controls.cuiTextBox();
+            isDeletedCheck = new CuoreUI.Controls.cuiCheckbox();
             cuiTabControl1.SuspendLayout();
             tabPage3.SuspendLayout();
             cuiPanel2.SuspendLayout();
@@ -439,6 +440,7 @@
             // 
             // cuiPanel1
             // 
+            cuiPanel1.Controls.Add(isDeletedCheck);
             cuiPanel1.Controls.Add(showPassBtn);
             cuiPanel1.Controls.Add(usernameTxt);
             cuiPanel1.Controls.Add(generateQrBtn);
@@ -689,6 +691,27 @@
             passwordTxt.TextOffset = new Size(0, 0);
             passwordTxt.UnderlinedStyle = false;
             // 
+            // isDeletedCheck
+            // 
+            isDeletedCheck.Checked = false;
+            isDeletedCheck.CheckedForeground = Color.FromArgb(50, 81, 88);
+            isDeletedCheck.CheckedOutlineColor = Color.FromArgb(50, 81, 88);
+            isDeletedCheck.CheckedSymbolColor = Color.White;
+            isDeletedCheck.Content = "Deleted";
+            isDeletedCheck.Location = new Point(257, 136);
+            isDeletedCheck.MinimumSize = new Size(16, 16);
+            isDeletedCheck.Name = "isDeletedCheck";
+            isDeletedCheck.OutlineStyle = true;
+            isDeletedCheck.OutlineThickness = 1F;
+            isDeletedCheck.Rounding = 5;
+            isDeletedCheck.ShowSymbols = true;
+            isDeletedCheck.Size = new Size(80, 16);
+            isDeletedCheck.TabIndex = 52;
+            isDeletedCheck.Text = "cuiCheckbox1";
+            isDeletedCheck.UncheckedForeground = Color.Empty;
+            isDeletedCheck.UncheckedOutlineColor = Color.Gray;
+            isDeletedCheck.UncheckedSymbolColor = Color.Empty;
+            // 
             // StaffForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -739,5 +762,6 @@
         private CuoreUI.Controls.cuiComboBox statusCombo;
         private CuoreUI.Controls.cuiTextBox usernameTxt;
         private PictureBox showPassBtn;
+        private CuoreUI.Controls.cuiCheckbox isDeletedCheck;
     }
 }
