@@ -28,18 +28,17 @@ namespace TrainHub
         private readonly TrainHubContext _dataContext;
         string pattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
         private readonly table_trainer _parentForm;
-        public TrainerForm(table_trainer parentForm, FormMode mode, Trainer? trainer = null, int? trainerID = null)
+        public TrainerForm(table_trainer parentForm, FormMode mode, int? trainerID = null)
         {
             InitializeComponent();
             InitializeWebcam();
             _mode = mode;
-            _currentTrainer = trainer ?? new Trainer();
             _parentForm = parentForm;
             this.trainerID = trainerID ?? 0;
             _dataContext = new TrainHubContext();
 
             ConfigureFormForMode();
-            if (!(mode == FormMode.Add))
+            if (!(_mode == FormMode.Add))
             {
                 LoadTrainerData();
             }
@@ -173,43 +172,43 @@ namespace TrainHub
 
         private void LoadTrainerData()
         {
-            if (_currentTrainer != null)
+            try
             {
-                try
-                {
-                    var selectedTrainer = _dataContext.Trainer.Find(trainerID);
+                var selectedTrainer = _dataContext.Trainer
+                    .FirstOrDefault(t => t.Id == trainerID);
 
-                    if (selectedTrainer == null)
-                    {
-                        MessageBox.Show("Trainer not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        this.Close();
-                        return;
-                    }
-                    else
-                    {
-                        firstNameTxt.Content = selectedTrainer.FirstName;
-                        lastNameTxt.Content = selectedTrainer.LastName;
-                        genderCombo.SelectedItem = selectedTrainer.Gender;
-                        emailAddTxt.Content = selectedTrainer.Email;
-                        phoneNumTxt.Content = selectedTrainer.PhoneNumber;
-                        addressTxt.Content = selectedTrainer.Address;
-                        yearsOfExperienceTxt.Content = selectedTrainer.YearsOfExperience.ToString();
-                        specializationTxt.Content = selectedTrainer.Specialization;
-                        availabilityTxt.Content = selectedTrainer.Availability;
-                        hourlyRateTxt.Content = selectedTrainer.HourlyRate.ToString("F2");
-                        birthDate.Value = selectedTrainer.DateOfBirth;
-                        statusCombo.SelectedItem = selectedTrainer.Status;
-                        isDeletedCheck.Checked = selectedTrainer.IsDeleted;
-
-                        LoadTrainerImage(selectedTrainer.ProfileImagePath);
-                    }
-                }
-                catch (Exception ex)
+                if (selectedTrainer == null)
                 {
-                    MessageBox.Show($"Error loading member data: {ex.Message}", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Trainer not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
+                    return;
                 }
+                else
+                {
+                    _currentTrainer = selectedTrainer;
+
+                    firstNameTxt.Content = selectedTrainer.FirstName;
+                    lastNameTxt.Content = selectedTrainer.LastName;
+                    genderCombo.SelectedItem = selectedTrainer.Gender;
+                    emailAddTxt.Content = selectedTrainer.Email;
+                    phoneNumTxt.Content = selectedTrainer.PhoneNumber;
+                    addressTxt.Content = selectedTrainer.Address;
+                    yearsOfExperienceTxt.Content = selectedTrainer.YearsOfExperience.ToString();
+                    specializationTxt.Content = selectedTrainer.Specialization;
+                    availabilityTxt.Content = selectedTrainer.Availability;
+                    hourlyRateTxt.Content = selectedTrainer.HourlyRate.ToString("F2");
+                    birthDate.Value = selectedTrainer.DateOfBirth;
+                    statusCombo.SelectedItem = selectedTrainer.Status;
+                    isDeletedCheck.Checked = selectedTrainer.IsDeleted;
+
+                    LoadTrainerImage(selectedTrainer.ProfileImagePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading member data: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
         }
 

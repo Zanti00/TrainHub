@@ -56,17 +56,6 @@
             label4 = new Label();
             cuiChartLine2 = new CuoreUI.Controls.Charts.cuiChartLine();
             nearlyExpiredMembersAdvancedDataGridView1 = new Zuby.ADGV.AdvancedDataGridView();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dateOfBirthDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            startDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            endDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            createdDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            membershipTypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             memberBindingSource = new BindingSource(components);
             cuiPanel2 = new CuoreUI.Controls.cuiPanel();
             cuiPanel6 = new CuoreUI.Controls.cuiPanel();
@@ -128,6 +117,18 @@
             cuiButtonGroup1 = new CuoreUI.Controls.cuiButtonGroup();
             cuiPictureBox3 = new CuoreUI.Controls.cuiPictureBox();
             searchBarMemberAttendance = new CuoreUI.Controls.cuiTextBox();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            Gender = new DataGridViewTextBoxColumn();
+            emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dateOfBirthDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            startDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            endDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            createdDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            membershipTypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             tableLayoutPanel1.SuspendLayout();
             cuiPanel5.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -303,7 +304,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             nearlyExpiredMembersAdvancedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             nearlyExpiredMembersAdvancedDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            nearlyExpiredMembersAdvancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, startDateDataGridViewTextBoxColumn, endDateDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, membershipTypeDataGridViewTextBoxColumn });
+            nearlyExpiredMembersAdvancedDataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, Gender, emailDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, dateOfBirthDataGridViewTextBoxColumn, startDateDataGridViewTextBoxColumn, endDateDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, membershipTypeDataGridViewTextBoxColumn });
             nearlyExpiredMembersAdvancedDataGridView1.DataSource = memberBindingSource;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
@@ -338,94 +339,6 @@
             nearlyExpiredMembersAdvancedDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             nearlyExpiredMembersAdvancedDataGridView1.SortStringChangedInvokeBeforeDatasourceUpdate = false;
             nearlyExpiredMembersAdvancedDataGridView1.CellFormatting += advancedDataGridView1_CellFormatting;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            resources.ApplyResources(idDataGridViewTextBoxColumn, "idDataGridViewTextBoxColumn");
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            idDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            resources.ApplyResources(firstNameDataGridViewTextBoxColumn, "firstNameDataGridViewTextBoxColumn");
-            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            firstNameDataGridViewTextBoxColumn.ReadOnly = true;
-            firstNameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            resources.ApplyResources(lastNameDataGridViewTextBoxColumn, "lastNameDataGridViewTextBoxColumn");
-            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            lastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            lastNameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            resources.ApplyResources(emailDataGridViewTextBoxColumn, "emailDataGridViewTextBoxColumn");
-            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            emailDataGridViewTextBoxColumn.ReadOnly = true;
-            emailDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // phoneNumberDataGridViewTextBoxColumn
-            // 
-            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
-            resources.ApplyResources(phoneNumberDataGridViewTextBoxColumn, "phoneNumberDataGridViewTextBoxColumn");
-            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-            phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            phoneNumberDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dateOfBirthDataGridViewTextBoxColumn
-            // 
-            dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
-            resources.ApplyResources(dateOfBirthDataGridViewTextBoxColumn, "dateOfBirthDataGridViewTextBoxColumn");
-            dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
-            dateOfBirthDataGridViewTextBoxColumn.ReadOnly = true;
-            dateOfBirthDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // startDateDataGridViewTextBoxColumn
-            // 
-            startDateDataGridViewTextBoxColumn.DataPropertyName = "StartDate";
-            resources.ApplyResources(startDateDataGridViewTextBoxColumn, "startDateDataGridViewTextBoxColumn");
-            startDateDataGridViewTextBoxColumn.Name = "startDateDataGridViewTextBoxColumn";
-            startDateDataGridViewTextBoxColumn.ReadOnly = true;
-            startDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // endDateDataGridViewTextBoxColumn
-            // 
-            endDateDataGridViewTextBoxColumn.DataPropertyName = "EndDate";
-            resources.ApplyResources(endDateDataGridViewTextBoxColumn, "endDateDataGridViewTextBoxColumn");
-            endDateDataGridViewTextBoxColumn.Name = "endDateDataGridViewTextBoxColumn";
-            endDateDataGridViewTextBoxColumn.ReadOnly = true;
-            endDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // createdDateDataGridViewTextBoxColumn
-            // 
-            createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
-            resources.ApplyResources(createdDateDataGridViewTextBoxColumn, "createdDateDataGridViewTextBoxColumn");
-            createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
-            createdDateDataGridViewTextBoxColumn.ReadOnly = true;
-            createdDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            resources.ApplyResources(statusDataGridViewTextBoxColumn, "statusDataGridViewTextBoxColumn");
-            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            statusDataGridViewTextBoxColumn.ReadOnly = true;
-            statusDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
-            // 
-            // membershipTypeDataGridViewTextBoxColumn
-            // 
-            membershipTypeDataGridViewTextBoxColumn.DataPropertyName = "MembershipType";
-            resources.ApplyResources(membershipTypeDataGridViewTextBoxColumn, "membershipTypeDataGridViewTextBoxColumn");
-            membershipTypeDataGridViewTextBoxColumn.Name = "membershipTypeDataGridViewTextBoxColumn";
-            membershipTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            membershipTypeDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
             // 
             // memberBindingSource
             // 
@@ -1154,6 +1067,102 @@
             searchBarMemberAttendance.UnderlinedStyle = false;
             searchBarMemberAttendance.ContentChanged += searchBarMemberAttendance_ContentChanged;
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            resources.ApplyResources(idDataGridViewTextBoxColumn, "idDataGridViewTextBoxColumn");
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            idDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            resources.ApplyResources(firstNameDataGridViewTextBoxColumn, "firstNameDataGridViewTextBoxColumn");
+            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            firstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            firstNameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            resources.ApplyResources(lastNameDataGridViewTextBoxColumn, "lastNameDataGridViewTextBoxColumn");
+            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            lastNameDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Gender
+            // 
+            Gender.DataPropertyName = "Gender";
+            resources.ApplyResources(Gender, "Gender");
+            Gender.Name = "Gender";
+            Gender.ReadOnly = true;
+            Gender.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            resources.ApplyResources(emailDataGridViewTextBoxColumn, "emailDataGridViewTextBoxColumn");
+            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            emailDataGridViewTextBoxColumn.ReadOnly = true;
+            emailDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            resources.ApplyResources(phoneNumberDataGridViewTextBoxColumn, "phoneNumberDataGridViewTextBoxColumn");
+            phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            phoneNumberDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dateOfBirthDataGridViewTextBoxColumn
+            // 
+            dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
+            resources.ApplyResources(dateOfBirthDataGridViewTextBoxColumn, "dateOfBirthDataGridViewTextBoxColumn");
+            dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
+            dateOfBirthDataGridViewTextBoxColumn.ReadOnly = true;
+            dateOfBirthDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // startDateDataGridViewTextBoxColumn
+            // 
+            startDateDataGridViewTextBoxColumn.DataPropertyName = "StartDate";
+            resources.ApplyResources(startDateDataGridViewTextBoxColumn, "startDateDataGridViewTextBoxColumn");
+            startDateDataGridViewTextBoxColumn.Name = "startDateDataGridViewTextBoxColumn";
+            startDateDataGridViewTextBoxColumn.ReadOnly = true;
+            startDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // endDateDataGridViewTextBoxColumn
+            // 
+            endDateDataGridViewTextBoxColumn.DataPropertyName = "EndDate";
+            resources.ApplyResources(endDateDataGridViewTextBoxColumn, "endDateDataGridViewTextBoxColumn");
+            endDateDataGridViewTextBoxColumn.Name = "endDateDataGridViewTextBoxColumn";
+            endDateDataGridViewTextBoxColumn.ReadOnly = true;
+            endDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // createdDateDataGridViewTextBoxColumn
+            // 
+            createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
+            resources.ApplyResources(createdDateDataGridViewTextBoxColumn, "createdDateDataGridViewTextBoxColumn");
+            createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
+            createdDateDataGridViewTextBoxColumn.ReadOnly = true;
+            createdDateDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            resources.ApplyResources(statusDataGridViewTextBoxColumn, "statusDataGridViewTextBoxColumn");
+            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            statusDataGridViewTextBoxColumn.ReadOnly = true;
+            statusDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
+            // membershipTypeDataGridViewTextBoxColumn
+            // 
+            membershipTypeDataGridViewTextBoxColumn.DataPropertyName = "MembershipType";
+            resources.ApplyResources(membershipTypeDataGridViewTextBoxColumn, "membershipTypeDataGridViewTextBoxColumn");
+            membershipTypeDataGridViewTextBoxColumn.Name = "membershipTypeDataGridViewTextBoxColumn";
+            membershipTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            membershipTypeDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
+            // 
             // Dashboard
             // 
             resources.ApplyResources(this, "$this");
@@ -1228,17 +1237,6 @@
         private BindingSource memberBindingSource;
         private CuoreUI.Controls.Charts.cuiChartLine cuiChartLine2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn startDateDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn endDateDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn membershipTypeDataGridViewTextBoxColumn;
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
         private Panel panel1;
@@ -1293,5 +1291,17 @@
         private DataGridViewTextBoxColumn StartDate;
         private DataGridViewTextBoxColumn EndDate;
         private CuoreUI.Controls.cuiPanel cuiPanel14;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn Gender;
+        private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn startDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn endDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn membershipTypeDataGridViewTextBoxColumn;
     }
 }

@@ -166,6 +166,7 @@ namespace TrainHub.User_Controls
             endDate.Enabled = enabled;
             captureBtn.Enabled = enabled;
             openCameraBtn.Enabled = enabled;
+            genderCombo.Enabled = enabled;
         }
 
         private void LoadMemberData()
@@ -193,14 +194,17 @@ namespace TrainHub.User_Controls
                         birthDate.Value = selectedMember.DateOfBirth;
                         startDate.Value = selectedMember.StartDate;
                         endDate.Value = selectedMember.EndDate;
+                        genderCombo.SelectedItem = selectedMember.Gender;
 
                         LoadMemberImage(selectedMember.ProfileImagePath);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error loading member data: {ex.Message}", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Error loading member data: {ex.Message}", 
+                        "Error",
+                        MessageBoxButtons.OK, 
+                        MessageBoxIcon.Error);
                     this.Close();
                 }
             }
@@ -306,6 +310,7 @@ namespace TrainHub.User_Controls
                     string.IsNullOrWhiteSpace(phoneNumTxt.Content) ||
                     statusCombo.SelectedIndex == -1 ||
                     membershipTypeCombo.SelectedIndex == -1 ||
+                    genderCombo.SelectedIndex == -1 ||
                     pictureBox1.Image == null)
             {
                 MessageBox.Show("Please fill in all required fields.", "Validation Error",
@@ -357,7 +362,7 @@ namespace TrainHub.User_Controls
                 EndDate = endDate.Value.Date,
                 Status = statusCombo.SelectedItem.ToString(),
                 MembershipType = membershipTypeCombo.SelectedItem.ToString(),
-                //TrainerID = 1 // Assuming a default trainer ID for now
+                Gender = genderCombo.SelectedItem.ToString(),
             };
         }
 
@@ -374,6 +379,7 @@ namespace TrainHub.User_Controls
 
                 selectedMember.Status = statusCombo.SelectedItem?.ToString() ?? selectedMember.Status;
                 selectedMember.MembershipType = membershipTypeCombo.SelectedItem?.ToString() ?? selectedMember.MembershipType;
+                selectedMember.Gender = genderCombo.SelectedItem?.ToString() ?? selectedMember.Gender;
 
                 selectedMember.DateOfBirth = birthDate.Value;
                 selectedMember.StartDate = startDate.Value;

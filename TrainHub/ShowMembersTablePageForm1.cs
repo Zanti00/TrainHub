@@ -36,21 +36,21 @@ namespace TrainHub
         }
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 13 && e.RowIndex >= 0)
-            {
-                int memberID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                MemberForm viewMemberForm = new MemberForm(this, FormMode.View, null, memberID);
-                viewMemberForm.ShowDialog();
-            }
-
             if (e.ColumnIndex == 14 && e.RowIndex >= 0)
             {
                 int memberID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                MemberForm editMemberForm = new MemberForm(this, FormMode.Edit, null, memberID);
-                editMemberForm.ShowDialog();
+                MemberForm viewMemberForm = new MemberForm(this, FormMode.View, memberID);
+                viewMemberForm.ShowDialog();
             }
 
             if (e.ColumnIndex == 15 && e.RowIndex >= 0)
+            {
+                int memberID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                MemberForm editMemberForm = new MemberForm(this, FormMode.Edit, memberID);
+                editMemberForm.ShowDialog();
+            }
+
+            if (e.ColumnIndex == 16 && e.RowIndex >= 0)
             {
                 // Confirm deletion
                 var result = MessageBox.Show($"Are you sure you want to delete member {advancedDataGridView1.Rows[e.RowIndex].Cells[1].Value} {advancedDataGridView1.Rows[e.RowIndex].Cells[2].Value}?", "Confirm Deletion",
@@ -89,8 +89,7 @@ namespace TrainHub
                 }
             }
 
-            // Check if this is column 11 (Status column) and has a value
-            if (e.ColumnIndex == 9 && e.Value != null)
+            if (e.ColumnIndex == 10 && e.Value != null)
             {
                 string status = e.Value.ToString();
 
@@ -179,6 +178,7 @@ namespace TrainHub
             dataTable.Columns.Add("IsDeleted", typeof(bool));
             dataTable.Columns.Add("Status", typeof(string));
             dataTable.Columns.Add("MembershipType", typeof(string));
+            dataTable.Columns.Add("Gender", typeof(string));
             dataTable.Columns.Add("TrainerFullName", typeof(string));
 
             return dataTable;
@@ -224,6 +224,7 @@ namespace TrainHub
                         member.IsDeleted,
                         member.Status,
                         member.MembershipType,
+                        member.Gender,
                         member.TrainerFullName
                     );
                 }
@@ -347,6 +348,7 @@ namespace TrainHub
                             member.IsDeleted,
                             member.Status,
                             member.MembershipType,
+                            member.Gender,
                             member.TrainerFullName
                         );
                     }

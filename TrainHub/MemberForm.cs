@@ -39,12 +39,11 @@ namespace TrainHub
         private Dictionary<string, int> trainerNameToId = new Dictionary<string, int>();
         private readonly ShowMembersTablePageForm1 _parentForm;
 
-        public MemberForm(ShowMembersTablePageForm1 parentForm, FormMode mode, Member? member = null, int? memberID = null)
+        public MemberForm(ShowMembersTablePageForm1 parentForm, FormMode mode, int? memberID = null)
         {
             InitializeComponent();
             InitializeWebcam();
             _mode = mode;
-            //_currentMember = member ?? new Member();
             _parentForm = parentForm;
             this.memberID = memberID ?? 0;
             _dataContext = new TrainHubContext();
@@ -219,12 +218,14 @@ namespace TrainHub
 
                 if (selectedMember == null)
                 {
-                    MessageBox.Show("Member not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Member not found.", 
+                        "Error", 
+                        MessageBoxButtons.OK, 
+                        MessageBoxIcon.Error);
                     this.Close();
                     return;
                 }
 
-                // Update the _currentMember reference
                 _currentMember = selectedMember;
 
                 firstNameTxt.Content = selectedMember.FirstName;
@@ -233,6 +234,7 @@ namespace TrainHub
                 phoneNumTxt.Content = selectedMember.PhoneNumber;
                 statusCombo.SelectedItem = selectedMember.Status;
                 membershipTypeCombo.SelectedItem = selectedMember.MembershipType;
+                genderCombo.SelectedItem = selectedMember.Gender;
 
                 birthDate.Value = selectedMember.DateOfBirth;
                 startDate.Value = selectedMember.StartDate;
@@ -267,8 +269,10 @@ namespace TrainHub
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading member data: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error loading member data: {ex.Message}", 
+                    "Error",
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
                 this.Close();
             }
         }
@@ -389,6 +393,7 @@ namespace TrainHub
                     string.IsNullOrWhiteSpace(phoneNumTxt.Content) ||
                     statusCombo.SelectedIndex == -1 ||
                     membershipTypeCombo.SelectedIndex == -1 ||
+                    genderCombo.SelectedIndex == -1 ||
                     pictureBox1.Image == null)
             {
                 MessageBox.Show("Please fill in all required fields.", "Validation Error",
@@ -473,6 +478,7 @@ namespace TrainHub
                 Status = statusCombo.SelectedItem.ToString(),
                 IsDeleted = isDeletedCheck.Checked,
                 MembershipType = membershipTypeCombo.SelectedItem.ToString(),
+                Gender = genderCombo.SelectedItem.ToString(),
                 TrainerID = selectedTrainerId
             };
         }
@@ -490,6 +496,7 @@ namespace TrainHub
 
                 selectedMember.Status = statusCombo.SelectedItem?.ToString() ?? selectedMember.Status;
                 selectedMember.MembershipType = membershipTypeCombo.SelectedItem?.ToString() ?? selectedMember.MembershipType;
+                selectedMember.Gender = genderCombo.SelectedItem?.ToString() ?? selectedMember.Gender;
 
                 selectedMember.DateOfBirth = birthDate.Value;
                 selectedMember.StartDate = startDate.Value;

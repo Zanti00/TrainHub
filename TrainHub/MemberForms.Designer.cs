@@ -49,12 +49,14 @@
             lastNameTxt = new CuoreUI.Controls.cuiTextBox();
             firstNameTxt = new CuoreUI.Controls.cuiTextBox();
             formLabel = new Label();
+            genderCombo = new CuoreUI.Controls.cuiComboBox();
             cuiPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // cuiPanel1
             // 
+            cuiPanel1.Controls.Add(genderCombo);
             cuiPanel1.Controls.Add(pictureBox1);
             cuiPanel1.Controls.Add(openCameraBtn);
             cuiPanel1.Controls.Add(captureBtn);
@@ -239,7 +241,7 @@
     "Trainer 2",
     "Trainer 3"
     };
-            trainerCombo.Location = new Point(349, 256);
+            trainerCombo.Location = new Point(501, 256);
             trainerCombo.Margin = new Padding(4, 3, 4, 3);
             trainerCombo.Name = "trainerCombo";
             trainerCombo.NoSelectionDropdownText = "Empty";
@@ -247,7 +249,7 @@
             trainerCombo.OutlineColor = Color.FromArgb(50, 81, 88);
             trainerCombo.OutlineThickness = 1F;
             trainerCombo.Rounding = 8;
-            trainerCombo.Size = new Size(300, 27);
+            trainerCombo.Size = new Size(148, 27);
             trainerCombo.TabIndex = 35;
             // 
             // endDate
@@ -576,6 +578,38 @@
             formLabel.TabIndex = 9;
             formLabel.Text = "Register New Member";
             // 
+            // genderCombo
+            // 
+            genderCombo.BackColor = Color.Transparent;
+            genderCombo.BackgroundColor = Color.White;
+            genderCombo.ButtonCursor = Cursors.Arrow;
+            genderCombo.ButtonHoverBackground = Color.FromArgb(22, 36, 39);
+            genderCombo.ButtonHoverOutline = Color.FromArgb(22, 36, 39);
+            genderCombo.ButtonNormalBackground = Color.FromArgb(50, 81, 88);
+            genderCombo.ButtonNormalOutline = Color.FromArgb(50, 81, 88);
+            genderCombo.ButtonPressedBackground = Color.FromArgb(22, 36, 39);
+            genderCombo.ButtonPressedOutline = Color.FromArgb(22, 36, 39);
+            genderCombo.DropDownBackgroundColor = Color.FromArgb(50, 81, 88);
+            genderCombo.DropDownOutlineColor = Color.FromArgb(50, 81, 88);
+            genderCombo.ExpandArrowColor = Color.FromArgb(50, 81, 88);
+            genderCombo.ForeColor = Color.Gray;
+            genderCombo.Items = new string[]
+    {
+    "Male",
+    "Female",
+    "Others"
+    };
+            genderCombo.Location = new Point(349, 256);
+            genderCombo.Margin = new Padding(4, 3, 4, 3);
+            genderCombo.Name = "genderCombo";
+            genderCombo.NoSelectionDropdownText = "Empty";
+            genderCombo.NoSelectionText = "Select gender";
+            genderCombo.OutlineColor = Color.FromArgb(50, 81, 88);
+            genderCombo.OutlineThickness = 1F;
+            genderCombo.Rounding = 8;
+            genderCombo.Size = new Size(148, 27);
+            genderCombo.TabIndex = 37;
+            // 
             // MemberForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -618,5 +652,6 @@
         private CuoreUI.Controls.cuiTextBox lastNameTxt;
         private CuoreUI.Controls.cuiTextBox firstNameTxt;
         private Label formLabel;
+        private CuoreUI.Controls.cuiComboBox genderCombo;
     }
 }

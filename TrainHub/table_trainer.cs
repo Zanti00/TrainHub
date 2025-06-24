@@ -35,13 +35,13 @@ namespace TrainHub
             if (e.ColumnIndex == 15 && e.RowIndex >= 0)
             {
                 int trainerID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                TrainerForm viewTrainer = new TrainerForm(this, FormMode.View, null, trainerID);
+                TrainerForm viewTrainer = new TrainerForm(this, FormMode.View, trainerID);
                 viewTrainer.ShowDialog();
             }
             if (e.ColumnIndex == 16 && e.RowIndex >= 0)
             {
                 int trainerID = Convert.ToInt32(advancedDataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                TrainerForm editTrianer = new TrainerForm(this, FormMode.Edit, null, trainerID);
+                TrainerForm editTrianer = new TrainerForm(this, FormMode.Edit, trainerID);
                 editTrianer.ShowDialog();
             }
 

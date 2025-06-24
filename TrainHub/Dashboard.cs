@@ -66,6 +66,25 @@ namespace TrainHub
             }
         }
 
+        private DataTable CreateNearlyExpiredMembersDataTable()
+        {
+            var dataTable = new DataTable();
+            dataTable.Columns.Add("Id", typeof(int));
+            dataTable.Columns.Add("FirstName", typeof(string));
+            dataTable.Columns.Add("LastName", typeof(string));
+            dataTable.Columns.Add("Gender", typeof(string));
+            dataTable.Columns.Add("Email", typeof(string));
+            dataTable.Columns.Add("PhoneNumber", typeof(string));
+            dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
+            dataTable.Columns.Add("StartDate", typeof(DateTime));
+            dataTable.Columns.Add("EndDate", typeof(DateTime));
+            dataTable.Columns.Add("CreatedDate", typeof(DateTime));
+            dataTable.Columns.Add("Status", typeof(string));
+            dataTable.Columns.Add("MembershipType", typeof(string));
+
+            return dataTable;
+        }
+
         public void RefreshNearlyExpiredMembers()
         {
             try
@@ -83,18 +102,7 @@ namespace TrainHub
                               orderby member.EndDate ascending
                               select member;
 
-                var dataTable = new DataTable();
-                dataTable.Columns.Add("Id", typeof(int));
-                dataTable.Columns.Add("FirstName", typeof(string));
-                dataTable.Columns.Add("LastName", typeof(string));
-                dataTable.Columns.Add("Email", typeof(string));
-                dataTable.Columns.Add("PhoneNumber", typeof(string));
-                dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
-                dataTable.Columns.Add("StartDate", typeof(DateTime));
-                dataTable.Columns.Add("EndDate", typeof(DateTime));
-                dataTable.Columns.Add("CreatedDate", typeof(DateTime));
-                dataTable.Columns.Add("Status", typeof(string));
-                dataTable.Columns.Add("MembershipType", typeof(string));
+                var dataTable = CreateNearlyExpiredMembersDataTable();
 
                 foreach (var member in members)
                 {
@@ -102,6 +110,7 @@ namespace TrainHub
                          member.Id,
                          member.FirstName,
                          member.LastName,
+                         member.Gender,
                          member.Email,
                          member.PhoneNumber,
                          member.DateOfBirth,
@@ -129,9 +138,10 @@ namespace TrainHub
 
         private void advancedDataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.ColumnIndex == 14 && e.Value != null)
+            if (e.ColumnIndex == 10 && e.Value != null)
             {
                 string status = e.Value.ToString();
+
                 if (status.Equals("Active", StringComparison.OrdinalIgnoreCase))
                 {
                     e.CellStyle.ForeColor = Color.Green;
@@ -139,6 +149,10 @@ namespace TrainHub
                 else if (status.Equals("Inactive", StringComparison.OrdinalIgnoreCase))
                 {
                     e.CellStyle.ForeColor = Color.Red;
+                }
+                else
+                {
+                    e.CellStyle.ForeColor = Color.Black; // Default color
                 }
             }
         }
@@ -166,19 +180,7 @@ namespace TrainHub
                                   orderby member.EndDate ascending
                                   select member;
 
-                    // Create DataTable with the same structure
-                    var dataTable = new DataTable();
-                    dataTable.Columns.Add("Id", typeof(int));
-                    dataTable.Columns.Add("FirstName", typeof(string));
-                    dataTable.Columns.Add("LastName", typeof(string));
-                    dataTable.Columns.Add("Email", typeof(string));
-                    dataTable.Columns.Add("PhoneNumber", typeof(string));
-                    dataTable.Columns.Add("DateOfBirth", typeof(DateTime));
-                    dataTable.Columns.Add("StartDate", typeof(DateTime));
-                    dataTable.Columns.Add("EndDate", typeof(DateTime));
-                    dataTable.Columns.Add("CreatedDate", typeof(DateTime));
-                    dataTable.Columns.Add("Status", typeof(string));
-                    dataTable.Columns.Add("MembershipType", typeof(string));
+                    var dataTable = CreateNearlyExpiredMembersDataTable();
 
                     foreach (var member in members)
                     {
@@ -186,6 +188,7 @@ namespace TrainHub
                              member.Id,
                              member.FirstName,
                              member.LastName,
+                             member.Gender,
                              member.Email,
                              member.PhoneNumber,
                              member.DateOfBirth,
@@ -275,6 +278,7 @@ namespace TrainHub
                     attendance.Member?.Id ?? 0,
                     attendance.Member?.FirstName ?? "",
                     attendance.Member?.LastName ?? "",
+                    attendance.Member?.Gender ?? "",
                     attendance.Member?.Email ?? "",
                     attendance.Member?.PhoneNumber ?? "",
                     attendance.Member?.Status ?? "",
@@ -324,6 +328,7 @@ namespace TrainHub
             dataTable.Columns.Add("MemberId", typeof(int));
             dataTable.Columns.Add("FirstName", typeof(string));
             dataTable.Columns.Add("LastName", typeof(string));
+            dataTable.Columns.Add("Gender", typeof(string));
             dataTable.Columns.Add("Email", typeof(string));
             dataTable.Columns.Add("PhoneNumber", typeof(string));
             dataTable.Columns.Add("Status", typeof(string));

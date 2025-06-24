@@ -184,7 +184,6 @@ namespace TrainHub
                     return;
                 }
 
-                // Update the _currentMember reference
                 _currentStaff = selectedStaff;
 
                 firstNameTxt.Content = selectedStaff.FirstName;

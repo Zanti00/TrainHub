@@ -464,6 +464,12 @@
   <data name="cuiChartLine2.Size" type="System.Drawing.Size, System.Drawing">
     <value>392, 266</value>
   </data>
+  <data name="Gender.HeaderText" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="Gender.MinimumWidth" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
   <data name="nearlyExpiredMembersAdvancedDataGridView1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
