@@ -15,6 +15,12 @@ namespace TrainHub
         {
             InitializeComponent();
             usernameTxt.Text = CurrentUser.Username;
+
+            // will only show the staff button to admin
+            if (CurrentUser.IsAdmin)
+            {
+                staffBtn.Visible = true;
+            }
         }
 
         private void trainerBtn_Click(object sender, EventArgs e)

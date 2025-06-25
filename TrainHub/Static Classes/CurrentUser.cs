@@ -14,7 +14,7 @@ namespace TrainHub
         public static string LastName { get; set; }
         public static string PhoneNumber { get; set; }
         public static string Email { get; set; }
-        public static string IsAdmin { get; set; }
+        public static bool IsAdmin { get; set; }
         public static string Password { get; set; }
 
         public static bool IsLoggedIn => UserId > 0;
@@ -27,7 +27,7 @@ namespace TrainHub
             LastName = string.Empty;
             PhoneNumber = string.Empty;
             Email = string.Empty;
-            IsAdmin = string.Empty;
+            IsAdmin = false;
             Password = string.Empty;
         }
     }

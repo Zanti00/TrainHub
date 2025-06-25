@@ -38,7 +38,7 @@ namespace TrainHub
                     CurrentUser.LastName = user.LastName;
                     CurrentUser.PhoneNumber = user.PhoneNumber;
                     CurrentUser.Email = user.Email;
-                    CurrentUser.IsAdmin = user.isAdmin.ToString();
+                    CurrentUser.IsAdmin = user.isAdmin;
 
                     MainForm mainForm = new MainForm();
                     mainForm.Show();

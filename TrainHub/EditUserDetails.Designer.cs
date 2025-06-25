@@ -445,6 +445,7 @@ namespace TrainHub
             ClientSize = new Size(680, 496);
             ControlBox = false;
             Controls.Add(cuiPanel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 2, 3, 2);
             Name = "EditUserDetails";
             StartPosition = FormStartPosition.CenterScreen;

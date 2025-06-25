@@ -110,11 +110,8 @@ namespace TrainHub
         {
             try
             {
-                // Try to determine if this is a member or trainer QR code
-                // First, try to parse as a simple ID (existing format)
                 if (int.TryParse(qrContent, out int simpleId))
                 {
-                    // Check if it's a member first
                     var member = dataContext.Member
                         .FirstOrDefault(m => m.Id == simpleId && !m.IsDeleted);
 
@@ -124,7 +121,6 @@ namespace TrainHub
                         return;
                     }
 
-                    // If not a member, check if it's a trainer
                     var trainer = dataContext.Trainer
                         .FirstOrDefault(t => t.Id == simpleId && !t.IsDeleted);
 
@@ -141,7 +137,6 @@ namespace TrainHub
                     return;
                 }
 
-                // Try to parse as formatted QR code (e.g., "MEMBER:123" or "TRAINER:456")
                 string[] parts = qrContent.Split(':');
                 if (parts.Length == 2)
                 {
@@ -192,12 +187,6 @@ namespace TrainHub
                         return;
                     }
                 }
-
-                // If we reach here, the QR code format is not recognized
-                MessageBox.Show("Invalid QR Code format. Expected a member ID, trainer ID, or formatted code (MEMBER:ID or TRAINER:ID).",
-                    "Invalid QR Code",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
@@ -260,24 +249,6 @@ namespace TrainHub
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
-        }
-
-        private void ShowTrainerInfo(Trainer trainer)
-        {
-            string trainerInfo = $"Trainer Information:\n\n" +
-                               $"Name: {trainer.FirstName} {trainer.LastName}\n" +
-                               $"Email: {trainer.Email}\n" +
-                               $"Phone: {trainer.PhoneNumber}\n" +
-                               $"Specialization: {trainer.Specialization}\n" +
-                               $"Experience: {trainer.YearsOfExperience} years\n" +
-                               $"Availability: {trainer.Availability}\n" +
-                               $"Hourly Rate: ${trainer.HourlyRate:F2}\n" +
-                               $"Status: {trainer.Status}";
-
-            MessageBox.Show(trainerInfo,
-                "Trainer Details",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
         }
 
         public void RecordTrainerAttendance(int trainerId)

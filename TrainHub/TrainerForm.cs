@@ -415,7 +415,7 @@ namespace TrainHub
         private void generateQrBtn_Click(object sender, EventArgs e)
         {
             QrCode qrCodeGenerator = new QrCode(); // Create an instance of QrCode
-            string qrContent = $"TRAINER:{trainerID}";
+            string qrContent = $"TRAINER:{_currentTrainer.Id}";
             Bitmap picQRCode = QrCode.GetCode(qrContent);
             qrCodeGenerator.GenerateQrCodeForTrainer(trainerID, picQRCode); // Use the instance to call the non-static method
         }
@@ -474,7 +474,8 @@ namespace TrainHub
                 SaveTrainerPhoto(trainer);
 
                 QrCode qrCodeGenerator = new QrCode();
-                Bitmap picQRCode = QrCode.GetCode(trainer.Id.ToString());
+                string qrContent = $"TRAINER:{trainer.Id}";
+                Bitmap picQRCode = QrCode.GetCode(qrContent);
                 qrCodeGenerator.GenerateQrCodeForTrainer(trainer.Id, picQRCode);
 
                 MessageBox.Show("Trainer registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

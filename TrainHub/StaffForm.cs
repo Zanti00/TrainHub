@@ -43,6 +43,8 @@ namespace TrainHub
             if (!(_mode == FormMode.Add))
             {
                 LoadStaffData();
+                passwordTxt.Visible = false;
+                showPassBtn.Visible = false;
             }
             if ((mode == FormMode.Add))
             {

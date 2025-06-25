@@ -23,10 +23,10 @@ namespace TrainHub
     {
         private TrainHubContext dataContext = new TrainHubContext();
 
-        public static Bitmap GetCode(string targetID)
+        public static Bitmap GetCode(string qrContent)
         {
             using QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            using QRCodeData qrData = qrGenerator.CreateQrCode(targetID, QRCodeGenerator.ECCLevel.Q);
+            using QRCodeData qrData = qrGenerator.CreateQrCode(qrContent, QRCodeGenerator.ECCLevel.Q);
             using QRCode qrCode = new QRCode(qrData);
 
             return qrCode.GetGraphic(
@@ -68,7 +68,7 @@ namespace TrainHub
 
             try
             {
-                // Get the appropriate entity based on type
+
                 switch (entityType)
                 {
                     case EntityType.Member:
@@ -112,7 +112,6 @@ namespace TrainHub
                         return;
                 }
 
-                // Email configuration
                 string from = "zantialdama1@gmail.com";
                 string pass = "ecql vlsa psql jbxu";
 
@@ -166,7 +165,6 @@ namespace TrainHub
             }
         }
 
-        // Convenience methods for backward compatibility and easier usage
         public void GenerateQrCodeForMember(int memberID, Bitmap picQRCode)
         {
             GenerateQrCode(memberID, picQRCode, EntityType.Member);
@@ -200,7 +198,6 @@ namespace TrainHub
             qrCodeGenerator.GenerateQrCodeForStaff(staffID, picQRCode);
         }
 
-        // Dispose method to properly clean up resources
         public void Dispose()
         {
             dataContext?.Dispose();
