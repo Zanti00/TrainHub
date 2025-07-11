@@ -49,11 +49,10 @@
             memberBtn = new CuoreUI.Controls.cuiButton();
             staffContainer = new Panel();
             staffBtn = new CuoreUI.Controls.cuiButton();
+            attendanceBtn = new CuoreUI.Controls.cuiButton();
             panel10 = new Panel();
             label4 = new Label();
-            panel12 = new Panel();
             settingBtn = new CuoreUI.Controls.cuiButton();
-            panel13 = new Panel();
             logOutBtn = new CuoreUI.Controls.cuiButton();
             trainerContainerExpand = new System.Windows.Forms.Timer(components);
             memberContainerExpand = new System.Windows.Forms.Timer(components);
@@ -69,8 +68,6 @@
             memberContainer.SuspendLayout();
             staffContainer.SuspendLayout();
             panel10.SuspendLayout();
-            panel12.SuspendLayout();
-            panel13.SuspendLayout();
             SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -85,13 +82,14 @@
             flowLayoutPanel1.Controls.Add(trainerContainer);
             flowLayoutPanel1.Controls.Add(memberContainer);
             flowLayoutPanel1.Controls.Add(staffContainer);
+            flowLayoutPanel1.Controls.Add(attendanceBtn);
             flowLayoutPanel1.Controls.Add(panel10);
-            flowLayoutPanel1.Controls.Add(panel12);
-            flowLayoutPanel1.Controls.Add(panel13);
+            flowLayoutPanel1.Controls.Add(settingBtn);
+            flowLayoutPanel1.Controls.Add(logOutBtn);
             flowLayoutPanel1.Dock = DockStyle.Left;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(201, 533);
+            flowLayoutPanel1.Size = new Size(201, 565);
             flowLayoutPanel1.TabIndex = 1;
             // 
             // panel1
@@ -407,15 +405,57 @@
             staffBtn.TextOffset = new Point(28, 0);
             staffBtn.Click += staffBtn_Click;
             // 
+            // attendanceBtn
+            // 
+            attendanceBtn.CheckButton = false;
+            attendanceBtn.Checked = false;
+            attendanceBtn.CheckedBackground = Color.FromArgb(45, 47, 57);
+            attendanceBtn.CheckedForeColor = Color.White;
+            attendanceBtn.CheckedImageTint = Color.White;
+            attendanceBtn.CheckedOutline = Color.FromArgb(45, 47, 57);
+            attendanceBtn.Content = "Attendance";
+            attendanceBtn.DialogResult = DialogResult.None;
+            attendanceBtn.Dock = DockStyle.Top;
+            attendanceBtn.Font = new Font("Inter", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            attendanceBtn.ForeColor = Color.White;
+            attendanceBtn.HoverBackground = Color.FromArgb(45, 47, 57);
+            attendanceBtn.HoveredImageTint = Color.White;
+            attendanceBtn.HoverForeColor = Color.White;
+            attendanceBtn.HoverOutline = Color.FromArgb(45, 47, 57);
+            attendanceBtn.Image = (Image)resources.GetObject("attendanceBtn.Image");
+            attendanceBtn.ImageAutoCenter = false;
+            attendanceBtn.ImageExpand = new Point(0, 0);
+            attendanceBtn.ImageOffset = new Point(20, 0);
+            attendanceBtn.ImeMode = ImeMode.NoControl;
+            attendanceBtn.Location = new Point(0, 408);
+            attendanceBtn.Margin = new Padding(0);
+            attendanceBtn.Name = "attendanceBtn";
+            attendanceBtn.NormalBackground = Color.FromArgb(50, 81, 88);
+            attendanceBtn.NormalForeColor = Color.White;
+            attendanceBtn.NormalImageTint = Color.White;
+            attendanceBtn.NormalOutline = Color.FromArgb(50, 81, 88);
+            attendanceBtn.OutlineThickness = 1F;
+            attendanceBtn.PressedBackground = Color.WhiteSmoke;
+            attendanceBtn.PressedForeColor = Color.FromArgb(32, 32, 32);
+            attendanceBtn.PressedImageTint = Color.White;
+            attendanceBtn.PressedOutline = Color.FromArgb(64, 128, 128, 128);
+            attendanceBtn.RightToLeft = RightToLeft.No;
+            attendanceBtn.Rounding = new Padding(0);
+            attendanceBtn.Size = new Size(200, 30);
+            attendanceBtn.TabIndex = 8;
+            attendanceBtn.TextAlignment = StringAlignment.Near;
+            attendanceBtn.TextOffset = new Point(28, 0);
+            attendanceBtn.Click += attendanceBtn_Click;
+            // 
             // panel10
             // 
             panel10.Controls.Add(label4);
             panel10.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            panel10.Location = new Point(3, 428);
+            panel10.Location = new Point(3, 458);
             panel10.Margin = new Padding(3, 20, 3, 3);
             panel10.Name = "panel10";
             panel10.Size = new Size(197, 23);
-            panel10.TabIndex = 8;
+            panel10.TabIndex = 11;
             // 
             // label4
             // 
@@ -430,16 +470,6 @@
             label4.TabIndex = 0;
             label4.Text = "SETTINGS";
             // 
-            // panel12
-            // 
-            panel12.Controls.Add(settingBtn);
-            panel12.Dock = DockStyle.Top;
-            panel12.Location = new Point(0, 460);
-            panel12.Margin = new Padding(0, 6, 0, 0);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(200, 30);
-            panel12.TabIndex = 9;
-            // 
             // settingBtn
             // 
             settingBtn.CheckButton = false;
@@ -450,7 +480,7 @@
             settingBtn.CheckedOutline = Color.FromArgb(45, 47, 57);
             settingBtn.Content = "Settings";
             settingBtn.DialogResult = DialogResult.None;
-            settingBtn.Dock = DockStyle.Fill;
+            settingBtn.Dock = DockStyle.Top;
             settingBtn.Font = new Font("Inter", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             settingBtn.ForeColor = Color.White;
             settingBtn.HoverBackground = Color.FromArgb(45, 47, 57);
@@ -462,7 +492,7 @@
             settingBtn.ImageExpand = new Point(0, 0);
             settingBtn.ImageOffset = new Point(20, 0);
             settingBtn.ImeMode = ImeMode.NoControl;
-            settingBtn.Location = new Point(0, 0);
+            settingBtn.Location = new Point(0, 484);
             settingBtn.Margin = new Padding(0);
             settingBtn.Name = "settingBtn";
             settingBtn.NormalBackground = Color.FromArgb(50, 81, 88);
@@ -476,21 +506,11 @@
             settingBtn.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             settingBtn.RightToLeft = RightToLeft.No;
             settingBtn.Rounding = new Padding(0);
-            settingBtn.Size = new Size(200, 30);
-            settingBtn.TabIndex = 0;
+            settingBtn.Size = new Size(201, 30);
+            settingBtn.TabIndex = 12;
             settingBtn.TextAlignment = StringAlignment.Near;
             settingBtn.TextOffset = new Point(28, 0);
             settingBtn.Click += settingBtn_Click;
-            // 
-            // panel13
-            // 
-            panel13.Controls.Add(logOutBtn);
-            panel13.Dock = DockStyle.Top;
-            panel13.Location = new Point(0, 496);
-            panel13.Margin = new Padding(0, 6, 0, 0);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(200, 30);
-            panel13.TabIndex = 10;
             // 
             // logOutBtn
             // 
@@ -502,7 +522,7 @@
             logOutBtn.CheckedOutline = Color.FromArgb(45, 47, 57);
             logOutBtn.Content = "Log Out";
             logOutBtn.DialogResult = DialogResult.None;
-            logOutBtn.Dock = DockStyle.Fill;
+            logOutBtn.Dock = DockStyle.Top;
             logOutBtn.Font = new Font("Inter", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             logOutBtn.ForeColor = Color.OrangeRed;
             logOutBtn.HoverBackground = Color.FromArgb(45, 47, 57);
@@ -514,7 +534,7 @@
             logOutBtn.ImageExpand = new Point(0, 0);
             logOutBtn.ImageOffset = new Point(20, 0);
             logOutBtn.ImeMode = ImeMode.NoControl;
-            logOutBtn.Location = new Point(0, 0);
+            logOutBtn.Location = new Point(0, 514);
             logOutBtn.Margin = new Padding(0);
             logOutBtn.Name = "logOutBtn";
             logOutBtn.NormalBackground = Color.FromArgb(50, 81, 88);
@@ -528,8 +548,8 @@
             logOutBtn.PressedOutline = Color.FromArgb(64, 128, 128, 128);
             logOutBtn.RightToLeft = RightToLeft.No;
             logOutBtn.Rounding = new Padding(0);
-            logOutBtn.Size = new Size(200, 30);
-            logOutBtn.TabIndex = 0;
+            logOutBtn.Size = new Size(201, 30);
+            logOutBtn.TabIndex = 13;
             logOutBtn.TextAlignment = StringAlignment.Near;
             logOutBtn.TextOffset = new Point(28, 0);
             logOutBtn.Click += logOutBtn_Click;
@@ -538,7 +558,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(786, 533);
+            ClientSize = new Size(786, 565);
             Controls.Add(flowLayoutPanel1);
             IsMdiContainer = true;
             Name = "MainForm";
@@ -560,8 +580,6 @@
             staffContainer.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
-            panel12.ResumeLayout(false);
-            panel13.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -586,14 +604,13 @@
         private CuoreUI.Controls.cuiButton memberBtn;
         private Panel staffContainer;
         private CuoreUI.Controls.cuiButton staffBtn;
-        private Panel panel10;
-        private Label label4;
-        private Panel panel12;
-        private CuoreUI.Controls.cuiButton settingBtn;
-        private Panel panel13;
-        private CuoreUI.Controls.cuiButton logOutBtn;
         private System.Windows.Forms.Timer trainerContainerExpand;
         private System.Windows.Forms.Timer memberContainerExpand;
         private System.Windows.Forms.Timer staffContainerExpand;
+        private Panel panel10;
+        private Label label4;
+        private CuoreUI.Controls.cuiButton attendanceBtn;
+        private CuoreUI.Controls.cuiButton settingBtn;
+        private CuoreUI.Controls.cuiButton logOutBtn;
     }
 }

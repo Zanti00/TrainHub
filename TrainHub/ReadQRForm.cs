@@ -23,13 +23,13 @@ namespace TrainHub
     {
         private FilterInfoCollection captureDevice;
         private VideoCaptureDevice videoSource;
-        private Dashboard _dashboardForm;
+        private Attendance _attendance;
         TrainHubContext dataContext = new TrainHubContext();
 
-        public ReadQRForm(Dashboard dashboardForm)
+        public ReadQRForm(Attendance attendance)
         {
             InitializeComponent();
-            _dashboardForm = dashboardForm;
+            _attendance = attendance;
         }
 
         private void ReadQRForm_Load(object sender, EventArgs e)
@@ -68,8 +68,6 @@ namespace TrainHub
         private void ReadQRForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             StopCamera();
-            _dashboardForm.RefreshMemberAttendanceGrid();
-            _dashboardForm.RefreshTrainerAttendanceGrid();
         }
 
         private void readBtn_Click(object sender, EventArgs e)
@@ -88,6 +86,8 @@ namespace TrainHub
                 if (result != null && !string.IsNullOrEmpty(result.Text))
                 {
                     ProcessQRCode(result.Text.Trim());
+                    _attendance.RefreshMemberAttendanceGrid();
+                    _attendance.RefreshTrainerAttendanceGrid();
                 }
                 else
                 {
@@ -110,32 +110,32 @@ namespace TrainHub
         {
             try
             {
-                if (int.TryParse(qrContent, out int simpleId))
-                {
-                    var member = dataContext.Member
-                        .FirstOrDefault(m => m.Id == simpleId && !m.IsDeleted);
+                //if (int.TryParse(qrContent, out int simpleId))
+                //{
+                //    var member = dataContext.Member
+                //        .FirstOrDefault(m => m.Id == simpleId && !m.IsDeleted);
 
-                    if (member != null)
-                    {
-                        HandleMemberQRCode(member);
-                        return;
-                    }
+                //    if (member != null)
+                //    {
+                //        HandleMemberQRCode(member);
+                //        return;
+                //    }
 
-                    var trainer = dataContext.Trainer
-                        .FirstOrDefault(t => t.Id == simpleId && !t.IsDeleted);
+                //    var trainer = dataContext.Trainer
+                //        .FirstOrDefault(t => t.Id == simpleId && !t.IsDeleted);
 
-                    if (trainer != null)
-                    {
-                        HandleTrainerQRCode(trainer);
-                        return;
-                    }
+                //    if (trainer != null)
+                //    {
+                //        HandleTrainerQRCode(trainer);
+                //        return;
+                //    }
 
-                    MessageBox.Show("No member or trainer found with this ID.",
-                        "Not Found",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                    return;
-                }
+                //    MessageBox.Show("No member or trainer found with this ID.",
+                //        "Not Found",
+                //        MessageBoxButtons.OK,
+                //        MessageBoxIcon.Warning);
+                //    return;
+                //}
 
                 string[] parts = qrContent.Split(':');
                 if (parts.Length == 2)
@@ -338,10 +338,6 @@ namespace TrainHub
                     "Attendance Recorded",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-
-                // Refresh the dashboard if needed
-                _dashboardForm.RefreshMemberAttendanceGrid();
-                _dashboardForm.RefreshTrainerAttendanceGrid();
             }
             else
             {

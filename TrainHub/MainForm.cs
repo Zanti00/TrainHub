@@ -5,12 +5,13 @@ namespace TrainHub
 {
     public partial class MainForm : Form
     {
-        Dashboard dashboard;
+        Dashboard dashboardPage;
         MemberTablePage memberPage;
         TrainerTablePage trainerPage;
         StaffTablePage staffPage;
         Settings settingsPage;
-        Login login;
+        Attendance attendancePage;
+
         public MainForm()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace TrainHub
 
         private void trainerBtn_Click(object sender, EventArgs e)
         {
-            if (trainerPage == null) 
+            if (trainerPage == null)
             {
                 trainerPage = new TrainerTablePage();
                 trainerPage.FormClosed += trainer_FormClosed;
@@ -43,7 +44,7 @@ namespace TrainHub
 
         private void memberBtn_Click(object sender, EventArgs e)
         {
-            
+
 
             if (memberPage == null)
             {
@@ -99,23 +100,41 @@ namespace TrainHub
 
         private void dashboardBtn_Click(object sender, EventArgs e)
         {
-            if (dashboard == null)
+            if (dashboardPage == null)
             {
-                dashboard = new Dashboard();
+                dashboardPage = new Dashboard();
 
-                dashboard.FormClosed += Dashboard_FormClosed;
-                dashboard.MdiParent = this;
-                dashboard.Dock = DockStyle.Fill;
-                dashboard.Show();
+                dashboardPage.FormClosed += Dashboard_FormClosed;
+                dashboardPage.MdiParent = this;
+                dashboardPage.Dock = DockStyle.Fill;
+                dashboardPage.Show();
             }
             else
             {
-                dashboard.Activate();
+                dashboardPage.Activate();
             }
-            dashboard.LoadLabels();
-            dashboard.RefreshNearlyExpiredMembers();
-            dashboard.LoadSubscriptionChartFromDatabase();
+            dashboardPage.LoadLabels();
+            dashboardPage.RefreshNearlyExpiredMembers();
+            dashboardPage.LoadSubscriptionChartFromDatabase();
             changeBtnNormalBackground("dashboardBtn");
+        }
+
+        private void attendanceBtn_Click(object sender, EventArgs e)
+        {
+            if (attendancePage == null)
+            {
+                attendancePage = new Attendance();
+
+                attendancePage.FormClosed += Attendance_FormClosed;
+                attendancePage.MdiParent = this;
+                attendancePage.Dock = DockStyle.Fill;
+                attendancePage.Show();
+            }
+            else
+            {
+                attendancePage.Activate();
+            }
+            changeBtnNormalBackground("attendanceBtn");
         }
 
         private void changeBtnNormalBackground(string btnName)
@@ -125,6 +144,7 @@ namespace TrainHub
             memberBtn.NormalBackground = Color.FromArgb(50, 81, 88);
             staffBtn.NormalBackground = Color.FromArgb(50, 81, 88);
             settingBtn.NormalBackground = Color.FromArgb(50, 81, 88);
+            attendanceBtn.NormalBackground = Color.FromArgb(50, 81, 88);
 
             if (btnName == "dashboardBtn")
                 dashboardBtn.NormalBackground = Color.FromArgb(45, 47, 57);
@@ -136,6 +156,8 @@ namespace TrainHub
                 staffBtn.NormalBackground = Color.FromArgb(45, 47, 57);
             else if (btnName == "dashboardBtn")
                 dashboardBtn.NormalBackground = Color.FromArgb(45, 47, 57);
+            else if (btnName == "attendanceBtn")
+                attendanceBtn.NormalBackground = Color.FromArgb(45, 47, 57);
             else
                 settingBtn.NormalBackground = Color.FromArgb(45, 47, 57);
 
@@ -163,7 +185,12 @@ namespace TrainHub
 
         private void Dashboard_FormClosed(object? sender, FormClosedEventArgs e)
         {
-            dashboard = null;
+            dashboardPage = null;
+        }
+
+        private void Attendance_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            attendancePage = null;
         }
 
         private void logOutBtn_Click(object sender, EventArgs e)
